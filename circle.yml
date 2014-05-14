@@ -7,7 +7,7 @@ machine:
   # Version of node to use
   node:
     version:
-      0.10.x
+      0.10.28
 
   # Override /etc/hosts
   hosts:
