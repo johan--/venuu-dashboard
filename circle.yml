@@ -14,6 +14,10 @@ machine:
     venuu.fi: 127.0.0.1
     www.venuu.fi: 127.0.0.1
 
+dependencies:
+  post:
+    - npm install -g grunt-mocha
+
 ## Running tests
 test:
   override:
