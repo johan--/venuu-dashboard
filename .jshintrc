@@ -20,6 +20,8 @@
         "jQuery": true,
         "Ember": true,
         "Handlebars": true,
-        "DS": true
+        "DS": true,
+        "describe": true,
+        "it": true
     }
 }

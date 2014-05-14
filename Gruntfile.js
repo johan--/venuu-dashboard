@@ -28,6 +28,19 @@ module.exports = function (grunt) {
 
 	grunt.initConfig({
 		yeoman: yeomanConfig,
+		mochaSelenium: {
+			options: {
+				// Mocha options
+				reporter: 'spec',
+				timeout: 30e3,
+				// Toggles wd's promises API, default:false
+				usePromises: false
+			},
+			firefox: {
+				src: ['test/feature/*.js']
+				// firefox is the default browser, so no browserName option required
+			}
+		},
 		watch: {
 			emberTemplates: {
 				files: '<%= yeoman.app %>/templates/**/*.hbs',
@@ -336,6 +349,7 @@ module.exports = function (grunt) {
 		'connect:test',
 		'neuter:app',
 		'mocha',
+		'mochaSelenium',
 		'jshint'
 	]);
 
@@ -358,4 +372,6 @@ module.exports = function (grunt) {
 		'test',
 		'build'
 	]);
+
+	grunt.loadNpmTasks('grunt-mocha-selenium');
 };
