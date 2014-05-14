@@ -15,9 +15,8 @@ machine:
     www.venuu.fi: 127.0.0.1
 
 dependencies:
-  override:
-    - npm install
-    - npm install -g grunt
+  post:
+    - npm install -g grunt-cli
 
 ## Running tests
 test:
