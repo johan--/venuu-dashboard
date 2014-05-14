@@ -1,0 +1,1 @@
+VenuuDashboard.ApplicationAdapter = DS.FixtureAdapter;
