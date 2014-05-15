@@ -1,4 +1,4 @@
-Copyright (c) 2014 Ohtu-Venuu team
+Copyright (c) 2014 University of Helsinki, Ville Lahdenvuo, Olavi Lintumäki, Elias Nygren, Tuukka Peuraniemi  
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
