@@ -1,18 +1,18 @@
-<h1>Venue</h1>
+<div class="m-container-box">
+  <h3>{{this.name}}</h3>
 
-<table>
-  {{#each model.attributes}}
-  <tr>
-    <td>
-      <strong>{{this.key}}:</strong>
-    </td>
-    <td>
-      {{this.value}}
-    </td>
-  </tr>
-  {{/each}}
-</table>
+  <table>
+    {{#each model.attributes}}
+    <tr>
+      <td>
+        <strong>{{this.key}}:</strong>
+      </td>
+      <td>
+        {{this.value}}
+      </td>
+    </tr>
+    {{/each}}
+  </table>
 
-{{#link-to 'venue.edit' model}}Change{{/link-to}}
-
-{{outlet}}
+  {{#link-to 'venue.edit' model}}Change{{/link-to}}
+</div>

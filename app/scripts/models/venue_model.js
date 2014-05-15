@@ -21,23 +21,14 @@ VenuuDashboard.Venue.reopen({
 
 // delete below here if you do not want fixtures
 VenuuDashboard.Venue.FIXTURES = [
-
   {
     id: 0,
-
-    name: 'foo',
-
-    description: 'foo'
-
+    name: 'Gurula',
+    description: 'Panini-mies'
   },
-
   {
     id: 1,
-
-    name: 'foo',
-
-    description: 'foo'
-
+    name: 'Venuu',
+    description: 'hikinen mesta'
   }
-
 ];

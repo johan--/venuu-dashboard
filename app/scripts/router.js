@@ -5,13 +5,15 @@ VenuuDashboard.Router.reopen({
 
 VenuuDashboard.Router.map(function () {
 
-  this.resource('venues', function () {
-    this.resource('venue', {
-      path: '/:venue_id'
-    }, function () {
-      this.route('edit');
-    });
-    this.route('create');
+  this.resource('venues', {
+    path: '/'
   });
+
+  this.resource('venue', {
+    path: '/venue/:venue_id'
+  }, function () {
+    this.route('edit');
+  });
+  this.route('create');
 
 });
