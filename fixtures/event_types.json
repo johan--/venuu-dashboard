@@ -1,0 +1,44 @@
+{
+  "event_types": [
+    {
+      "id": 1,
+      "name": "Juhlat"
+    },
+    {
+      "id": 2,
+      "name": "Häät"
+    },
+    {
+      "id": 3,
+      "name": "Saunailta"
+    },
+    {
+      "id": 4,
+      "name": "Mökkireissu"
+    },
+    {
+      "id": 5,
+      "name": "Kokous / tapaaminen / workshop"
+    },
+    {
+      "id": 6,
+      "name": "Illallinen"
+    },
+    {
+      "id": 7,
+      "name": "Taide- / näytöstapahtuma"
+    },
+    {
+      "id": 8,
+      "name": "Virkistystapahtuma / TYHY"
+    },
+    {
+      "id": 9,
+      "name": "Messut"
+    },
+    {
+      "id": 10,
+      "name": "Seminaari / konferenssi"
+    }
+  ]
+}

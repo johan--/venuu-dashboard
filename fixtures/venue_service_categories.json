@@ -1,0 +1,209 @@
+{
+  "venue_service_categories": [
+    {
+      "name": "ruoka",
+      "venue_services": [
+        {
+          "id": 1,
+          "name": "Tilalla oma pitopalvelu",
+          "negation": "Tilalla ei omaa pitopalvelua"
+        },
+        {
+          "id": 44,
+          "name": "Kokous- / Kahvitarjoilu",
+          "negation": ""
+        },
+        {
+          "id": 28,
+          "name": "Pitopalvelu yhteistyökumppanien kautta",
+          "negation": "Ei pitopalvelua yhteistyökumppanien kautta"
+        },
+        {
+          "id": 2,
+          "name": "Omat ruoat mahdolliset",
+          "negation": "Ei omia ruokia"
+        }
+      ]
+    },
+    {
+      "name": "juomat",
+      "venue_services": [
+        {
+          "id": 3,
+          "name": "Tilalla A-oikeudet",
+          "negation": "Tilalla ei ole A-oikeuksia"
+        },
+        {
+          "id": 4,
+          "name": "Omat juomat sallittu",
+          "negation": "Ei omia juomia"
+        }
+      ]
+    },
+    {
+      "name": "tekniikka ja kalusto",
+      "venue_services": [
+        {
+          "id": 6,
+          "name": "WiFi",
+          "negation": ""
+        },
+        {
+          "id": 7,
+          "name": "Videotykki tai vastaava",
+          "negation": ""
+        },
+        {
+          "id": 8,
+          "name": "TV",
+          "negation": ""
+        },
+        {
+          "id": 9,
+          "name": "Pro äänilaitteisto",
+          "negation": ""
+        },
+        {
+          "id": 10,
+          "name": "Kevyt äänentoisto",
+          "negation": ""
+        },
+        {
+          "id": 11,
+          "name": "Pro valaistustekniikka",
+          "negation": ""
+        },
+        {
+          "id": 13,
+          "name": "Keittiö asiakkaan käytössä",
+          "negation": ""
+        },
+        {
+          "id": 35,
+          "name": "Fläppi- / Valkotaulu",
+          "negation": ""
+        },
+        {
+          "id": 36,
+          "name": "Pelikonsoli",
+          "negation": ""
+        },
+        {
+          "id": 37,
+          "name": "Diskopallo :)",
+          "negation": ""
+        }
+      ]
+    },
+    {
+      "name": "tilaan kuuluu",
+      "venue_services": [
+        {
+          "id": 14,
+          "name": "Kattotila",
+          "negation": ""
+        },
+        {
+          "id": 15,
+          "name": "Terassi",
+          "negation": ""
+        },
+        {
+          "id": 16,
+          "name": "Uima-allas",
+          "negation": ""
+        },
+        {
+          "id": 17,
+          "name": "Esiintymislava",
+          "negation": ""
+        },
+        {
+          "id": 18,
+          "name": "Sauna",
+          "negation": ""
+        },
+        {
+          "id": 19,
+          "name": "Majoittumismahdollisuus",
+          "negation": ""
+        },
+        {
+          "id": 45,
+          "name": "Piha",
+          "negation": ""
+        },
+        {
+          "id": 47,
+          "name": "Palju / poreallas",
+          "negation": ""
+        }
+      ]
+    },
+    {
+      "name": "ympäristö",
+      "venue_services": [
+        {
+          "id": 21,
+          "name": "Maalla",
+          "negation": ""
+        },
+        {
+          "id": 22,
+          "name": "Teollisuusalueella",
+          "negation": ""
+        },
+        {
+          "id": 23,
+          "name": "Saaressa",
+          "negation": ""
+        },
+        {
+          "id": 24,
+          "name": "Veden rannalla",
+          "negation": ""
+        },
+        {
+          "id": 26,
+          "name": "Ilmainen parkki",
+          "negation": ""
+        },
+        {
+          "id": 38,
+          "name": "Keskustassa",
+          "negation": ""
+        },
+        {
+          "id": 39,
+          "name": "Luonnon äärellä",
+          "negation": ""
+        },
+        {
+          "id": 46,
+          "name": "Kauniit näkymät",
+          "negation": ""
+        }
+      ]
+    },
+    {
+      "name": "tapahtumatuotanto",
+      "venue_services": [
+        {
+          "id": 40,
+          "name": "Tila mahdollista vuokrata ilman tuotantopalveluita",
+          "negation": ""
+        },
+        {
+          "id": 41,
+          "name": "Autamme tapahtumatuotannossa",
+          "negation": ""
+        },
+        {
+          "id": 42,
+          "name": "Tapahtumatuotanto yhteistyökumppaneiden kautta",
+          "negation": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "organization": {
+    "billing_ids": [1],
+    "id": 1,
+    "name": "Ravintola Oy",
+    "user_group_ids": [1],
+    "user_ids": [1],
+    "venue_group_ids": [1],
+    "venue_ids": [1],
+    "plan": "5 tilaa, joista yksi ilmainen"
+  }
+}

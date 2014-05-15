@@ -1,0 +1,180 @@
+{
+  "venue_types": [
+    {
+      "id": 1,
+      "name": "Juhlasali"
+    },
+    {
+      "id": 2,
+      "name": "Tapahtumatila"
+    },
+    {
+      "id": 3,
+      "name": "Saunatila"
+    },
+    {
+      "id": 4,
+      "name": "Kokoushuone"
+    },
+    {
+      "id": 5,
+      "name": "Ravintola"
+    },
+    {
+      "id": 6,
+      "name": "Kahvila"
+    },
+    {
+      "id": 7,
+      "name": "Baari / Lounge"
+    },
+    {
+      "id": 8,
+      "name": "Yökerho"
+    },
+    {
+      "id": 9,
+      "name": "Kabinetti"
+    },
+    {
+      "id": 10,
+      "name": "Hotelli"
+    },
+    {
+      "id": 11,
+      "name": "Kartano / Huvila"
+    },
+    {
+      "id": 12,
+      "name": "Teollisuusrakennus"
+    },
+    {
+      "id": 13,
+      "name": "Museo"
+    },
+    {
+      "id": 14,
+      "name": "Galleria"
+    },
+    {
+      "id": 15,
+      "name": "Studio"
+    },
+    {
+      "id": 16,
+      "name": "Ateljee"
+    },
+    {
+      "id": 17,
+      "name": "Auditorio"
+    },
+    {
+      "id": 18,
+      "name": "Konserttisali"
+    },
+    {
+      "id": 19,
+      "name": "Kongressikeskus"
+    },
+    {
+      "id": 20,
+      "name": "Kellari"
+    },
+    {
+      "id": 21,
+      "name": "Teatteri"
+    },
+    {
+      "id": 22,
+      "name": "Elokuvateatteri"
+    },
+    {
+      "id": 23,
+      "name": "Halli"
+    },
+    {
+      "id": 24,
+      "name": "Kasvihuone"
+    },
+    {
+      "id": 25,
+      "name": "Luokkahuone"
+    },
+    {
+      "id": 26,
+      "name": "Coworking-tila"
+    },
+    {
+      "id": 27,
+      "name": "Teltta"
+    },
+    {
+      "id": 28,
+      "name": "Golf-klubi"
+    },
+    {
+      "id": 29,
+      "name": "Linna"
+    },
+    {
+      "id": 30,
+      "name": "Maatila"
+    },
+    {
+      "id": 31,
+      "name": "Myymälä"
+    },
+    {
+      "id": 32,
+      "name": "Uimahalli / Kylpylä"
+    },
+    {
+      "id": 33,
+      "name": "Laiva / Vene"
+    },
+    {
+      "id": 34,
+      "name": "Terassi / Piha"
+    },
+    {
+      "id": 35,
+      "name": "Bunkkeri"
+    },
+    {
+      "id": 36,
+      "name": "Mökki"
+    },
+    {
+      "id": 37,
+      "name": "Loft-huoneisto"
+    },
+    {
+      "id": 38,
+      "name": "Yksityisasunto"
+    },
+    {
+      "id": 39,
+      "name": "Keilahalli"
+    },
+    {
+      "id": 40,
+      "name": "Kiipeilykeskus"
+    },
+    {
+      "id": 41,
+      "name": "Biljardisali"
+    },
+    {
+      "id": 42,
+      "name": "Biletila"
+    },
+    {
+      "id": 43,
+      "name": "Luentosali"
+    },
+    {
+      "id": 44,
+      "name": "Oleskelutila"
+    },
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "user_groups": [
+    {
+      "id": 1,
+      "name": "Ravintola Oy User Group 1",
+      "user_ids": [1]
+    }
+  ]
+}
