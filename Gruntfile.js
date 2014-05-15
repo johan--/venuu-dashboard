@@ -47,13 +47,17 @@ module.exports = function (grunt) {
         files: '<%= yeoman.app %>/templates/**/*.hbs',
         tasks: ['emberTemplates']
       },
+      css: {
+				files: '**/*.scss',
+				tasks: ['sass']
+			},
       neuter: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
         tasks: ['neuter']
       },
       livereload: {
         options: {
-          middleware: function (connect) {
+          middleware: function (/*connect*/) {
             return [
               modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]'])
             ];
@@ -63,7 +67,7 @@ module.exports = function (grunt) {
         files: [
           '.tmp/scripts/*.js',
           '<%= yeoman.app %>/*.html',
-          '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
+          '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.scss',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
@@ -119,6 +123,7 @@ module.exports = function (grunt) {
           src: [
             '.tmp',
             '<%= yeoman.dist %>/*',
+            '<%= yeoman.app %>/styles/*.css',
             '!<%= yeoman.dist %>/.git*'
           ]
         }]
@@ -156,6 +161,17 @@ module.exports = function (grunt) {
     /*uglify: {
       dist: {}
     },*/
+    sass: {
+			dist: {
+				options: {
+          loadPath: '<%= yeoman.app %>/styles/themes'
+        },
+				files: {
+					'<%= yeoman.app %>/styles/style.css' : '<%= yeoman.app %>/styles/style.scss',
+					'<%= yeoman.app %>/styles/application.css' : '<%= yeoman.app %>/styles/application.css.scss'
+				}
+			}
+		},
     rev: {
       dist: {
         files: {
@@ -333,6 +349,10 @@ module.exports = function (grunt) {
     grunt.task.run(['serve:' + target]);
   });
 
+  grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-mocha-selenium');
+
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
@@ -341,6 +361,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'replace:app',
+      'sass',
       'concurrent:server',
       'neuter:app',
       'copy:fonts',
@@ -380,6 +401,4 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
-
-  grunt.loadNpmTasks('grunt-mocha-selenium');
 };
