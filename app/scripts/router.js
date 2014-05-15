@@ -1,4 +1,5 @@
 VenuuDashboard.Router.reopen({
+  rootURL: '/dashboard/',
   location: 'history'
 });
 
