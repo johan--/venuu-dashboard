@@ -23,6 +23,7 @@
     "Handlebars": true,
     "DS": true,
     "describe": true,
-    "it": true
+    "it": true,
+    "Em": true
   }
 }
