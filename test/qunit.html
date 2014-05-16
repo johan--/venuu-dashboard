@@ -3,15 +3,67 @@
 <head>
   <meta charset="utf-8">
   <title>Basic Test Suite</title>
+  <!-- build:js(app) scripts/components.js -->
+    <script src="/bower_components/jquery/jquery.js"></script>
+    <script src="/bower_components/handlebars/handlebars.runtime.js"></script>
+    <script src="/bower_components/ember/ember.js"></script>
+    <script src="/bower_components/ember-data/ember-data.js"></script>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Montserrat:700" media="screen" rel="stylesheet" type="text/css" />
+    <link href="http://venuu.fi/assets/application.css" media="all" rel="stylesheet" />
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="/styles/normalize.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="qunit.css">
+    <!-- build:js(.tmp) scripts/templates.js -->
+    <script src="/scripts/compiled-templates.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js(.tmp) scripts/main.js -->
+    <script src="/scripts/combined-scripts.js"></script>
   <!-- Load local QUnit. -->
   <link rel="stylesheet" href="vendor/qunit-1.12.0.css" media="screen">
   <script src="vendor/qunit-1.12.0.js"></script>
+  <script>
+    VenuuDashboard.rootElement = '#ember-testing';
+    VenuuDashboard.setupForTesting();
+    VenuuDashboard.injectTestHelpers();
+
+/*          // Run before each test case.
+      QUnit.testStart(function () {
+          // Put the application into a known state, and destroy the defaultStore.
+          // Be careful about DS.Model instances stored in App; they'll be invalid
+          // after this.
+          // This is broken in some versions of Ember and Ember Data, see:
+          // https://github.com/emberjs/data/issues/847
+          Ember.run(function () { App.reset(); });
+          // Display an error if asynchronous operations are queued outside of
+          // Ember.run.  You need this if you want to stay sane.
+          Ember.testing = true;
+      });
+
+      // Run after each test case.
+      QUnit.testDone(function () {
+          Ember.testing = false;
+      });
+*/
+/*    module("Integration tests", {
+      setup: function () {
+        Ember.run(VenuuDashboard, VenuuDashboard.advanceReadiness);
+      },
+      teardown: function () {
+        VenuuDashboard.reset();
+      }
+    });*/
+  </script>
   <!-- Load local lib and tests. -->
   <script src="spec/test.js"></script>
   <script src="spec/test2.js"></script>
 </head>
 <body>
   <div id="qunit"></div>
-  <div id="qunit-fixture">this had better work.</div>
+  <div id="qunit-fixture"></div>
+  <div id="ember-testing-container">
+    <div id="ember-testing"></div>
+  </div>
 </body>
 </html>

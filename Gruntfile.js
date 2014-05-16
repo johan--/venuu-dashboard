@@ -78,8 +78,10 @@ module.exports = function (grunt) {
           middleware: function (connect) {
             return [
               modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]']),
+              lrSnippet,
               mountFolder(connect, 'test'),
-              mountFolder(connect, '.tmp')
+              mountFolder(connect, '.tmp'),
+              mountFolder(connect, yeomanConfig.app)
             ];
           }
         }
@@ -393,12 +395,11 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
-    'copy:tests',
     'replace:app',
+    'copy:tests',
     'concurrent:test',
     'neuter:app',
     'connect:test',
-    'open:test',
     'qunit',
     'qunitTests',
     'jshint'

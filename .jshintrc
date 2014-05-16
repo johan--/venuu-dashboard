@@ -28,6 +28,9 @@
     "test": true,
     "ok": true,
     "expect": true,
-    "equal": true
+    "equal": true,
+    "andThen": true,
+    "find": true,
+    "visit": true
   }
 }
