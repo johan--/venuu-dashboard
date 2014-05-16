@@ -48,9 +48,9 @@ module.exports = function (grunt) {
         tasks: ['emberTemplates']
       },
       css: {
-				files: '**/*.scss',
-				tasks: ['sass']
-			},
+        files: '**/*.scss',
+        tasks: ['sass']
+      },
       neuter: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
         tasks: ['neuter']
@@ -162,16 +162,16 @@ module.exports = function (grunt) {
       dist: {}
     },*/
     sass: {
-			dist: {
-				options: {
+      dist: {
+        options: {
           loadPath: '<%= yeoman.app %>/styles/themes'
         },
-				files: {
-					'<%= yeoman.app %>/styles/style.css' : '<%= yeoman.app %>/styles/style.scss',
-					'<%= yeoman.app %>/styles/application.css' : '<%= yeoman.app %>/styles/application.css.scss'
-				}
-			}
-		},
+        files: {
+          '<%= yeoman.app %>/styles/style.css' : '<%= yeoman.app %>/styles/style.scss',
+          '<%= yeoman.app %>/styles/application.css' : '<%= yeoman.app %>/styles/application.css.scss'
+        }
+      }
+    },
     rev: {
       dist: {
         files: {
@@ -350,7 +350,7 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-mocha-selenium');
 
   grunt.registerTask('serve', function (target) {
