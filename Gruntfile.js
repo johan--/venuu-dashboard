@@ -354,10 +354,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('qunitTests', 'Test to see if qunit task actually worked.', function () {
     var assert = require('assert');
-    var difflet = require('difflet')({
-      indent: 2,
-      comment: true
-    });
 
     try {
       assert.equal(fails === 0, true, 'All tests should pass.');
