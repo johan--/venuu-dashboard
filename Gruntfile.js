@@ -35,7 +35,7 @@ module.exports = function (grunt) {
         reporter: 'spec',
         timeout: 30e3,
         // Toggles wd's promises API, default:false
-        usePromises: false
+        useChaining: true
       },
       firefox: {
         src: ['test/feature/*.js']
@@ -93,6 +93,19 @@ module.exports = function (grunt) {
               modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]']),
               mountFolder(connect, 'test'),
               mountFolder(connect, '.tmp')
+            ];
+          }
+        }
+      },
+      selenium: {
+        options: {
+          port: 9001,
+          middleware: function (connect) {
+            return [
+              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]']),
+              lrSnippet,
+              mountFolder(connect, '.tmp'),
+              mountFolder(connect, yeomanConfig.app)
             ];
           }
         }
@@ -350,14 +363,25 @@ module.exports = function (grunt) {
     ]);
   });
 
+  grunt.registerTask('prepareSelenium', [
+    'clean:server',
+    'replace:app',
+    'concurrent:server',
+    'neuter:app',
+    'copy:fonts',
+    'connect:selenium',
+  ]);
+
   grunt.registerTask('test', [
     'clean:server',
+    'prepareSelenium',
+    'mochaSelenium',
+
     'replace:app',
     'concurrent:test',
     'connect:test',
     'neuter:app',
     'mocha',
-    'mochaSelenium',
     'jshint'
   ]);
 
