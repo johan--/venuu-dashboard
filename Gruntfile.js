@@ -29,19 +29,6 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     yeoman: yeomanConfig,
-    mochaSelenium: {
-      options: {
-        // Mocha options
-        reporter: 'spec',
-        timeout: 30e3,
-        // Toggles wd's promises API, default:false
-        useChaining: true
-      },
-      firefox: {
-        src: ['test/feature/*.js']
-        // firefox is the default browser, so no browserName option required
-      }
-    },
     watch: {
       emberTemplates: {
         files: '<%= yeoman.app %>/templates/**/*.hbs',
@@ -97,19 +84,6 @@ module.exports = function (grunt) {
           }
         }
       },
-      selenium: {
-        options: {
-          port: 9001,
-          middleware: function (connect) {
-            return [
-              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]']),
-              lrSnippet,
-              mountFolder(connect, '.tmp'),
-              mountFolder(connect, yeomanConfig.app)
-            ];
-          }
-        }
-      },
       dist: {
         options: {
           middleware: function (connect) {
@@ -120,7 +94,19 @@ module.exports = function (grunt) {
         }
       }
     },
+    qunit: {
+      urls: {
+        options: {
+          urls: [
+            'http://localhost:<%= connect.options.port %>/test/qunit.html'
+          ]
+        }
+      }
+    },
     open: {
+      test: {
+        path: 'http://localhost:<%= connect.options.port %>/test/qunit.html'
+      },
       server: {
         path: 'http://localhost:<%= connect.options.port %>'
       }
@@ -149,14 +135,6 @@ module.exports = function (grunt) {
         '!<%= yeoman.app %>/scripts/vendor/*',
         'test/spec/{,*/}*.js'
       ]
-    },
-    mocha: {
-      all: {
-        options: {
-          run: true,
-          urls: ['http://localhost:<%= connect.options.port %>/index.html']
-        }
-      }
     },
     // not used since Uglify task does concat,
     // but still available if needed
@@ -273,6 +251,17 @@ module.exports = function (grunt) {
     },
     // Put files not handled in other tasks here
     copy: {
+      tests: {
+        files: [{
+          expand: true,
+          flatten: false,
+          /*          filter: 'isFile',*/
+          dest: '.tmp/',
+          src: [
+            'test/**'
+          ]
+        }]
+      },
       fonts: {
         files: [{
           expand: true,
@@ -341,6 +330,48 @@ module.exports = function (grunt) {
     }
   });
 
+  var passedTests = [];
+  var failedTests = [];
+  var fails = 0;
+
+  grunt.event.on('qunit.testDone', function (name, failed, passed, total) {
+    if (failed > 0) {
+      failedTests[name] = 'failed: ' + failed;
+    }
+    if (passed > 0) {
+      passedTests[name] = 'passed: ' + passed;
+    }
+  });
+
+
+  grunt.event.on('qunit.done', function (failed, passed) {
+    grunt.log.ok('Passed: ' + passed);
+    if (failed > 0) {
+      grunt.log.error('Failed: ' + failed);
+    }
+    fails = failed;
+  });
+
+  grunt.registerTask('qunitTests', 'Test to see if qunit task actually worked.', function () {
+    var assert = require('assert');
+    var difflet = require('difflet')({
+      indent: 2,
+      comment: true
+    });
+
+    try {
+      assert.equal(fails === 0, true, 'All tests should pass.');
+    } catch (err) {
+      grunt.log.subhead(fails + ' tests failed');
+      for (var key in failedTests) {
+        grunt.log.error(key + ' ' + failedTests[key]);
+      }
+      throw new Error(err.message);
+    }
+  });
+
+  grunt.loadNpmTasks('grunt-contrib-qunit');
+
   grunt.registerTask('server', function (target) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
     grunt.task.run(['serve:' + target]);
@@ -354,6 +385,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'replace:app',
+      'copy:tests',
       'concurrent:server',
       'neuter:app',
       'copy:fonts',
@@ -363,25 +395,16 @@ module.exports = function (grunt) {
     ]);
   });
 
-  grunt.registerTask('prepareSelenium', [
-    'clean:server',
-    'replace:app',
-    'concurrent:server',
-    'neuter:app',
-    'copy:fonts',
-    'connect:selenium',
-  ]);
-
   grunt.registerTask('test', [
     'clean:server',
-    'prepareSelenium',
-    'mochaSelenium',
-
+    'copy:tests',
     'replace:app',
     'concurrent:test',
-    'connect:test',
     'neuter:app',
-    'mocha',
+    'connect:test',
+    'open:test',
+    'qunit',
+    'qunitTests',
     'jshint'
   ]);
 
@@ -404,6 +427,4 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
-
-  grunt.loadNpmTasks('grunt-mocha-selenium');
 };
