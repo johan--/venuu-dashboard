@@ -4,6 +4,8 @@
 
   * [Venuu Styleguide](http://venuu.fi/styleguide)
 
-  * JSHint, parameters in repo
+  * JSHint, config in repo
+
+  * Indentation 2 spaces, no tabs
 
 
