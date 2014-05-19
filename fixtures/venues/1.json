@@ -44,7 +44,6 @@
     ],
     "floor_area": 64,
     "floor_map_ids": [2],
-    "group_id": 1,
     "id": 1,
     "latitude": 42.546273,
     "longitude": 67.4972316,
@@ -64,6 +63,7 @@
     "slug": "murphy-douglas-and-sawayn-4",
     "title": "Murphy, Douglas and Sawayn 4",
     "updated_at": "2014-05-15T14:33:37+03:00",
+    "venue_group_id": 1,
     "venue_type_ids": [1],
     "zipcode": "02150",
   }
