@@ -1,45 +1,29 @@
 var assert = require('assert');
-var async = require('async');
 
-describe('A Mocha test run by grunt-mocha-sauce', function () {
+describe('Browser test', function () {
 
-  it('has a browser injected into it', function () {
+  it('browser ok', function () {
     assert.ok(this.browser);
   });
 
 });
 
-describe('A basic Webdriver example', function () {
+describe('Walking skeletor test', function () {
 
-  describe('injected browser executing a Google Search', function () {
+  describe('has correct content', function () {
 
-    it('performs as expected', function (done) {
-      var searchBox;
-      var browser = this.browser;
-      async.waterfall([
+    var browser;
 
-        function (cb) {
-          browser.get('http://google.com', cb);
-        },
-        function (cb) {
-          browser.elementByName('q', cb);
-        },
-        function (el, cb) {
-          searchBox = el;
-          searchBox.type('webdriver', cb);
-        },
-        function (cb) {
-          searchBox.getAttribute('value', cb);
-        },
-        function (val, cb) {
-          try {
-            assert.equal(val, 'webdriver');
-            cb();
-          } catch (e) {
-            cb(e);
-          }
-        }
-      ], done);
+    before(function () {
+      browser = this.browser;
+      browser.get('http://localhost:9001/dashboard/')
+    });
+
+    it('has correct title', function (done) {
+      browser.title()
+        .then(function (title) {
+          assert.equal(title, 'Venuu');
+        }).then(done, done);
     });
   });
 });

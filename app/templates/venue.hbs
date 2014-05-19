@@ -1,18 +1,8 @@
-<div class="m-container-box">
-  <h3>{{this.name}}</h3>
+<h3>{{this.name}}</h3>
+<p>{{this.description}}</p>
 
-  <table>
-    {{#each model.attributes}}
-    <tr>
-      <td>
-        <strong>{{this.key}}:</strong>
-      </td>
-      <td>
-        {{this.value}}
-      </td>
-    </tr>
-    {{/each}}
-  </table>
+{{link-to 'Muuta tietoja' 'venue.edit' model}}
 
-  {{#link-to 'venue.edit' model}}Change{{/link-to}}
-</div>
+<section class="l-section-spacing">
+  {{outlet}}
+</section>

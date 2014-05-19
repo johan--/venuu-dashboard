@@ -1,11 +1,18 @@
-<div class="m-container-box">
-  <h3>Tilasi</h3>
+<div class="row l-section-spacing">
+  <div class="medium-4 column">
+    <div class="m-container-box-compact">
+      <h4>Tilasi</h4>
 
-  <ul>
-    {{#each model}}
-      <li>{{#link-to 'venue' this}}{{this.name}}{{/link-to}}</li>
-    {{/each}}
-  </ul>
-
-  {{outlet}}
+      <ul class="no-bullet">
+        {{#each model}}
+          <li>{{#link-to 'venue' this}}{{this.name}}{{/link-to}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  <div class="medium-8 column">
+    <div class="m-container">
+      {{outlet}}
+    </div>
+  </div>
 </div>

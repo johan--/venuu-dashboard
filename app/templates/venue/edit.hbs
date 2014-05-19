@@ -1,18 +1,12 @@
-<h1>Venue</h1>
+<div class="m-container-box-compact">
+  <h4>Päivitä tiedot</h4>
+  <p>Tietojen ajantasaisuus on tärkeä homma.</p>
 
-<table>
-  {{#each buffer}}
-  <tr>
-    <td>
-      <strong>{{key}}:</strong>
-    </td>
-    <td>
-      {{input value=value}}
-    </td>
-  </tr>
-  {{/each}}
-</table>
+  <label for="name">Nimi</label>
+  {{input value=name id="name"}}
 
-<button {{action 'save'}}>Update</button>
-
-{{outlet}}
+  <label for="description">Kuvaus</label>
+  {{textarea value=description id="description" rows="8"}}
+  <br>
+  <button {{action 'save'}} class="success">Tallenna</button>
+</div>
