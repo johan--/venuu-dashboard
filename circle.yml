@@ -9,6 +9,10 @@ machine:
     version:
       0.10.28
 
+  ruby:
+    version:
+      2.1.1
+
   # Override /etc/hosts
   hosts:
     venuu.fi: 127.0.0.1
@@ -17,6 +21,7 @@ machine:
 dependencies:
   post:
     - npm install -g grunt-cli
+    - gem install sass
 
 ## Running tests
 test:
