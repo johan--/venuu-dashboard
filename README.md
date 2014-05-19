@@ -3,7 +3,7 @@
 ## Getting started
   * `git clone git@github.com:venuu/venuu-dashboard.git`
   * `npm install`
-  * `npm install -g grunt-mocha`
+  * `npm install -g grunt-cli bower `
   * `bower install`
   * `grunt serve`
 
