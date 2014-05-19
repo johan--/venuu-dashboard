@@ -427,7 +427,6 @@ module.exports = function (grunt) {
     'neuter:app',
     'connect:test',
     'qunit',
-    'qunitTests',
     'jshint',
     'clean:css'
   ]);
