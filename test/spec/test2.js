@@ -1,10 +1,13 @@
 test("Gurula information found", function () {
-  // async helper telling the application to go to the '/' route
   visit("/venue/0");
-
-
-  // helper waiting the application is idle before running the callback
   andThen(function () {
     ok(find("td").text().indexOf('Gurula') > -1, 'Gurula found!');
+  });
+});
+
+test("Gurula id information found", function () {
+  visit("/venue/0");
+  andThen(function () {
+    ok(find("td").text().indexOf('0') > -1, '0 id found found!');
   });
 });

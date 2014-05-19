@@ -4,6 +4,7 @@ var LIVERELOAD_PORT = 35729;
 var lrSnippet = require('connect-livereload')({
   port: LIVERELOAD_PORT
 });
+
 var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
@@ -49,6 +50,24 @@ module.exports = function (grunt) {
         },
         files: [
           '.tmp/scripts/*.js',
+          '<%= yeoman.app %>/*.html',
+          '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
+          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+        ]
+      },
+      test: {
+        tasks: ['copy:tests'],
+        options: {
+          middleware: function (connect) {
+            return [
+              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]'])
+            ];
+          },
+          livereload: LIVERELOAD_PORT
+        },
+        files: [
+          '.tmp/scripts/*.js',
+          'test/**/*.{html,js}',
           '<%= yeoman.app %>/*.html',
           '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
@@ -332,43 +351,9 @@ module.exports = function (grunt) {
     }
   });
 
-  var passedTests = [];
-  var failedTests = [];
-  var fails = 0;
-
-  grunt.event.on('qunit.testDone', function (name, failed, passed, total) {
-    if (failed > 0) {
-      failedTests[name] = 'failed: ' + failed;
-    }
-    if (passed > 0) {
-      passedTests[name] = 'passed: ' + passed;
-    }
-  });
-
-
-  grunt.event.on('qunit.done', function (failed, passed) {
-    grunt.log.ok('Passed: ' + passed);
-    if (failed > 0) {
-      grunt.log.error('Failed: ' + failed);
-    }
-    fails = failed;
-  });
-
-  grunt.registerTask('qunitTests', 'Test to see if qunit task actually worked.', function () {
-    var assert = require('assert');
-
-    try {
-      assert.equal(fails === 0, true, 'All tests should pass.');
-    } catch (err) {
-      grunt.log.subhead(fails + ' tests failed');
-      for (var key in failedTests) {
-        grunt.log.error(key + ' ' + failedTests[key]);
-      }
-      throw new Error(err.message);
-    }
-  });
-
   grunt.loadNpmTasks('grunt-contrib-qunit');
+
+  require('./test/helper/qunit_helper')(grunt);
 
   grunt.registerTask('server', function (target) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
@@ -383,15 +368,26 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'replace:app',
-      'copy:tests',
       'concurrent:server',
       'neuter:app',
       'copy:fonts',
       'connect:livereload',
-      'open',
+      'open:server',
       'watch'
     ]);
   });
+
+  grunt.registerTask('testserve', [
+    'clean:server',
+    'replace:app',
+    'copy:tests',
+    'concurrent:test',
+    'neuter:app',
+    'copy:fonts',
+    'connect:test',
+    'open:test',
+    'watch:test'
+  ]);
 
   grunt.registerTask('test', [
     'clean:server',
