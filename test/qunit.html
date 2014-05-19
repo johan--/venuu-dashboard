@@ -11,7 +11,6 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Montserrat:700" media="screen" rel="stylesheet" type="text/css" />
     <link href="http://venuu.fi/assets/application.css" media="all" rel="stylesheet" />
     <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="/styles/normalize.css">
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="stylesheet" href="qunit.css">
     <!-- build:js(.tmp) scripts/templates.js -->
@@ -28,6 +27,7 @@
     VenuuDashboard.setupForTesting();
     VenuuDashboard.injectTestHelpers();
   </script>
+  <script src="helper/gremlins.min.js"></script>
   <!-- Load local lib and tests. -->
   <script src="spec/test.js"></script>
   <script src="spec/test2.js"></script>
@@ -38,5 +38,7 @@
   <div id="ember-testing-container">
     <div id="ember-testing"></div>
   </div>
+  <script src="helper/gremlins.config.js">
+  </script>
 </body>
 </html>
