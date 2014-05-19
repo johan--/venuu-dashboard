@@ -45,7 +45,7 @@ module.exports = function (grunt) {
       },
       livereload: {
         options: {
-          middleware: function (/*connect*/) {
+          middleware: function ( /*connect*/ ) {
             return [
               modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]'])
             ];
@@ -186,7 +186,7 @@ module.exports = function (grunt) {
           loadPath: '<%= yeoman.app %>/styles/themes'
         },
         files: {
-          '<%= yeoman.app %>/styles/style.css' : '<%= yeoman.app %>/styles/style.scss',
+          '<%= yeoman.app %>/styles/style.css': '<%= yeoman.app %>/styles/style.scss',
         }
       }
     },
@@ -384,7 +384,6 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-mocha-selenium');
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
@@ -408,13 +407,15 @@ module.exports = function (grunt) {
   grunt.registerTask('testserve', [
     'clean:server',
     'replace:app',
+    'sass',
     'copy:tests',
     'concurrent:test',
     'neuter:app',
     'copy:fonts',
     'connect:test',
     'open:test',
-    'watch:test'
+    'watch:test',
+    'clean:css'
   ]);
 
   grunt.registerTask('test', [
