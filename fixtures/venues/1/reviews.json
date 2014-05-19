@@ -1,0 +1,15 @@
+{
+  "reviews": [
+    {
+      "id": 1,
+      "content": "Hieno tila ja hyvä palvelu vaikka itse sanonkin!",
+      "rating": 3,
+      "created_at": "2014-05-16T15:50:05+03:00",
+      "updated_at": "2014-05-16T15:50:05+03:00",
+      "published": true,
+      "name": "Venuu Saur",
+      "email": "venuusaur@venuu.fi",
+      "sender_ip": "185.105.252.41"
+    }
+  ]
+}

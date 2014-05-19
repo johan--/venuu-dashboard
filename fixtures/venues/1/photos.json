@@ -1,0 +1,15 @@
+{
+  "photos": [
+    {
+      "id": 1,
+      "content_type": "image/png",
+      "created_at": "2014-05-15T14:33:37+03:00",
+      "updated_at": "2014-05-15T14:33:37+03:00",
+      "urls": {
+        "small": "http://carter.org/eloisa_schmidt1efwtrwqqdc.jpg",
+        "medium": "http://carter.org/eloisa_schmidt2sadsfgdhyrtew.jpg",
+        "large": "http://carter.org/eloisa_schmidt3fgnbnjhgf.jpg"
+      }
+    }
+  ]
+}
