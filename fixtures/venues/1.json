@@ -48,6 +48,7 @@
     "id": 1,
     "latitude": 42.546273,
     "longitude": 67.4972316,
+    "organization_id": 1,
     "photo_ids": [1],
     "pitch": "Yhden/kahden lauseen kuvaus tilasta.",
     "pricing_details": "Hinnoittelusta tarkemmin",
@@ -63,7 +64,6 @@
     "slug": "murphy-douglas-and-sawayn-4",
     "title": "Murphy, Douglas and Sawayn 4",
     "updated_at": "2014-05-15T14:33:37+03:00",
-    "user_id": 1,
     "venue_type_ids": [1],
     "zipcode": "02150",
   }
