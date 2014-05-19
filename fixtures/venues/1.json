@@ -2,6 +2,7 @@
   "venue": {
     "additional_service_category_description": "Palveluista ja puitteista tarkemmin",
     "address": "Betonimiehenkuja 2",
+    "billing_id": 1,
     "cancellation_policy": "Peruutusehdot",
     "capacity_banquet": null,
     "capacity_classroom": 400,
