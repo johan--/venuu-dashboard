@@ -24,6 +24,13 @@
     "DS": true,
     "describe": true,
     "it": true,
-    "Em": true
+    "Em": true,
+    "test": true,
+    "ok": true,
+    "expect": true,
+    "equal": true,
+    "andThen": true,
+    "find": true,
+    "visit": true
   }
 }

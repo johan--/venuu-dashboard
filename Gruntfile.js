@@ -4,6 +4,7 @@ var LIVERELOAD_PORT = 35729;
 var lrSnippet = require('connect-livereload')({
   port: LIVERELOAD_PORT
 });
+
 var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
@@ -29,19 +30,6 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     yeoman: yeomanConfig,
-    mochaSelenium: {
-      options: {
-        // Mocha options
-        reporter: 'spec',
-        timeout: 30e3,
-        // Toggles wd's promises API, default:false
-        useChaining: true
-      },
-      firefox: {
-        src: ['test/feature/*.js']
-        // firefox is the default browser, so no browserName option required
-      }
-    },
     watch: {
       emberTemplates: {
         files: '<%= yeoman.app %>/templates/**/*.hbs',
@@ -70,6 +58,24 @@ module.exports = function (grunt) {
           '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.scss',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
+      },
+      test: {
+        tasks: ['copy:tests'],
+        options: {
+          middleware: function (connect) {
+            return [
+              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]'])
+            ];
+          },
+          livereload: LIVERELOAD_PORT
+        },
+        files: [
+          '.tmp/scripts/*.js',
+          'test/**/*.{html,js}',
+          '<%= yeoman.app %>/*.html',
+          '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
+          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+        ]
       }
     },
     connect: {
@@ -95,19 +101,8 @@ module.exports = function (grunt) {
           middleware: function (connect) {
             return [
               modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]']),
-              mountFolder(connect, 'test'),
-              mountFolder(connect, '.tmp')
-            ];
-          }
-        }
-      },
-      selenium: {
-        options: {
-          port: 9001,
-          middleware: function (connect) {
-            return [
-              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]']),
               lrSnippet,
+              mountFolder(connect, 'test'),
               mountFolder(connect, '.tmp'),
               mountFolder(connect, yeomanConfig.app)
             ];
@@ -124,7 +119,19 @@ module.exports = function (grunt) {
         }
       }
     },
+    qunit: {
+      urls: {
+        options: {
+          urls: [
+            'http://localhost:<%= connect.options.port %>/test/qunit.html'
+          ]
+        }
+      }
+    },
     open: {
+      test: {
+        path: 'http://localhost:<%= connect.options.port %>/test/qunit.html'
+      },
       server: {
         path: 'http://localhost:<%= connect.options.port %>'
       }
@@ -161,14 +168,6 @@ module.exports = function (grunt) {
         '!<%= yeoman.app %>/scripts/vendor/*',
         'test/spec/{,*/}*.js'
       ]
-    },
-    mocha: {
-      all: {
-        options: {
-          run: true,
-          urls: ['http://localhost:<%= connect.options.port %>/index.html']
-        }
-      }
     },
     // not used since Uglify task does concat,
     // but still available if needed
@@ -295,6 +294,17 @@ module.exports = function (grunt) {
     },
     // Put files not handled in other tasks here
     copy: {
+      tests: {
+        files: [{
+          expand: true,
+          flatten: false,
+          /*          filter: 'isFile',*/
+          dest: '.tmp/',
+          src: [
+            'test/**'
+          ]
+        }]
+      },
       fonts: {
         files: [{
           expand: true,
@@ -363,6 +373,10 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-qunit');
+
+  require('./test/helper/qunit_helper')(grunt);
+
   grunt.registerTask('server', function (target) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
     grunt.task.run(['serve:' + target]);
@@ -385,31 +399,34 @@ module.exports = function (grunt) {
       'neuter:app',
       'copy:fonts',
       'connect:livereload',
-      'open',
+      'open:server',
       'watch',
       'clean:css'
     ]);
   });
 
-  grunt.registerTask('prepareSelenium', [
+  grunt.registerTask('testserve', [
     'clean:server',
     'replace:app',
-    'concurrent:server',
+    'copy:tests',
+    'concurrent:test',
     'neuter:app',
     'copy:fonts',
-    'connect:selenium',
+    'connect:test',
+    'open:test',
+    'watch:test'
   ]);
 
   grunt.registerTask('test', [
     'clean:server',
-    'prepareSelenium',
-    'mochaSelenium',
     'replace:app',
+    'copy:tests',
     'sass',
     'concurrent:test',
-    'connect:test',
     'neuter:app',
-    'mocha',
+    'connect:test',
+    'qunit',
+    'qunitTests',
     'jshint',
     'clean:css'
   ]);
