@@ -1,7 +1,13 @@
 {
   "venue": {
+    "group": {
+      "city": "Espoo",
+      "address": "Betonimiehenkuja 2",
+      "latitude": 42.546273,
+      "longitude": 67.4972316,
+      "zipcode": "02150"
+    },
     "additional_service_category_description": "Palveluista ja puitteista tarkemmin",
-    "address": "Betonimiehenkuja 2",
     "billing_id": 1,
     "cancellation_policy": "Peruutusehdot",
     "capacity_banquet": null,
@@ -12,7 +18,6 @@
     "capacity_standing": 1214,
     "capacity_theater": 400,
     "capacity_u_shape": 400,
-    "city": "Espoo",
     "cleaning_fee": 400,
     "contact_email": "jerrold@kutch.name",
     "contact_phone": "+35840123457",
@@ -45,8 +50,6 @@
     "floor_area": 64,
     "floor_map_ids": [2],
     "id": 1,
-    "latitude": 42.546273,
-    "longitude": 67.4972316,
     "organization_id": 1,
     "photo_ids": [1],
     "pitch": "Yhden/kahden lauseen kuvaus tilasta.",
@@ -64,7 +67,6 @@
     "title": "Murphy, Douglas and Sawayn 4",
     "updated_at": "2014-05-15T14:33:37+03:00",
     "venue_group_id": 1,
-    "venue_type_ids": [1],
-    "zipcode": "02150",
+    "venue_type_ids": [1]
   }
 }
