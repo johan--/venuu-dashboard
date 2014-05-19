@@ -117,13 +117,20 @@ module.exports = function (grunt) {
       }
     },
     clean: {
+      css: {
+        files: [{
+          dot: false,
+          src: [
+            '<%= yeoman.app %>/styles/*.css'
+          ]
+        }]
+      },
       dist: {
         files: [{
           dot: true,
           src: [
             '.tmp',
             '<%= yeoman.dist %>/*',
-            '<%= yeoman.app %>/styles/*.css',
             '!<%= yeoman.dist %>/.git*'
           ]
         }]
@@ -168,7 +175,6 @@ module.exports = function (grunt) {
         },
         files: {
           '<%= yeoman.app %>/styles/style.css' : '<%= yeoman.app %>/styles/style.scss',
-          '<%= yeoman.app %>/styles/application.css' : '<%= yeoman.app %>/styles/application.css.scss'
         }
       }
     },
@@ -367,24 +373,28 @@ module.exports = function (grunt) {
       'copy:fonts',
       'connect:livereload',
       'open',
-      'watch'
+      'watch',
+      'clean:css'
     ]);
   });
 
   grunt.registerTask('test', [
     'clean:server',
     'replace:app',
+    'sass',
     'concurrent:test',
     'connect:test',
     'neuter:app',
     'mocha',
     'mochaSelenium',
-    'jshint'
+    'jshint',
+    'clean:css'
   ]);
 
   grunt.registerTask('build', [
     'clean:dist',
     'replace:dist',
+    'sass',
     'useminPrepare',
     'concurrent:dist',
     'neuter:app',
