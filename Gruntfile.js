@@ -8,8 +8,8 @@ var lrSnippet = require('connect-livereload')({
 var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
-var modRewrite = require('connect-modrewrite')
-  , redirectToIndex = modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png|\\.json$ /index.html [L]']);
+var modRewrite = require('connect-modrewrite'),
+  redirectToIndex = modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png|\\.json$ /index.html [L]']);
 
 // # Globbing
 // for performance reasons we're only matching one level down:
@@ -314,6 +314,16 @@ module.exports = function (grunt) {
           ]
         }]
       },
+      fixturesDist: {
+        files: [{
+          expand: true,
+          flatten: false,
+          dest: 'dist/',
+          src: [
+            'fixtures/**'
+          ]
+        }]
+      },
       fonts: {
         files: [{
           expand: true,
@@ -449,7 +459,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'replace:dist',
     'sass',
-    'copy:fixtures',
+    'copy:fixturesDist',
     'useminPrepare',
     'concurrent:dist',
     'neuter:app',
