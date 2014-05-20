@@ -15,6 +15,7 @@
   "trailing": false,
   "smarttabs": true,
   "white": true,
+  "laxcomma": true,
   "indent": 2,
   "globals": {
     "VenuuDashboard": true,

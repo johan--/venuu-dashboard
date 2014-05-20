@@ -8,7 +8,11 @@ var lrSnippet = require('connect-livereload')({
 var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
-var modRewrite = require('connect-modrewrite');
+var modRewrite = require('connect-modrewrite')
+  , redirectToIndex = modRewrite([
+      //'fixtures/venues fixtures/venues.json [L]',
+      '!\\.html|\\.js|\\.svg|\\.css|\\.png|\\.json$ /index.html [L]'
+    ]);
 
 // # Globbing
 // for performance reasons we're only matching one level down:
@@ -46,9 +50,7 @@ module.exports = function (grunt) {
       livereload: {
         options: {
           middleware: function ( /*connect*/ ) {
-            return [
-              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]'])
-            ];
+            return [redirectToIndex];
           },
           livereload: LIVERELOAD_PORT
         },
@@ -56,16 +58,15 @@ module.exports = function (grunt) {
           '.tmp/scripts/*.js',
           '<%= yeoman.app %>/*.html',
           '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.scss',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          'fixtures/*.json'
         ]
       },
       test: {
         tasks: ['copy:tests'],
         options: {
           middleware: function (connect) {
-            return [
-              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]'])
-            ];
+            return [redirectToIndex];
           },
           livereload: LIVERELOAD_PORT
         },
@@ -88,7 +89,7 @@ module.exports = function (grunt) {
         options: {
           middleware: function (connect) {
             return [
-              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]']),
+              redirectToIndex,
               lrSnippet,
               mountFolder(connect, '.tmp'),
               mountFolder(connect, yeomanConfig.app)
@@ -100,7 +101,7 @@ module.exports = function (grunt) {
         options: {
           middleware: function (connect) {
             return [
-              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]']),
+              redirectToIndex,
               lrSnippet,
               mountFolder(connect, 'test'),
               mountFolder(connect, '.tmp'),
