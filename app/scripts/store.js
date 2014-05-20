@@ -1,1 +1,6 @@
-VenuuDashboard.ApplicationAdapter = DS.FixtureAdapter;
+(function () {
+  'use strict';
+
+  VenuuDashboard.ApplicationAdapter = DS.FixtureAdapter;
+
+})();

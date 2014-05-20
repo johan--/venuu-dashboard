@@ -1,4 +1,6 @@
-VenuuDashboard.VenuesController = Ember.ObjectController.extend({
-  // Implement your controller here.
-});
+(function () {
+  'use strict';
 
+  VenuuDashboard.VenuesController = Ember.ObjectController.extend({});
+
+})();

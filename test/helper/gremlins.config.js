@@ -1,6 +1,7 @@
 function insideContainer(element) {
   return $(element).parents('#ember-testing').length && // inside container
-    !$(element).is('.m-logo'); // cannot click venuu logo
+    !$(element).is('.m-logo') && // cannot click venuu logo
+    !$(element).parents('footer').length;
 }
 
 var clicker = gremlins.species.clicker()

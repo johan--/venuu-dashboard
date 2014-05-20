@@ -1,8 +1,6 @@
+{{outlet}}
+
 <h3>{{this.name}}</h3>
 <p>{{this.description}}</p>
 
-{{link-to 'Muuta tietoja' 'venue.edit' model}}
-
-<section class="l-section-spacing">
-  {{outlet}}
-</section>
+{{link-to 'Muuta tietoja' 'venue.edit' this}}

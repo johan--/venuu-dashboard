@@ -1,5 +1,6 @@
-VenuuDashboard.IndexRoute = Ember.Route.extend({
-  model: function () {
-    return this.get('store').find('venue');
-  }
-});
+(function () {
+  'use strict';
+
+  VenuuDashboard.IndexRoute = Ember.Route.extend({});
+
+})();

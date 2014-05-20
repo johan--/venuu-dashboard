@@ -1,32 +1,3 @@
-<div class='m-navbar'>
-  <nav class='top-bar'>
-    <ul class='title-area'>
-      <!-- Title Area -->
-      <li class='name'>
-        <a href="/" class="m-logo" title="Venuu - löydä tila tapahtumallesi"></a>
-      </li>
-      <li class='toggle-topbar menu-icon'>
-        <a>
-          <span>Valikko</span>
-        </a>
-      </li>
-    </ul>
-    <section class='top-bar-section'>
-      <!-- Right Nav Section -->
-      <ul class='right'>
-        <li>
-          <a href="#">Selaa tiloja</a>
-        </li>
-        <li>
-          {{#link-to 'venues'}}Hallinnoi tilojasi{{/link-to}}
-        </li>
-        <li class='has-form'>
-          <a href="#" class="button success">Ilmoita tilasi</a>
-        </li>
-      </ul>
-    </section>
-  </nav>
-</div>
-<div class='m-container'>
-  {{outlet}}
-</div>
+{{partial "navbar"}}
+<div class='m-container'>{{outlet}}</div>
+{{partial "footer"}}

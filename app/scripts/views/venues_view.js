@@ -1,2 +1,6 @@
-VenuuDashboard.VenuesView = Ember.View.extend({
-});
+(function () {
+  'use strict';
+
+  VenuuDashboard.VenuesView = Ember.View.extend({});
+
+})();

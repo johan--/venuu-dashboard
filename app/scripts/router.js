@@ -1,20 +1,24 @@
-VenuuDashboard.Router.reopen({
-  rootURL: '/dashboard/',
-  location: 'history'
-});
+(function () {
+  'use strict';
 
-VenuuDashboard.Router.map(function () {
-
-  this.resource('venues', {
-    path: '/'
-  }, function () {
-    this.resource('venue', {
-      path: '/venue/:venue_id'
-    }, function () {
-      this.route('edit');
-    });
+  VenuuDashboard.Router.reopen({
+    rootURL: '/dashboard/',
+    location: 'history'
   });
 
-  this.route('create');
+  VenuuDashboard.Router.map(function () {
 
-});
+    this.resource('venues', {
+      path: '/'
+    }, function () {
+      this.resource('venue', {
+        path: '/venue/:venue_id'
+      }, function () {
+        this.route('edit');
+      });
+    });
+
+    this.route('create');
+  });
+
+})();
