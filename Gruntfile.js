@@ -9,10 +9,7 @@ var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
 var modRewrite = require('connect-modrewrite')
-  , redirectToIndex = modRewrite([
-      //'fixtures/venues fixtures/venues.json [L]',
-      '!\\.html|\\.js|\\.svg|\\.css|\\.png|\\.json$ /index.html [L]'
-    ]);
+  , redirectToIndex = modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png|\\.json$ /index.html [L]']);
 
 // # Globbing
 // for performance reasons we're only matching one level down:

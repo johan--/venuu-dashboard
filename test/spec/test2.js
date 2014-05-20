@@ -1,7 +1,7 @@
-test("Gurula information found", function () {
-  visit("/venue/0");
+test("Venue information found", function () {
+  visit("/venue/1");
   andThen(function () {
-    ok(find("h3").text().indexOf('Gurula') > -1, 'Gurula found!');
+    ok(find("h3").text().indexOf('Murphy, Douglas and Sawayn 4') > -1, 'title found!');
   });
 });
 

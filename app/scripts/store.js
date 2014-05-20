@@ -4,8 +4,8 @@
   DS.RESTAdapter.reopen({
     namespace: 'fixtures',
 
-    buildURL: function(record, suffix) {
-      return this._super(record,suffix) + '.json';
+    buildURL: function (record, suffix) {
+      return this._super(record, suffix) + '.json';
     }
   });
 
