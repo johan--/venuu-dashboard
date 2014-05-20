@@ -305,6 +305,17 @@ module.exports = function (grunt) {
           ]
         }]
       },
+      fixtures: {
+        files: [{
+          expand: true,
+          flatten: false,
+          /*          filter: 'isFile',*/
+          dest: '.tmp/',
+          src: [
+            'fixtures/**'
+          ]
+        }]
+      },
       fonts: {
         files: [{
           expand: true,
@@ -390,6 +401,23 @@ module.exports = function (grunt) {
       return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
     }
 
+    if (target === 'test') {
+      return grunt.task.run([
+        'clean:server',
+        'replace:app',
+        'sass',
+        'copy:tests',
+        'concurrent:test',
+        'neuter:app',
+        'copy:fonts',
+        'copy:fixtures',
+        'connect:test',
+        'open:test',
+        'watch:test',
+        'clean:css'
+      ]);
+    }
+
     grunt.task.run([
       'clean:server',
       'replace:app',
@@ -397,6 +425,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'neuter:app',
       'copy:fonts',
+      'copy:fixtures',
       'connect:livereload',
       'open:server',
       'watch',
@@ -404,24 +433,11 @@ module.exports = function (grunt) {
     ]);
   });
 
-  grunt.registerTask('testserve', [
-    'clean:server',
-    'replace:app',
-    'sass',
-    'copy:tests',
-    'concurrent:test',
-    'neuter:app',
-    'copy:fonts',
-    'connect:test',
-    'open:test',
-    'watch:test',
-    'clean:css'
-  ]);
-
   grunt.registerTask('test', [
     'clean:server',
     'replace:app',
     'copy:tests',
+    'copy:fixtures',
     'sass',
     'concurrent:test',
     'neuter:app',
@@ -435,6 +451,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'replace:dist',
     'sass',
+    'copy:fixtures',
     'useminPrepare',
     'concurrent:dist',
     'neuter:app',
