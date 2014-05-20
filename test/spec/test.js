@@ -9,6 +9,6 @@ test("/", function () {
   visit("/");
   // helper waiting the application is idle before running the callback
   andThen(function () {
-    equal(find("h4").text(), "Tilasi", "Application header is rendered");
+    equal(find("h4").first().text(), "Tilasi", "Application header is rendered");
   });
 });
