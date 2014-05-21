@@ -7,7 +7,6 @@
         var self = this;
 
         function transition(record) {
-          console.log(record.id);
           self.transitionToRoute('venue', record);
         }
 
