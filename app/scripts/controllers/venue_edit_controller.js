@@ -4,7 +4,19 @@
   VenuuDashboard.VenueEditController = Ember.ObjectController.extend({
     actions: {
       save: function () {
-        this.transitionToRoute('venue', this.get('model'));
+        var self = this;
+
+        function transition(record) {
+          self.transitionToRoute('venue', record);
+        }
+
+        function failure(response) {
+          console.error('save failure', response);
+        }
+
+        this.get('model').save()
+          .then(transition)
+          .catch(failure);
       }
     }
   });

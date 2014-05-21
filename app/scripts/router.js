@@ -16,9 +16,9 @@
       }, function () {
         this.route('edit');
       });
-    });
 
-    this.route('create');
+      this.route('new');
+    });
   });
 
 })();
