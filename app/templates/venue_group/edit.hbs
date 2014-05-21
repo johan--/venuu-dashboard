@@ -1,0 +1,14 @@
+<div class="m-container-box-compact">
+  <h4>Päivitä kohteen tiedot</h4>
+
+  <label for="name">Nimi</label>
+  {{input value=name id="name"}}
+
+  <label for="city">Kaupunki</label>
+  {{input value=city id="city"}}
+
+  <label for="address">Osoite</label>
+  {{input value=address id="address"}}
+  <br>
+  <button {{action 'save'}} class="success">Tallenna</button>
+</div>

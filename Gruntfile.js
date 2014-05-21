@@ -45,6 +45,7 @@ module.exports = function (grunt) {
         tasks: ['neuter']
       },
       livereload: {
+        tasks: ['copy:fixtures'],
         options: {
           middleware: function ( /*connect*/ ) {
             return [redirectToIndex];
@@ -60,7 +61,7 @@ module.exports = function (grunt) {
         ]
       },
       test: {
-        tasks: ['copy:tests'],
+        tasks: ['copy:tests', 'copy:fixtures'],
         options: {
           middleware: function (connect) {
             return [redirectToIndex];
@@ -421,7 +422,7 @@ module.exports = function (grunt) {
         'copy:fixtures',
         'connect:test',
         'open:test',
-        'watch:test',
+        'watch',
         'clean:css'
       ]);
     }
