@@ -1,11 +1,13 @@
 {{outlet}}
 
-<h3>{{this.title}}</h3>
-<button id="destroy-venue" {{action 'destroy'}}>Poista</button>
+<div class="m-container venue-container">
+  <h3>{{this.title}}</h3>
+  <button id="destroy-venue" {{action 'destroy'}}>Poista tila</button>
 
-<p class="m-ingress">{{this.pitch}}</p>
+  <p class="m-ingress">{{this.pitch}}</p>
 
-<p>{{this.description}}</p>
+  <p>{{this.description}}</p>
 
 
-{{link-to 'Muuta tietoja' 'venue.edit' model}}
+  {{link-to 'Muuta tietoja' 'venue.edit' model}}
+</div>

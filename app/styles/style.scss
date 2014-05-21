@@ -10,11 +10,15 @@ button#new-venue {
 
 button#destroy-venue {
   position: absolute;
-  top: 0.5em;
-  right: 1em;
+  top: 0;
+  right: 0;
 }
 
-a[href$=null] {
+.disabled {
+  color: #1abc9c;
   opacity: 0.5;
-  pointer-events: none;
+}
+
+.venue-container {
+  position: relative;
 }
