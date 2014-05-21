@@ -12,42 +12,29 @@
 
   var fakeId = 123;
 
+  /** Return a mock function that calls super method and catches any error. */
   function mock(method) {
-    return function () {
-      return this._super.apply(this._super, arguments).catch(function () {
+    return function mocked() {
+      return this._super.apply(this, arguments).catch(function () {
         console.log('Dummy backend ' + method + ' done.');
       });
     };
   }
 
-  DS.RESTAdapter.reopen({
+  VenuuDashboard.ApplicationAdapter = DS.RESTAdapter.extend({
     namespace: 'fixtures',
 
     buildURL: function (record, suffix) {
       return this._super(record, suffix) + '.json';
     },
 
-    updateRecord: function (store, type, record) {
-      return mock('update').apply(this, arguments);
-/*      return this._super(store, type, record).catch(function () {
-        console.log('Dummy backend update done.');
-      });*/
-    },
-
     createRecord: function (store, type, record) {
-      return this._super(store, type, record).catch(function () {
-        record.id = ++fakeId;
-        console.log('Dummy backend create done.');
-      });
+      record.set('id', ++fakeId);
+      return mock('create').apply(this, arguments);
     },
 
-    deleteRecord: function (store, type, record) {
-      return this._super(store, type, record).catch(function () {
-        console.log('Dummy backend destroy done.');
-      });
-    }
+    updateRecord: mock('update'),
+    deleteRecord: mock('delete')
   });
-
-  VenuuDashboard.ApplicationAdapter = DS.RESTAdapter.extend();
 
 })();
