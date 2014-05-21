@@ -37,7 +37,7 @@ module.exports = function (grunt) {
       },
       css: {
         files: '**/*.scss',
-        tasks: ['sass']
+        tasks: ['compass']
       },
       neuter: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
@@ -47,7 +47,7 @@ module.exports = function (grunt) {
         options: {
           middleware: function ( /*connect*/ ) {
             return [
-              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]'])
+              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png(\\?\\d+)?$ /index.html [L]'])
             ];
           },
           livereload: LIVERELOAD_PORT
@@ -62,9 +62,9 @@ module.exports = function (grunt) {
       test: {
         tasks: ['copy:tests'],
         options: {
-          middleware: function (connect) {
+          middleware: function (/*connect*/) {
             return [
-              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]'])
+              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png(\\?\\d+)?$ /index.html [L]'])
             ];
           },
           livereload: LIVERELOAD_PORT
@@ -88,7 +88,7 @@ module.exports = function (grunt) {
         options: {
           middleware: function (connect) {
             return [
-              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]']),
+              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png(\\?\\d+)?$ /index.html [L]']),
               lrSnippet,
               mountFolder(connect, '.tmp'),
               mountFolder(connect, yeomanConfig.app)
@@ -100,7 +100,7 @@ module.exports = function (grunt) {
         options: {
           middleware: function (connect) {
             return [
-              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]']),
+              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png(\\?\\d+)?$ /index.html [L]']),
               lrSnippet,
               mountFolder(connect, 'test'),
               mountFolder(connect, '.tmp'),
@@ -137,14 +137,6 @@ module.exports = function (grunt) {
       }
     },
     clean: {
-      css: {
-        files: [{
-          dot: false,
-          src: [
-            '<%= yeoman.app %>/styles/*.css'
-          ]
-        }]
-      },
       dist: {
         files: [{
           dot: true,
@@ -155,7 +147,16 @@ module.exports = function (grunt) {
           ]
         }]
       },
-      server: '.tmp'
+      server: {
+        files: [{
+          dot: false,
+          src: [
+            '.sass-cache',
+            '<%= yeoman.app %>/styles/**/*.css',
+            '.tmp'
+          ]
+        }]
+      },
     },
     jshint: {
       options: {
@@ -180,14 +181,14 @@ module.exports = function (grunt) {
     /*uglify: {
       dist: {}
     },*/
-    sass: {
+    compass: {
       dist: {
-        options: {
-          loadPath: '<%= yeoman.app %>/styles/themes'
+        options: {              // Target options
+          config: 'compass_config.rb',
+          imagesDir: '<%= yeoman.app %>/images/',
+          sassDir: '<%= yeoman.app %>/styles/scss/',
+          cssDir: '<%= yeoman.app %>/styles/css/'
         },
-        files: {
-          '<%= yeoman.app %>/styles/style.css': '<%= yeoman.app %>/styles/style.scss',
-        }
       }
     },
     rev: {
@@ -393,7 +394,7 @@ module.exports = function (grunt) {
     grunt.task.run(['serve:' + target]);
   });
 
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('serve', function (target) {
@@ -405,7 +406,7 @@ module.exports = function (grunt) {
       return grunt.task.run([
         'clean:server',
         'replace:app',
-        'sass',
+        'compass',
         'copy:tests',
         'concurrent:test',
         'neuter:app',
@@ -414,14 +415,13 @@ module.exports = function (grunt) {
         'connect:test',
         'open:test',
         'watch:test',
-        'clean:css'
       ]);
     }
 
     grunt.task.run([
       'clean:server',
       'replace:app',
-      'sass',
+      'compass',
       'concurrent:server',
       'neuter:app',
       'copy:fonts',
@@ -429,7 +429,6 @@ module.exports = function (grunt) {
       'connect:livereload',
       'open:server',
       'watch',
-      'clean:css'
     ]);
   });
 
@@ -438,7 +437,7 @@ module.exports = function (grunt) {
     'replace:app',
     'copy:tests',
     'copy:fixtures',
-    'sass',
+    'compass',
     'concurrent:test',
     'neuter:app',
     'connect:test',
@@ -450,7 +449,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'replace:dist',
-    'sass',
+    'compass',
     'copy:fixtures',
     'useminPrepare',
     'concurrent:dist',

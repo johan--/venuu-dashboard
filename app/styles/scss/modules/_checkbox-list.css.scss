@@ -1,0 +1,24 @@
+.m-checkbox-list {
+  label {
+    font-size: .8em;
+    // Add padding to enlarge clickable area
+    padding: .5em 0;
+    // Remove all default margins
+    margin: 0;
+    // Improve clickability on hover by showing background color
+    &:hover {
+      background-color: $bg-color;
+    }
+  }
+  input {
+    // Separate checkbox from label
+    margin-right: .5em;
+  }
+  .button {
+    // Align button properly if placed after checkbox list
+    margin: .75em 0 0;
+  }
+  hr {
+    margin: .5em 0;
+  }
+}

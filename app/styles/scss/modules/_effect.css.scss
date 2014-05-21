@@ -1,0 +1,18 @@
+// A special module, which can be applied to any element and then later on
+// create some nifty JS to toggle that elements visibility with some predefined
+// subclass.
+
+.m-effect {
+  @include single-transition(all, 1s, ease-in-out);
+}
+
+.m-effect-delay {
+  @include transition-delay(5s);
+}
+
+.m-effect-fade {
+  opacity: 0;
+  &.is-toggled {
+    opacity: 1;
+  }
+}

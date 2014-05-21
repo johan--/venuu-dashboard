@@ -1,0 +1,134 @@
+.m-previewbox {
+  @include grid-row(collapse);
+  display: block;
+  &:last-child {
+    border-bottom: 1px solid $border-color;
+  }
+  // Position icons a bit away from adjacent text
+  i {
+    margin-right: emCalc(5);
+  }
+}
+
+.m-previewbox-image {
+  @include grid-column(4);
+  height: emCalc(108);
+  // background-image set via style attribute
+  @extend .m-background-image;
+}
+.m-previewbox-info {
+  @include grid-column(7);
+  padding-top: emCalc(10);
+  border-top: 1px solid $border-color;
+  h2 {
+    font-size: .85em;
+    margin-bottom: emCalc(6);
+    // Don't expand venue names over one line
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  // Address styling
+  span {
+    font-size: emCalc(12);
+    color: $basetext-color-light;
+    margin-bottom: emCalc(10);
+    // Don't expand address over one line
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  // As the whole previewbox is a link, color has to be defined
+  * {
+    color: $basetext-color;
+  }
+}
+.m-previewbox-right {
+  @include grid-column(1);
+  padding: emCalc(10) 0 0;
+  border-top: 1px solid $border-color;
+  position: relative;
+  .button, button {
+    position: absolute;
+    margin-bottom: 0;
+    bottom: -1px;
+    right: -1px;
+  }
+}
+
+.m-previewbox-right-arrow {
+  color: $border-color;
+  position: absolute;
+  right: 15px;
+  top: 45px;
+}
+
+.m-previewbox-contact-venuu {
+  .m-venue-info {
+    font-size: 1em;
+    a {
+      margin-top: emCalc(116);
+    }
+  }
+}
+
+@media #{$small} {
+  .m-previewbox {
+    margin-bottom: 0.75em;
+    border: 0;
+    @include border-radius($global-radius);
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+  .m-previewbox-contents {
+    @include border-radius($global-radius);
+    width: auto;
+    height: emCalc(175);
+    > * {
+      height: 100%;
+    }
+  }
+  .m-previewbox-image {
+    @include grid-column(3);
+    @include border-left-radius($global-radius);
+  }
+  .m-previewbox-info {
+    @include grid-column(7);
+    padding: 1em 1.4em;
+    border-bottom: 1px solid $border-color;
+    p {
+      margin-top: emCalc(8);
+      margin-bottom: 0;
+      height: emCalc(96);
+      overflow: hidden;
+    }
+  }
+  .m-previewbox-right {
+    @include grid-column(2);
+    padding: 1em 0 0 0;
+    border: 1px solid $border-color;
+    border-left: 0;
+    @include border-right-radius($global-radius);
+    height: 100%;
+    .button, button {
+      @include border-radius($global-radius 0 $global-radius 0);
+    }
+  }
+}
+
+@media #{$middle} {
+  .m-previewbox:hover {
+    @include box-shadow(0 0 5px rgba(black, .15));
+  }
+  .m-previewbox-right {
+    background-color: $bg-color;
+    padding: 1em;
+    border-left: 1px solid $border-color;
+    .button, button {
+      bottom: 1em;
+      right: initial;
+      @include border-radius($global-radius);
+    }
+  }
+}

@@ -1,0 +1,55 @@
+.m-featured {
+  h5 {
+    font-size: emCalc(14);
+    color: #666;
+    line-height: 1.75;
+  }
+  @media #{$middle} {
+    .row:last-child .m-featured-venue {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.m-featured-venue {
+  background-color: white;
+  margin-bottom: 2em;
+  position: relative;
+  bottom: 0;
+  @include transition-duration(.1s);
+  @include border-radius($global-radius);
+  img {
+    width: 100%;
+    @include border-top-radius($global-radius);
+  }
+  &:hover {
+    bottom: 3px;
+    @include box-shadow(rgba(0,0,0,0.2) 0 0 10px);
+  }
+}
+
+.m-featured-venue-image {
+  @include border-top-radius($global-radius);
+  height: emCalc(170);
+  overflow: hidden;
+}
+
+.m-featured-venue-info {
+  padding: 1em 1em .5em;
+  border: 1px solid $border-color;
+  border-top: 0;
+  min-height: auto;
+  @media #{$tiny} {
+    min-height: 16em;
+  }
+  @media #{$small} {
+    min-height: 10em;
+  }
+  @media #{$medium} {
+    min-height: 8.5em;
+  }
+  @include border-bottom-radius($global-radius);
+  p {
+    color: $basetext-color-light;
+  }
+}
