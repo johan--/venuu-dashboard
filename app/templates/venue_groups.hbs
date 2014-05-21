@@ -2,17 +2,20 @@
   <div class="medium-4 column">
     <div class="m-container-box-compact">
       <h4>Kohteet</h4>
+      <button id="new-venue" class="success" {{action 'create'}}>Luo uusi kohde</button>
 
       <ul class="no-bullet">
         {{#each model}}
-          <li>{{#link-to 'venue_group' this}}{{this.name}}{{/link-to}}</li>
+          {{#if this.id}}
+            <li>{{#link-to 'venue_group' this}}{{this.name}}{{/link-to}}</li>
+          {{else}}
+            <li class="disabled">{{this.title}}</li>
+          {{/if}}
         {{/each}}
       </ul>
     </div>
   </div>
   <div class="medium-8 column">
-    <div class="m-container">
       {{outlet}}
-    </div>
   </div>
 </div>

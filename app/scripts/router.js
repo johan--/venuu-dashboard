@@ -16,17 +16,18 @@
       }, function () {
         this.route('edit');
       });
+      this.route('new');
+    });
 
-      this.resource('venues', {
-        path: '/venues'
+    this.resource('venues', {
+      path: '/venues'
+    }, function () {
+      this.resource('venue', {
+        path: '/:venue_id'
       }, function () {
-        this.resource('venue', {
-          path: '/:venue_id'
-        }, function () {
-          this.route('edit');
-        });
-        this.route('new');
+        this.route('edit');
       });
+      this.route('new');
     });
   });
 

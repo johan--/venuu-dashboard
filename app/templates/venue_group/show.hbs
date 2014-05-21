@@ -1,11 +1,15 @@
 {{outlet}}
 
+<div class="m-container venue-container">
 <h3>{{this.name}}</h3>
 <p>{{this.city}}</p>
 <p>{{this.address}}</p>
+
+<button id="destroy-venue" {{action 'destroy'}}>Poista tila</button>
 <ul>
   {{#each this.venues}}
     <li>{{#link-to 'venue' this}}{{this.title}}{{/link-to}}</li>
   {{/each}}
 </ul>
 {{link-to 'Muuta kohteen tietoja' 'venue_group.edit' model}}
+</div>
