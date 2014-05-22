@@ -32,6 +32,8 @@
     "equal": true,
     "andThen": true,
     "find": true,
-    "visit": true
+    "visit": true,
+    "fillIn": true,
+    "click": true
   }
 }
