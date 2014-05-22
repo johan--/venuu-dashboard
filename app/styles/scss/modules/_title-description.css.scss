@@ -1,0 +1,13 @@
+.m-title-description {
+  line-height: 1.6;
+  text-align: center;
+  font: {
+    size: emCalc(18);
+    weight: 100;
+  }
+  @media #{$small} {
+    font: {
+      size: emCalc(21);
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.m-social-tools {
+  margin-top: 1em;
+  &:after {
+    content: " "; // Older browser do not support empty content
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+  }
+}
+
+.m-social-tools-item {
+  float: left;
+  margin-right: 1em;
+  font-size: emCalc(12);
+  line-height: 21px;
+  &:last-child {
+    margin-right: 0;
+  }
+}

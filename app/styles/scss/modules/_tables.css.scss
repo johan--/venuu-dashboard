@@ -1,0 +1,16 @@
+table {
+  width: 100%;
+  border-radius: $global-radius;
+  border-spacing: 0;
+  font-size: emCalc(15);
+  // Make the bottom of table rounded (global radius for table is not
+  // not enough to round last row if it has background color)
+  tr:last-child {
+    td:first-child {
+      @include border-bottom-left-radius($global-radius);
+    }
+    td:last-child {
+      @include border-bottom-right-radius($global-radius);
+    }
+  }
+}

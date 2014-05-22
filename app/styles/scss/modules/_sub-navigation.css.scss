@@ -1,0 +1,25 @@
+.m-sub-navigation {
+  text-align: center;
+  @media #{$tiny} {
+    text-align: left;
+  }
+  ul {
+    list-style-type: none;
+  }
+  li a {
+    display: block;
+    line-height: emCalc(42);
+    @include single-transition(padding, .1s, ease-out);
+    @include border-radius($global-radius);
+    &.is-current {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    @media #{$small} {
+      &:hover {
+        padding-left: 1em;
+        background: $bg-color;
+      }
+    }
+  }
+}

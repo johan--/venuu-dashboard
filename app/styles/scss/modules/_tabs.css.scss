@@ -1,0 +1,118 @@
+// Styles for section tab module
+
+.m-tabs-container {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.m-tabs-bg {
+  background: $bg-color;
+  height: 55px;
+  border: 1px solid $border-color;
+  border-bottom: 0;
+  @include border-top-radius($global-radius);
+  position: absolute;
+  width: 100%;
+}
+
+.section-container {
+  // General border radius to sections
+  @include border-radius($global-radius);
+  // Styles for sections (tabs that automatically convert to sections on
+  // smaller screens)
+  &.auto section {
+    .content {
+      border-top: 0;
+      @media #{$small} {
+        border-top: 1px solid $border-color;
+      }
+    }
+    &:first-child .title {
+      @include border-top-radius($global-radius);
+      margin-left: 0;
+      @media #{$small} {
+        margin-left: 10px;
+      }
+    }
+    // Styles for last title and its content
+    &:last-child {
+      .title {
+        @include border-bottom-radius($global-radius);
+        // Remove border bottom radius from tabs (only needed for sections)
+        @media #{$small} {
+          @include border-bottom-radius(0);
+        }
+      }
+      .content {
+        @include border-bottom-radius($global-radius);
+      }
+      // Remove border radius from active title
+      &.active .title {
+        @include border-bottom-radius(0);
+      }
+    }
+  }
+
+  // Styles for tabs (for those tabs that stay as tabs on smaller screens)
+  &.tabs section {
+    .content {
+      @include border-bottom-radius($global-radius);
+    }
+    &:first-child .title {
+      @include border-top-radius($global-radius);
+      margin-left: 0;
+      @media #{$small} {
+        margin-left: 10px;
+      }
+    }
+    &:last-child .title {
+      @include border-top-radius($global-radius);
+      margin-left: 10px;
+      @media #{$small} {
+        margin-left: 20px;
+      }
+    }
+  }
+  section {
+    // Define icon styles
+    .title i {
+      color: #333;
+      // Little space between icon and title text
+      padding-right: 4px;
+    }
+    // Make active icon color different
+    &.active {
+      .title {
+        border-bottom: 0;
+        i {
+          color: $primary-color-effect;
+        }
+      }
+    }
+    @media #{$small} {
+      // Section tab spacing configuration
+      // http://kimenye.tumblr.com/post/52708672540/styling-zurb-foundation-tabs
+      // "We need to add a margin-left since the tabs are positioned using the left
+      // attribute. Why the Zurb guys did it this way is a bit beyond me."
+      &:nth-child(2) .title {
+         margin-left: 20px;
+      }
+      &:nth-child(3) .title {
+         margin-left: 30px;
+      }
+      &:nth-child(4) .title {
+         margin-left: 40px;
+      }
+      &:nth-child(5) .title {
+         margin-left: 50px;
+      }
+      // Border-radius styles from small screens up
+      .content {
+        @include border-bottom-radius($global-radius);
+      }
+      .title {
+        @include border-top-radius($global-radius);
+      }
+    }
+  }
+}

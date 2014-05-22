@@ -1,0 +1,53 @@
+.m-navbar {
+  background: $primary-color;
+  a {
+    color: white;
+  }
+  // Logo positioning
+  .name a {
+    margin: 9px 0 0 20px;
+    float: left;
+  }
+  .top-bar-section a {
+    text-align: center;
+    // This hover fix is necessary because there is a bug in
+    // Foundation between versions 4.3.1 and 4.3.2
+    &:hover {
+      background-color: $topbar-link-bg-hover;
+    }
+    &.button {
+      margin-top: 3px;
+      height: auto;
+      padding: 0 30px;
+      // All !importants because of Foundation specificity problems
+      background-image: $transparent-gradient !important;
+      &:hover, &:focus {
+        background-image: $transparent-gradient-hover !important;
+      }
+      &:active {
+        background-image: $transparent-gradient-inverse !important;
+      }
+    }
+  }
+  .expanded {
+    a:not(.button) {
+      padding-left: 0;
+    }
+    .has-form {
+      padding-top: 10px;
+    .button {
+      padding: 16px 0;
+    }
+    }
+  }
+  .menu-icon a {
+    // Use !important because Foundation is overly specific
+    text-indent: -60px !important;
+  }
+  @media #{$topbar-media-query} {
+    .button {
+      line-height: emCalc(40) !important;
+      margin-top: 11px;
+    }
+  }
+}

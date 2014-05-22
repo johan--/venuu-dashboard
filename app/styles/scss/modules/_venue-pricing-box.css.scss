@@ -1,0 +1,72 @@
+.m-venue-price-box {
+  @include grid-row(nest-collapse);
+  text-align: center;
+  border-bottom: 1px solid $border-color;
+  @include border-top-radius($global-radius);
+}
+
+.m-venue-price-box-primary {
+  @include grid-column(7);
+  padding-top: 2.2em;
+  h2 {
+    font-size: emCalc(14);
+  }
+  h3 {
+    font-size: emCalc(36);
+    color: $primary-color;
+  }
+}
+
+.m-venue-price-box-secondary {
+  @include grid-column(5);
+  background-color: $bg-color;
+  min-height: emCalc(130);
+  padding: 1em 0 .75em;
+  border-left: 1px solid $border-color;
+  h2 {
+    font-size: emCalc(12);
+    color: $basetext-color-lighter;
+  }
+}
+
+.m-venue-contact-box {
+  padding: 1.25em;
+  *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Styles for fixed price request box on mobile
+.m-venue-contact-box-fixed {
+  position: fixed;
+  // Position to bottom
+  bottom: 0;
+  width: 100%;
+  padding: emCalc(6);
+  background-color: white;
+  border-top: 1px solid $border-color;
+  // Make sure the button area floats over elements. Foundation uses z-indexes
+  // of 2 on prefix and postfix buttons, so lets make sure we're above those.
+  z-index: 5;
+  button {
+    // Remove button's normal bottom margin
+    margin-bottom: 0;
+  }
+}
+
+.m-description-text {
+  font-style: italic;
+  padding-bottom: 5px;
+  font-size: emCalc(12);
+  color: $basetext-color-lighter;
+}
+
+.m-venue-rent-secondary {
+  margin-bottom: 1em;
+  &:last-child {
+    margin-bottom: 0;
+    h3 {
+      margin-bottom: 0;
+    }
+  }
+}

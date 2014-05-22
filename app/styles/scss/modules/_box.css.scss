@@ -1,0 +1,71 @@
+.m-box {
+  @include border-radius($global-radius);
+  *:last-child {
+    margin-bottom: 0;
+  }
+  .button.small {
+    margin-bottom: 8px;
+    margin-right: 8px;
+    i {
+      // Separate icons from text
+      margin-right: .25em;
+    }
+  }
+  &:first-child .m-box-title {
+    @include border-top-radius($global-radius);
+  }
+  &:last-child .m-box-content {
+    @include border-bottom-radius($global-radius);
+    border-bottom: 0;
+  }
+  // Remove margin from buttons within checkbox list
+  .m-checkbox-list .button {
+    margin-bottom: 0;
+  }
+}
+
+.m-box-group {
+  @include border-radius($global-radius);
+  border: 1px solid $border-color;
+  margin-bottom: 1.25em;
+  .m-box {
+    border: none;
+    margin-bottom: 0;
+  }
+}
+
+.m-box-title {
+  @include gradient-bg;
+  @include box-shadow(#fff 0 1px 0 inset);
+  border-bottom: 1px solid $border-color;
+  font-size: .8em;
+  font-weight: bold;
+  padding: .85em;
+  min-height: 2.4em;
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+  a {
+    font-size: 0.75em;
+    line-height: 1.4em;
+  }
+  i {
+    color: $primary-color-effect;
+    margin-right: .5em;
+  }
+}
+
+.m-box-content {
+  padding: 1em;
+  border-bottom: 1px solid $border-color;
+  h3 {
+    margin: 0;
+  }
+  &.buttongroup {
+    padding-bottom: 8px;
+  }
+}

@@ -1,0 +1,29 @@
+// Styles for description text next to actual label
+label span {
+  font-size: 11px;
+  color: $basetext-color-lightest;
+}
+
+select {
+  -webkit-appearance: menulist-button;
+  line-height: 32px;
+  height: 32px;
+  padding: 8px;
+  border: 1px solid $basetext-color-lightest;
+  cursor: pointer;
+  // After this iPhone won't zoom into select-elements. More info:
+  // http://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
+  font-size: 16px;
+  @media #{$small} {
+    font-size: 11px;
+  }
+}
+
+.m-description-field {
+  height: emCalc(120);
+}
+
+// Checkbox styling
+.m-opt-in-checkbox {
+  padding: .8em 0;
+}

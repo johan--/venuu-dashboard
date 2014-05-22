@@ -1,0 +1,57 @@
+// -----------------------------------------------------------------------------
+// Custom colors
+// -----------------------------------------------------------------------------
+
+// Text
+
+$basetext-color: #333; // Basic heading color
+$basetext-color-light: lighten($basetext-color, 20%); // Lighter text
+$basetext-color-lighter: lighten($basetext-color, 35%); // Lighter text
+$basetext-color-lightest: lighten($basetext-color, 50%); // Lightest text
+$basetext-color-dark: darken($basetext-color, 10%); // Darker text
+
+// Border and background
+
+$border-color: #d4d4d4; // Medium grey
+$bg-color: #f9f9f9; // Very light grey
+
+// -----------------------------------------------------------------------------
+// Foundation Color Variables
+// -----------------------------------------------------------------------------
+
+$primary-color: #1abc9c; // Venuu green
+$secondary-color: #f6f6f6; // Light grey
+// $alert-color: #c60f13;
+$success-color: #ffae23; // Venuu orange
+
+// -----------------------------------------------------------------------------
+// Custom color variables dependent upon foundation colors
+// -----------------------------------------------------------------------------
+
+$primary-color-effect: darken($primary-color, 5%);
+$secondary-color-effect: lighten($secondary-color, 8%);
+$success-color-effect: darken($success-color, 5%);
+$success-color-effect-strong: darken($success-color, 15%);
+
+// -----------------------------------------------------------------------------
+// Gradients
+// -----------------------------------------------------------------------------
+
+// Basic gradient (defaults to gray gradient, but can be used with any color)
+
+@mixin gradient-bg($colorStart: #fbfbfb, $colorEnd: #ededed) {
+  // Define fallback background color
+  background-color: $colorEnd; 
+  // For modern browsers
+  @include background-image(linear-gradient(to bottom, $colorStart, $colorEnd));
+  // For IE9+
+  background-image: -ms-linear-gradient(to bottom, $colorStart, $colorEnd);
+  // For older IE
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$colorStart}', endColorstr='#{$colorEnd}');
+}
+
+// Custom transparent gradient
+
+$transparent-gradient: linear-gradient(rgba(white,.25), rgba(white,0));
+$transparent-gradient-hover: linear-gradient(rgba(white,.35), rgba(white,.1));
+$transparent-gradient-inverse: linear-gradient(rgba(black,.15), rgba(black,.05));

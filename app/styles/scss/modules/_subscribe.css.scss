@@ -1,0 +1,25 @@
+.m-subscribe {
+  input {
+    height: 3em;
+  }
+  input[type="submit"] {
+    @include border-left-radius(0);
+  }
+  input[type="email"] {
+    @include border-right-radius(0);
+    border: 0;
+  }
+}
+
+.m-subscribe-campaign {
+  input {
+    height: emCalc(48);
+  }
+  .field {
+    margin-top: 2em;
+    border: 0;
+  }
+  .button {
+    margin-top: 0;
+  }
+}

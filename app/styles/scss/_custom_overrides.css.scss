@@ -1,0 +1,55 @@
+@import "compass/typography/text/replacement";
+@import "compass/css3";
+
+.button {
+  @include border-radius($global-radius);
+}
+
+.ui-helper-hidden-accessible {
+  display: none;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea {
+  @include border-radius($global-radius);
+  &:focus {
+    background: #fff;
+    @include box-shadow(0 0 3px $primary-color);
+    border: 1px solid $primary-color;
+  }
+}
+
+.reveal-modal { // Add border radius to modal
+  @include border-radius($global-radius);
+}
+
+// General error style for forms
+.error {
+  input, textarea {
+    @include border-bottom-radius(0);
+  }
+  small {
+    @include border-bottom-radius($global-radius);
+  }
+}
+
+// There were no variables for these in Foundation
+.custom.dropdown {
+  @include border-radius($global-radius);
+  .current {
+    cursor: pointer !important;
+  }
+}
+
