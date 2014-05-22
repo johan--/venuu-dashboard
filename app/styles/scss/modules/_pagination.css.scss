@@ -1,0 +1,17 @@
+ul.pagination  {
+  float: right;
+  margin: 1em 0;
+  height: auto;
+  li:not(.unavailable) {
+    height: auto;
+    a {
+      border: 1px solid $border-color;
+      padding: 0.5em 1em;
+      @include border-radius($global-radius);
+      margin-bottom: 1em;
+    }
+    &.current a {
+      border: 1px solid $primary-color;
+    }
+  }
+}

@@ -1,0 +1,92 @@
+// General footer container styles
+.m-footer-container {
+  @include grid-row(nest-collapse);
+  padding: 2em 0;
+  text-align: center;
+}
+
+// Logo and social links
+.m-brand-and-social {
+  @include grid-column(12);
+  @media #{$small} {
+    @include grid-column(2);
+    // Keep stuff on the left on desktop
+    text-align: left;
+  }
+  .m-logo {
+    margin: 0 auto;
+    @media #{$small} {
+      margin: 0;
+    }
+  }
+  // Change social icons' color
+  a {
+    color: white;
+  }
+  p {
+    color: white;
+    font-size: .75em;
+  }
+  .m-social-links {
+    // Separate social icons from logo
+    margin: 1em 0;
+    // Remove margin from first social icon to clear empty area left to icon
+    a:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+// Footer links
+.m-footer-links {
+  @include grid-column(12);
+  margin-top: 1em;
+  color: white;
+  @media #{$small} {
+    margin-top: 0;
+    text-align: left;
+    @include grid-column(10);
+  }
+  ul {
+    list-style-type: none;
+  }
+  li {
+    font-weight: 100;
+    &:first-child {
+      font-weight: 600;
+      line-height: 2;
+      font-size: 1em;
+    }
+    a {
+      color: white;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.m-footer-list {
+  @include grid-column(12);
+  @media #{$small} {
+    @include grid-column(3);
+  }
+}
+.m-footer-list-expanded {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// Adjust grid properly when logged in
+.is-logged-in .m-footer-list {
+  @media #{$small} {
+    @include grid-column(4);
+  }
+}
+
+.m-footer-engagement {
+  padding: 1.5em 0 .5em;
+  h4, p {
+    color: white;
+  }
+}

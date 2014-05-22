@@ -1,0 +1,18 @@
+.m-news-articles {
+  li {
+    line-height: emCalc(60);
+    padding-bottom: 0;
+  }
+  a {
+    text-align: center;
+    opacity: .5;
+    margin-top: 2em;
+    display: block;
+    &:hover {
+      opacity: 1;
+    }
+    @media #{$small} {
+      margin-top: 0;
+    }
+  }
+}

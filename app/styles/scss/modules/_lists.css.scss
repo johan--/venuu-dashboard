@@ -1,0 +1,23 @@
+// Created with the help of this article:
+// http://www.sitepoint.com/use-webfont-icons-bullet-points-html5-lists/
+.m-success-list {
+  font-size: emCalc(12);
+  list-style-type: none;
+  margin-left: 2em;
+  li {
+    text-indent: -2em;
+    color: $basetext-color-lighter;
+    // Put the Fontawesome icon before all li-elements
+    &:before {
+    font-family: 'FontAwesome';
+    content: "\f00c";
+    color: $primary-color-effect;
+    float: left;
+    width: 2em;
+    }
+  }
+}
+
+.m-list-indent {
+  padding-left: emCalc(20);
+}

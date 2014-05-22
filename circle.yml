@@ -21,9 +21,9 @@ machine:
 dependencies:
   post:
     - npm install -g grunt-cli
-    - gem install sass
     - npm install -g bower
     - bower install
+    - gem install compass
 
 ## Running tests
 test:

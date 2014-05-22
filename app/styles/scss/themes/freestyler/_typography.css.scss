@@ -1,0 +1,139 @@
+// -----------------------------------------------------------------------------
+// Fonts used everywhere
+// -----------------------------------------------------------------------------
+
+$primary-font-family: "Open Sans";
+$secondary-font-family: "Montserrat";
+$monospace-font-family: Consolas, 'Liberation Mono', Courier, monospace;
+
+// -----------------------------------------------------------------------------
+// Foundation Typography Variables
+// -----------------------------------------------------------------------------
+
+$body-font-color: #333;
+$body-font-family: $primary-font-family;
+// $body-font-weight: normal;
+// $body-font-style: normal;
+
+// Font-smoothing
+
+// $font-smoothing: antialiased;
+
+// Text direction settings
+
+// $text-direction: ltr;
+
+// Control header font styles
+
+$header-font-family: $secondary-font-family;
+$header-font-weight: bold;
+// $header-font-style: normal;
+$header-font-color: $basetext-color;
+// $header-line-height: 1.4;
+// $header-top-margin: .2em;
+// $header-bottom-margin: .5em;
+// $header-text-rendering: optimizeLegibility;
+
+// Control header font sizes
+
+// $h1-font-size: emCalc(44);
+// $h2-font-size: emCalc(37);
+// $h3-font-size: emCalc(27);
+// $h4-font-size: emCalc(23);
+// $h5-font-size: emCalc(18);
+// $h6-font-size: 1em;
+
+// Control how subheaders are styled.
+
+// $subheader-line-height: 1.4;
+// $subheader-font-color: lighten($header-font-color, 30%);
+$subheader-font-weight: lighter;
+// $subheader-top-margin: .2em;
+// $subheader-bottom-margin: .5em;
+
+// A general <small> styling
+
+$small-font-size: 75%;
+$small-font-color: lighten($header-font-color, 25%);
+
+
+// Style paragraphs
+
+// $paragraph-font-family: inherit;
+// $paragraph-font-weight: normal;
+$paragraph-font-size: emCalc(13);
+// $paragraph-line-height: 1.6;
+// $paragraph-margin-bottom: emCalc(20);
+// $paragraph-aside-font-size: emCalc(14);
+// $paragraph-aside-line-height: 1.35;
+// $paragraph-aside-font-style: italic;
+// $paragraph-text-rendering: optimizeLegibility;
+
+// Style <code> tags
+
+// $code-color: darken($alert-color, 15%);
+$code-font-family: $monospace-font-family;
+// $code-font-weight: bold;
+
+// Style anchors
+
+// $anchor-text-decoration: none;
+// $anchor-font-color: $primary-color;
+// $anchor-font-color-hover: darken($primary-color, 5%);
+
+// Style the <hr> element
+
+// $hr-border-width: 1px;
+// $hr-border-style: solid;
+// $hr-border-color: #ddd;
+// $hr-margin: emCalc(20);
+
+// Style lists
+
+// $list-style-position: outside;
+// $list-side-margin: 0;
+// $list-nested-margin: emCalc(20);
+// $definition-list-header-weight: bold;
+// $definition-list-header-margin-bottom: .3em;
+// $definition-list-margin-bottom: emCalc(12);
+
+// Style blockquotes
+
+// $blockquote-font-color: lighten($header-font-color, 30%);
+// $blockquote-padding: emCalc(9, 20, 0, 19);
+// $blockquote-border: 1px solid #ddd;
+// $blockquote-cite-font-size: emCalc(13);
+// $blockquote-cite-font-color: lighten($header-font-color, 20%);
+// $blockquote-cite-link-color: $blockquote-cite-font-color;
+
+// Acronym styles
+
+// $acronym-underline: 1px dotted #ddd;
+
+// Control padding and margin
+
+// $microformat-padding: emCalc(10, 12);
+// $microformat-margin: emCalc(0, 0, 20, 0);
+
+// Control the border styles
+
+// $microformat-border-width: 1px;
+// $microformat-border-style: solid;
+// $microformat-border-color: #ddd;
+
+// Control full name font styles
+
+// $microformat-fullname-font-weight: bold;
+// $microformat-fullname-font-size: emCalc(15);
+
+// Control the summary font styles
+
+// $microformat-summary-font-weight: bold;
+
+// Control abbr padding
+// $microformat-abbr-padding: emCalc(0, 1);
+
+// Control abbr font styles
+
+// $microformat-abbr-font-weight: bold;
+// $microformat-abbr-font-decoration: none;

@@ -1,0 +1,74 @@
+// Control how buttons feel
+button, .button:not(.disabled), .m-bar-button {
+  // Could be done better with outline.js, but for now we assume that the
+  // majority of our users use either mouse or touch screen to navigate
+  // our site.
+  outline: none;
+  // For some reason Foundation global button radius only affects .button-class,
+  // not button-element. So let's give the element some radius too.
+  @include border-radius($global-radius);
+  background-color: $primary-color;
+  background-image: $transparent-gradient;
+  @include box-shadow(rgba(black, .18) 0 1px 2px, rgba(white, .4) 0 1px 0 inset);
+  text-shadow: 0 -1px 0 rgba(black, .2);
+  // Make sure that links within button-element are white
+  a {
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+  &:hover, &:focus {
+    background-image: $transparent-gradient-hover;
+    background-color: $primary-color;
+  }
+  // Bg-color has to be defined for hover and focus too, or else Foundation
+  // will override these with its own hover and focus styles
+  &.success, &.success:hover, &.success:focus {
+    background-color: $success-color;
+  }
+  &.secondary, &.secondary:hover, &.secondary:focus {
+    background-color: $secondary-color;
+    @include box-shadow(none);
+    @include text-shadow(none);
+  }
+  &:active, &.is-toggled {
+    @include box-shadow(rgba(black, .15) 0 1px 1px inset);
+    background-image: $transparent-gradient-inverse;
+  }
+  &.m-button-facebook {
+    background-color: #3b5998;
+    border-color: darken(#3b5998, 5%);
+  }
+  &.m-button-twitter {
+    background-color: #4099ff;
+    border-color: darken(#4099ff, 20%);
+  }
+}
+
+// In a button group, we need to override border radii and drop shadows
+.button-group {
+  li {
+    > button, > .button, > .m-bar-button {
+      @include border-radius(0);
+      @include box-shadow(rgba(white, .4) 0 1px 0 inset);
+    }
+    &:first-child {
+      > button, > .button, > .m-bar-button {
+        @include border-left-radius($global-radius);
+      }
+    }
+    &:last-child {
+      > button, > .button, > .m-bar-button {
+        @include border-right-radius($global-radius);
+      }
+    }
+  }
+}
+
+.m-button-description {
+  opacity: .7;
+  margin-top: 1em;
+  font-size: .75em;
+  line-height: 1.6;
+}

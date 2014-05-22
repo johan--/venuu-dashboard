@@ -1,0 +1,28 @@
+.m-map {
+  width: 100%;
+  height: 300px;
+  @media #{$small} {
+    height: 400px;
+  }
+}
+.m-map img {
+  max-width: none;
+}
+
+.m-map-infowindow {
+  max-width: 200px;
+  @media #{$tiny} {
+    max-width: 300px;
+  }
+  @media #{$small} {
+    max-width: 400px;
+  }
+}
+.m-map-infowindow-text {
+  padding-bottom: 1em;
+}
+.m-map-infowindow-title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
