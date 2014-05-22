@@ -9,7 +9,7 @@
     name: DS.attr('string'),
     /*    user_group_ids: DS.hasMany('user_group'), */
     venues: DS.hasMany('venue'),
-    zipcode: DS.attr('number')
+    zipcode: DS.attr('string')
   });
 
 })();

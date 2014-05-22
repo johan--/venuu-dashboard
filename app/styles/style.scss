@@ -22,3 +22,16 @@ button#destroy-venue {
 .venue-container {
   position: relative;
 }
+
+.venue-group-link-description {
+  color: black;
+}
+
+.venue-group-venue-box {
+  overflow: hidden;
+
+  img {
+    float: left;
+    margin-right: 1em;
+  }
+}

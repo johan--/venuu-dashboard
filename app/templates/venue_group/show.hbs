@@ -1,15 +1,19 @@
 {{outlet}}
 
 <div class="m-container venue-container">
-<h3>{{this.name}}</h3>
-<p>{{this.city}}</p>
-<p>{{this.address}}</p>
+  <h3>{{this.name}}</h3>
+  <p>Osoite: {{this.address}}, {{this.zipcode}} {{this.city}}</p>
 
-<button id="destroy-venue" {{action 'destroy'}}>Poista tila</button>
-<ul>
-  {{#each this.venues}}
-    <li>{{#link-to 'venue' this}}{{this.title}}{{/link-to}}</li>
-  {{/each}}
-</ul>
-{{link-to 'Muuta kohteen tietoja' 'venue_group.edit' model}}
+  <button id="destroy-venue-group" {{action 'destroy'}}>Poista kohde</button>
+   <h4>Tilat</h4>
+    {{#each this.venues}}
+      {{#link-to 'venue' this}}
+        <div class="m-container-box-compact venue-group-venue-box">
+          <img src="http://lorempixel.com/output/city-q-c-100-100-10.jpg" width="100" height="100">
+          <p>{{this.title}}</p>
+          <p class="venue-group-link-description">{{this.description}}</p>
+        </div>
+      {{/link-to}}
+    {{/each}}
+    {{link-to 'Muuta kohteen tietoja' 'venue_group.edit' model}}
 </div>
