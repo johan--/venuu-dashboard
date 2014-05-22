@@ -9,8 +9,10 @@ var clicker = gremlins.species.clicker()
   .canClick(insideContainer);
 
 if (!('_phantom' in window)) {
-  gremlins
-    .createHorde()
-    .gremlin(clicker)
-    .unleash();
+  QUnit.done(function () {
+    gremlins
+      .createHorde()
+      .gremlin(clicker)
+      .unleash();
+  });
 }
