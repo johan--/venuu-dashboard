@@ -1,0 +1,11 @@
+// Use with .label to position label to top-right corner
+
+.m-notification-ribbon {
+  margin-right: -30px;
+  span {
+    left: -11px;
+    top: -11px;
+    font-size: 10px;
+    font-weight: normal;
+  }
+}

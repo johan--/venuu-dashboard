@@ -1,0 +1,23 @@
+.m-feedback {
+  position: fixed;
+  right: 20px;
+  bottom: 0;
+  // For some reason the feedback button goes under "Listaa tilasi button"
+  // on the footer. That's why we have to add some z-index.
+  z-index: 1;
+  a {
+    display: block;
+    color: #fff;
+    font-size: .75em;
+    padding: 1em 1.2em;
+    background-color: rgba(0,0,0,.6);
+    @include border-top-radius($global-radius);
+    &:hover {
+      background-color: rgba(0,0,0,.8);
+      i {
+        // Pink color for the icon
+        color: #db4476;
+      }
+    }
+  }
+}

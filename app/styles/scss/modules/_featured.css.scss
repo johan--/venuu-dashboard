@@ -1,0 +1,22 @@
+.m-features {
+  text-align: center;
+  h2 {
+    margin-bottom: 0;
+  }
+  p {
+    margin: 1.4em 0 2em;
+  }
+}
+
+.m-feature {
+  padding-bottom: 3em;
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+@media #{$small} {
+  .m-feature {
+    padding-bottom: 0;
+  }
+}

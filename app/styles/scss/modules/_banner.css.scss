@@ -1,0 +1,152 @@
+// General styles for the front-page banner
+.m-banner {
+  padding: 2em 1em;
+  @media #{$small} {
+    padding: 4em 0 6em;
+  }
+  // Banner image
+  background-image: image-url("index/banner-image-tiny.jpg");
+  @media #{$small} {
+    background-image: image-url("index/banner-image-small.jpg");
+  }
+  @media #{$medium} {
+    background-image: image-url("index/banner-image-medium.jpg");
+  }
+  h1, h2 {
+    color: white;
+  }
+  // Tagline
+  h1 {
+    margin-bottom: emCalc(6);
+    @media #{$small} {
+      font-size: emCalc(48);
+    }
+  }
+  // Description
+  h2 {
+    font-family: $primary-font-family;
+    font-size: 1.25em;
+    line-height: 1.3;
+    font-weight: normal;
+    margin-bottom: 1.5em;
+    @media #{$small} {
+      margin-bottom: 2em;
+    }
+  }
+}
+
+// Logo within banner
+.m-banner-logo {
+  @include hr-image("venuu_logo_large_white.png", "venuu_logo_large_white@2x.png");
+  display: block;
+  margin: 0 auto;
+}
+
+// Banner title section
+.m-banner-title {
+  text-align: center;
+  @media #{$small} {
+    margin-top: 2em;
+  }
+}
+
+// Search area
+.m-banner-search {
+  max-width: 42.5em;
+  // Center search field
+  margin: 0 auto;
+  h5 {
+    color: white;
+  }
+}
+
+// Search field
+.m-banner-search-field {
+  // The search form should have a darker background on mobile compared to the
+  // text input, as users might not notice the existence of input option
+  background-color: $bg-color;
+  white-space: nowrap;
+  // Define search field position as relative in order to position button
+  // absolutely
+  position: relative;
+  padding: .5em;
+  @include border-radius($global-radius);
+  @media #{$small} {
+    background-color: white;
+  }
+  form, input {
+    margin: 0;
+  }
+  // Location icon styling
+  i {
+    float: left;
+    line-height: 1.45;
+    padding-left: .3em;
+  }
+  // Search field text input
+  input[type="text"], input[type="text"]:focus {
+    // Font-size must be at least 16px so that mobile browsers (at least iOS)
+    // won't zoom in while typing in the field
+    font-size: 1em;
+    width: 100%;
+    height: 3.6em;
+    // Reset input field paddings and separate field from map marker icon
+    padding: 0 0 0 emCalc(12);
+    text-overflow: ellipsis;
+    @media #{$small} {
+      font-size: 1.3em;
+      // Prevent search field from jumping to another row
+      width: 80%;
+      height: 2.2em;
+      // Disable typical field properties, when not on mobile small screens
+      border: none;
+      @include box-shadow(none);
+      background: none;
+    }
+  }
+  // Search field button
+  input[type="submit"] {
+    font-size: 1.25em;
+    width: 100%;
+    // Adjust button size across browsers. Firefox doesn't take line-height into
+    // account on submit elements.
+    line-height: 1.6;
+    padding: emCalc(9);
+    // Separate button from the search field
+    margin-top: emCalc(8);
+    @media #{$small} {
+      width: auto;
+      padding: .4em 3em;
+      margin-top: 0;
+      position: absolute;
+      right: .3em;
+      top: .3em;
+    }
+  }
+}
+
+.m-banner-links {
+  margin-top: 1.6em;
+  color: white;
+  ul {
+    list-style-type: none;
+    text-align: center;
+    // Remove default bottom margin
+    margin-bottom: 0;
+  }
+  li {
+    display: inline;
+    padding-right: 1em;
+    border-right: 1px solid $primary-color;
+    margin-right: 1em;
+    &:last-child {
+      padding-right: 0;
+      border-right: 0;
+      margin-right: 0;
+    }
+  }
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+}

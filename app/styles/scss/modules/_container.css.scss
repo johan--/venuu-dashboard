@@ -1,0 +1,64 @@
+.m-container {
+  background: #fff;
+  p {
+    line-height: 1.8;
+  }
+  h3, h4 {
+    padding-bottom: emCalc(8);
+    border-bottom: 1px solid $border-color;
+  }
+  // Make paragraphs below subheadings lighter
+  h4 + p {
+    color: $basetext-color-lighter;
+  }
+  ol {
+    list-style-type: none;
+    @media #{$small} {
+      list-style-type: decimal;
+    }
+  }
+}
+
+.m-container-box {
+  padding: 1em;
+  margin-bottom: 1em;
+  @media #{$small} {
+    padding: 2em 3em;
+    border: 1px solid $border-color;
+    @include box-shadow(rgba(black, 0.15) 0 1px 3px);
+    @include border-radius($global-radius);
+  }
+  h1 {
+    margin-bottom: 1.2em;
+  }
+}
+
+.m-container-box-compact {
+  @extend .m-container-box;
+  padding: 0;
+  *:last-child {
+    margin-bottom: 0;
+  }
+  @media #{$small} {
+    padding: 1em;
+  }
+  i {
+    color: $primary-color-effect;
+  }
+}
+
+.m-container-pricing {
+  text-align: center;
+  font-size: 2em;
+  margin-top: .5em;
+  padding: .5em;
+  border: 4px solid $primary-color;
+  @include border-radius($global-radius);
+}
+
+.m-container-engage {
+  p {
+    margin: .4em 0 0 .8em;
+    font-size: 1em;
+  }
+}

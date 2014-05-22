@@ -1,0 +1,62 @@
+.rating, .m-custom-rating {
+  float: left;
+  // Position stars in the middle of baseline
+  line-height: emCalc(0);
+  // Spacing between rating stars and ratings count
+  & + span {
+    margin-left: .5em;
+    font-weight: bold;
+  }
+  i {
+    font-size: 1.3em;
+    margin-right: 0.2em;
+    color: orange;
+    &.icon-star-empty {
+      color: lightgray;
+    }
+  }
+}
+
+.m-rating {
+  margin-bottom: 1em;
+}
+
+.m-rating-summary {
+  padding-bottom: .9em;
+  overflow: auto;
+  width: 100%;
+  border-bottom: 1px solid $border-color;
+}
+
+.m-rating-content {
+  padding: .75em 0 1em;
+  border-bottom: 1px solid $border-color;
+  .rating, .m-custom-rating {
+    float: none;
+    i {
+      font-size: 1.1em;
+    }
+  }
+  p {
+    margin: .75em 0;
+    font-size: emCalc(13);
+  }
+  em {
+    font-size: emCalc(13);
+    font-style: normal;
+    font-weight: bold;
+    color: $basetext-color-light;
+  }
+}
+
+.m-rating-total {
+  float: left;
+  padding-left: emCalc(8);
+  @extend .m-subtle;
+}
+
+.m-rating-container {
+  a:last-child:not(.tiny) {
+    margin-top: 1em;
+  }
+}

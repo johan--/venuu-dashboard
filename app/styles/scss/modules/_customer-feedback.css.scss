@@ -1,0 +1,12 @@
+.m-customer-feedback {
+  text-align: center;
+  .name {
+    margin-bottom: 1.6em;
+    display: block;
+  }
+  @media #{$small} {
+    .name {
+      margin-bottom: 0;
+    }
+  }
+}

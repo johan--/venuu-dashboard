@@ -1,0 +1,5 @@
+.m-logo {
+  display: block;
+  // Use our mixin for retina images
+  @include hr-image("venuu-logo.png", "venuu-logo@2x.png");
+}
