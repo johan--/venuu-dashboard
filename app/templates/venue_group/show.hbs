@@ -4,7 +4,7 @@
   <h3>{{this.name}}</h3>
   <p>Osoite: {{this.address}}, {{this.zipcode}} {{this.city}}</p>
 
-  <button id="destroy-venue-group" {{action 'destroy'}}>Poista kohde</button>
+  <button id="destroy-venue" {{action 'destroy'}}>Poista kohde</button>
    <h4>Tilat</h4>
     {{#each this.venues}}
       {{#link-to 'venue' this}}
