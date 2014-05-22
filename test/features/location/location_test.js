@@ -55,7 +55,7 @@ test("New location can be added", function () {
 
 test("Location can be deleted", function () {
   visit('/location/1');
-  click("#destroy-venue-group");
+  click("#destroy-venue");
   andThen(function () {
     ok(find(".venue-group-venues").text().indexOf('Kongressikeskus') === -1, 'Kongressikeskus deleted!');
   });
