@@ -6,9 +6,26 @@ module('Integration: Venues', {
   }
 });
 
-test("Venue information found", function () {
-  visit("/venues/1");
+test("Venue page title found", function () {
+  visit('/venues');
   andThen(function () {
-    ok(find("h3").text().indexOf('Murphy, Douglas and Sawayn 4') > -1, 'title found!');
+    ok(find("h4").text().indexOf('Tilasi') > -1,
+      'Venues header should exist');
+  });
+});
+
+test("First venue name found", function () {
+  visit('/venues');
+  andThen(function () {
+    ok(find("li").text().indexOf('Murphy, Douglas and Sawayn 4') > -1,
+      'Venue Murphy, Douglas and Sawayn 4 should be the first venue');
+  });
+});
+
+test("First venue details found", function () {
+  visit('/venues/1');
+  andThen(function () {
+    ok(find(".m-ingress").text().indexOf('Yhden/kahden lauseen kuvaus tilasta.') > -1,
+      'Venue pitch should exist');
   });
 });
