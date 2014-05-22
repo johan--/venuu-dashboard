@@ -452,7 +452,6 @@ module.exports = function (grunt) {
     'connect:test',
     'qunit',
     'jshint',
-    'clean:css'
   ]);
 
   grunt.registerTask('build', [
