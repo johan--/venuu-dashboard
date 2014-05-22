@@ -1,13 +1,7 @@
 {
   "venues": [
     {
-      "group": {
-        "city": "Espoo",
-        "address": "Betonimiehenkuja 2",
-        "latitude": 42.546273,
-        "longitude": 67.4972316,
-        "zipcode": "02150"
-      },
+      "id": 1,
       "additional_service_category_description": "Palveluista ja puitteista tarkemmin",
       "billing_id": 1,
       "cancellation_policy": "Peruutusehdot",
@@ -50,7 +44,6 @@
       ],
       "floor_area": 64,
       "floor_map_ids": [2],
-      "id": 1,
       "organization_id": 1,
       "photo_ids": [1],
       "pitch": "Yhden/kahden lauseen kuvaus tilasta.",
@@ -69,6 +62,19 @@
       "updated_at": "2014-05-15T14:33:37+03:00",
       "venue_group": 1,
       "venue_type_ids": [1]
+    }
+  ],
+  "venue_groups": [
+    {
+      "id": 1,
+      "address": "Betonimiehenkatu 1",
+      "city": "Espoo",
+      "latitude": 41.85098,
+      "longitude": 94.0308,
+      "name": "Kongressikeskus",
+      "user_group_ids": [1],
+      "venues": [1],
+      "zipcode": "00220"
     }
   ]
 }

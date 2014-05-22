@@ -1,9 +1,9 @@
 {
   "venue_groups": [
     {
+      "id": 1,
       "address": "Betonimiehenkatu 1",
       "city": "Espoo",
-      "id": 1,
       "latitude": 41.85098,
       "longitude": 94.0308,
       "name": "Kongressikeskus",
