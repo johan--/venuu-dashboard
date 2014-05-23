@@ -18,6 +18,16 @@
         this.get('model').save()
           .then(transition)
           .catch(failure);
+      },
+      destroy: function () {
+        var self = this;
+
+        function transitionToVenueGroups() {
+          self.transitionToRoute('venue_groups');
+        }
+
+        this.get('model').destroyRecord()
+          .then(transitionToVenueGroups);
       }
     }
   });

@@ -35,7 +35,7 @@ test("First venue details can be edited", function () {
   fillIn('#title', 'Tuomiokirkko');
   fillIn('#pitch', 'Kaunis puukirkko');
   fillIn('#description', 'Ikävä paikka');
-  click("#venue-button");
+  click("#save");
   andThen(function () {
     ok(find("h3").text().indexOf('Tuomiokirkko') > -1,
       'Title should be "Tuomiokirkko"');
@@ -51,7 +51,7 @@ test("New venue can be added", function () {
   fillIn('#title', 'Gurula');
   fillIn('#pitch', 'Panini-mies');
   fillIn('#description', 'Mukavat sohvat');
-  click("#venue-button");
+  click("#save");
   andThen(function () {
     ok(find("h3").text().indexOf('Gurula') > -1,
       'Title should be "Tuomiokirkko"');
@@ -63,8 +63,8 @@ test("New venue can be added", function () {
 });
 
 test("Venue can be deleted", function () {
-  visit('/venues/1');
-  click("#destroy-venue");
+  visit('/venues/1/edit');
+  click("#destroy");
   andThen(function () {
     ok(find("li").text().indexOf('Murphy, Douglas and Sawayn 4') === -1,
       'Murphy, Douglas and Sawayn 4 deleted');

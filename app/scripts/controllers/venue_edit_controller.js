@@ -17,6 +17,16 @@
         this.get('model').save()
           .then(transition)
           .catch(failure);
+      },
+      destroy: function () {
+        var self = this;
+
+        function transitionToVenues() {
+          self.transitionToRoute('venues');
+        }
+
+        this.get('model').destroyRecord()
+          .then(transitionToVenues);
       }
     }
   });

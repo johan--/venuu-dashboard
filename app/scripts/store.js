@@ -10,7 +10,7 @@
    * updateRecord -> Catch 404 error
    */
 
-  var fakeId = 123;
+  var fakeId = 2;
 
   /** Return a mock function that calls super method and catches any error. */
   function mock(method) {

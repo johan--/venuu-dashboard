@@ -2,13 +2,13 @@
 
 <div class="m-container venue-container">
   <h3>{{this.title}}</h3>
-  <button id="destroy-venue" {{action 'destroy'}}>Poista tila</button>
 
-  <p class="m-ingress">{{this.pitch}}</p>
+  <p class="m-ingress">
+    <img {{bind-attr src="this.imageSrc"}}>
+    {{this.pitch}}
+  </p>
 
   <p>{{this.description}}</p>
 
-  <p>{{this.venueGroup.name}}</p>
-
-  {{link-to 'Muuta tietoja' 'venue.edit' this}}
+  {{link-to 'Muokkaa tilaa' 'venue.edit' this}}
 </div>
