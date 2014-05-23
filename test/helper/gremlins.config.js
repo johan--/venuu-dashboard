@@ -8,7 +8,7 @@ var clicker = gremlins.species.clicker()
   .clickTypes(['click'])
   .canClick(insideContainer);
 
-if (!('_phantom' in window)) {
+if (!('_phantom' in window) && !location.search.match(/testNumber/)) {
   QUnit.done(function () {
     gremlins
       .createHorde()

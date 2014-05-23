@@ -423,7 +423,7 @@ module.exports = function (grunt) {
         'copy:fixtures',
         'connect:test',
         'open:test',
-        'watch:test',
+        'watch',
       ]);
     }
 
