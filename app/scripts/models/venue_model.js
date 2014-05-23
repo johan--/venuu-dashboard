@@ -40,7 +40,11 @@
     slug: DS.attr('string'),
     title: DS.attr('string'),
     updatedAt: DS.attr('date'),
-    venueGroup: DS.belongsTo('venue_group')
-    //venue_type_ids: DS.hasMany('venue_type')
+    venueGroup: DS.belongsTo('venue_group'),
+    //venue_type_ids: DS.hasMany('venue_type'),
+    imageSrc: function () {
+      return 'http://lorempixel.com/output/city-q-c-100-100-' +
+        this.get('id') + '.jpg';
+    }.property('id')
   });
 })();

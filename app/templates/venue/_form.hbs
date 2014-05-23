@@ -1,4 +1,4 @@
-<label for="title">Nimi</label>
+<div class="edit-form">
 {{input value=title id="title"}}
 
 <label for="pitch">Myyntipuhe</label>
@@ -7,4 +7,6 @@
 <label for="description">Kuvaus</label>
 {{textarea value=description id="description" rows="6"}}
 <br>
-<button id="venue-button" {{action 'save'}} class="success">Tallenna</button>
+  <button id="save-button" {{action 'save'}} class="success">Tallenna</button>
+  <button id="destroy-button" {{action 'destroy'}}>Poista tila</button>
+</div>
