@@ -3,8 +3,6 @@
 <div class="m-container venue-container">
   <h3>{{this.name}}</h3>
   <p>Osoite: {{this.address}}, {{this.zipcode}} {{this.city}}</p>
-
-  <button id="destroy-venue" {{action 'destroy'}}>Poista kohde</button>
     <h3>Tilat <p class="venue-amount">{{this.venues.length}} kpl</p></h3>
     {{#each this.venues}}
       {{#link-to 'venue' this}}
