@@ -32,7 +32,7 @@ test("First location details can be edited", function () {
   fillIn('#name', 'Tuomiokirkko');
   fillIn('#city', 'Helsinki');
   fillIn('#address', 'Senaatintori');
-  click("#venue-group-button");
+  click("#save");
   andThen(function () {
     ok(find("h3").text().indexOf('Tuomiokirkko') > -1, 'New name not found!');
     ok(find("p").text().indexOf('Senaatintori') > -1, 'New address not found!');
@@ -45,7 +45,7 @@ test("New location can be added", function () {
   fillIn('#name', 'Chemicum');
   fillIn('#city', 'Helsinki');
   fillIn('#address', 'A.I. Virtasen aukio 1');
-  click("#venue-group-button");
+  click("#save");
   andThen(function () {
     ok(find("h3").text().indexOf('Chemicum') > -1, 'New name not found!');
     ok(find("p").text().indexOf('A.I. Virtasen aukio 1') > -1, 'New address not found!');
@@ -54,8 +54,8 @@ test("New location can be added", function () {
 });
 
 test("Location can be deleted", function () {
-  visit('/location/1');
-  click("#destroy-venue");
+  visit('/location/1/edit');
+  click("#destroy");
   andThen(function () {
     ok(find(".venue-group-venues").text().indexOf('Kongressikeskus') === -1, 'Kongressikeskus deleted!');
   });
