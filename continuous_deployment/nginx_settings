@@ -1,0 +1,17 @@
+server {
+	root /srv/ohtu;
+	index index.html index.htm;
+
+	location / {
+		try_files $uri $uri/ /index.html;
+	}
+
+	location ~ \.php$ {
+		root /srv/hook;
+		fastcgi_split_path_info ^(.+\.php)(/.+)$;
+
+		# With php5-fpm:
+		fastcgi_index index.php;
+		include fastcgi_params;
+	}
+}
