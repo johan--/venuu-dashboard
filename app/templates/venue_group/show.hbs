@@ -2,8 +2,8 @@
 
 <div class="m-container">
   <h3>{{this.name}}</h3>
-  <p>Osoite: {{this.address}}, {{this.zipcode}} {{this.city}}</p>
-    <h3>Tilat <small>{{this.venues.length}} kpl</small></h3>
+  <p>{{hasAddress this}}</p>
+  <h3>Tilat <small>{{this.venues.length}} kpl</small></h3>
     {{#each this.venues}}
       {{#link-to 'venue' this}}
         <div class="m-venue-box">

@@ -7,6 +7,7 @@
 
   /* Order and include as you please. */
   require('scripts/controllers/*');
+  require('scripts/helpers/*');
   require('scripts/store');
   require('scripts/models/*');
   require('scripts/routes/*');

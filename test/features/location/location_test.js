@@ -31,12 +31,14 @@ test("First location details can be edited", function () {
   visit('/location/1/edit');
   fillIn('#name', 'Tuomiokirkko');
   fillIn('#city', 'Helsinki');
+  fillIn('#zipcode', '00110');
   fillIn('#address', 'Senaatintori');
   click("#save");
   andThen(function () {
-    ok(find("h3").text().indexOf('Tuomiokirkko') > -1, 'New name not found!');
-    ok(find("p").text().indexOf('Senaatintori') > -1, 'New address not found!');
-    ok(find("p").text().indexOf('Helsinki') > -1, 'New city not found!');
+    ok(find("h3").text().indexOf('Tuomiokirkko') > -1, 'New name found!');
+    ok(find("p").text().indexOf('Senaatintori') > -1, 'New address found!');
+    ok(find("p").text().indexOf('00110') > -1, 'New zipcode found!');
+    ok(find("p").text().indexOf('Helsinki') > -1, 'New city found!');
   });
 });
 
@@ -44,12 +46,14 @@ test("New location can be added", function () {
   visit('/new');
   fillIn('#name', 'Chemicum');
   fillIn('#city', 'Helsinki');
+  fillIn('#zipcode', '00550');
   fillIn('#address', 'A.I. Virtasen aukio 1');
   click("#save");
   andThen(function () {
-    ok(find("h3").text().indexOf('Chemicum') > -1, 'New name not found!');
-    ok(find("p").text().indexOf('A.I. Virtasen aukio 1') > -1, 'New address not found!');
-    ok(find("p").text().indexOf('Helsinki') > -1, 'New city not found!');
+    ok(find("h3").text().indexOf('Chemicum') > -1, 'New name found!');
+    ok(find("p").text().indexOf('00550') > -1, 'New zipcode found!');
+    ok(find("p").text().indexOf('A.I. Virtasen aukio 1') > -1, 'New address found!');
+    ok(find("p").text().indexOf('Helsinki') > -1, 'New city found!');
   });
 });
 
