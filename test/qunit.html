@@ -15,21 +15,21 @@
     <link rel="stylesheet" href="qunit.css">
     <!-- build:js(.tmp) scripts/templates.js -->
     <script src="/scripts/compiled-templates.js"></script>
-    <!-- endbuild -->
-
-    <!-- build:js(.tmp) scripts/main.js -->
     <script src="/scripts/combined-scripts.js"></script>
   <!-- Load local QUnit. -->
   <link rel="stylesheet" href="vendor/qunit-1.12.0.css" media="screen">
   <script src="vendor/qunit-1.12.0.js"></script>
+  <script src="helper/gremlins.min.js"></script>
   <script>
     VenuuDashboard.rootElement = '#ember-testing';
     VenuuDashboard.setupForTesting();
     VenuuDashboard.injectTestHelpers();
+    QUnit.config.reorder = false;
   </script>
   <!-- Load local lib and tests. -->
   <script src="features/venue/venue_test.js"></script>
   <script src="features/location/location_test.js"></script>
+  <script src="features/gremlins/gremlins_test.js"></script>
 </head>
 <body>
   <div id="qunit"></div>
@@ -37,7 +37,5 @@
   <div id="ember-testing-container">
     <div id="ember-testing"></div>
   </div>
-  <script src="helper/gremlins.min.js"></script>
-  <script src="helper/gremlins.config.js"></script>
 </body>
 </html>

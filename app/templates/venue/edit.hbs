@@ -1,5 +1,8 @@
 <div class="m-container-box-compact">
   <h4>Päivitä tiedot</h4>
 
-  {{partial "venue/form"}}
+  <div class="edit-form">
+    {{partial "venue/form"}}
+    <button id="destroy" {{action 'destroy'}}>Poista tila</button>
+  </div>
 </div>

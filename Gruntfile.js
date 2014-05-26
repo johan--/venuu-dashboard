@@ -121,6 +121,7 @@ module.exports = function (grunt) {
     qunit: {
       urls: {
         options: {
+          timeout: 30000,
           urls: [
             'http://localhost:<%= connect.options.port %>/test/qunit.html'
           ]
@@ -182,7 +183,7 @@ module.exports = function (grunt) {
     },*/
     compass: {
       dist: {
-        options: {              // Target options
+        options: { // Target options
           config: 'compass_config.rb',
           imagesDir: '<%= yeoman.app %>/images/',
           sassDir: '<%= yeoman.app %>/styles/scss/',
