@@ -34,6 +34,9 @@
     "find": true,
     "visit": true,
     "fillIn": true,
-    "click": true
+    "click": true,
+    "moduleFor": true,
+    "moduleForComponent": true,
+    "moduleForModel": true
   }
 }
