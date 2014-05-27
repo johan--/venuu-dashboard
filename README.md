@@ -2,15 +2,17 @@
 
 ## Getting started
 
-If you do not have ruby, node.js and npm, check Production Setup for instructions.
+If you do not have ruby, node.js and npm, check Production Setup for instructions. If you source rbenv somewhere else than ~/.bashrc, please source that instead.
 
-  * `git clone git@github.com:venuu/venuu-dashboard.git`
-  * `npm install`
-  * `npm install -g grunt-cli bower `
-  * `gem update --system && gem install compass`
-  * `source ~/.bashrc` (or where ever you add rbenv to path)
-  * `bower install`
-  * `grunt serve`
+```
+git clone git@github.com:venuu/venuu-dashboard.git
+npm install
+npm install -g grunt-cli bower 
+gem update --system && gem install compass
+source ~/.bashrc
+bower install
+grunt serve
+```
 
 Detailed configuration can be found on [Google Drive](https://docs.google.com/document/d/1ptHqRnnKQh2z2oObZt5Df3rILxeJ84YM_uBMEtYwNeU).
 
