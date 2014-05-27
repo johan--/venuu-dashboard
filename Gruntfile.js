@@ -97,6 +97,7 @@ module.exports = function (grunt) {
       },
       test: {
         options: {
+          port: 9001,
           middleware: function (connect) {
             return [
               redirectToIndex,
@@ -123,7 +124,7 @@ module.exports = function (grunt) {
         options: {
           timeout: 30000,
           urls: [
-            'http://localhost:<%= connect.options.port %>/test/qunit.html'
+            'http://localhost:<%= connect.test.options.port %>/test/qunit.html'
           ]
         }
       }
