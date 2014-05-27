@@ -38,7 +38,7 @@ asyncTest('gremlins unleashed', function () {
     .createHorde()
     .gremlin(clicker)
     .gremlin(formFiller)
-    .before(function() {
+    .before(function () {
       console.log('Gremlins unleashed!');
     })
     .after(function () {

@@ -6,7 +6,7 @@ module('Integration: Venues', {
   }
 });
 
-test("Venue page title found", function () {
+test('Venue page title found', function () {
   visit('/venue');
   andThen(function () {
     ok(find('h4').text().indexOf('Tilasi') > -1,
@@ -15,7 +15,7 @@ test("Venue page title found", function () {
 });
 
 
-test("First venue name found", function () {
+test('First venue name found', function () {
   visit('/venue');
   andThen(function () {
     ok(find('li').text().indexOf('Murphy, Douglas and Sawayn 4') > -1,
@@ -23,48 +23,48 @@ test("First venue name found", function () {
   });
 });
 
-test("First venue details found", function () {
+test('First venue details found', function () {
   visit('/venue/1');
   andThen(function () {
-    ok(find("#pitch").val().indexOf('Yhden/kahden lauseen kuvaus tilasta.') > -1,
+    ok(find('#pitch').val().indexOf('Yhden/kahden lauseen kuvaus tilasta.') > -1,
       'Venue pitch should exist');
   });
 });
 
 
-test("First venue details can be edited", function () {
+test('First venue details can be edited', function () {
   visit('/venue/1');
   fillIn('#title', 'Tuomiokirkko');
   fillIn('#pitch', 'Kaunis puukirkko');
   fillIn('#description', 'Ikävä paikka');
   click('#save');
   andThen(function () {
-    ok(find("#title").val().indexOf('Tuomiokirkko') > -1,
+    ok(find('#title').val().indexOf('Tuomiokirkko') > -1,
       'Title should be "Tuomiokirkko"');
-    ok(find("#pitch").val().indexOf('Kaunis puukirkko') > -1,
+    ok(find('#pitch').val().indexOf('Kaunis puukirkko') > -1,
       'Pitch should be "Kaunis puukirkko"');
-    ok(find("#description").val().indexOf('Ikävä paikka') > -1,
+    ok(find('#description').val().indexOf('Ikävä paikka') > -1,
       'Description should be "Ikävä paikka"');
   });
 });
 
-test("New venue can be added", function () {
+test('New venue can be added', function () {
   visit('/venue/new');
   fillIn('#title', 'Gurula');
   fillIn('#pitch', 'Panini-mies');
   fillIn('#description', 'Mukavat sohvat');
   click('#save');
   andThen(function () {
-    ok(find("#title").val().indexOf('Gurula') > -1,
+    ok(find('#title').val().indexOf('Gurula') > -1,
       'Title should be "Tuomiokirkko"');
-    ok(find("#pitch").val().indexOf('Panini-mies') > -1,
+    ok(find('#pitch').val().indexOf('Panini-mies') > -1,
       'Pitch should be "Kaunis puukirkko"');
-    ok(find("#description").val().indexOf('Mukavat sohvat') > -1,
+    ok(find('#description').val().indexOf('Mukavat sohvat') > -1,
       'Description should be "Ikävä paikka"');
   });
 });
 
-/*test("Venue can be deleted", function () {
+/*test('Venue can be deleted', function () {
   visit('/venues/1/edit');
   click('#destroy');
   andThen(function () {
