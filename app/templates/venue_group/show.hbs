@@ -2,7 +2,7 @@
 
 <div class="m-container">
   <h3>{{this.name}}</h3>
-  <p>{{hasAddress this}}</p>
+  <p>{{address this}}</p>
   <h3>Tilat <small>{{this.venues.length}} kpl</small></h3>
     {{#each this.venues}}
       {{#link-to 'venue' this}}

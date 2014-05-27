@@ -1,4 +1,4 @@
-Ember.Handlebars.helper('hasAddress', function (venue_group) {
+Ember.Handlebars.helper('address', function (venue_group) {
   if (venue_group.get('address') && venue_group.get('zipcode') &&  venue_group.get('city')) {
     return 'Osoite: ' + venue_group.get('address') + ', ' + venue_group.get('zipcode') + ' ' +  venue_group.get('city');
   } else {
