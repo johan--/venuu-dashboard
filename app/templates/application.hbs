@@ -1,3 +1,6 @@
-{{partial "navbar"}}
-<div class="m-container">{{outlet}}</div>
-{{partial "footer"}}
+{{partial "layout/navbar"}}
+<div class="m-container">
+  <div class="row">{{partial "layout/dashboard_navbar"}}</div>
+  <div class="row">{{outlet}}</div>
+</div>
+{{partial "layout/footer"}}
