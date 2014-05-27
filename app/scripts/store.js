@@ -39,6 +39,6 @@
 
   });
 
-  VenuuDashboard.ApplicationSerializer = DS.RESTSerializer.extend();
+  VenuuDashboard.ApplicationSerializer = DS.ActiveModelSerializer.extend();
 
 })();

@@ -6,12 +6,18 @@ module('Spec: Storage', {
   }
 });
 
-test('Venue model should load fields with camelCase', function () {
+asyncTest('Venue model should load fields with camelCase', function () {
+  expect(1);
+
   var store = VenuuDashboard.__container__.lookup('store:main');
 
   Ember.run(function () {
-    store.find('venue', 1).then(function (venue) {
-      notEqual(venue.get('rentPerDay'), null, 'Rent per day should not be null');
+    store.find('venue', 1).then(function (result) {
+      start();
+      notEqual(result.get('rentPerDay'), null, 'Rent per day should not be null');
     });
   });
+
+  VenuuDashboard.reset(); //Magic fix
+
 });

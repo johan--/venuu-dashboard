@@ -3,6 +3,7 @@ module('Integration: Venues', {
     VenuuDashboard.reset();
   },
   teardown: function () { // After each test
+    VenuuDashboard.reset();
   }
 });
 

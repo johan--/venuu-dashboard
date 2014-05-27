@@ -22,8 +22,9 @@ module('Integration: Gremlins', {
 function insideContainer(element) {
   return $(element).parents('#ember-testing').length && // inside container
     !$(element).is('.m-logo') && // cannot click venuu logo
-    !$(element).parents('footer').length &&
-    !$(element).is('[href^="#"]'); // dont click footer
+    !$(element).parents('footer').length && // dont click footer
+    !$(element).is('[href^="#"]');
+
 }
 
 asyncTest('gremlins unleashed', function () {
