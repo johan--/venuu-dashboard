@@ -17,9 +17,10 @@
   "white": true,
   "laxcomma": true,
   "indent": 2,
+  "quotmark": "single",
+  "jquery": true,
   "globals": {
     "VenuuDashboard": true,
-    "jQuery": true,
     "Ember": true,
     "Handlebars": true,
     "DS": true,
@@ -37,6 +38,9 @@
     "click": true,
     "moduleFor": true,
     "moduleForComponent": true,
-    "moduleForModel": true
+    "moduleForModel": true,
+    "asyncTest": true,
+    "gremlins": true,
+    "start": true
   }
 }

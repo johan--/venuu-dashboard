@@ -25,7 +25,7 @@ function insideContainer(element) {
     !$(element).parents('footer').length; // dont click footer
 }
 
-asyncTest("gremlins unleashed", function () {
+asyncTest('gremlins unleashed', function () {
   var clicker = gremlins.species.clicker()
     .clickTypes(['click'])
     .canClick(insideContainer);
