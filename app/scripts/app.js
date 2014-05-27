@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  Ember.LOG_BINDINGS = true;
+/*  Ember.LOG_BINDINGS = true;*/
 
   var VenuuDashboard = window.VenuuDashboard = Ember.Application.create();
 

@@ -22,7 +22,8 @@ module('Integration: Gremlins', {
 function insideContainer(element) {
   return $(element).parents('#ember-testing').length && // inside container
     !$(element).is('.m-logo') && // cannot click venuu logo
-    !$(element).parents('footer').length; // dont click footer
+    !$(element).parents('footer').length &&
+    !$(element).is('[href^="#"]'); // dont click footer
 }
 
 asyncTest('gremlins unleashed', function () {
@@ -37,8 +38,11 @@ asyncTest('gremlins unleashed', function () {
     .createHorde()
     .gremlin(clicker)
     .gremlin(formFiller)
+    .before(function() {
+      console.log('Gremlins unleashed!');
+    })
     .after(function () {
-      ok(true, 'Gremlins ended');
+      ok(true, 'Gremlins died!');
       start();
     })
     .mogwai(gremlins.mogwais.gizmo().maxErrors(0))
