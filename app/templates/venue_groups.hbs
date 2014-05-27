@@ -2,7 +2,6 @@
   <div class="medium-4 column">
     <div class="m-container-box-compact">
       <h4>Kohteet</h4>
-      <button id="new-venue" class="success" {{action 'create'}}>Luo uusi kohde</button>
 
       <ul class="no-bullet venue-group-venues">
         {{#each model}}
@@ -16,6 +15,7 @@
     </div>
   </div>
   <div class="medium-8 column">
+    <button id="new-venue" class="success" {{action 'create'}}>Luo uusi kohde</button>
     {{outlet}}
   </div>
 </div>

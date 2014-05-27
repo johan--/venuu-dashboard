@@ -1,0 +1,14 @@
+.m-venue-box {
+  @extend .m-container-box-compact;
+  @include block-glowing-effect($selector:hover, $fade-time:200ms);
+  overflow: hidden;
+
+  p {
+    color: $basetext-color;
+  }
+
+  img {
+    float: left;
+    margin-right: 1em;
+  }
+}
