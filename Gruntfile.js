@@ -131,7 +131,7 @@ module.exports = function (grunt) {
     },
     open: {
       test: {
-        path: 'http://localhost:<%= connect.options.port %>/test/qunit.html'
+        path: 'http://localhost:<%= connect.test.options.port %>/test/qunit.html'
       },
       server: {
         path: 'http://localhost:<%= connect.options.port %>'

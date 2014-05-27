@@ -9,26 +9,25 @@
   VenuuDashboard.Router.map(function () {
 
     this.resource('venue_groups', {
-      path: '/'
+      path: '/venue-group'
     }, function () {
-      this.resource('venue_group', {
-        path: '/location/:venue_group_id'
-      }, function () {
-        this.route('edit');
-      });
       this.route('new');
     });
 
+    this.route('venue_group', {
+      path: '/venue-group/:venue_group_id'
+    });
+
     this.resource('venues', {
-      path: '/venues'
+      path: '/venue'
     }, function () {
-      this.resource('venue', {
-        path: '/:venue_id'
-      }, function () {
-        this.route('edit');
-      });
       this.route('new');
     });
+
+    this.route('venue', {
+      path: '/venue/:venue_id'
+    });
+
   });
 
 })();

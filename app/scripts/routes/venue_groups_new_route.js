@@ -2,11 +2,21 @@
   'use strict';
 
   VenuuDashboard.VenueGroupsNewRoute = Ember.Route.extend({
-    model: function () {
-      return this.get('store').createRecord('venue_group');
+    renderTemplate: function () {
+      this.render('venue_group/sidebar', {
+        outlet: 'sidebar'
+      });
+      this.render('venue_group/new', {
+        outlet: 'content',
+        controller: 'venueGroupEdit'
+      });
     },
-    controllerName: 'venue_group_edit',
-    templateName: 'venue_group/new'
+    setupController: function (controller, model) {
+      this._super(controller, model);
+      var venueGroup = this.get('store').createRecord('venue_group');
+      this.controllerFor('venueGroupEdit').set('model', venueGroup);
+    }
   });
 
 })();
+
