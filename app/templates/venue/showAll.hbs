@@ -1,0 +1,11 @@
+<h4>Tilasi</h4>
+<ul class="no-bullet">
+  {{#each model}}
+    {{#if this.id}}
+      <li>{{#link-to 'venue' this}}{{this.title}}{{/link-to}}</li>
+    {{else}}
+      <li class="disabled">{{this.title}}</li>
+    {{/if}}
+  {{/each}}
+</ul>
+<button id="new-venue" class="success" {{action 'create'}}>Luo uusi tila</button>

@@ -1,11 +1,20 @@
 # Venuu-dashboard [![Build Status](https://circleci.com/gh/venuu/venuu-dashboard.png?circle-token=c78cb6dacd86ddba01a411456ea2ab0bef6ce414)](https://circleci.com/gh/venuu/venuu-dashboard)
 
 ## Getting started
-  * `git clone git@github.com:venuu/venuu-dashboard.git`
-  * `npm install`
-  * `npm install -g grunt-cli bower `
-  * `bower install`
-  * `grunt serve`
+
+If you do not have ruby, node.js and npm, check Production Setup for instructions. If you source rbenv somewhere else than ~/.bashrc, please source that instead.
+
+```
+git clone git@github.com:venuu/venuu-dashboard.git
+npm install
+npm install -g grunt-cli bower 
+gem update --system && gem install compass
+source ~/.bashrc
+bower install
+grunt serve
+```
+
+Detailed configuration can be found on [Google Drive](https://docs.google.com/document/d/1ptHqRnnKQh2z2oObZt5Df3rILxeJ84YM_uBMEtYwNeU).
 
 ## Production setup
 
@@ -15,7 +24,7 @@ visudo
 www-data ALL=(ALL) NOPASSWD: /srv/hook/continuous_delivery.sh
 ```
 
-Then run following script to install all necessary software
+Then run following commands to install all necessary software - should run fine as a script on Ubuntu 12.04
 
 ```
 #Basic server configuration
@@ -76,6 +85,6 @@ gem install bundler
 
 
 
-Detailed configuration can be found on [Google Drive](https://docs.google.com/document/d/1ptHqRnnKQh2z2oObZt5Df3rILxeJ84YM_uBMEtYwNeU).
+
 
 

@@ -97,6 +97,7 @@ module.exports = function (grunt) {
       },
       test: {
         options: {
+          port: 9001,
           middleware: function (connect) {
             return [
               redirectToIndex,
@@ -123,14 +124,14 @@ module.exports = function (grunt) {
         options: {
           timeout: 30000,
           urls: [
-            'http://localhost:<%= connect.options.port %>/test/qunit.html'
+            'http://localhost:<%= connect.test.options.port %>/test/qunit.html'
           ]
         }
       }
     },
     open: {
       test: {
-        path: 'http://localhost:<%= connect.options.port %>/test/qunit.html'
+        path: 'http://localhost:<%= connect.test.options.port %>/test/qunit.html'
       },
       server: {
         path: 'http://localhost:<%= connect.options.port %>'
@@ -166,6 +167,9 @@ module.exports = function (grunt) {
       all: [
         'Gruntfile.js',
         '<%= yeoman.app %>/scripts/{,*/}*.js',
+        'test/**/*.js',
+        '!test/vendor/{,*/}*.js',
+        '!test/helper/gremlins.min.js',
         '!<%= yeoman.app %>/scripts/vendor/*',
         'test/spec/{,*/}*.js'
       ]

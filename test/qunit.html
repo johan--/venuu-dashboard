@@ -8,10 +8,10 @@
     <script src="/bower_components/handlebars/handlebars.runtime.js"></script>
     <script src="/bower_components/ember/ember.js"></script>
     <script src="/bower_components/ember-data/ember-data.js"></script>
+    <script src="/bower_components/ember-qunit/dist/globals/main.js"></script>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Montserrat:700" media="screen" rel="stylesheet" type="text/css" />
-    <link href="http://venuu.fi/assets/application.css" media="all" rel="stylesheet" />
     <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="/styles/css/style.css">
+    <link rel="stylesheet" href="/styles/css/application.css">
     <link rel="stylesheet" href="qunit.css">
     <!-- build:js(.tmp) scripts/templates.js -->
     <script src="/scripts/compiled-templates.js"></script>
@@ -25,11 +25,15 @@
     VenuuDashboard.setupForTesting();
     VenuuDashboard.injectTestHelpers();
     QUnit.config.reorder = false;
+    emq.globalize();
+    setResolver(Ember.DefaultResolver.create({namespace: VenuuDashboard}));
   </script>
   <!-- Load local lib and tests. -->
+  <script src="spec/storage_test.js"></script>
   <script src="features/venue/venue_test.js"></script>
   <script src="features/location/location_test.js"></script>
   <script src="features/gremlins/gremlins_test.js"></script>
+
 </head>
 <body>
   <div id="qunit"></div>

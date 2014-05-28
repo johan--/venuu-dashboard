@@ -6,57 +6,62 @@ module('Integration: Venue groups', {
   }
 });
 
-test("Location page title found", function () {
-  visit('/');
+test('Location page title found', function () {
+  visit('/venue-group');
   andThen(function () {
-    ok(find("h4").text().indexOf('Kohteet') > -1, 'Locations title found!');
+    ok(find('h4').text().indexOf('Kohteet') > -1, 'Locations title found!');
   });
 });
 
-test("First location name found", function () {
-  visit('/');
+test('First location name found', function () {
+  visit('/venue-group');
   andThen(function () {
-    ok(find("li").text().indexOf('Kongressikeskus') > -1, 'Kongressikeskus found!');
+    ok(find('li').text().indexOf('Kongressikeskus') > -1, 'Kongressikeskus found!');
   });
 });
 
-test("First location details found", function () {
-  visit('/location/1');
+
+test('First location details found', function () {
+  visit('/venue-group/1');
   andThen(function () {
-    ok(find("p").text().indexOf('Betonimiehenkatu 1') > -1, 'Address found!');
+    ok(find('#address').val().indexOf('Betonimiehenkatu 1') > -1, 'Address found!');
   });
 });
 
-test("First location details can be edited", function () {
-  visit('/location/1/edit');
+test('First location details can be edited', function () {
+  visit('/venue-group/1');
   fillIn('#name', 'Tuomiokirkko');
   fillIn('#city', 'Helsinki');
+  fillIn('#zipcode', '00110');
   fillIn('#address', 'Senaatintori');
-  click("#save");
+  click('#save');
   andThen(function () {
-    ok(find("h3").text().indexOf('Tuomiokirkko') > -1, 'New name not found!');
-    ok(find("p").text().indexOf('Senaatintori') > -1, 'New address not found!');
-    ok(find("p").text().indexOf('Helsinki') > -1, 'New city not found!');
+    ok(find('#name').val().indexOf('Tuomiokirkko') > -1, 'New name found!');
+    ok(find('#address').val().indexOf('Senaatintori') > -1, 'New address found!');
+    ok(find('#zipcode').val().indexOf('00110') > -1, 'New zipcode found!');
+    ok(find('#city').val().indexOf('Helsinki') > -1, 'New city found!');
   });
 });
 
-test("New location can be added", function () {
-  visit('/new');
+test('New location can be added', function () {
+  visit('/venue-group/new');
   fillIn('#name', 'Chemicum');
   fillIn('#city', 'Helsinki');
+  fillIn('#zipcode', '00550');
   fillIn('#address', 'A.I. Virtasen aukio 1');
-  click("#save");
+  click('#save');
   andThen(function () {
-    ok(find("h3").text().indexOf('Chemicum') > -1, 'New name not found!');
-    ok(find("p").text().indexOf('A.I. Virtasen aukio 1') > -1, 'New address not found!');
-    ok(find("p").text().indexOf('Helsinki') > -1, 'New city not found!');
+    ok(find('#name').val().indexOf('Chemicum') > -1, 'New name found!');
+    ok(find('#zipcode').val().indexOf('00550') > -1, 'New zipcode found!');
+    ok(find('#address').val().indexOf('A.I. Virtasen aukio 1') > -1, 'New address found!');
+    ok(find('#city').val().indexOf('Helsinki') > -1, 'New city found!');
   });
 });
 
-test("Location can be deleted", function () {
-  visit('/location/1/edit');
-  click("#destroy");
+/*test('Location can be deleted', function () {
+  visit('/venue-group/1');
+  click('#destroy');
   andThen(function () {
-    ok(find(".venue-group-venues").text().indexOf('Kongressikeskus') === -1, 'Kongressikeskus deleted!');
+    ok(find('.venue-group-venues').text().indexOf('Kongressikeskus') === -1, 'Kongressikeskus deleted!');
   });
-});
+});*/

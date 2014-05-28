@@ -1,10 +1,13 @@
-  <label for="name">Nimi</label>
-  {{input value=name id="name"}}
+<label for="name">Nimi</label>
+{{input value=name id="name"}}
 
-  <label for="city">Kaupunki</label>
-  {{input value=city id="city"}}
+<label for="address">Osoite</label>
+{{input value=address id="address"}}
 
-  <label for="address">Osoite</label>
-  {{input value=address id="address"}}
-  <br>
-  <button id="save" {{action 'save'}} class="success">Tallenna</button>
+<label for="city">Postinumero</label>
+{{input value=zipcode id="zipcode"}}
+
+<label for="city">Kaupunki</label>
+{{input value=city id="city"}}
+<br>
+<button id="save" {{action 'save'}} class="success">Tallenna</button>

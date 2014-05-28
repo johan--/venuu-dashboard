@@ -21,18 +21,9 @@
     };
   }
 
-  /** Transform camelcase to underscored. */
-  function underscored() {
-    return Ember.String.underscore.apply(null, arguments);
-  }
-
-  VenuuDashboard.ApplicationAdapter = DS.RESTAdapter.extend({
+  VenuuDashboard.ApplicationAdapter = DS.ActiveModelAdapter.extend({
     namespace: 'fixtures',
 
-    pathForType: function (type) {
-      var underscored = Ember.String.underscore(type);
-      return Ember.String.pluralize(underscored);
-    },
 
     buildURL: function (record, suffix) {
       return this._super(record, suffix) + '.json';
@@ -48,13 +39,6 @@
 
   });
 
-  VenuuDashboard.ApplicationSerializer = DS.RESTSerializer.extend({
-    keyForRelationship: underscored,
-    keyForAttribute: underscored,
-    typeForRoot: function (root) {
-      var camelized = Ember.String.camelize(root);
-      return Ember.String.singularize(camelized);
-    }
-  });
+  VenuuDashboard.ApplicationSerializer = DS.ActiveModelSerializer.extend();
 
 })();

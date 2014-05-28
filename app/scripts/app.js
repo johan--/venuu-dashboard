@@ -1,12 +1,13 @@
 (function () {
   'use strict';
 
-  Ember.LOG_BINDINGS = true;
+/*  Ember.LOG_BINDINGS = true;*/
 
   var VenuuDashboard = window.VenuuDashboard = Ember.Application.create();
 
   /* Order and include as you please. */
   require('scripts/controllers/*');
+  require('scripts/helpers/*');
   require('scripts/store');
   require('scripts/models/*');
   require('scripts/routes/*');

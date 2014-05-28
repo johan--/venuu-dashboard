@@ -1,15 +1,15 @@
 {{outlet}}
 
-<div class="m-container venue-container">
+<div class="m-container">
   <h3>{{this.name}}</h3>
-  <p>Osoite: {{this.address}}, {{this.zipcode}} {{this.city}}</p>
-    <h3>Tilat <p class="venue-amount">{{this.venues.length}} kpl</p></h3>
+  <p>{{address this}}</p>
+  <h3>Tilat <small>{{this.venues.length}} kpl</small></h3>
     {{#each this.venues}}
       {{#link-to 'venue' this}}
-        <div class="m-container-box-compact venue-group-venue-box">
+        <div class="m-venue-box">
           <img {{bind-attr src="this.imageSrc"}} width="100" height="100">
-          <p>{{this.title}}</p>
-          <p class="venue-group-link-description">{{this.description}}
+          <h5>{{this.title}}</h5>
+          <p>{{this.description}}
           <br>
           Päivävuokra: {{this.rentPerDay}} €</p>
         </div>
