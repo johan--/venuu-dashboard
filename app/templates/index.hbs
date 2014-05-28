@@ -1,0 +1,29 @@
+<div class="m-container-box-compact">
+  <h3>Tervetuloa</h3>
+  <p>
+  Hallintaliittymässä voit tarkastella ja päivittää kaikkia tilasi tietoja,
+  saamiasi tarjouspyyntöjä ja muuttaa asetuksia.
+  </p>
+  <hr>
+  <div class="row">
+    <div class="medium-6 columns">
+      <h5>Kohteet <small>{{model.length}} kpl</small></h5>
+        {{#each model}}
+          {{#link-to 'venue_group' this}}
+            <div class="m-venue-box">
+              <img {{bind-attr src="this.imageSrc"}} width="60" height="60">
+              <h6>{{this.name}}</h6>
+              <p>{{venues.length}} tilaa</p>
+            </div>
+            <br>
+          {{/link-to}}
+        {{/each}}
+        <button id="new-venue" class="success" {{action 'create'}}>Luo uusi kohde</button>
+        <br>
+        {{#link-to 'venue_groups'}}Näytä kaikki kohteesi{{/link-to}}
+    </div>
+    <div class="medium-6 columns">
+      <h5>Uusimmat tarjouspyynnöt</h5>
+    </div>
+  </div>
+</div>

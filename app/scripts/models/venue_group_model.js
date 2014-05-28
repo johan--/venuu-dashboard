@@ -9,7 +9,11 @@
     name: DS.attr('string'),
     /*    user_group_ids: DS.hasMany('user_group'), */
     venues: DS.hasMany('venue'),
-    zipcode: DS.attr('string')
+    zipcode: DS.attr('string'),
+    imageSrc: function () {
+      return 'http://lorempixel.com/output/city-q-c-60-60-' +
+        this.get('id') + '.jpg';
+    }.property('id')
   });
 
 })();
