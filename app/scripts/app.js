@@ -1,9 +1,15 @@
 (function () {
   'use strict';
 
-/*  Ember.LOG_BINDINGS = true;*/
+  /* Ember.LOG_BINDINGS = true; */
 
   var VenuuDashboard = window.VenuuDashboard = Ember.Application.create();
+
+  VenuuDashboard.ApplicationView = Ember.View.extend({
+    initFoundation: function () {
+      this.$(document).foundation();
+    }.on('didInsertElement')
+  });
 
   /* Order and include as you please. */
   require('scripts/controllers/*');
