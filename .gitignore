@@ -10,3 +10,4 @@ app/styles/*.css
 app/styles/css
 app/styles/css/*
 .DS_Store
+*.lock

@@ -43,6 +43,7 @@ source ~/.bash_profile
 apt-get install -y libssl-dev
 rbenv install 2.1.1
 rbenv global 2.1.1
+gem install bundler
 
 #Setup continuous development:
 
@@ -63,8 +64,7 @@ rbenv global 2.1.1
   
   
   #run continuous_delivery.sh
-  gem update --system
-  gem install compass
+  bundle install
   source ~/.bashrc
   source ~/.bash_profile
   npm install -g grunt-cli bower
