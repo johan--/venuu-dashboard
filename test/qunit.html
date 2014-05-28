@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="vendor/qunit-1.12.0.css" media="screen">
   <script src="vendor/qunit-1.12.0.js"></script>
   <script src="helper/gremlins.min.js"></script>
+  <script src="helper/log_helper.js"></script>
   <script>
     VenuuDashboard.rootElement = '#ember-testing';
     VenuuDashboard.setupForTesting();
@@ -34,8 +35,8 @@
   <script src="spec/storage_test.js"></script>
   <script src="features/venue/venue_test.js"></script>
   <script src="features/location/location_test.js"></script>
+  <!-- Gremlins test last -->
   <script src="features/gremlins/gremlins_test.js"></script>
-
 </head>
 <body>
   <div id="qunit"></div>

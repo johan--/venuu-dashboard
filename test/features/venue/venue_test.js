@@ -1,6 +1,7 @@
 module('Integration: Venues', {
   setup: function () { // Before each test
     VenuuDashboard.reset();
+    window.fakeLog = [];
   },
   teardown: function () { // After each test
     VenuuDashboard.reset();
@@ -40,6 +41,8 @@ test('First venue details can be edited', function () {
   fillIn('#description', 'Ikävä paikka');
   click('#save');
   andThen(function () {
+    ok(fakeLogContains(/PUT.*venues\/1\.json/),
+      'Venues 1.json put found');
     ok(find('#title').val().indexOf('Tuomiokirkko') > -1,
       'Title should be "Tuomiokirkko"');
     ok(find('#pitch').val().indexOf('Kaunis puukirkko') > -1,
@@ -56,6 +59,8 @@ test('New venue can be added', function () {
   fillIn('#description', 'Mukavat sohvat');
   click('#save');
   andThen(function () {
+    ok(fakeLogContains(/POST.*venues.json/),
+      'Venues.json post found');
     ok(find('#title').val().indexOf('Gurula') > -1,
       'Title should be "Tuomiokirkko"');
     ok(find('#pitch').val().indexOf('Panini-mies') > -1,
@@ -65,11 +70,11 @@ test('New venue can be added', function () {
   });
 });
 
-/*test('Venue can be deleted', function () {
-  visit('/venues/1/edit');
+test('Venue can be deleted', function () {
+  visit('/venue/1');
   click('#destroy');
   andThen(function () {
-    ok(find('li').text().indexOf('Murphy, Douglas and Sawayn 4') === -1,
-      'Murphy, Douglas and Sawayn 4 deleted');
+    ok(fakeLogContains(/DELETE.*venues\/1\.json/),
+      'Venues 1.json delete found');
   });
-});*/
+});
