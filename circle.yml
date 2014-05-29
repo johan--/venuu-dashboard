@@ -23,7 +23,7 @@ dependencies:
     - npm install -g grunt-cli
     - npm install -g bower
     - bower install
-    - gem install compass
+    - bundle
 
 ## Running tests
 test:
