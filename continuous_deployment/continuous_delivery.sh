@@ -4,6 +4,7 @@
 
 cd /srv/hook/venuu-dashboard
 npm install
+bundle install
 bower -s --allow-root --config.interactive=false install
 grunt build >> /srv/hook/gruntlog.txt
 echo ---- GRUNT BUILD DONE AT: $(date) >> /srv/hook/gruntlog.txt
