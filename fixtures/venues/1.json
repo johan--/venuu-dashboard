@@ -1,12 +1,5 @@
 {
   "venue": {
-    "group": {
-      "city": "Espoo",
-      "address": "Betonimiehenkuja 2",
-      "latitude": 42.546273,
-      "longitude": 67.4972316,
-      "zipcode": "02150"
-    },
     "additional_service_category_description": "Palveluista ja puitteista tarkemmin",
     "billing_id": 1,
     "cancellation_policy": "Peruutusehdot",

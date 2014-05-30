@@ -63,18 +63,5 @@
       "venue_group": 1,
       "venue_type_ids": [1]
     }
-  ],
-  "venue_groups": [
-    {
-      "id": 1,
-      "address": "Betonimiehenkatu 1",
-      "city": "Espoo",
-      "latitude": 41.85098,
-      "longitude": 94.0308,
-      "name": "Kongressikeskus",
-      "user_group_ids": [1],
-      "venues": [1],
-      "zipcode": "00220"
-    }
   ]
 }
