@@ -1,44 +1,31 @@
 .m-dashboard-navbar {
-  @extend .top-bar;
-  @include border-radius($global-radius);
   $bar-height: 45px;
   $bar-item-count: 6;
   margin: 1em 0;
-  background-color: $bg-color;
-  border: 1px solid $border-color;
-  overflow: hidden;
-  height: $bar-height;
-  line-height: $bar-height;
 
-  section {
-    @extend .top-bar-section;
+  .top-bar {
+    @include border-radius($global-radius);
+    border: 1px solid $border-color;
+    background: $bg-color;
+    display: none;
 
-    ul {
-      li {
-        width: 100% / $bar-item-count;
-        border-right: 1px solid $border-color;
+    &.expanded { display: block; }
+  }
 
-        &:last-child {
-          border-right: none;
-        }
+  .top-bar-section ul {
+    background: $bg-color;
 
-        a[href^="#"] {
-          opacity: 0.5;
-          pointer-events: none;
-        }
-      }
-      li a:not(.button) {
-        line-height: $bar-height - 2;
+    li a {
+      &:not(.button) {
+        line-height: $bar-height / 2;
         background-color: inherit;
         color: $basetext-color-light;
         text-align: center;
         font-size: 1.1em;
 
-        &:hover {
-          background-color: darken($bg-color, 10%);
-        }
+        &:hover { background-color: darken($bg-color, 10%); }
       }
-      li a.active {
+      &.active {
         color: $secondary-color;
         background-color: $primary-color;
 
@@ -47,6 +34,21 @@
           background-color: $primary-color;
         }
       }
+    }
+  }
+
+  // Big screens
+  @media #{$topbar-media-query} {
+    .top-bar {
+      display: block;
+      height: $bar-height;
+    }
+
+    .top-bar-section ul li {
+      width: 100% / $bar-item-count;
+      border-right: 1px solid $border-color;
+      &:last-child { border-right: none; }
+      a:not(.button) { line-height: $bar-height - 2; }
     }
   }
 }

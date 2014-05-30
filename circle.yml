@@ -4,15 +4,6 @@ machine:
   timezone:
     Europe/Helsinki # Set the timezone
 
-  # Version of node to use
-  node:
-    version:
-      0.10.28
-
-  ruby:
-    version:
-      2.1.1
-
   # Override /etc/hosts
   hosts:
     venuu.fi: 127.0.0.1
@@ -23,7 +14,6 @@ dependencies:
     - npm install -g grunt-cli
     - npm install -g bower
     - bower install
-    - gem install compass
 
 ## Running tests
 test:

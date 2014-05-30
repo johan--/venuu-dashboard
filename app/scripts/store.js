@@ -15,8 +15,9 @@
   /** Return a mock function that calls super method and catches any error. */
   function mock(method) {
     return function mocked() {
-      return this._super.apply(this, arguments).catch(function () {
+      return this._super.apply(this, arguments).catch(function (error) {
         console.log('Dummy backend ' + method + ' done.');
+        console.log(error.responseText);
       });
     };
   }

@@ -1,6 +1,11 @@
 {
   "name": "venuu-dashboard",
   "version": "0.0.0",
+  "engines" : { "node" : "~0.10.0" },
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/venuu/venuu-dashboard.git"
+  },
   "devDependencies": {
     "connect-livereload": "~0.2.0",
     "connect-modrewrite": "^0.7.5",

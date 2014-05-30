@@ -3,7 +3,10 @@ var failedTests = [];
 module.exports = function (grunt) {
   grunt.event.on('qunit.testDone', function (name, failed, passed, total) {
     if (failed > 0) {
-      failedTests.push({name: name, count: failed});
+      failedTests.push({
+        name: name,
+        count: failed
+      });
     }
   });
 

@@ -188,6 +188,7 @@ module.exports = function (grunt) {
     compass: {
       dist: {
         options: { // Target options
+          bundleExec: true,
           config: 'compass_config.rb',
           imagesDir: '<%= yeoman.app %>/images/',
           sassDir: '<%= yeoman.app %>/styles/scss/',

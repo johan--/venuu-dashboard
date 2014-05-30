@@ -7,7 +7,7 @@
   "eqeqeq": true,
   "eqnull": true,
   "immed": true,
-  "latedef": true,
+  "latedef": false,
   "newcap": true,
   "noarg": true,
   "undef": true,
@@ -42,6 +42,7 @@
     "moduleForModel": true,
     "asyncTest": true,
     "gremlins": true,
-    "start": true
+    "start": true,
+    "fakeLogContains": true
   }
 }
