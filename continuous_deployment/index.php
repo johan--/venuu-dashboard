@@ -14,6 +14,7 @@ $LOCAL_ROOT         = "/srv/hook/";
 $LOCAL_REPO_NAME    = "venuu-dashboard";
 $LOCAL_REPO         = "{$LOCAL_ROOT}/{$LOCAL_REPO_NAME}";
 $REMOTE_REPO        = "https://github.com/venuu/venuu-dashboard.git";
+$CDUSER             = "ohtu";
 //$BRANCH             = "master";
 
 //log time of running script
@@ -33,7 +34,7 @@ if ( $body['payload'] ) {
   if(!preg_match('/Already up-to-date/', $result)) {
     //only update production if there was changes in repo
     shell_exec('echo starting continuos delivery script at: $(date) >> ' . $LOCAL_ROOT . '/hooklog.txt');
-    shell_exec("sudo " . $LOCAL_ROOT . "/continuous_delivery.sh"); 
+    shell_exec('sudo -H -u' . $CDUSER . ' ' . $LOCAL_ROOT . '/continuous_delivery.sh');
     die();
   }
   //POST with payload but repo not updated
