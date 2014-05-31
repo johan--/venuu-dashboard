@@ -1,5 +1,6 @@
 {
   "venue": {
+    "id": 1,
     "additional_service_category_description": "Palveluista ja puitteista tarkemmin",
     "billing_id": 1,
     "cancellation_policy": "Peruutusehdot",
@@ -42,7 +43,6 @@
     ],
     "floor_area": 64,
     "floor_map_ids": [2],
-    "id": 1,
     "organization_id": 1,
     "photo_ids": [1],
     "pitch": "Yhden/kahden lauseen kuvaus tilasta.",
