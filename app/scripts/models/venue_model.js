@@ -3,7 +3,7 @@
 
   VenuuDashboard.Venue = DS.Model.extend({
     //group: DS.attr(),
-    additionalServiceDategoryDescription: DS.attr('string'),
+    additionalServiceCategoryDescription: DS.attr('string'),
     //billing_id: DS.belongsTo('billing'),
     cancellationPolicy: DS.attr('string'),
     capacityBanquet: DS.attr('number'),
