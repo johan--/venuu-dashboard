@@ -1,7 +1,14 @@
 .m-venue-box {
   @extend .m-container-box-compact;
   @include block-glowing-effect($selector:hover, $fade-time:200ms);
+  $spacing: 0.7em;
+
   overflow: hidden;
+  padding: $spacing;
+
+  &:last-child {
+    margin-bottom: $spacing;
+  }
 
   p {
     color: $basetext-color;
@@ -9,6 +16,6 @@
 
   img {
     float: left;
-    margin-right: 1em;
+    margin-right: $spacing;
   }
 }
