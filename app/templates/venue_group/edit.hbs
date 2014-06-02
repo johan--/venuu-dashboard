@@ -1,8 +1,23 @@
-<div class="m-container-box-compact">
+<div class="m-container-box">
   <h4>Päivitä kohteen tiedot</h4>
 
-  <div class="edit-form">
+  <div class="row edit-form">
     {{partial "venue_group/form"}}
-    <button id="destroy" {{action 'destroy'}}>Poista kohde</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="medium-8 columns">
+    <h3>Kohteen tilat <small>{{this.venues.length}} kpl</small></h3>
+    {{#each this.venues}}
+      {{#link-to 'venue' this}}
+        <div class="m-venue-box">
+          <img {{bind-attr src="this.imageSrc"}} width="60" height="60">
+          <h6>{{this.title}}</h6>
+          <small>{{this.pitch}}</small>
+          <p>Viimeksi muokattu tuntematon</p>
+        </div>
+      {{/link-to}}
+    {{/each}}
   </div>
 </div>

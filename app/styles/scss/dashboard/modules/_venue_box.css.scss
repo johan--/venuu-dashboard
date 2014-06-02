@@ -10,8 +10,17 @@
     margin-bottom: $spacing;
   }
 
+  h6 {
+    margin: 0;
+  }
+
+  small {
+    font-weight: bold;
+    color: $basetext-color-light;
+  }
+
   p {
-    color: $basetext-color;
+    color: $basetext-color-light;
   }
 
   img {

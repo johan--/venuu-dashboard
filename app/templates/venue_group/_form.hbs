@@ -1,13 +1,22 @@
-<label for="name">Nimi</label>
-{{input value=name id="name"}}
-
-<label for="address">Osoite</label>
-{{input value=address id="address"}}
-
-<label for="city">Postinumero</label>
-{{input value=zipcode id="zipcode"}}
-
-<label for="city">Kaupunki</label>
-{{input value=city id="city"}}
-<br>
-<button id="save" {{action 'save'}} class="success">Tallenna</button>
+<div class="medium-12 columns">
+  <label for="name">Nimi</label>
+  {{input value=name id="name"}}
+</div>
+<div class="medium-12 columns">
+  <label for="address">Osoite</label>
+  {{input value=address id="address"}}
+</div>
+<div class="medium-6 columns">
+  <label for="city">Postinumero</label>
+  {{input value=zipcode id="zipcode"}}
+</div>
+<div class="medium-6 columns">
+  <label for="city">Kaupunki</label>
+  {{input value=city id="city"}}
+</div>
+<div class="medium-12 columns">
+  <button id="save" {{action 'save'}} class="success">Tallenna</button>
+  {{#if this.id}}
+    <button id="destroy" {{action 'destroy'}}>Poista kohde</button>
+  {{/if}}
+</div>

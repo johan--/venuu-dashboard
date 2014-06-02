@@ -13,7 +13,11 @@
             <div class="m-venue-box">
               <img {{bind-attr src="this.imageSrc"}} width="60" height="60">
               <h6>{{this.name}}</h6>
-              <p>{{venues.length}} tilaa</p>
+              <small>
+                {{venues.length}}
+                {{pluralize venues.length phrase="tila{|a}"}}
+              </small>
+              <p>Viimeksi muokattu tuntematon</p>
             </div>
           {{/link-to}}
         {{/each}}
@@ -25,6 +29,18 @@
     </div>
     <div class="medium-6 columns">
       <h5>Uusimmat tarjouspyynnöt</h5>
+      <div class="m-venue-box">
+        <img src="http://lorempixel.com/output/city-q-c-60-60-2.jpg" width="60" height="60">
+        <h6>Pikkujoulut</h6>
+        <small>Murphy, Douglas and Sawayn 4</small>
+        <p>Saapunut 12.4.2014</p>
+      </div>
+      <div class="m-venue-box">
+        <img src="http://lorempixel.com/output/city-q-c-60-60-1.jpg" width="60" height="60">
+        <h6>Häät</h6>
+        <small>Kongressikeskus</small>
+        <p>Saapunut 12.4.2014</p>
+      </div>
     </div>
   </div>
 </div>
