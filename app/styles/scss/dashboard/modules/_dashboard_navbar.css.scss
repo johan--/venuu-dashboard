@@ -1,5 +1,5 @@
 .m-dashboard-navbar {
-  $bar-height: 45px;
+  $bar-height: 50px;
   $bar-item-count: 6;
   margin: 1em 0;
 
@@ -17,7 +17,7 @@
 
     li a {
       &:not(.button) {
-        line-height: $bar-height / 2;
+        line-height: $bar-height / 3;
         background-color: inherit;
         color: $basetext-color-light;
         text-align: center;

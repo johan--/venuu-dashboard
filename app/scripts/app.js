@@ -5,12 +5,6 @@
 
   var VenuuDashboard = window.VenuuDashboard = Ember.Application.create();
 
-  VenuuDashboard.ApplicationView = Ember.View.extend({
-    initFoundation: function () {
-      this.$(document).foundation();
-    }.on('didInsertElement')
-  });
-
   /* Order and include as you please. */
   require('scripts/controllers/*');
   require('scripts/helpers/*');
