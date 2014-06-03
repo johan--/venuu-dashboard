@@ -4,7 +4,7 @@
 
 
 readonly PROJECT_DIR=~/venuu-dashboard
-readonly PREPARATION_SCRIPT=$PROJECT_DIR/prepare_API.sh
+readonly PREPARATION_SCRIPT=$PROJECT_DIR/continuous_deployment/prepare_API.sh
 readonly PRODUCTION_DIR=/srv/ohtu-backend
 readonly PRODUCTION=ohtu@ohtu.venuu.fi:$PRODUCTION_DIR
 
