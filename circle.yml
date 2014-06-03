@@ -18,6 +18,7 @@ dependencies:
 ## Running tests
 test:
   override:
+    - ./setup_test_API.sh
     - grunt test
 
 
@@ -25,10 +26,8 @@ deployment:
   production:
     branch: master
     commands:
-      - ./continuous_deployment/continuous_delivery.sh
-  #When backend and grunt work together, uncomment this to enable API CD
-  #backend:
-  #  branch: master
-  #  commands:
-  #    - rsync --verbose --recursive ~/venuu-dashboard/backend/* ohtu@ohtu.venuu.fi:/srv/ohtu-backend/
-  #    - ssh ohtu@ohtu.venuu.fi 'bash -i' < ./continuous_deployment/backend_cd.sh
+      - ./continuous_deployment/CD-Ember.sh
+  backend:
+    branch: master
+    commands:
+      - ./continuous_deployment/CD-API.sh

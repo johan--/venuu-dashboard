@@ -129,6 +129,12 @@ module.exports = function (grunt) {
         }
       }
     },
+    rails: {
+      options: {},
+      files: {
+        'backend/': ['backend/']
+      }
+    },
     open: {
       test: {
         path: 'http://localhost:<%= connect.test.options.port %>/test/qunit.html'
@@ -365,7 +371,7 @@ module.exports = function (grunt) {
         'emberTemplates',
       ],
       test: [
-        'emberTemplates',
+        'emberTemplates'
       ],
       dist: [
         'emberTemplates',
@@ -402,6 +408,8 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-qunit');
 
+  grunt.loadNpmTasks('grunt-rails-server');
+
   require('./test/helper/qunit_helper')(grunt);
 
   grunt.registerTask('server', function (target) {
@@ -409,8 +417,15 @@ module.exports = function (grunt) {
     grunt.task.run(['serve:' + target]);
   });
 
-  grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.registerTask('backendDir', function (target) {
+    grunt.file.setBase('backend/');
+  });
+
+  grunt.registerTask('dirUp', function (target) {
+    grunt.file.setBase('../');
+  });
+
+  grunt.registerTask('backendStart', ['backendDir', 'rails:start', 'dirUp']);
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
@@ -419,6 +434,7 @@ module.exports = function (grunt) {
 
     if (target === 'test') {
       return grunt.task.run([
+        'backendStart',
         'clean:server',
         'replace:app',
         'compass',
@@ -429,11 +445,12 @@ module.exports = function (grunt) {
         'copy:fixtures',
         'connect:test',
         'open:test',
-        'watch',
+        'watch'
       ]);
     }
 
     grunt.task.run([
+      'backendStart',
       'clean:server',
       'replace:app',
       'compass',
@@ -443,11 +460,12 @@ module.exports = function (grunt) {
       'copy:fixtures',
       'connect:livereload',
       'open:server',
-      'watch',
+      'watch'
     ]);
   });
 
   grunt.registerTask('test', [
+    'backendStart',
     'clean:server',
     'replace:app',
     'copy:tests',
@@ -457,10 +475,11 @@ module.exports = function (grunt) {
     'neuter:app',
     'connect:test',
     'qunit',
-    'jshint',
+    'jshint'
   ]);
 
   grunt.registerTask('build', [
+    'backendStart',
     'clean:dist',
     'replace:dist',
     'copy:fixturesDist',
