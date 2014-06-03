@@ -11,12 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140603124829) do
+ActiveRecord::Schema.define(version: 20140603183546) do
 
   create_table "venue_groups", force: true do |t|
     t.string   "name"
     t.string   "address"
     t.string   "zipcode"
+    t.string   "city"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "venues", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "pitch"
+    t.integer  "rent_per_day"
+    t.integer  "rent_per_hour"
+    t.integer  "rent_per_person"
+    t.boolean  "published"
+    t.string   "contact_email"
+    t.string   "contact_phone"
+    t.decimal  "cleaning_fee"
+    t.string   "slug"
+    t.integer  "sales_guarantee"
+    t.integer  "capacity_classroom"
+    t.integer  "capacity_theater"
+    t.integer  "capacity_banquet"
+    t.integer  "capacity_conference"
+    t.integer  "capacity_u_shape"
+    t.integer  "capacity_standing"
+    t.integer  "capacity_sitting"
+    t.integer  "security_deposit"
+    t.integer  "reservation_fee"
+    t.integer  "conversations_count"
+    t.integer  "floor_area"
+    t.integer  "reviews_count"
+    t.decimal  "reviews_average"
+    t.text     "cancellation_policy"
+    t.text     "pricing_details"
+    t.text     "additional_service_category_description"
+    t.text     "capacity_details"
+    t.string   "address"
+    t.string   "postcode"
     t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
