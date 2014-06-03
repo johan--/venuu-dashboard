@@ -22,7 +22,7 @@ test:
 
 
 deployment:
-  production: 
+  production:
     branch: master
     commands:
       - ./continuous_deployment/continuous_delivery.sh
