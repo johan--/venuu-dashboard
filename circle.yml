@@ -18,6 +18,9 @@ dependencies:
 ## Running tests
 test:
   override:
+    - cd backend
+    - rake db:migrate
+    - cd ..
     - grunt test
 
 
