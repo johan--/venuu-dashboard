@@ -2,8 +2,9 @@
 
 # Sync production API files and run necessary preparation commands
 
-readonly PREPARATION_SCRIPT=./prepare_API.sh
+
 readonly PROJECT_DIR=~/venuu-dashboard
+readonly PREPARATION_SCRIPT=$PROJECT_DIR/prepare_API.sh
 readonly PRODUCTION_DIR=/srv/ohtu-backend
 readonly PRODUCTION=ohtu@ohtu.venuu.fi:$PRODUCTION_DIR
 
