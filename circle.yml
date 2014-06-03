@@ -26,3 +26,9 @@ deployment:
     branch: master
     commands:
       - ./continuous_deployment/continuous_delivery.sh
+  #When backend and grunt work together, uncomment this to enable API CD
+  #backend:
+  #  branch: master
+  #  commands:
+  #    - rsync --verbose --recursive ~/venuu-dashboard/backend/* ohtu@ohtu.venuu.fi:/srv/ohtu-backend/
+  #    - ssh ohtu@ohtu.venuu.fi 'bash -i' < ./continuous_deployment/backend_cd.sh
