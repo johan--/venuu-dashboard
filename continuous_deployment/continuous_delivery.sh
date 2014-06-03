@@ -2,6 +2,6 @@
 echo Starting ultimate CD $(date)
 
 grunt build
-rsync --verbose --recursive ../dist/* ohtu@ohtu.venuu.fi:/srv/ohtu/
+rsync --verbose --recursive ~/venuu-dashboard/dist/* ohtu@ohtu.venuu.fi:/srv/ohtu/
 
 echo Build $CIRCLE_BUILD_NUM deployed at $(date)
