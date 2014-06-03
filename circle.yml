@@ -21,7 +21,8 @@ test:
     - grunt test
 
 
-notify:
-  webhooks:
-    # A list of hook hashes, containing the url field
-    - url: http://80.69.174.86/index.php
+deployment:
+  production: 
+    branch: master
+    commands:
+      - ./continuous_deployment/continuous_delivery.sh
