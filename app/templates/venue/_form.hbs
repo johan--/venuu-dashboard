@@ -1,9 +1,19 @@
-{{input value=title id="title"}}
+<div class="medium-12 columns">
+  <label for="title">Tilan nimi</label>
+  {{input value=title id="title"}}
+</div>
+<div class="medium-12 columns">
+  <label for="pitch">Myyntipuhe</label>
+  {{input value=pitch id="pitch"}}
+</div>
+<div class="medium-12 columns">
+  <label for="description">Kuvaus</label>
+  {{textarea value=description id="description" rows="6"}}
+</div>
 
-<label for="pitch">Myyntipuhe</label>
-{{input value=pitch id="pitch"}}
-
-<label for="description">Kuvaus</label>
-{{textarea value=description id="description" rows="6"}}
-<br>
-<button id="save" {{action 'save'}} class="success">Tallenna</button>
+<div class="medium-12 columns">
+  <button id="save" {{action 'save'}} class="success">Tallenna</button>
+  {{#if this.id}}
+    <button id="destroy" {{action 'destroy'}}>Poista kohde</button>
+  {{/if}}
+</div>
