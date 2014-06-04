@@ -130,9 +130,10 @@ module.exports = function (grunt) {
       }
     },
     rails: {
-      options: {},
-      files: {
-        'backend/': ['backend/']
+      test: {
+        options: {
+          environment: 'test'
+        }
       }
     },
     open: {
@@ -406,10 +407,6 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-qunit');
-
-  grunt.loadNpmTasks('grunt-rails-server');
-
   require('./test/helper/qunit_helper')(grunt);
 
   grunt.registerTask('server', function (target) {
@@ -425,7 +422,10 @@ module.exports = function (grunt) {
     grunt.file.setBase('../');
   });
 
-  grunt.registerTask('backendStart', ['backendDir', 'rails:start', 'dirUp']);
+  grunt.registerTask('backendStart', function (target) {
+    target = target ||  'server';
+    grunt.task.run(['backendDir', 'rails:' + target + ':start', 'dirUp']);
+  });
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
@@ -434,7 +434,7 @@ module.exports = function (grunt) {
 
     if (target === 'test') {
       return grunt.task.run([
-        'backendStart',
+        'backendStart:test',
         'clean:server',
         'replace:app',
         'compass',

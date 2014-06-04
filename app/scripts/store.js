@@ -23,20 +23,21 @@
   }
 
   VenuuDashboard.ApplicationAdapter = DS.ActiveModelAdapter.extend({
-    namespace: 'fixtures',
+    host: 'http://localhost:3000',
+    /*namespace: 'api',*/
 
 
-    buildURL: function (record, suffix) {
+/*    buildURL: function (record, suffix) {
       return this._super(record, suffix) + '.json';
-    },
+    }*/
 
-    createRecord: function (store, type, record) {
+/*    createRecord: function (store, type, record) {
       record.set('id', ++fakeId);
       return mock('create').apply(this, arguments);
     },
 
     updateRecord: mock('update'),
-    deleteRecord: mock('delete')
+    deleteRecord: mock('delete')*/
 
   });
 

@@ -12,7 +12,7 @@ VenueGroup.create(name: 'Kongressikeskus', address: 'Betonimiehenkatu 1', zipcod
 Venue.create(
       additional_service_category_description: 'Palveluista ja puitteista tarkemmin',
       cancellation_policy: 'Peruutusehdot',
-      capacity_banquet: null,
+      capacity_banquet: 1,
       capacity_classroom: 400,
       capacity_conference: 400,
       capacity_details: 'Tilakapasiteetista tarkemmin',
@@ -26,9 +26,6 @@ Venue.create(
       conversations_count: 0,
       description: 'Lorem ipsum Quis enim ad esse exercitation dolore laborum amet est id officia dolor irure incididunt nostrud in velit.',
       floor_area: 64,
-      floor_map_ids: [2],
-      organization_id: 1,
-      photo_ids: [1],
       pitch: 'Yhden/kahden lauseen kuvaus tilasta.',
       pricing_details: 'Hinnoittelusta tarkemmin',
       published: true,
@@ -42,6 +39,5 @@ Venue.create(
       security_deposit: 400,
       slug: 'murphy-douglas-and-sawayn-4',
       title: 'Murphy, Douglas and Sawayn 4',
-      venue_group_id: 1,
-      venue_type_ids: [1]
+      venue_group_id: 1
   )

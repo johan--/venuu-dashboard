@@ -2,6 +2,7 @@ module('Integration: Venue groups', {
   setup: function () { // Before each test
     VenuuDashboard.reset();
     window.fakeLog = [];
+    window.seedBackend();
   },
   teardown: function () { // After each test
   }
@@ -40,8 +41,6 @@ test('First location details can be edited', function () {
   fillIn('#address', 'Senaatintori');
   click('#save');
   andThen(function () {
-    ok(fakeLogContains(/PUT.*venue_groups\/1\.json/),
-      'Venue-groups 1.json put found');
     ok(find('#name').val().indexOf('Tuomiokirkko') > -1,
       'New name found!');
     ok(find('#address').val().indexOf('Senaatintori') > -1,
@@ -61,8 +60,6 @@ test('New location can be added', function () {
   fillIn('#address', 'A.I. Virtasen aukio 1');
   click('#save');
   andThen(function () {
-    ok(fakeLogContains(/POST.*venue_groups.json/),
-      'Venue-group create found');
     ok(find('#name').val().indexOf('Chemicum') > -1,
       'New name found!');
     ok(find('#zipcode').val().indexOf('00550') > -1,
@@ -78,7 +75,7 @@ test('Location can be deleted', function () {
   visit('/venue-group/1');
   click('#destroy');
   andThen(function () {
-    ok(fakeLogContains(/DELETE.*venue_groups\/1\.json/),
-      'Venue-groups 1.json delete found');
+    ok(find('li').text().indexOf('Kongressikeskus') === -1,
+      'Kongressikeskus found!');
   });
 });
