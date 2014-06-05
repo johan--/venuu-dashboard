@@ -1,9 +1,75 @@
-{{input value=title id="title"}}
+<div class="m-container-box">
+  <h4>Perustiedot <small>kerro tilastasi</small></h4>
+  <div class="row">
 
-<label for="pitch">Myyntipuhe</label>
-{{input value=pitch id="pitch"}}
+    <div class="small-3 columns">
+      <label for="title" class="right inline">Tilan nimi</label>
+    </div>
+    <div class="small-9 columns">
+      {{input value=title id="title"}}
+    </div>
 
-<label for="description">Kuvaus</label>
-{{textarea value=description id="description" rows="6"}}
-<br>
-<button id="save" {{action 'save'}} class="success">Tallenna</button>
+    <div class="small-3 columns">
+      <label for="pitch" class="right inline">Myyntipuhe</label>
+    </div>
+    <div class="small-9 columns">
+      {{input value=pitch id="pitch"}}
+    </div>
+
+    <div class="small-12 columns">
+      <label for="description">Kuvaus</label>
+      {{textarea value=description id="description" rows="6"}}
+    </div>
+  </div>
+</div>
+
+<div class="m-container-box">
+  <h4>Yhteystiedot <small>yhteydenottoja varten</small></h4>
+  <div class="row">
+
+    <div class="medium-12 columns">
+      <div class="row">
+        <div class="small-2 columns">
+          <label for="address" class="right inline">Osoite</label>
+        </div>
+        <div class="small-5 columns">
+          {{input value=address id="address"}}
+        </div>
+
+        <div class="small-2 columns">
+          <label for="zipcode" class="right inline">Postinumero</label>
+        </div>
+        <div class="small-3 columns">
+          {{input value=zipcode id="zipcode"}}
+        </div>
+      </div>
+    </div>
+
+    <div class="medium-12 columns">
+      <div class="row">
+        <div class="small-2 columns">
+          <label for="email" class="right inline">Email</label>
+        </div>
+        <div class="small-5 columns">
+          {{input value=contactEmail id="email"}}
+        </div>
+
+        <div class="small-2 columns">
+          <label for="phone" class="right inline">Puhelin</label>
+        </div>
+        <div class="small-3 columns">
+          {{input value=contactPhone id="phone"}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="medium-12 columns">
+  <button id="save" {{action 'save'}} class="success">Tallenna</button>
+  {{#if this.id}}
+    <button id="destroy" {{action 'destroy'}}>Poista kohde</button>
+  {{/if}}
+</div>
+
