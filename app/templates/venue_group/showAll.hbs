@@ -2,7 +2,7 @@
   <ul class="no-bullet">
     {{#each model}}
       {{#if this.id}}
-        <li>{{#link-to 'venue_group' this}}{{this.name}}{{/link-to}}</li>
+        <li>{{#link-to 'venue_group.edit' this}}{{this.name}}{{/link-to}}</li>
       {{else}}
         <li class="disabled">{{this.name}}</li>
       {{/if}}

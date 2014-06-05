@@ -9,7 +9,7 @@
     <div class="medium-6 columns">
       <h5>Kohteet <small>{{model.length}} kpl</small></h5>
         {{#each model}}
-          {{#link-to 'venue_group' this}}
+          {{#link-to 'venue_group.edit' this}}
             <div class="m-venue-box">
               <img {{bind-attr src="this.imageSrc"}} width="60" height="60">
               <h6>{{this.name}}</h6>
@@ -25,7 +25,7 @@
           Luo uusi kohde
         </button>
         <br>
-        {{#link-to 'venue_groups'}}Näytä kaikki kohteesi{{/link-to}}
+        {{#link-to 'venue_group'}}Näytä kaikki kohteesi{{/link-to}}
     </div>
     <div class="medium-6 columns">
       <h5>Uusimmat tarjouspyynnöt</h5>

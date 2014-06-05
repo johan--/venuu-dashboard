@@ -28,13 +28,11 @@
       });
     },
     setupController: function (controller, model) {
-      this.controllerFor('venueGroupEdit').set('model', this.modelFor('venue_group'));
+      this.controllerFor('venueGroupEdit').set('model', this.modelFor('venue_group.edit'));
     }
   });
 
-  //GROUPS
-
-  VenuuDashboard.VenueGroupsRoute = Ember.Route.extend({
+  VenuuDashboard.VenueGroupRoute = Ember.Route.extend({
     renderTemplate: function () {
       this.render('venue_group/sidebar', {
         outlet: 'sidebar'
@@ -45,11 +43,11 @@
     },
     setupController: function (controller, model) {
       this._super(controller, model);
-      this.controllerFor('venueGroups').set('model', this.get('store').find('venue_group'));
+      this.controllerFor('venueGroup').set('model', this.get('store').find('venue_group'));
     }
   });
 
-  VenuuDashboard.VenueGroupsNewRoute = Ember.Route.extend({
+  VenuuDashboard.VenueGroupNewRoute = Ember.Route.extend({
     renderTemplate: function () {
       this.render('venue_group/sidebar', {
         outlet: 'sidebar'

@@ -1,28 +1,24 @@
 (function () {
   'use strict';
 
-  //GROUP
-
   VenuuDashboard.VenueGroupController = Ember.ObjectController.extend({
   });
 
-  //GROUPS
-
-  VenuuDashboard.VenueGroupsController = Ember.ObjectController.extend({
+  VenuuDashboard.VenueGroupNewController = Ember.ObjectController.extend({
     actions: {
       create: function () {
-        this.transitionToRoute('venue_groups.new');
+        this.transitionToRoute('venue_group.new');
       }
     }
   });
 
-  VenuuDashboard.VenueGroupsEditController = Ember.ObjectController.extend({
+  VenuuDashboard.VenueGroupEditController = Ember.ObjectController.extend({
     actions: {
       save: function () {
         var self = this;
 
         function transition(record) {
-          self.transitionToRoute('venue_groups.edit', record);
+          self.transitionToRoute('venue_group.edit', record);
         }
 
         function failure(response) {
@@ -36,45 +32,14 @@
       destroy: function () {
         var self = this;
 
-        function transitionToVenueGroups() {
-          self.transitionToRoute('venue_groups');
+        function transitionToVenueGroup() {
+          self.transitionToRoute('venue_group');
         }
 
         this.get('model').destroyRecord()
-          .then(transitionToVenueGroups);
+          .then(transitionToVenueGroup);
       }
     }
   });
-
-    VenuuDashboard.VenueGroupEditController = Ember.ObjectController.extend({
-    actions: {
-      save: function () {
-        var self = this;
-
-        function transition(record) {
-          self.transitionToRoute('venue_group', record);
-        }
-
-        function failure(response) {
-          console.error('save failure', response);
-        }
-
-        this.get('model').save()
-          .then(transition)
-          .catch(failure);
-      },
-      destroy: function () {
-        var self = this;
-
-        function transitionToVenueGroups() {
-          self.transitionToRoute('venue_groups');
-        }
-
-        this.get('model').destroyRecord()
-          .then(transitionToVenueGroups);
-      }
-    }
-  });
-
 
 })();
