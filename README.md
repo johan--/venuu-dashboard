@@ -68,7 +68,8 @@ gem install bundler
 
 ```
 
-
+The application is automatically deployed when master passes tests at CircleCI.
+For different folders, change the continuous deployment scripts too.
 
 
 
