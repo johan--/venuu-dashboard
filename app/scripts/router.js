@@ -19,15 +19,16 @@
 
 
 
-    this.resource('venues', {
+    this.resource('venue', {
       path: '/venue'
     }, function () {
       this.route('new');
+      this.route('edit', {
+        path: '/:venue_id'
+      });
     });
 
-    this.route('venue', {
-      path: '/venue/:venue_id'
-    });
+
 
   });
 

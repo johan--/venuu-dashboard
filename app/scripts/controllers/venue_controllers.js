@@ -4,10 +4,10 @@
   VenuuDashboard.VenueController = Ember.ObjectController.extend({
   });
 
-  VenuuDashboard.VenuesController = Ember.ObjectController.extend({
+  VenuuDashboard.VenueController = Ember.ObjectController.extend({
     actions: {
       create: function () {
-        this.transitionToRoute('venues.new');
+        this.transitionToRoute('venue.new');
       }
     }
   });
@@ -32,12 +32,12 @@
       destroy: function () {
         var self = this;
 
-        function transitionToVenues() {
-          self.transitionToRoute('venues');
+        function transitionToVenue() {
+          self.transitionToRoute('venue');
         }
 
         this.get('model').destroyRecord()
-          .then(transitionToVenues);
+          .then(transitionToVenue);
       }
     }
   });

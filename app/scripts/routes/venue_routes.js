@@ -7,8 +7,7 @@
         outlet: 'sidebar'
       });
       this.render('venue/edit', {
-        outlet: 'content',
-        controller: 'venueEdit'
+        outlet: 'content'
       });
     },
     setupController: function (controller, model) {
@@ -23,15 +22,16 @@
         outlet: 'sidebar'
       });
       this.render('venue/edit', {
-        outlet: 'content'
+        outlet: 'content',
+        controller: 'venueEdit'
       });
     },
     setupController: function (controller, model) {
-      this.controllerFor('venueEdit').set('model', this.modelFor('venue'));
+      this.controllerFor('venueEdit').set('model', this.modelFor('venue.edit'));
     }
   });
 
-  VenuuDashboard.VenuesNewRoute = Ember.Route.extend({
+  VenuuDashboard.VenueNewRoute = Ember.Route.extend({
     renderTemplate: function () {
       this.render('venue/sidebar', {
         outlet: 'sidebar'
@@ -48,7 +48,7 @@
     }
   });
 
-  VenuuDashboard.VenuesRoute = Ember.Route.extend({
+  VenuuDashboard.VenueRoute = Ember.Route.extend({
     renderTemplate: function () {
       this.render('venue/sidebar', {
         outlet: 'sidebar'
@@ -59,7 +59,7 @@
     },
     setupController: function (controller, model) {
       this._super(controller, model);
-      this.controllerFor('venues').set('model', this.get('store').find('venue'));
+      this.controllerFor('venue').set('model', this.get('store').find('venue'));
     }
   });
 

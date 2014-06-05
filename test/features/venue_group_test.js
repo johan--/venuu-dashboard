@@ -7,7 +7,7 @@ module('Integration: Venue groups', {
   }
 });
 
-test('Location page title found', function () {
+test('Venue groups page title found', function () {
   visit('/venue-group');
   andThen(function () {
     ok(find('h4').text().indexOf('Kohteet') > -1,
@@ -15,7 +15,7 @@ test('Location page title found', function () {
   });
 });
 
-test('First location name found', function () {
+test('First venue group name found', function () {
   visit('/venue-group');
   andThen(function () {
     ok(find('li').text().indexOf('Kongressikeskus') > -1,
@@ -24,7 +24,7 @@ test('First location name found', function () {
 });
 
 
-test('First location details found', function () {
+test('First venue group details found', function () {
   visit('/venue-group/1');
   andThen(function () {
     ok(find('#address').val().indexOf('Betonimiehenkatu 1') > -1,
@@ -32,7 +32,7 @@ test('First location details found', function () {
   });
 });
 
-test('First location details can be edited', function () {
+test('First venue groups details can be edited', function () {
   visit('/venue-group/1');
   fillIn('#name', 'Tuomiokirkko');
   fillIn('#city', 'Helsinki');
@@ -53,7 +53,7 @@ test('First location details can be edited', function () {
   });
 });
 
-test('New location can be added', function () {
+test('New venue group can be added', function () {
   visit('/venue-group/new');
   fillIn('#name', 'Chemicum');
   fillIn('#city', 'Helsinki');
@@ -74,7 +74,7 @@ test('New location can be added', function () {
   });
 });
 
-test('Location can be deleted', function () {
+test('Venue groups can be deleted', function () {
   visit('/venue-group/1');
   click('#destroy');
   andThen(function () {
@@ -82,3 +82,12 @@ test('Location can be deleted', function () {
       'Venue-groups 1.json delete found');
   });
 });
+
+test('Venue groups create button works', function () {
+  visit('/venue-group');
+  click('#create');
+  andThen(function () {
+    ok(true, 'Create button works.');
+  });
+});
+

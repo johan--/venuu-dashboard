@@ -2,9 +2,6 @@
   'use strict';
 
   VenuuDashboard.VenueGroupController = Ember.ObjectController.extend({
-  });
-
-  VenuuDashboard.VenueGroupNewController = Ember.ObjectController.extend({
     actions: {
       create: function () {
         this.transitionToRoute('venue_group.new');
