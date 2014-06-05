@@ -10,6 +10,7 @@ var mountFolder = function (connect, dir) {
 };
 var modRewrite = require('connect-modrewrite'),
   redirectToIndex = modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png(\\?\\d+)?|\\.json$ /index.html [L]']);
+var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
 
 // # Globbing
 // for performance reasons we're only matching one level down:
@@ -83,10 +84,22 @@ module.exports = function (grunt) {
         // change this to '0.0.0.0' to access the server from outside
         hostname: 'localhost'
       },
+      proxies: [{
+        context: '/api',
+        host: 'localhost',
+        port: 3000,
+        https: false,
+        changeOrigin: true,
+        xforward: false,
+        rewrite: {
+          '^/api': '/'
+        }
+      }],
       livereload: {
         options: {
           middleware: function (connect) {
             return [
+              proxySnippet,
               redirectToIndex,
               lrSnippet,
               mountFolder(connect, '.tmp'),
@@ -100,6 +113,7 @@ module.exports = function (grunt) {
           port: 9001,
           middleware: function (connect) {
             return [
+              proxySnippet,
               redirectToIndex,
               lrSnippet,
               mountFolder(connect, 'test'),
@@ -318,27 +332,6 @@ module.exports = function (grunt) {
           ]
         }]
       },
-      fixtures: {
-        files: [{
-          expand: true,
-          flatten: false,
-          /*          filter: 'isFile',*/
-          dest: '.tmp/',
-          src: [
-            'fixtures/**'
-          ]
-        }]
-      },
-      fixturesDist: {
-        files: [{
-          expand: true,
-          flatten: false,
-          dest: 'dist/',
-          src: [
-            'fixtures/**'
-          ]
-        }]
-      },
       fonts: {
         files: [{
           expand: true,
@@ -442,7 +435,7 @@ module.exports = function (grunt) {
         'concurrent:test',
         'neuter:app',
         'copy:fonts',
-        'copy:fixtures',
+        'configureProxies',
         'connect:test',
         'open:test',
         'watch'
@@ -457,7 +450,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'neuter:app',
       'copy:fonts',
-      'copy:fixtures',
+      'configureProxies',
       'connect:livereload',
       'open:server',
       'watch'
@@ -469,10 +462,10 @@ module.exports = function (grunt) {
     'clean:server',
     'replace:app',
     'copy:tests',
-    'copy:fixtures',
     'compass',
     'concurrent:test',
     'neuter:app',
+    'configureProxies',
     'connect:test',
     'qunit',
     'jshint'
@@ -481,7 +474,6 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'replace:dist',
-    'copy:fixturesDist',
     'compass',
     'useminPrepare',
     'concurrent:dist',

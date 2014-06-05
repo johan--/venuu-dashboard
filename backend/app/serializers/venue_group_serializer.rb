@@ -1,6 +1,6 @@
 class VenueGroupSerializer < ActiveModel::Serializer
   embed :ids
 
-  attributes :id, :name, :address, :zipcode, :city
+  attributes :id, *VenueGroup.publicAttributes
   has_many :venues
 end

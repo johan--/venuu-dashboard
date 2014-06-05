@@ -29,15 +29,4 @@ module Backend
   end
 end
 
-module Backend
-  class Application < Rails::Application
 
-    config.middleware.use Rack::Cors do
-      allow do
-        origins '*'
-        resource '*', :headers => :any, :methods => [:get, :put, :delete, :post, :options]
-      end
-    end
-
-  end
-end

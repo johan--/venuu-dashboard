@@ -13,7 +13,7 @@ test('get venue_groups json', function () {
   /*  setTimeout(function () {*/
   $.ajax({
     dataType: 'json',
-    url: 'http://localhost:3000/venue_groups',
+    url: '/api/venue_groups',
     async: false,
     success: function () {
       ok(true);

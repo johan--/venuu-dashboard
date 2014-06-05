@@ -49,7 +49,9 @@ class VenueGroupsController < ApplicationController
     head :no_content
   end
 
-    def venue_group_params
-    params.require(:venue_group).permit(:id, :name, :address, :zipcode, :city)
+  private
+
+  def venue_group_params
+    params.require(:venue_group).permit(*VenueGroup.publicAttributes)
   end
 end
