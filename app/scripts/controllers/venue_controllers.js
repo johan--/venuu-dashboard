@@ -1,7 +1,18 @@
 (function () {
   'use strict';
 
-  VenuuDashboard.VenueEditController = Ember.ObjectController.extend({
+  VenuuDashboard.VenueController = Ember.ObjectController.extend({
+  });
+
+  VenuuDashboard.VenuesController = Ember.ObjectController.extend({
+    actions: {
+      create: function () {
+        this.transitionToRoute('venues.new');
+      }
+    }
+  });
+
+    VenuuDashboard.VenueEditController = Ember.ObjectController.extend({
     actions: {
       save: function () {
         var self = this;
