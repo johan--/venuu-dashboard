@@ -12,7 +12,7 @@
     }
   });
 
-    VenuuDashboard.VenueEditController = Ember.ObjectController.extend({
+  VenuuDashboard.VenueEditController = Ember.ObjectController.extend({
     actions: {
       save: function () {
         var self = this;
