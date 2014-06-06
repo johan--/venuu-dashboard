@@ -16,6 +16,7 @@ module('Integration: Gremlins', {
     }
   },
   teardown: function () { // After each test
+    window.seedBackend();
   }
 });
 

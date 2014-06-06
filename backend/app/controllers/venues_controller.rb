@@ -1,9 +1,13 @@
 class VenuesController < ApplicationController
+
   # GET /venues
   # GET /venues.json
   def index
-    @venues = Venue.all
-
+    if params[:ids]
+      @venues = Venue.where(id: params[:ids])
+    else
+      @venues = Venue.all
+    end
     render json: @venues
   end
 
@@ -18,7 +22,7 @@ class VenuesController < ApplicationController
   # POST /venues
   # POST /venues.json
   def create
-    @venue = Venue.new(params[:venue])
+    @venue = Venue.new(venue_params)
 
     if @venue.save
       render json: @venue, status: :created, location: @venue
@@ -32,7 +36,7 @@ class VenuesController < ApplicationController
   def update
     @venue = Venue.find(params[:id])
 
-    if @venue.update(params[:venue])
+    if @venue.update(venue_params)
       head :no_content
     else
       render json: @venue.errors, status: :unprocessable_entity
@@ -47,4 +51,11 @@ class VenuesController < ApplicationController
 
     head :no_content
   end
+
+  private
+
+  def venue_params
+    params.require(:venue).permit(*Venue.publicAttributes)
+  end
+
 end

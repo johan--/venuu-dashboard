@@ -1,6 +1,6 @@
 #!/bin/bash
-
-# Sync production API files and run necessary preparation commands
+# Sync production API files and prepare/deploy the API
+# This script runs the prepare_API script at the production server over SSH
 
 
 readonly PROJECT_DIR=~/venuu-dashboard

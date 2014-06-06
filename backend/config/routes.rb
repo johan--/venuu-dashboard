@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :venues, except: [:new, :edit]
-  resources :venue_groups, except: [:new, :edit]
+  resources :venues
+  resources :venue_groups
+
+  get '/seed', to: 'seed#reset'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

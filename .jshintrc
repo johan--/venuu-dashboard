@@ -43,6 +43,7 @@
     "asyncTest": true,
     "gremlins": true,
     "start": true,
+    "stop": true,
     "fakeLogContains": true
   }
 }

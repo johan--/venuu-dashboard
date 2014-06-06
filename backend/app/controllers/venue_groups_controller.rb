@@ -1,4 +1,5 @@
 class VenueGroupsController < ApplicationController
+
   # GET /venue_groups
   # GET /venue_groups.json
   def index
@@ -18,7 +19,7 @@ class VenueGroupsController < ApplicationController
   # POST /venue_groups
   # POST /venue_groups.json
   def create
-    @venue_group = VenueGroup.new(params[:venue_group])
+    @venue_group = VenueGroup.new(venue_group_params)
 
     if @venue_group.save
       render json: @venue_group, status: :created, location: @venue_group
@@ -32,7 +33,7 @@ class VenueGroupsController < ApplicationController
   def update
     @venue_group = VenueGroup.find(params[:id])
 
-    if @venue_group.update(params[:venue_group])
+    if @venue_group.update(venue_group_params)
       head :no_content
     else
       render json: @venue_group.errors, status: :unprocessable_entity
@@ -46,5 +47,11 @@ class VenueGroupsController < ApplicationController
     @venue_group.destroy
 
     head :no_content
+  end
+
+  private
+
+  def venue_group_params
+    params.require(:venue_group).permit(*VenueGroup.publicAttributes)
   end
 end

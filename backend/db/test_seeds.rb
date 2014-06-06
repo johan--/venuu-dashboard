@@ -1,10 +1,6 @@
-kongressikeskus = VenueGroup.create(
-      name: 'Kongressikeskus',
-      address: 'Betonimiehenkatu 1',
-      zipcode: '00220',
-      city: 'Espoo')
+VenueGroup.create(name: 'Kongressikeskus', address: 'Betonimiehenkatu 1', zipcode: '00220', city: 'Espoo')
 
-kongressikeskus.venues.create(
+Venue.create(
       additional_service_category_description: 'Palveluista ja puitteista tarkemmin',
       cancellation_policy: 'Peruutusehdot',
       capacity_banquet: 1,
@@ -33,10 +29,11 @@ kongressikeskus.venues.create(
       sales_guarantee: 200,
       security_deposit: 400,
       slug: 'murphy-douglas-and-sawayn-4',
-      title: 'Kongressikeskuksen baari',
+      title: 'Murphy, Douglas and Sawayn 4',
+      venue_group_id: 1
   )
 
-kongressikeskus.venues.create(
+Venue.create(
       additional_service_category_description: 'Palveluista ja puitteista tarkemmin',
       cancellation_policy: 'Peruutusehdot',
       capacity_banquet: 1,
@@ -64,22 +61,7 @@ kongressikeskus.venues.create(
       reviews_count: 0,
       sales_guarantee: 200,
       security_deposit: 400,
-      slug: 'new-testing-thingy-1',
+      slug: 'new',
       title: 'Testing',
+      venue_group_id: 1
   )
-
-keskusta = VenueGroup.create(
-      name: 'Keskusta',
-      address: 'Runeberginkatu 1',
-      zipcode: '00100',
-      city: 'Helsinki')
-
-keskusta.venues.create(
-      title: 'Teerenpeli',
-      slug: 'wonderful-recreational-venue-1'
-      )
-
-keskusta.venues.create(
-      title: 'Kamppi',
-      slug: 'kauppakeskus-venue-1'
-      )

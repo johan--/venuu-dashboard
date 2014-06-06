@@ -4,11 +4,13 @@ gem 'rails', '4.1.2.rc1'
 
 gem 'rails-api'
 
-gem 'spring', :group => :development
+gem 'spring', group: :development
 
 gem 'sqlite3'
 
+gem 'active_model_serializers'
 
+gem 'database_cleaner', group: :test
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

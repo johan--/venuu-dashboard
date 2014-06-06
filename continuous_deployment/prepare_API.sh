@@ -1,10 +1,10 @@
 #!/bin/bash
+# This server side script prepares and deploys the API
 
-# run bundle install, rake db:migrate and restart rails server
 readonly PRODUCTION_DIR=/srv/ohtu-backend
 
-rails-stop ()
-{
+rails-stop () {
+
   # Running rails daemon pid is always at project/tmp/pids/server.pid
   local rails=$PRODUCTION_DIR/tmp/pids/server.pid
 
@@ -17,18 +17,21 @@ rails-stop ()
   fi
 }
 
-rails-restart ()
-{
+rails-restart () {
   rails-stop
-  rails s -d
+  rails s -e production -d
 }
 
-cd-API ()
-{
-  echo 'Begin API CD'
+production-setup-commands () {
   cd /srv/ohtu-backend/
   bundle install
   rake db:migrate
+  rake db:seed
+}
+
+cd-API () {
+  echo 'Begin API CD'
+  production-setup-commands
   rails-restart
 }
 
