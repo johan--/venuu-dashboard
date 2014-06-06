@@ -41,7 +41,7 @@ asyncTest('gremlins unleashed', function () {
     .gremlin(clicker)
     .gremlin(formFiller)
     .before(function () {
-      Ember.Logger.log('Gremlins unleashed!');
+      console.log('Gremlins unleashed!');
     })
     .after(function () {
       ok(true, 'Gremlins died!');

@@ -1,8 +1,20 @@
 (function () {
   'use strict';
 
+  VenuuDashboard.VenueController = Ember.ObjectController.extend({
+    actions: {
+      create: function () {
+        this.transitionToRoute('venue.new');
+      }
+    }
+  });
+
   VenuuDashboard.VenueEditController = Ember.ObjectController.extend({
     actions: {
+      goto: function (anchor) {
+        var $target = $('[data-magellan-destination="' + anchor + '"]');
+        $(document.body).scrollTop($target.offset().top);
+      },
       save: function () {
         var self = this;
 
@@ -21,12 +33,12 @@
       destroy: function () {
         var self = this;
 
-        function transitionToVenues() {
-          self.transitionToRoute('venues');
+        function transitionToVenue() {
+          self.transitionToRoute('venue');
         }
 
         this.get('model').destroyRecord()
-          .then(transitionToVenues);
+          .then(transitionToVenue);
       }
     }
   });

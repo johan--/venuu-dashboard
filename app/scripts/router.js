@@ -8,24 +8,22 @@
 
   VenuuDashboard.Router.map(function () {
 
-    this.resource('venue_groups', {
+    this.resource('venue_group', {
       path: '/venue-group'
     }, function () {
       this.route('new');
+      this.route('edit', {
+        path: '/:venue_group_id'
+      });
     });
 
-    this.route('venue_group', {
-      path: '/venue-group/:venue_group_id'
-    });
-
-    this.resource('venues', {
+    this.resource('venue', {
       path: '/venue'
     }, function () {
       this.route('new');
-    });
-
-    this.route('venue', {
-      path: '/venue/:venue_id'
+      this.route('edit', {
+        path: '/:venue_id'
+      });
     });
 
   });

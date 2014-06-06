@@ -5,16 +5,16 @@
     renderTemplate: function () {
       this.render('index_sidebar', {
         outlet: 'sidebar',
-        controller: 'venueGroups'
+        controller: 'venueGroup'
       });
       this.render('index', {
         outlet: 'content',
-        controller: 'venueGroups'
+        controller: 'venueGroup'
       });
     },
     setupController: function (controller, model) {
       this._super(controller, model);
-      this.controllerFor('venueGroups').set('model', this.get('store').find('venue_group'));
+      this.controllerFor('venueGroup').set('model', this.get('store').find('venue_group'));
     }
   });
 

@@ -10,7 +10,7 @@
   <div class="medium-8 columns">
     <h3>Kohteen tilat <small>{{this.venues.length}} kpl</small></h3>
     {{#each this.venues}}
-      {{#link-to 'venue' this}}
+      {{#link-to 'venue.edit' this}}
         <div class="m-venue-box">
           <img {{bind-attr src="this.imageSrc"}} width="60" height="60">
           <h6>{{this.title}}</h6>

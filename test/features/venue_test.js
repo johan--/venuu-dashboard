@@ -1,7 +1,6 @@
 module('Integration: Venues', {
   setup: function () { // Before each test
     VenuuDashboard.reset();
-    window.fakeLog = [];
     window.seedBackend();
   },
   teardown: function () { // After each test
@@ -16,7 +15,6 @@ test('Venue page title found', function () {
       'Venues header should exist');
   });
 });
-
 
 test('First venue name found', function () {
   visit('/venue');
@@ -33,7 +31,6 @@ test('First venue details found', function () {
       'Venue pitch should exist');
   });
 });
-
 
 test('First venue details can be edited', function () {
   visit('/venue/1');
