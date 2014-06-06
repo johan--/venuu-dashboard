@@ -25,12 +25,12 @@ rails-restart () {
 production-setup-commands () {
   cd /srv/ohtu-backend/
   bundle install
+  export RAILS_ENV=production
   rake db:migrate
   rake db:seed
 }
 
 cd-API () {
-  echo 'Begin API CD'
   production-setup-commands
   rails-restart
 }
