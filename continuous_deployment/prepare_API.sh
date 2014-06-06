@@ -19,15 +19,15 @@ rails-stop () {
 
 rails-restart () {
   rails-stop
-  rails s -e production -d
+  export RAILS_ENV=production
+  rails s -d
 }
 
 production-setup-commands () {
   cd /srv/ohtu-backend/
   bundle install
   export RAILS_ENV=production
-  rake db:migrate
-  rake db:seed
+  rake db:drop db:migrate db:seed
 }
 
 cd-API () {
