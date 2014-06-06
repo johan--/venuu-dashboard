@@ -17,8 +17,6 @@
       });
     });
 
-
-
     this.resource('venue', {
       path: '/venue'
     }, function () {
@@ -27,8 +25,6 @@
         path: '/:venue_id'
       });
     });
-
-
 
   });
 

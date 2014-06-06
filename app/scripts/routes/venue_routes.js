@@ -3,16 +3,17 @@
 
   VenuuDashboard.VenueRoute = Ember.Route.extend({
     renderTemplate: function () {
+      /* No sidebar, because it contains sticky navigation for editing.
       this.render('venue/sidebar', {
         outlet: 'sidebar'
-      });
-      this.render('venue/edit', {
+      });*/
+      this.render('venue/showAll', {
         outlet: 'content'
       });
     },
     setupController: function (controller, model) {
-      this._super(controller, model);
-      this.controllerFor('venueEdit').set('model', this.modelFor('venue'));
+      //this._super(controller, model);
+      this.controllerFor('venue').set('model', this.get('store').find('venue'));
     }
   });
 
@@ -27,6 +28,7 @@
       });
     },
     setupController: function (controller, model) {
+      //this._super(controller, model);
       this.controllerFor('venueEdit').set('model', this.modelFor('venue.edit'));
     }
   });
@@ -42,24 +44,9 @@
       });
     },
     setupController: function (controller, model) {
-      this._super(controller, model);
+      //this._super(controller, model);
       var venue = this.get('store').createRecord('venue');
       this.controllerFor('venueEdit').set('model', venue);
-    }
-  });
-
-  VenuuDashboard.VenueRoute = Ember.Route.extend({
-    renderTemplate: function () {
-      this.render('venue/sidebar', {
-        outlet: 'sidebar'
-      });
-      this.render('venue/showAll', {
-        outlet: 'content',
-      });
-    },
-    setupController: function (controller, model) {
-      this._super(controller, model);
-      this.controllerFor('venue').set('model', this.get('store').find('venue'));
     }
   });
 
