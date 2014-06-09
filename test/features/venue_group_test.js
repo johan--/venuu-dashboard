@@ -1,6 +1,7 @@
 module('Integration: Venue groups', {
   setup: function () { // Before each test
     VenuuDashboard.reset();
+    window.seedBackend();
   },
   teardown: function () { // After each test
   }
@@ -83,6 +84,35 @@ test('Venue groups create button works', function () {
   click('#create');
   andThen(function () {
     ok(true, 'Create button works.');
+  });
+});
+
+//NAVBAR
+
+test('Going to venue groups should work', function () {
+  visit('/');
+  click('#navbar-venue-groups');
+  andThen(function () {
+    ok(find('h4').text().indexOf('Kohteet') > -1,
+      'Venue Groups title should exist');
+  });
+});
+
+test('Going back to venue groups when creating a venue group should work', function () {
+  visit('/venue-group/new');
+  click('#navbar-venue-groups');
+  andThen(function () {
+    ok(find('h4').text().indexOf('Kohteet') > -1,
+      'Venue Groups title should exist');
+  });
+});
+
+test('Going back to venue groups when editing a venue group should work', function () {
+  visit('/venue-group/1');
+  click('#navbar-venue-groups');
+  andThen(function () {
+    ok(find('h4').text().indexOf('Kohteet') > -1,
+      'Venue Groups title should exist');
   });
 });
 
