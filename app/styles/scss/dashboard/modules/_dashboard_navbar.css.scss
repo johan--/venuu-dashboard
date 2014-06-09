@@ -14,14 +14,16 @@
 
   .top-bar-section ul {
     background: $bg-color;
-
+    li {
+      background: inherit;
+    }
     li a {
       &:not(.button) {
         line-height: $bar-height / 3;
-        background-color: inherit;
+        background-color: $bg-color;
         color: $basetext-color-light;
         text-align: center;
-        font-size: 1.1em;
+        font-size: 1em;
 
         &:hover { background-color: darken($bg-color, 10%); }
       }
