@@ -6,6 +6,7 @@ If you do not have ruby, bundler, node.js and npm, check Production Setup for in
 
 ```
 git clone git@github.com:venuu/venuu-dashboard.git
+cd venuu-dashboard
 npm install -g grunt-cli bower 
 ./setup.sh
 
