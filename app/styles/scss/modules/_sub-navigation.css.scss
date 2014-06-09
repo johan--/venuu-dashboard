@@ -8,7 +8,7 @@
   }
   li a {
     display: block;
-    line-height: emCalc(42);
+    line-height: rem-calc(42);
     @include single-transition(padding, .1s, ease-out);
     @include border-radius($global-radius);
     &.is-current {
