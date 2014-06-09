@@ -2,16 +2,13 @@
 
 ## Getting started
 
-If you do not have ruby+bundler, node.js and npm, check Production Setup for instructions. If you source rbenv somewhere else than ~/.bashrc, please source that instead.
+If you do not have ruby, bundler, node.js and npm, check Production Setup for instructions. If you source rbenv somewhere else than ~/.bashrc, please source that instead.
 
 ```
 git clone git@github.com:venuu/venuu-dashboard.git
-npm install
 npm install -g grunt-cli bower 
-bundle install
-source ~/.bashrc
-bower install
-grunt serve
+./setup.sh
+
 ```
 
 Detailed configuration can be found on [Google Drive](https://docs.google.com/document/d/1ptHqRnnKQh2z2oObZt5Df3rILxeJ84YM_uBMEtYwNeU).
