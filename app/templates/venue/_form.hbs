@@ -2,6 +2,9 @@
   <h4 data-magellan-destination="basic">
     Perustiedot <small>kerro tilastasi</small>
   </h4>
+    {{#each venueTypes}}
+      <li>{{this.name}}</li>
+  {{/each}}
   <div class="row">
 
     <div class="small-3 columns">

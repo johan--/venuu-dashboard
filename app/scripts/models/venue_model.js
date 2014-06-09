@@ -44,6 +44,7 @@
     title: DS.attr('string'),
     updatedAt: DS.attr('date'),
     venueGroup: DS.belongsTo('venueGroup'),
+    venueTypes: DS.hasMany('venueType', { async: true }),
     //venue_type_ids: DS.hasMany('venue_type'),
     imageSrc: function () {
       return 'http://lorempixel.com/output/city-q-c-100-100-' +

@@ -46,7 +46,6 @@ module.exports = function (grunt) {
         tasks: ['neuter']
       },
       livereload: {
-        tasks: ['copy:fixtures'],
         options: {
           middleware: function ( /*connect*/ ) {
             return [redirectToIndex];
@@ -57,12 +56,11 @@ module.exports = function (grunt) {
           '.tmp/scripts/*.js',
           '<%= yeoman.app %>/*.html',
           '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.scss',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          'fixtures/*.json'
+          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       },
       test: {
-        tasks: ['copy:tests', 'copy:fixtures'],
+        tasks: ['copy:tests'],
         options: {
           middleware: function (connect) {
             return [redirectToIndex];
