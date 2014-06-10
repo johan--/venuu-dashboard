@@ -1,6 +1,7 @@
 // General footer container styles
 .m-footer-container {
   @include grid-row(nest-collapse);
+  color: white;
   padding: 2em 0;
   text-align: center;
 }
@@ -24,7 +25,6 @@
     color: white;
   }
   p {
-    color: white;
     font-size: .75em;
   }
   .m-social-links {
@@ -41,7 +41,6 @@
 .m-footer-links {
   @include grid-column(12);
   margin-top: 1em;
-  color: white;
   @media #{$small} {
     margin-top: 0;
     text-align: left;
@@ -86,7 +85,5 @@
 
 .m-footer-engagement {
   padding: 1.5em 0 .5em;
-  h4, p {
-    color: white;
-  }
+  color: white;
 }

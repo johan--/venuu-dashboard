@@ -5,11 +5,10 @@ label span {
 }
 
 select {
-  -webkit-appearance: menulist-button;
-  line-height: 32px;
-  height: 32px;
-  padding: 8px;
-  border: 1px solid $basetext-color-lightest;
+  // Remove Foundation's weird default styling to select
+  -webkit-appearance: menulist !important;
+  background-color: none;
+  background-image: none;
   cursor: pointer;
   // After this iPhone won't zoom into select-elements. More info:
   // http://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
@@ -20,10 +19,5 @@ select {
 }
 
 .m-description-field {
-  height: emCalc(120);
-}
-
-// Checkbox styling
-.m-opt-in-checkbox {
-  padding: .8em 0;
+  height: rem-calc(120);
 }

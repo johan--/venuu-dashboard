@@ -2,6 +2,36 @@
  *= require_self
  */
 
+// Colors added by Venuu
+$basetext-color: #333; // Basic heading color
+$basetext-color-light: lighten($basetext-color, 20%); // Lighter text
+$basetext-color-lighter: lighten($basetext-color, 35%); // Lighter text
+$basetext-color-lightest: lighten($basetext-color, 50%); // Lightest text
+$basetext-color-dark: darken($basetext-color, 10%); // Darker text
+
+// Border and background
+$border-color: #d4d4d4; // Medium grey
+$bg-color: #f9f9f9; // Very light grey
+
+// Custom transparent gradient
+$transparent-gradient: linear-gradient(rgba(white,.25), rgba(white,0));
+$transparent-gradient-hover: linear-gradient(rgba(white,.35), rgba(white,.1));
+$transparent-gradient-inverse: linear-gradient(rgba(black,.15), rgba(black,.05));
+
+// Media Queries added by Venuu
+$tiny-screen: 640px;
+$middle-screen: 1024px;
+$tiny: "only screen and (min-width: #{$tiny-screen})";
+$middle: "only screen and (min-width: #{$middle-screen})";
+
+// Added by Venuu
+$primary-font-family: "Open Sans";
+$secondary-font-family: "Montserrat";
+$monospace-font-family: Consolas, 'Liberation Mono', Courier, monospace;
+
+
+@import "foundation_and_overrides.css.scss";
+@import "selection.css.scss";
 
 // -----------------------------------------------------------------------------
 // Import parts of bootstrap through sprockets require, as to not interfere with
@@ -9,11 +39,6 @@
 // if imported via @import command.
 // -----------------------------------------------------------------------------
 //= require ./bootstrap-carousel
-
-// -----------------------------------------------------------------------------
-// Import theme which includes foundation variables
-// -----------------------------------------------------------------------------
-@import "themes/freestyler/index.css.scss";
 
 // -----------------------------------------------------------------------------
 // Import custom mixins
@@ -51,7 +76,6 @@
 @import "modules/feedback.css.scss";
 @import "modules/footer.css.scss";
 @import "modules/forms.css.scss";
-@import "modules/icons.css.scss";
 @import "modules/lists.css.scss";
 @import "modules/loading.css.scss";
 @import "modules/logo.css.scss";
@@ -65,6 +89,7 @@
 @import "modules/ribbon.css.scss";
 @import "modules/service-list.css.scss";
 @import "modules/skaba.css.scss";
+//@import "modules/carousel.css.scss";
 @import "modules/social-links.css.scss";
 @import "modules/social-tools.css.scss";
 @import "modules/statistics.css.scss";
@@ -80,7 +105,7 @@
 @import "modules/venue-pricing-box.css.scss";
 @import "modules/venue-title.css.scss";
 @import "modules/what-is-venuu.css.scss";
-@import "modules/word-cycle.css.scss";
+
 
 // -----------------------------------------------------------------------------
 // Import dashboard files

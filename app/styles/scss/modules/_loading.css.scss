@@ -11,18 +11,8 @@
 }
 
 .m-loader-container {
-  // Use fixed position to keep the loader visible all times
-  position: fixed;
-  top: 40%;
-  margin-left: 35%;
-  @media #{$small} {
-    margin-left: 27%;
-  }
-  @media #{$medium} {
-    margin-left: 24em;
-  }
-  z-index: 2;
   // Container
+  display: inline-block;
   padding: 1em;
   background-color: white;
   border: 1px solid $border-color;
@@ -31,12 +21,26 @@
     // Center spinner
     margin: 0 auto;
     // Define dimensions for spinner
-    height: 48px;
-    width: 48px;
+    height: 24px;
+    width: 24px;
   }
   p {
     margin: 1em 0 0 0;
     font-weight: bold;
     text-align: center;
   }
+}
+
+#venues .m-loader-container {
+  // Use fixed position to keep the loader visible all times
+  position: fixed;
+  top: 40%;
+  margin-left: 35%;
+  @media #{$small} {
+    margin-left: 27%;
+  }
+  @media #{$large} {
+    margin-left: 24em;
+  }
+  z-index: 2;
 }
