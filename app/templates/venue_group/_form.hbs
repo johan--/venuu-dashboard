@@ -1,22 +1,15 @@
-<div class="medium-12 columns">
-  <label for="name">Nimi</label>
-  {{input value=name id="name"}}
+<div class="m-container-box">
+  {{v-input labelCol=3 inputCol=9 label="Kohteen nimi" name="name" content=name}}
+  {{v-input labelCol=3 inputCol=9 label="Osoite" name="address" content=address}}
+  {{v-input labelCol=3 inputCol=9 label="Postinumero" name="zipcode" content=zipcode}}
+  {{v-input labelCol=3 inputCol=9 label="Kaupunki" name="city" content=city}}
 </div>
-<div class="medium-12 columns">
-  <label for="address">Osoite</label>
-  {{input value=address id="address"}}
-</div>
-<div class="medium-6 columns">
-  <label for="city">Postinumero</label>
-  {{input value=zipcode id="zipcode"}}
-</div>
-<div class="medium-6 columns">
-  <label for="city">Kaupunki</label>
-  {{input value=city id="city"}}
-</div>
-<div class="medium-12 columns">
-  <button id="save" {{action 'save'}} class="success">Tallenna</button>
-  {{#if this.id}}
-    <button id="destroy" {{action 'destroy'}}>Poista kohde</button>
-  {{/if}}
+
+<div class="row">
+  <div class="medium-12 columns">
+    <button id="save" {{action 'save'}} class="success">Tallenna</button>
+    {{#if this.id}}
+      <button id="destroy" {{action 'destroy'}}>Poista kohde</button>
+    {{/if}}
+  </div>
 </div>

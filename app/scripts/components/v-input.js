@@ -1,4 +1,6 @@
-VenuuDashboard.VenueInputComponent = Ember.Component.extend({
+VenuuDashboard.VInputComponent = Ember.Component.extend({
+  classNameBindings: ['notRow::row'],
+
   labelColSize: function () {
     return 'small-' + this.get('labelCol');
   }.property('labelCol'),
