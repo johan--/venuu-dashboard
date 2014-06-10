@@ -14,16 +14,15 @@
 
   .top-bar-section ul {
     background: $bg-color;
-    li {
-      background: inherit;
-    }
+    li { background: inherit; }
     li a {
       &:not(.button) {
         line-height: $bar-height / 3;
         background-color: $bg-color;
         color: $basetext-color-light;
         text-align: center;
-        font-size: 1em;
+        font-size: 0.8em;
+        padding: 0;
 
         &:hover { background-color: darken($bg-color, 10%); }
       }
@@ -36,6 +35,13 @@
           background-color: $primary-color;
         }
       }
+    }
+  }
+
+  // Medium screens
+  @media #{$large-up} {
+    .top-bar-section ul li a:not(.button) {
+      font-size: 1em;
     }
   }
 
