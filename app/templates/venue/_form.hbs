@@ -7,12 +7,7 @@
   {{/each}}
   <div class="row">
 
-    <div class="small-3 columns">
-      <label for="title" class="right inline">Tilan nimi</label>
-    </div>
-    <div class="small-9 columns">
-      {{input value=title id="title"}}
-    </div>
+  {{venue-input labelCol=3 inputCol=9 label="Tilan nimi" content=title viewName="title"}}
 
     <div class="small-3 columns">
       <label for="pitch" class="right inline">Myyntipuhe</label>

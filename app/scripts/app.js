@@ -6,6 +6,7 @@
   var VenuuDashboard = window.VenuuDashboard = Ember.Application.create();
 
   /* Order and include as you please. */
+  require('scripts/components/*');
   require('scripts/controllers/*');
   require('scripts/helpers/*');
   require('scripts/store');
