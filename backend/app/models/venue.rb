@@ -1,5 +1,6 @@
 class Venue < ActiveRecord::Base
   belongs_to :venue_group
+  has_and_belongs_to_many :venue_types, join_table: :types_of_venues
 
   def self.publicAttributes
     [:additional_service_category_description,
