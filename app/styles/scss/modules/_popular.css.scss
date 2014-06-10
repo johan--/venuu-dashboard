@@ -1,9 +1,4 @@
 .m-featured {
-  h5 {
-    font-size: emCalc(14);
-    color: #666;
-    line-height: 1.75;
-  }
   @media #{$middle} {
     .row:last-child .m-featured-venue {
       margin-bottom: 0;
@@ -30,7 +25,7 @@
 
 .m-featured-venue-image {
   @include border-top-radius($global-radius);
-  height: emCalc(170);
+  height: rem-calc(170);
   overflow: hidden;
 }
 
@@ -38,6 +33,7 @@
   padding: 1em 1em .5em;
   border: 1px solid $border-color;
   border-top: 0;
+  color: $basetext-color;
   min-height: auto;
   @media #{$tiny} {
     min-height: 16em;

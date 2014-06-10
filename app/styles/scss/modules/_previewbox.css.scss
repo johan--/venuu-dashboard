@@ -1,28 +1,36 @@
 .m-previewbox {
   @include grid-row(collapse);
   display: block;
+  color: $basetext-color;
+  &:hover {
+    color: $basetext-color;
+  }
   &:last-child {
     border-bottom: 1px solid $border-color;
   }
   // Position icons a bit away from adjacent text
   i {
-    margin-right: emCalc(5);
+    margin-right: rem-calc(5);
   }
 }
 
 .m-previewbox-image {
   @include grid-column(4);
-  height: emCalc(108);
-  // background-image set via style attribute
-  @extend .m-background-image;
+  height: rem-calc(108);
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  @media #{$small} {
+    height: auto;
+  }
 }
 .m-previewbox-info {
   @include grid-column(7);
-  padding-top: emCalc(10);
+  padding-top: rem-calc(10);
   border-top: 1px solid $border-color;
   h2 {
     font-size: .85em;
-    margin-bottom: emCalc(6);
+    margin-bottom: rem-calc(6);
     // Don't expand venue names over one line
     overflow: hidden;
     white-space: nowrap;
@@ -30,22 +38,18 @@
   }
   // Address styling
   span {
-    font-size: emCalc(12);
+    font-size: rem-calc(12);
     color: $basetext-color-light;
-    margin-bottom: emCalc(10);
+    margin-bottom: rem-calc(10);
     // Don't expand address over one line
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-  // As the whole previewbox is a link, color has to be defined
-  * {
-    color: $basetext-color;
-  }
 }
 .m-previewbox-right {
   @include grid-column(1);
-  padding: emCalc(10) 0 0;
+  padding: rem-calc(10) 0 0;
   border-top: 1px solid $border-color;
   position: relative;
   .button, button {
@@ -67,7 +71,7 @@
   .m-venue-info {
     font-size: 1em;
     a {
-      margin-top: emCalc(116);
+      margin-top: rem-calc(116);
     }
   }
 }
@@ -84,7 +88,7 @@
   .m-previewbox-contents {
     @include border-radius($global-radius);
     width: auto;
-    height: emCalc(175);
+    height: rem-calc(175);
     > * {
       height: 100%;
     }
@@ -98,9 +102,9 @@
     padding: 1em 1.4em;
     border-bottom: 1px solid $border-color;
     p {
-      margin-top: emCalc(8);
+      margin-top: rem-calc(8);
       margin-bottom: 0;
-      height: emCalc(96);
+      height: 6em;
       overflow: hidden;
     }
   }

@@ -1,17 +1,17 @@
 <div class='m-navbar'>
-  <nav class='top-bar'>
+  <nav class='top-bar' data-topbar=''>
     <ul class='title-area'>
       <!-- Title Area -->
       <li class='name'>
         <a href="/" class="m-logo" title="Venuu - löydä tila tapahtumallesi"></a>
       </li>
-      <li class='toggle-topbar menu-icon'>
-        <a>
+      <li class='toggle-topbar'>
+        <a {{action 'toggleNavbar' bubbles=false}}>
           <span>Valikko</span>
         </a>
       </li>
     </ul>
-    <section class='top-bar-section'>
+    <section class='top-bar-section' style="left: 0%;">
       <!-- Right Nav Section -->
       <ul class='right'>
         <li>

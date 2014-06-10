@@ -14,14 +14,14 @@
 
   .top-bar-section ul {
     background: $bg-color;
-
+    li { background: inherit; }
     li a {
       &:not(.button) {
         line-height: $bar-height / 3;
-        background-color: inherit;
+        background-color: $bg-color;
         color: $basetext-color-light;
         text-align: center;
-        font-size: 1.1em;
+        font-size: 0.8em;
 
         &:hover { background-color: darken($bg-color, 10%); }
       }
@@ -37,6 +37,13 @@
     }
   }
 
+  // Medium screens
+  @media #{$large-up} {
+    .top-bar-section ul li a:not(.button) {
+      font-size: 1em;
+    }
+  }
+
   // Big screens
   @media #{$topbar-media-query} {
     .top-bar {
@@ -48,7 +55,10 @@
       width: 100% / $bar-item-count;
       border-right: 1px solid $border-color;
       &:last-child { border-right: none; }
-      a:not(.button) { line-height: $bar-height - 2; }
+      a:not(.button) {
+        line-height: $bar-height - 2;
+        padding: 0;
+      }
     }
   }
 }

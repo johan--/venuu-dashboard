@@ -10,16 +10,15 @@
     // On mobile devices show only one service on one line
     width: 100%;
     line-height: 2.2;
-    // For some reason emCalc(12) renders text as 11px
-    font-size: 12px;
+    font-size: rem-calc(12);
     @media #{$small} {
       // On bigger screens show 2 columns of services
       width: 50%;
     }
   }
   i {
-    padding-right: emCalc(3);
-    color: $primary-color-effect;
+    padding-right: rem-calc(3);
+    color: $success-color-effect;
   }
 }
 
