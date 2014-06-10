@@ -1,0 +1,252 @@
+.m-carousel, .m-carousel-image {
+  height: 15em;
+  @media #{$small} {
+    height: 20em;
+  }
+  @media #{$large} {
+    height: 30em;
+  }
+}
+
+.m-carousel {
+  margin-bottom: 0;
+  background-color: #333;
+  // Don't display images before the slider has been loaded
+  img {
+    display: none;
+  }
+  .m-loader {
+    // Center loader
+    text-align: center;
+    margin-top: 4.5em;
+    @media #{$small} {
+      margin-top: 7em;
+    }
+    @media #{$large} {
+      margin-top: 12em;
+    }
+  }
+}
+
+.m-carousel-image {
+  width: auto;
+  margin: 0 auto;
+}
+
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: none;
+  touch-action: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border-radius: 0 0 $global-radius $global-radius;
+
+  &:focus {
+    outline: none;
+  }
+
+  .slick-loading & {
+    background: url("spinner@2x.gif") center center no-repeat;
+  }
+
+  &.dragging {
+    cursor: pointer;
+    cursor: hand;
+  }
+}
+
+.slick-slider .slick-list,
+.slick-track,
+.slick-slide,
+.slick-slide img {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  zoom: 1;
+
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+  .slick-loading & {
+    visibility: hidden;
+  }
+}
+
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  img {
+    display: block;
+  }
+  &.slick-loading img {
+    display: none;
+  }
+
+  display: none;
+
+  &.dragging img {
+    pointer-events: none;
+  }
+
+  .slick-initialized & {
+    display: block;
+  }
+
+  .slick-loading & {
+    visibility: hidden;
+  }
+
+  .slick-vertical & {
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+  }
+}
+
+.slick-initialized {
+  img {
+    display: block;
+    // Center images
+    margin: 0 auto;
+  }
+}
+
+/* Arrows */
+
+.slick-prev,
+.slick-next,
+.slick-prev:focus,
+.slick-next:focus {
+  position: absolute;
+  top: 45%;
+
+  padding: 0;
+  margin-top: -10px;
+  display: block;
+  height: 50px;
+  width: 50px;
+  line-height: 0;
+
+  font-size: 0;
+  cursor: pointer;
+  background: rgba(0,0,0,.5);
+  color: transparent;
+  outline: none;
+  opacity: .7;
+  border-radius: 500px;
+  border: 3px solid white;
+
+  &:before {
+    font-family: 'FontAwesome';
+  }
+  &.slick-disabled:before {
+    opacity: 0.25;
+  }
+}
+
+.slick-prev:before, .slick-next:before {
+  font-size: 20px;
+  line-height: 1;
+  color: white;
+  opacity: 0.85;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.slick-prev {
+  left: 12px;
+  &:before {
+    content: '\f053';
+  }
+  &:hover {
+    background: black;
+    opacity: 1;
+  }
+}
+
+.slick-next {
+  right: 12px;
+  &:before {
+    content: '\f054';
+  }
+  &:hover {
+    background: black;
+    opacity: 1;
+  }
+}
+
+/* Dots */
+.slick-dots {
+  position: absolute;
+  bottom: 0;
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0px;
+  width: 100%;
+
+  li {
+    position: relative;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    margin-right: 3px;
+    padding: 0px;
+    cursor: pointer;
+
+    button {
+      border: 0;
+      display: block;
+      height: 15px;
+      width: 15px;
+      outline: 0;
+      line-height: 0;
+      font-size: 0;
+      padding: 0;
+      cursor: pointer;
+      background: rgba(255,255,255,.3);
+      box-shadow: none;
+      &:focus {
+        outline: 0;
+      }
+    }
+
+    &.slick-active button {
+      background: rgba(255,255,255,1);
+    }
+  }
+}

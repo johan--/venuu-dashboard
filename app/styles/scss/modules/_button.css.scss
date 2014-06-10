@@ -46,8 +46,17 @@ button, .button:not(.disabled), .m-bar-button {
   }
 }
 
-// In a button group, we need to override border radii and drop shadows
 .button-group {
+  // Add proper border colors to button groups
+  &.even-2 li {
+    > button, > .button {
+      border-color: $primary-color;
+      &.success {
+        border-color: $success-color;
+      }
+    }
+  }
+  // In a button group, we need to override border radii and drop shadows
   li {
     > button, > .button, > .m-bar-button {
       @include border-radius(0);

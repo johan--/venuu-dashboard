@@ -1,7 +1,7 @@
 // Created with the help of this article:
 // http://www.sitepoint.com/use-webfont-icons-bullet-points-html5-lists/
 .m-success-list {
-  font-size: emCalc(12);
+  font-size: rem-calc(12);
   list-style-type: none;
   margin-left: 2em;
   li {
@@ -19,5 +19,5 @@
 }
 
 .m-list-indent {
-  padding-left: emCalc(20);
+  padding-left: rem-calc(20);
 }

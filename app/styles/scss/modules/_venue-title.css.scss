@@ -1,11 +1,11 @@
 .m-title {
   margin: 1em 0 .7em;
+  color: $basetext-color-dark;
   @media #{$small} {
     margin: 1.2em 0 1.2em;
   }
   overflow: auto;
   h1 {
-    color: $basetext-color-dark;
     margin: 0;
     font-size: 2em;
     @media #{$small} {

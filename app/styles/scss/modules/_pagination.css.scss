@@ -1,17 +1,35 @@
-ul.pagination  {
-  float: right;
-  margin: 1em 0;
-  height: auto;
-  li:not(.unavailable) {
-    height: auto;
+ul.pagination {
+  padding: 2em 0 1em;
+  border-top: 1px solid $border-color;
+  @media #{$small} {
+    padding: 1em 0;
+    border-top: 0;
+  }
+  .m-pagination-count {
+    padding: 0 .5em;
+    font-size: 1.25em;
+    @media #{$tiny} {
+      padding: 0 1em;
+    }
+  }
+  li {
     a {
-      border: 1px solid $border-color;
-      padding: 0.5em 1em;
       @include border-radius($global-radius);
-      margin-bottom: 1em;
     }
     &.current a {
-      border: 1px solid $primary-color;
+      border: 2px solid $primary-color;
+    }
+    &.m-pagination-next a, &.m-pagination-prev a {
+      padding: .8em;
+      background-color: $primary-color;
+      color: white;
+      font-weight: bold;
+      &:hover {
+        background-color: $primary-color-effect;
+      }
+      @media #{$tiny} {
+        padding: .8em 1.25em;
+      }
     }
   }
 }

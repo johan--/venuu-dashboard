@@ -1,7 +1,6 @@
 .rating, .m-custom-rating {
   float: left;
-  // Position stars in the middle of baseline
-  line-height: emCalc(0);
+
   // Spacing between rating stars and ratings count
   & + span {
     margin-left: .5em;
@@ -39,10 +38,10 @@
   }
   p {
     margin: .75em 0;
-    font-size: emCalc(13);
+    font-size: rem-calc(13);
   }
   em {
-    font-size: emCalc(13);
+    font-size: rem-calc(13);
     font-style: normal;
     font-weight: bold;
     color: $basetext-color-light;
@@ -51,7 +50,7 @@
 
 .m-rating-total {
   float: left;
-  padding-left: emCalc(8);
+  padding-left: rem-calc(8);
   @extend .m-subtle;
 }
 

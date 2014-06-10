@@ -35,9 +35,8 @@
 }
 
 .m-box-title {
-  @include gradient-bg;
-  @include box-shadow(#fff 0 1px 0 inset);
   border-bottom: 1px solid $border-color;
+  background-color: $bg-color;
   font-size: .8em;
   font-weight: bold;
   padding: .85em;
