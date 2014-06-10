@@ -10,7 +10,7 @@ readonly installation_guides=( \
 					'bower: sudo npm install -g bower')
 
 
-check_global_dependencies () {
+function check_global_dependencies () {
 	echo "Checking dependencies:"
 
 	#Status 0 => OK. Set to -1 if any dependency is missing.
@@ -28,7 +28,7 @@ check_global_dependencies () {
 	done
 }
 
-setup_commands () {
+function setup_commands () {
 	npm install
 	bundle install
 	bower install
@@ -37,7 +37,7 @@ setup_commands () {
 	rake db:drop db:migrate db:seed
 }
 
-main () {
+function main () {
 	check_global_dependencies
 
 	if [ $status == 0 ]; then
