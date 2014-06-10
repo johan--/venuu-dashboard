@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  VenuuDashboard.VenueRoute = Ember.Route.extend({
+  VenuuDashboard.VenueIndexRoute = Ember.Route.extend({
     model: function () {
       return this.get('store').find('venue');
     },
@@ -10,8 +10,9 @@
       this.render('venue/sidebar', {
         outlet: 'sidebar'
       });*/
-      this.render('venue/showAll', {
-        outlet: 'content'
+      this.render('venue/index', {
+        outlet: 'content',
+        into: 'application'
       });
     }
   });

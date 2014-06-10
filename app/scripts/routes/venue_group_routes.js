@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  VenuuDashboard.VenueGroupRoute = Ember.Route.extend({
+  VenuuDashboard.VenueGroupIndexRoute = Ember.Route.extend({
     model: function () {
       return this.get('store').find('venue_group');
     },

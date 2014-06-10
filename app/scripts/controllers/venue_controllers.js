@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  VenuuDashboard.VenueController = Ember.ArrayController.extend({
+  VenuuDashboard.VenueIndexController = Ember.ArrayController.extend({
     actions: {
       create: function () {
         this.transitionToRoute('venue.new');
@@ -33,12 +33,12 @@
       destroy: function () {
         var self = this;
 
-        function transitionToVenue() {
-          self.transitionToRoute('venue');
+        function transitionToVenueIndex() {
+          self.transitionToRoute('venue.index');
         }
 
         this.get('model').destroyRecord()
-          .then(transitionToVenue);
+          .then(transitionToVenueIndex);
       }
     }
   });

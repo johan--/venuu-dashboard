@@ -2,19 +2,16 @@
   'use strict';
 
   VenuuDashboard.IndexRoute = Ember.Route.extend({
+    model: function () {
+      return this.get('store').find('venue_group');
+    },
     renderTemplate: function () {
       this.render('index_sidebar', {
-        outlet: 'sidebar',
-        controller: 'venueGroup'
+        outlet: 'sidebar'
       });
       this.render('index', {
-        outlet: 'content',
-        controller: 'venueGroup'
+        outlet: 'content'
       });
-    },
-    setupController: function (controller, model) {
-      this._super(controller, model);
-      this.controllerFor('venueGroup').set('model', this.get('store').find('venue_group'));
     }
   });
 

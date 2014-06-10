@@ -7,8 +7,8 @@
   <hr>
   <div class="row">
     <div class="medium-6 columns">
-      <h5>Kohteet <small>{{model.length}} kpl</small></h5>
-        {{#each model}}
+      <h5>Kohteet <small>{{length}} kpl</small></h5>
+        {{#each this}}
           {{#link-to 'venue_group.edit' this}}
             <div class="m-venue-box">
               <img {{bind-attr src="this.imageSrc"}} width="60" height="60">

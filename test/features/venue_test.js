@@ -86,7 +86,7 @@ test('Going to venues should work', function () {
 
 test('Going back to venues when creating a venue should work', function () {
   visit('/venue/new');
-  click('#navbar-venue-groups');
+  click('#navbar-venues');
   andThen(function () {
     ok(find('h4').text().indexOf('Tilasi') > -1,
       'Venues title should exist');
@@ -95,7 +95,7 @@ test('Going back to venues when creating a venue should work', function () {
 
 test('Going back to venues when editing a venue should work', function () {
   visit('/venue/1');
-  click('#navbar-venue-groups');
+  click('#navbar-venues');
   andThen(function () {
     ok(find('h4').text().indexOf('Tilasi') > -1,
       'Venues title should exist');
