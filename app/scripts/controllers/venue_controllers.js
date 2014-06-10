@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  VenuuDashboard.VenueController = Ember.ObjectController.extend({
+  VenuuDashboard.VenueController = Ember.ArrayController.extend({
     actions: {
       create: function () {
         this.transitionToRoute('venue.new');
@@ -18,8 +18,8 @@
       save: function () {
         var self = this;
 
-        function transition(record) {
-          self.transitionToRoute('venue', record);
+        function transitionToEdit(record) {
+          self.transitionToRoute('venue.edit', record);
         }
 
         function failure(response) {
@@ -27,7 +27,7 @@
         }
 
         this.get('model').save()
-          .then(transition)
+          .then(transitionToEdit)
           .catch(failure);
       },
       destroy: function () {
