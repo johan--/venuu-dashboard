@@ -22,7 +22,6 @@
         color: $basetext-color-light;
         text-align: center;
         font-size: 0.8em;
-        padding: 0;
 
         &:hover { background-color: darken($bg-color, 10%); }
       }
@@ -56,7 +55,10 @@
       width: 100% / $bar-item-count;
       border-right: 1px solid $border-color;
       &:last-child { border-right: none; }
-      a:not(.button) { line-height: $bar-height - 2; }
+      a:not(.button) {
+        line-height: $bar-height - 2;
+        padding: 0;
+      }
     }
   }
 }
