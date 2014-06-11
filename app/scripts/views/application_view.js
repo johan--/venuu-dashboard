@@ -3,7 +3,7 @@
 
   VenuuDashboard.ApplicationView = Ember.View.extend({
     initFoundation: function () {
-      console.log('Init Foundation top-bar.');
+      //console.log('Init Foundation top-bar.');
       this.$(document).foundation('topbar');
     }.on('didInsertElement')
   });

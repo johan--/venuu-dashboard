@@ -1,12 +1,7 @@
 (function () {
   'use strict';
 
-  VenuuDashboard.VenueGroupController = Ember.ObjectController.extend({
-    actions: {
-      create: function () {
-        this.transitionToRoute('venue_group.new');
-      }
-    }
+  VenuuDashboard.VenueGroupIndexController = Ember.ArrayController.extend({
   });
 
   VenuuDashboard.VenueGroupEditController = Ember.ObjectController.extend({
@@ -14,7 +9,7 @@
       save: function () {
         var self = this;
 
-        function transition(record) {
+        function transitionToEdit(record) {
           self.transitionToRoute('venue_group.edit', record);
         }
 
@@ -23,18 +18,18 @@
         }
 
         this.get('model').save()
-          .then(transition)
+          .then(transitionToEdit)
           .catch(failure);
       },
       destroy: function () {
         var self = this;
 
-        function transitionToVenueGroup() {
-          self.transitionToRoute('venue_group');
+        function transitionToVenueGroupIndex() {
+          self.transitionToRoute('venue_group.index');
         }
 
         this.get('model').destroyRecord()
-          .then(transitionToVenueGroup);
+          .then(transitionToVenueGroupIndex);
       }
     }
   });
