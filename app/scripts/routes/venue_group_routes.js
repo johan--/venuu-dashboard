@@ -9,7 +9,7 @@
       this.render('venue_group/sidebar', {
         outlet: 'sidebar'
       });
-      this.render('venue_group/showAll', {
+      this.render('venue_group/index', {
         outlet: 'content',
       });
     }

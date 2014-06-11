@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Basic Test Suite</title>
+  <title>Venuu Dashboard Test Suite</title>
   <!-- build:js(app) scripts/components.js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/handlebars/handlebars.runtime.js"></script>
@@ -24,6 +24,7 @@
   <script src="vendor/qunit-1.12.0.js"></script>
   <script src="helper/gremlins.min.js"></script>
   <script src="helper/backend_helper.js"></script>
+  <script src="helper/assert_helper.js"></script>
   <script>
     VenuuDashboard.rootElement = '#ember-testing';
     VenuuDashboard.setupForTesting();
@@ -41,6 +42,7 @@
   <!-- Load local lib and tests. -->
   <script src="spec/storage_test.js"></script>
   <script src="spec/backend_test.js"></script>
+  <script src="features/overview_test.js"></script>
   <script src="features/venue_test.js"></script>
   <script src="features/venue_group_test.js"></script>
   <!-- Gremlins test last -->

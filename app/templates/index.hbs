@@ -21,9 +21,9 @@
             </div>
           {{/link-to}}
         {{/each}}
-        <button id="new-venue" class="success" {{action 'create'}}>
+        {{#link-to 'venue_group.new' id='create' class='button success'}}
           Luo uusi kohde
-        </button>
+        {{/link-to}}
         <br>
         {{#link-to 'venue_group'}}Näytä kaikki kohteesi{{/link-to}}
     </div>

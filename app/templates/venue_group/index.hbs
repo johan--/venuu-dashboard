@@ -8,4 +8,6 @@
       {{/if}}
     {{/each}}
   </ul>
-<button id="create" class="success" {{action 'create'}}>Luo uusi kohde</button>
+{{#link-to 'venue_group.new' id='create' class='button success'}}
+  Luo uusi kohde
+{{/link-to}}
