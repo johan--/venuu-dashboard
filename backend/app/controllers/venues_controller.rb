@@ -35,7 +35,13 @@ class VenuesController < ApplicationController
   # PATCH/PUT /venues/1.json
   def update
     @venue = Venue.find(params[:id])
-
+    puts params
+    if params[:venue][:venue_type_ids]
+      @venue.venue_types = params[:venue][:venue_type_ids].map { |id| VenueType.find(id) }
+    else
+      @venue.venue_types = []
+    end
+      @venue.save
     if @venue.update(venue_params)
       head :no_content
     else

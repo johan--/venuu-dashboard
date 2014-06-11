@@ -2,9 +2,6 @@
   <h4 data-magellan-destination="basic">
     Perustiedot <small>kerro tilastasi</small>
   </h4>
-  {{#each venueTypes}}
-    <li>{{this.name}}</li>
-  {{/each}}
   {{v-input labelCol=3 inputCol=9 label="Tilan nimi" name="title" content=title}}
   {{v-input labelCol=3 inputCol=9 label="Myyntipuhe" name="pitch" content=pitch}}
   <div class="row">
@@ -24,6 +21,30 @@
   {{v-input labelCol=3 inputCol=9 label="Email" name="email" content=contactEmail}}
   {{v-input labelCol=3 inputCol=9 label="Puhelin" name="phone" content=contactPhone}}
 </div>
+
+<div class="m-container-box">
+  <h4 data-magellan-destination="venue-type">
+    Venue types <small>under construction</small>
+  </h4>
+  <div class="row">
+    <div class="small-4 columns">
+      Venuen tyypit
+      {{#each venueTypes}}
+        <li>{{this.name}}</li>
+      {{/each}}
+    </div>
+    <div class="small-8 columns">
+      {{#each allVenueTypes itemController="venueType"}}
+        <li>{{view view.venueTypeCheckbox
+        checked=isChecked
+        venueTypeBinding="model"
+        venueBinding="controllers.venueEdit.model"}}
+        {{name}}</li>
+      {{/each}}
+    </div>
+  </div>
+</div>
+
 <div class="row">
   <div class="medium-12 columns">
     <button id="save" {{action 'save'}} class="success">Tallenna</button>
@@ -32,4 +53,3 @@
     {{/if}}
   </div>
 </div>
-
