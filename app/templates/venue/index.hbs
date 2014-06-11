@@ -8,4 +8,6 @@
     {{/if}}
   {{/each}}
 </ul>
-<button id="new-venue" class="success" {{action 'create'}}>Luo uusi tila</button>
+{{#link-to 'venue.new' id='create' class='button success'}}
+  Luo uusi tila
+{{/link-to}}

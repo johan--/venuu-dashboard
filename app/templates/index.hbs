@@ -7,8 +7,8 @@
   <hr>
   <div class="row">
     <div class="medium-6 columns">
-      <h5>Kohteet <small>{{model.length}} kpl</small></h5>
-        {{#each model}}
+      <h5>Kohteet <small>{{length}} kpl</small></h5>
+        {{#each this}}
           {{#link-to 'venue_group.edit' this}}
             <div class="m-venue-box">
               <img {{bind-attr src="this.imageSrc"}} width="60" height="60">
@@ -21,9 +21,9 @@
             </div>
           {{/link-to}}
         {{/each}}
-        <button id="new-venue" class="success" {{action 'create'}}>
+        {{#link-to 'venue_group.new' id='create' class='button success'}}
           Luo uusi kohde
-        </button>
+        {{/link-to}}
         <br>
         {{#link-to 'venue_group'}}Näytä kaikki kohteesi{{/link-to}}
     </div>

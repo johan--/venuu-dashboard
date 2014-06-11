@@ -44,6 +44,7 @@
     "gremlins": true,
     "start": true,
     "stop": true,
-    "fakeLogContains": true
+    "equalsTrimmed": true,
+    "contains": true
   }
 }

@@ -1,6 +1,7 @@
 module('Integration: Venue groups', {
   setup: function () { // Before each test
     VenuuDashboard.reset();
+    window.seedBackend();
   },
   teardown: function () { // After each test
   }
@@ -9,7 +10,7 @@ module('Integration: Venue groups', {
 test('Venue groups page title found', function () {
   visit('/venue-group');
   andThen(function () {
-    ok(find('h4').text().indexOf('Kohteet') > -1,
+    contains(find('h4').text(), 'Kohteet',
       'Locations title found!');
   });
 });
@@ -17,7 +18,7 @@ test('Venue groups page title found', function () {
 test('First venue group name found', function () {
   visit('/venue-group');
   andThen(function () {
-    ok(find('li').text().indexOf('Kongressikeskus') > -1,
+    contains(find('li').text(), 'Kongressikeskus',
       'Kongressikeskus found!');
   });
 });
@@ -26,7 +27,7 @@ test('First venue group name found', function () {
 test('First venue group details found', function () {
   visit('/venue-group/1');
   andThen(function () {
-    ok(find('#address').val().indexOf('Betonimiehenkatu 1') > -1,
+    contains(find('#address').val(), 'Betonimiehenkatu 1',
       'Address found!');
   });
 });
@@ -39,13 +40,13 @@ test('First venue groups details can be edited', function () {
   fillIn('#address', 'Senaatintori');
   click('#save');
   andThen(function () {
-    ok(find('#name').val().indexOf('Tuomiokirkko') > -1,
+    contains(find('#name').val(), 'Tuomiokirkko',
       'New name found!');
-    ok(find('#address').val().indexOf('Senaatintori') > -1,
+    contains(find('#address').val(), 'Senaatintori',
       'New address found!');
-    ok(find('#zipcode').val().indexOf('00110') > -1,
+    contains(find('#zipcode').val(), '00110',
       'New zipcode found!');
-    ok(find('#city').val().indexOf('Helsinki') > -1,
+    contains(find('#city').val(), 'Helsinki',
       'New city found!');
   });
 });
@@ -58,13 +59,13 @@ test('New venue group can be added', function () {
   fillIn('#address', 'A.I. Virtasen aukio 1');
   click('#save');
   andThen(function () {
-    ok(find('#name').val().indexOf('Chemicum') > -1,
+    contains(find('#name').val(), 'Chemicum',
       'New name found!');
-    ok(find('#zipcode').val().indexOf('00550') > -1,
+    contains(find('#zipcode').val(), '00550',
       'New zipcode found!');
-    ok(find('#address').val().indexOf('A.I. Virtasen aukio 1') > -1,
+    contains(find('#address').val(), 'A.I. Virtasen aukio 1',
       'New address found!');
-    ok(find('#city').val().indexOf('Helsinki') > -1,
+    contains(find('#city').val(), 'Helsinki',
       'New city found!');
   });
 });
@@ -86,3 +87,31 @@ test('Venue groups create button works', function () {
   });
 });
 
+//NAVBAR
+
+test('Going to venue groups should work', function () {
+  visit('/');
+  click('#navbar-venue-groups');
+  andThen(function () {
+    contains(find('h4').text(), 'Kohteet',
+      'Venue Groups title should exist');
+  });
+});
+
+test('Going back to venue groups when creating a venue group should work', function () {
+  visit('/venue-group/new');
+  click('#navbar-venue-groups');
+  andThen(function () {
+    contains(find('h4').text(), 'Kohteet',
+      'Venue Groups title should exist');
+  });
+});
+
+test('Going back to venue groups when editing a venue group should work', function () {
+  visit('/venue-group/1');
+  click('#navbar-venue-groups');
+  andThen(function () {
+    contains(find('h4').text(), 'Kohteet',
+      'Venue Groups title should exist');
+  });
+});
