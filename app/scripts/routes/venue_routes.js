@@ -30,7 +30,7 @@
     setupController: function (controller, model) {
       //this._super(controller, model);
       this.controllerFor('venueEdit').set('model', this.modelFor('venue.edit'));
-      controller.set('allVenueTypes', this.get('store').find('venueType'))
+      controller.set('allVenueTypes', this.get('store').find('venueType'));
     }
   });
 
