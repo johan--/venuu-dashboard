@@ -9,9 +9,7 @@
       this.render('index_sidebar', {
         outlet: 'sidebar'
       });
-      this.render('index', {
-        outlet: 'content'
-      });
+      this.render('index');
     }
   });
 

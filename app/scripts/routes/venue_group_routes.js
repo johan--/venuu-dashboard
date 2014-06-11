@@ -9,9 +9,7 @@
       this.render('venue_group/sidebar', {
         outlet: 'sidebar'
       });
-      this.render('venue_group/index', {
-        outlet: 'content',
-      });
+      this.render('venue_group/index');
     }
   });
 
@@ -20,9 +18,7 @@
       this.render('venue_group/sidebar', {
         outlet: 'sidebar'
       });
-      this.render('venue_group/edit', {
-        outlet: 'content'
-      });
+      this.render('venue_group/edit');
     },
     setupController: function (controller, model) {
       controller.set('model', this.modelFor('venue_group.edit'));
@@ -35,7 +31,6 @@
         outlet: 'sidebar'
       });
       this.render('venue_group/new', {
-        outlet: 'content',
         controller: 'venueGroupEdit'
       });
     },

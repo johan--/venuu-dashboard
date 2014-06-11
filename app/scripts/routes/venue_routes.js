@@ -11,7 +11,6 @@
         outlet: 'sidebar'
       });*/
       this.render('venue/index', {
-        outlet: 'content',
         into: 'application'
       });
     }
@@ -23,7 +22,6 @@
         outlet: 'sidebar'
       });
       this.render('venue/edit', {
-        outlet: 'content',
         controller: 'venueEdit'
       });
     },
@@ -38,7 +36,6 @@
         outlet: 'sidebar'
       });
       this.render('venue/new', {
-        outlet: 'content',
         controller: 'venueEdit'
       });
     },
