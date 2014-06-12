@@ -5,7 +5,6 @@
   });
 
   VenuuDashboard.VenueEditController = Ember.ObjectController.extend({
-    itemController: ['venueType'],
     actions: {
       goto: function (anchor) {
         var $target = $('[data-magellan-destination="' + anchor + '"]');
