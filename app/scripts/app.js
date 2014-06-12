@@ -4,7 +4,7 @@
   Ember.ENV.RAISE_ON_DEPRECATION = true;
   Ember.LOG_STACKTRACE_ON_DEPRECATION = true;
 
-  var VenuuDashboard = window.VenuuDashboard = Ember.Application.create({
+  var VenuuDashboard = window.VenuuDashboard = window.VD = Ember.Application.create({
     LOG_ACTIVE_GENERATION: true,
     LOG_VIEW_LOOKUPS: true,
     LOG_TRANSITIONS: true,
@@ -17,6 +17,7 @@
   require('scripts/helpers/*');
   require('scripts/store');
   require('scripts/models/*');
+  require('scripts/beforeRoutes/*');
   require('scripts/routes/*');
   require('scripts/views/*');
   require('scripts/router');
