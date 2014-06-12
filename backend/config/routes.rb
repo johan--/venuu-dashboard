@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :venues
   resources :venue_groups
   resources :venue_types
+  resources :venue_service_categories
 
   get '/seed', to: 'seed#reset'
   # The priority is based upon order of creation: first created -> highest priority.
