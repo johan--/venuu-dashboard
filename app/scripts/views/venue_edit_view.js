@@ -11,6 +11,7 @@
       checkedObserver: function () {
         var model = this.get('venueType');
         var venue = this.get('venue');
+        console.log("model on: " + model);
         if (this.get('checked')) {
           venue.get('venueTypes').addObject(model);
         } else {
@@ -23,6 +24,7 @@
       checkedObserver: function () {
         var model = this.get('eventType');
         var venue = this.get('venue');
+        console.log("model on: " + model);
         if (this.get('checked')) {
           venue.get('eventTypes').addObject(model);
         } else {

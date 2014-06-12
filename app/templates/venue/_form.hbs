@@ -60,7 +60,7 @@
       {{#each allEventTypes itemController="eventType"}}
         <li>{{view view.eventTypeCheckbox
         checked=isChecked
-        venueTypeBinding="model"
+        eventTypeBinding="model"
         venueBinding="controllers.venueEdit.model"}}
         {{name}}</li>
       {{/each}}
