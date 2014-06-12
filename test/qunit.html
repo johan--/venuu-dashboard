@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Basic Test Suite</title>
+  <title>Venuu Dashboard Test Suite</title>
   <!-- build:js(app) scripts/components.js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/handlebars/handlebars.runtime.js"></script>
@@ -23,12 +23,18 @@
   <link rel="stylesheet" href="vendor/qunit-1.12.0.css" media="screen">
   <script src="vendor/qunit-1.12.0.js"></script>
   <script src="helper/gremlins.min.js"></script>
-  <script src="helper/log_helper.js"></script>
   <script src="helper/backend_helper.js"></script>
+  <script src="helper/assert_helper.js"></script>
   <script>
     VenuuDashboard.rootElement = '#ember-testing';
     VenuuDashboard.setupForTesting();
     VenuuDashboard.injectTestHelpers();
+    VenuuDashboard.reopen({
+      LOG_ACTIVE_GENERATION: false,
+      LOG_VIEW_LOOKUPS: false,
+      LOG_TRANSITIONS: false,
+      LOG_TRANSITIONS_INTERNAL: false
+    });
     QUnit.config.reorder = false;
     emq.globalize();
     setResolver(Ember.DefaultResolver.create({namespace: VenuuDashboard}));
@@ -36,6 +42,7 @@
   <!-- Load local lib and tests. -->
   <script src="spec/storage_test.js"></script>
   <script src="spec/backend_test.js"></script>
+  <script src="features/overview_test.js"></script>
   <script src="features/venue_test.js"></script>
   <script src="features/venue_group_test.js"></script>
   <!-- Gremlins test last -->

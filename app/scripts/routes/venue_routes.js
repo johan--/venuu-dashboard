@@ -1,19 +1,19 @@
 (function () {
   'use strict';
 
-  VenuuDashboard.VenueRoute = Ember.Route.extend({
+  VenuuDashboard.VenueIndexRoute = Ember.Route.extend({
+    model: function () {
+      return this.get('store').find('venue');
+    },
     renderTemplate: function () {
       /* No sidebar, because it contains sticky navigation for editing.
       this.render('venue/sidebar', {
         outlet: 'sidebar'
       });*/
-      this.render('venue/showAll', {
-        outlet: 'content'
+      this.render('venue/index', {
+        outlet: 'content',
+        into: 'application'
       });
-    },
-    setupController: function (controller, model) {
-      //this._super(controller, model);
-      this.controllerFor('venue').set('model', this.get('store').find('venue'));
     }
   });
 
@@ -28,9 +28,8 @@
       });
     },
     setupController: function (controller, model) {
-      //this._super(controller, model);
-      this.controllerFor('venueEdit').set('model', this.modelFor('venue.edit'));
       controller.set('allVenueTypes', this.get('store').find('venueType'));
+      controller.set('model', model);
     }
   });
 
@@ -45,7 +44,6 @@
       });
     },
     setupController: function (controller, model) {
-      //this._super(controller, model);
       var venue = this.get('store').createRecord('venue');
       this.controllerFor('venueEdit').set('model', venue);
     }
