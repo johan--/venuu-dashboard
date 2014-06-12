@@ -84,7 +84,7 @@ ActiveRecord::Base.transaction do
     sales_guarantee: 200,
     security_deposit: 400,
     slug: 'murphy-douglas-and-sawayn-4',
-    title: 'Kongressikeskuksen baari'
+    title: 'Murphy, Douglas and Sawayn 4'
   )
 
   kongressikeskus.venues.first.venue_types = [VenueType.first, VenueType.last]
@@ -138,40 +138,40 @@ ActiveRecord::Base.transaction do
     slug: 'kauppakeskus-venue-1'
   )
 
-kategoriaRuoka = VenueServiceCategory.create(
-  id: 1,
-  name: 'ruoka'
-)
+  kategoriaRuoka = VenueServiceCategory.create(
+    id: 1,
+    name: 'ruoka'
+  )
 
-kategoriaTK = VenueServiceCategory.create(
-  name: 'tekniikka ja kalusto'
-)
+  kategoriaTK = VenueServiceCategory.create(
+    name: 'tekniikka ja kalusto'
+  )
 
-kategoriaRuoka.venue_services.create(
-  id: 1,
-  name: 'Pitopalvelu tilan kautta',
-  negation: ''
-)
+  kategoriaRuoka.venue_services.create(
+    id: 1,
+    name: 'Pitopalvelu tilan kautta',
+    negation: ''
+  )
 
-kategoriaRuoka.venue_services.create(
-  id: 2,
-  name: 'Tilalla A-oikeudet',
-  negation: 'Tilalla ei ole A-oikeuksia'
-)
+  kategoriaRuoka.venue_services.create(
+    id: 2,
+    name: 'Tilalla A-oikeudet',
+    negation: 'Tilalla ei ole A-oikeuksia'
+  )
 
-kategoriaTK.venue_services.create(
-  id: 6,
-  name: 'WiFi',
-  negation: 'NoFi'
-)
+  kategoriaTK.venue_services.create(
+    id: 6,
+    name: 'WiFi',
+    negation: 'NoFi'
+  )
 
-kategoriaTK.venue_services.create(
-  id: 37,
-  name: 'Diskopallo :)',
-  negation: 'Only sorrow :('
-)
+  kategoriaTK.venue_services.create(
+    id: 37,
+    name: 'Diskopallo :)',
+    negation: 'Only sorrow :('
+  )
 
-kongressikeskus.venues.first.venue_services = [
-  kategoriaRuoka.venue_services.find(1),
+  kongressikeskus.venues.first.venue_services = [
+    kategoriaRuoka.venue_services.find(1),
   kategoriaTK.venue_services.find(37)]
 end

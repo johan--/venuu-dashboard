@@ -9,8 +9,10 @@
 
   VenuuDashboard.VenueEditRoute = VD.Route.extend({
     sidebarTemplate: 'venue/sidebar',
+    contentController: 'venueEdit',
     setupController: function (controller, model) {
-      controller.set('model', model);
+      controller.set('model', model);   // Hookkaa modelit aina ensin!
+      controller.set('allVenueTypes', this.get('store').find('venueType'));
     }
   });
 
