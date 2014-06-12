@@ -43,10 +43,32 @@ venue_types_list = ['Juhlasali',
    'Luentosali',
    'Oleskelutila']
 
+
+event_types_list = [
+  'Juhlat',
+  'Häät',
+  'Saunailta',
+  'Mökkireissu',
+  'Kokous / tapaaminen / workshop',
+  'Illallinen',
+  'Taide- / näytöstapahtuma',
+  'Virkistystapahtuma / TYHY',
+  'Messut',
+  'Seminaari / konferenssi'
+]
+
+#Seed everything in one transaction
 ActiveRecord::Base.transaction do
+  # Seed venue and event types based on the *_lists above
   venue_types_list.each do |name|
     VenueType.create(name: name)
   end
+
+  event_types_list.each do |name|
+    EventType.create(name: name)
+  end
+
+  # Seed VenueGroup and Venues
 
   kongressikeskus = VenueGroup.create(
     name: 'Kongressikeskus',
@@ -87,7 +109,9 @@ ActiveRecord::Base.transaction do
     title: 'Murphy, Douglas and Sawayn 4'
   )
 
+  # Add Venue and Event types
   kongressikeskus.venues.first.venue_types = [VenueType.first, VenueType.last]
+  kongressikeskus.venues.first.event_types = [EventType.first, EventType.last]
 
   kongressikeskus.venues.create(
     additional_service_category_description: 'Palveluista ja puitteista tarkemmin',
