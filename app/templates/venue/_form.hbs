@@ -45,6 +45,29 @@
   </div>
 </div>
 
+<div class="m-container-box">
+  <h4 data-magellan-destination="venue-type">
+    Event types <small>under construction</small>
+  </h4>
+  <div class="row">
+    <div class="small-4 columns">
+      Tapamahtumatyypit
+      {{#each eventTypes}}
+        <li>{{this.name}}</li>
+      {{/each}}
+    </div>
+    <div class="small-8 columns">
+      {{#each allEventTypes itemController="eventType"}}
+        <li>{{view view.eventTypeCheckbox
+        checked=isChecked
+        venueTypeBinding="model"
+        venueBinding="controllers.venueEdit.model"}}
+        {{name}}</li>
+      {{/each}}
+    </div>
+  </div>
+</div>
+
 <div class="row">
   <div class="medium-12 columns">
     <button id="save" {{action 'save'}} class="success">Tallenna</button>
