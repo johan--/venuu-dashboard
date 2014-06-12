@@ -72,32 +72,3 @@ test('Venue can be deleted', function () {
       'Venue Murphy, Douglas and Sawayn 4 should be the first venue');
   });
 });
-
-//NAVBAR
-
-test('Going to venues should work', function () {
-  visit('/');
-  click('#navbar-venues');
-  andThen(function () {
-    contains(find('h4').text(), 'Tilasi',
-      'Venues title should exist');
-  });
-});
-
-test('Going back to venues when creating a venue should work', function () {
-  visit('/venue/new');
-  click('#navbar-venues');
-  andThen(function () {
-    contains(find('h4').text(), 'Tilasi',
-      'Venues title should exist');
-  });
-});
-
-test('Going back to venues when editing a venue should work', function () {
-  visit('/venue/1');
-  click('#navbar-venues');
-  andThen(function () {
-    contains(find('h4').text(), 'Tilasi',
-      'Venues title should exist');
-  });
-});
