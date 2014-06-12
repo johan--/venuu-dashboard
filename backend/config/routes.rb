@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :event_types, except: [:new, :edit]
   resources :venues
   resources :venue_groups
   resources :venue_types

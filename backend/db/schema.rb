@@ -13,6 +13,17 @@
 
 ActiveRecord::Schema.define(version: 20140612094634) do
 
+  create_table "event_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events_of_venues", force: true do |t|
+    t.integer "venue_id"
+    t.integer "event_type_id"
+  end
+
   create_table "types_of_venues", force: true do |t|
     t.integer  "venue_id"
     t.integer  "venue_type_id"
@@ -31,7 +42,6 @@ ActiveRecord::Schema.define(version: 20140612094634) do
 
   create_table "venue_service_categories", force: true do |t|
     t.string   "name"
-    t.integer  "venue_service_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

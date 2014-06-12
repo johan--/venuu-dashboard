@@ -2,7 +2,6 @@
   'use strict';
 
   VenuuDashboard.VenueGroupIndexRoute = VD.Route.extend({
-    sidebarTemplate: 'venue_group/sidebar',
     model: function () {
       return this.get('store').find('venue_group');
     },

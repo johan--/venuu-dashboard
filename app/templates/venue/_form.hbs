@@ -1,34 +1,60 @@
 <div class="m-container-box">
-  <h4 data-magellan-destination="basic">
-    Perustiedot <small>kerro tilastasi</small>
-  </h4>
-  {{v-input labelCol=3 inputCol=9 label="Tilan nimi" name="title" content=title}}
-  {{v-input labelCol=3 inputCol=9 label="Myyntipuhe" name="pitch" content=pitch}}
-  <div class="row">
-    <div class="small-12 columns">
-      <label for="description">Kuvaus</label>
-      {{textarea value=description id="description" rows="6"}}
-    </div>
+  <h4>Perustiedot <small>kerro tilastasi</small></h4>
+  <div class="row collapse">
+    {{v-input label="Tilan nimi" name="title" content=title}}
+    {{v-input label="Myyntipuhe" name="pitch" content=pitch}}
+    {{v-textarea label="Kuvaus" name="description" content=description rows=5}}
+  </div>
+
+  <h5>Yhteystiedot <small>tilaa koskevia yhteydenottoja varten</small></h5>
+  <div class="row collapse">
+    {{v-input width=6 cols="3:9" label="Osoite" name="address" content=address}}
+    {{v-input width=6 cols="4:8" label="Postinumero" name="zipcode" content=zipcode}}
+    {{v-input width=6 cols="3:9" label="Email" name="email" content=contactEmail}}
+    {{v-input width=6 cols="4:2:6:0" label="Puhelin" name="phone" content=contactPhone prefix="+358"}}
   </div>
 </div>
 
 <div class="m-container-box">
-  <h4 data-magellan-destination="contact">
-    Yhteystiedot <small>yhteydenottoja varten</small>
-  </h4>
-  {{v-input labelCol=3 inputCol=9 label="Osoite" name="address" content=address}}
-  {{v-input labelCol=3 inputCol=9 label="Postinumero" name="zipcode" content=zipcode}}
-  {{v-input labelCol=3 inputCol=9 label="Email" name="email" content=contactEmail}}
-  {{v-input labelCol=3 inputCol=9 label="Puhelin" name="phone" content=contactPhone}}
+  <h4>Hinnoittelu <small>money talks</small></h4>
+  <p>
+    Hintatiedot eivät ole sitovia, vaan hinta voidaan sopia jokaisen asiakkaan
+    kanssa aina erikseen. <b>Mutta</b>, alustavatkin hintatiedot helpottavat
+    oleellisesti tapahtumien järjestäjien työtä. Lisäksi monissa
+    nettipalveluissa on huomattu, että ne, jotka avoimesti kertovat
+    hinnoittelustaan, saavat huomattavasti enemmän kauppoja.
+  </p>
+  <div class="row collapse">
+    {{v-input width=6 cols="6:0:5:1" label="Päivävuokra"
+              name="rentPerDay" content=rentPerDay postfix="€"}}
+    {{v-input width=6 cols="6:0:5:1" label="Tuntivuokra"
+              name="rentPerHour" content=rentPerHour postfix="€"}}
+    {{v-input width=6 cols="6:0:5:1" label="Vuokra per henkilö"
+              name="rentPerPerson" content=rentPerPerson postfix="€"}}
+    {{v-input width=6 cols="6:0:5:1" label="Myyntitakuu"
+              name="salesGuarantee" content=salesGuarantee postfix="€"}}
+    {{v-textarea label="Hinnoittelusta tarkemmin"
+              name="pricingDetails" content=pricingDetails rows=3}}
+  </div>
+
+  <h5>Lisämaksut</h5>
+
+  <div class="row collapse">
+    {{v-input width=6 cols="6:0:5:1" label="Varausmaksu"
+              name="reservationFee" content=reservationFee postfix="€"}}
+    {{v-input width=6 cols="6:0:5:1" label="Siivousmaksu"
+              name="cleaningFee" content=cleaningFee postfix="€"}}
+    {{v-input width=6 cols="6:0:5:1" label="Vakuusmaksu"
+              name="securityDeposit" content=securityDeposit postfix="€"}}
+    {{v-textarea label="Peruutusehdot"
+              name="cancellationPolicy" content=cancellationPolicy rows=3}}
+  </div>
 </div>
 
 <div class="m-container-box">
-  <h4 data-magellan-destination="venue-type">
-    Venue types <small>under construction</small>
-  </h4>
-  <div class="row">
+  <h4>Tilan tyyppi <small>under construction</small></h4>
+  <div class="row collapse">
     <div class="small-4 columns">
-      Venuen tyypit
       {{#each venueTypes}}
         <li>{{this.name}}</li>
       {{/each}}
@@ -49,7 +75,7 @@
   <h4 data-magellan-destination="venue-type">
     Palvelut ja puitteet <small>under construction</small>
   </h4>
-  <div class="row">
+  <div class="row collapse">
     <div class="small-4 columns">
       Tilan palvelut:
       {{#each venueServices}}
@@ -61,6 +87,27 @@
         <li>{{view view.venueServiceCheckbox
         checked=isChecked
         venueServiceBinding="model"
+        venueBinding="controllers.venueEdit.model"}}
+        {{name}}</li>
+      {{/each}}
+    </div>
+  </div>
+</div>
+
+<div class="m-container-box">
+  <h4>Event types <small>under construction</small></h4>
+  <div class="row collapse">
+    <div class="small-4 columns">
+      Tapamahtumatyypit
+      {{#each eventTypes}}
+        <li>{{this.name}}</li>
+      {{/each}}
+    </div>
+      <div class="small-8 columns">
+      {{#each allEventTypes itemController="eventType"}}
+        <li>{{view view.eventTypeCheckbox
+        checked=isChecked
+        eventTypeBinding="model"
         venueBinding="controllers.venueEdit.model"}}
         {{name}}</li>
       {{/each}}

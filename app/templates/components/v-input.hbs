@@ -1,6 +1,21 @@
-<div {{bind-attr class="labelColSize :columns"}}>
-  <label {{bind-attr for=name}} class="right inline">{{label}}</label>
-</div>
-<div {{bind-attr class="inputColSize :columns"}}>
-  {{input value=content id=name}}
+<div class="row">
+  <div {{bind-attr class="labelColSize :columns"}}>
+    <label {{bind-attr for=name}} class="right inline">{{label}}</label>
+  </div>
+  <div class="row collapse">
+    {{#if prefix}}
+      <div {{bind-attr class="preColSize :columns"}}>
+        <span class="prefix">{{prefix}}</span>
+      </div>
+    {{/if}}
+    <div {{bind-attr class="inputColSize :columns
+            postfix:with-postfix prefix:with-prefix"}}>
+      {{input value=content id=name}}
+    </div>
+    {{#if postfix}}
+      <div {{bind-attr class="postColSize :columns"}}>
+        <span class="postfix">{{postfix}}</span>
+      </div>
+    {{/if}}
+  </div>
 </div>
