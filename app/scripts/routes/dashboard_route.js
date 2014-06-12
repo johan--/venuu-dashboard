@@ -8,8 +8,7 @@
     sidebarTemplate: 'index_sidebar',
     renderTemplate: function (controller, model) {
       var myContentRender=this.contentTemplate?this.render.bind(this,this.contentTemplate):this.render.bind(this);
-      //var myContentRender=this.render.bind(this,this.contentTemplate);
-      if (!this.contentController && !this.contentTemplate) {
+      if (!this.contentController) {
         myContentRender();
       } else {
         myContentRender({
