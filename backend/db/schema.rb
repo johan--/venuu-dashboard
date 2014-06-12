@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612094634) do
+ActiveRecord::Schema.define(version: 20140612142629) do
 
   create_table "event_types", force: true do |t|
     t.string   "name"
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20140612094634) do
     t.text     "additional_service_category_description"
     t.text     "capacity_details"
     t.string   "address"
-    t.string   "postcode"
+    t.string   "zipcode"
     t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"

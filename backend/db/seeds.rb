@@ -105,6 +105,8 @@ ActiveRecord::Base.transaction do
     reviews_count: 0,
     sales_guarantee: 200,
     security_deposit: 400,
+    zipcode: 1337,
+    address: 'Muprhystreet 4',
     slug: 'murphy-douglas-and-sawayn-4',
     title: 'Murphy, Douglas and Sawayn 4'
   )
