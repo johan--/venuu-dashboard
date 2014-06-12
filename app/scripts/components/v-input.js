@@ -2,7 +2,6 @@ VenuuDashboard.VInputComponent = VD.FormComponent.extend({
   cols: '3:9',
   columns: function () {
     var cols = this.get('cols').split(':');
-    console.log(cols);
     // Gave all columns.
     if (cols.length === 4) {
       return cols;
@@ -17,7 +16,6 @@ VenuuDashboard.VInputComponent = VD.FormComponent.extend({
   }.property('cols'),
 
   labelColSize: function () {
-    console.log(this.get('columns'));
     return 'small-' + this.get('columns')[0];
   }.property('cols'),
 

@@ -53,6 +53,26 @@
   </div>
 </div>
 
+<div class="m-container-box">
+  <h4>Tilan tyyppi <small>under construction</small></h4>
+  <div class="row collapse">
+    <div class="small-4 columns">
+      {{#each venueTypes}}
+        <li>{{this.name}}</li>
+      {{/each}}
+    </div>
+    <div class="small-8 columns">
+      {{#each allVenueTypes itemController="venueType"}}
+        <li>{{view view.venueTypeCheckbox
+        checked=isChecked
+        venueTypeBinding="model"
+        venueBinding="controllers.venueEdit.model"}}
+        {{name}}</li>
+      {{/each}}
+    </div>
+  </div>
+</div>
+
 <div class="row">
   <div class="medium-12 columns">
     <button id="save" {{action 'save'}} class="success">Tallenna</button>
