@@ -1,44 +1,23 @@
 (function () {
   'use strict';
 
-  VenuuDashboard.VenueGroupIndexRoute = Ember.Route.extend({
+  VenuuDashboard.VenueGroupIndexRoute = VD.Route.extend({
+    sidebarTemplate: 'venue_group/sidebar',
     model: function () {
       return this.get('store').find('venue_group');
     },
-    renderTemplate: function () {
-      this.render('venue_group/sidebar', {
-        outlet: 'sidebar'
-      });
-      this.render('venue_group/index', {
-        outlet: 'content',
-      });
-    }
   });
 
-  VenuuDashboard.VenueGroupEditRoute = Ember.Route.extend({
-    renderTemplate: function () {
-      this.render('venue_group/sidebar', {
-        outlet: 'sidebar'
-      });
-      this.render('venue_group/edit', {
-        outlet: 'content'
-      });
-    },
+  VenuuDashboard.VenueGroupEditRoute = VD.Route.extend({
+    sidebarTemplate: 'venue_group/sidebar',
     setupController: function (controller, model) {
       controller.set('model', this.modelFor('venue_group.edit'));
     }
   });
 
-  VenuuDashboard.VenueGroupNewRoute = Ember.Route.extend({
-    renderTemplate: function () {
-      this.render('venue_group/sidebar', {
-        outlet: 'sidebar'
-      });
-      this.render('venue_group/new', {
-        outlet: 'content',
-        controller: 'venueGroupEdit'
-      });
-    },
+  VenuuDashboard.VenueGroupNewRoute = VD.Route.extend({
+    sidebarTemplate: 'venue_group/sidebar',
+    contentController: 'venueGroupEdit',
     setupController: function (controller, model) {
       var venueGroup = this.get('store').createRecord('venue_group');
       this.controllerFor('venueGroupEdit').set('model', venueGroup);
