@@ -1,5 +1,4 @@
-/*
- *= require_self
+/* *= require_self
  */
 
 // Colors added by Venuu
@@ -48,7 +47,7 @@ $monospace-font-family: Consolas, 'Liberation Mono', Courier, monospace;
 // -----------------------------------------------------------------------------
 // Import font awesome icons
 // -----------------------------------------------------------------------------
-//@import "font-awesome.css.scss";
+@import "font-awesome";
 
 // -----------------------------------------------------------------------------
 // Import foundation plugins and custom overrides
@@ -113,8 +112,9 @@ $monospace-font-family: Consolas, 'Liberation Mono', Courier, monospace;
 @import "dashboard/custom_overrides.css.scss";
 @import "dashboard/layouts.css.scss";
 @import "dashboard/states.css.scss";
+@import "dashboard/mixins.css.scss";
 // Modules
 @import "dashboard/modules/venue_box.css.scss";
 @import "dashboard/modules/dashboard_navbar.css.scss";
 @import "dashboard/modules/stats_box.css.scss";
-@import "dashboard/modules/sticky_side_nav.css.scss";
+@import "dashboard/modules/wizard_side_nav.css.scss";

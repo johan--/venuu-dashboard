@@ -1,0 +1,59 @@
+.m-wizard-side-nav {
+  @extend .m-box-group;
+  @extend .show-for-medium-up;
+  $active-color: $side-nav-link-color;
+  $inactive-color: $basetext-color-lighter;
+
+  p {
+    color: $inactive-color;
+    text-align: center;
+    font-size: 0.8em;
+  }
+
+  ul {
+    @extend .side-nav;
+    padding: 0;
+
+    li {
+      border-bottom: 1px solid $border-color;
+      margin: 0;
+
+      a:not(.button) {
+        background-color: $bg-color;
+        padding: 0.9em;
+        font-weight: bold;
+        color: $inactive-color;
+        @include icon("plus-circle");
+
+        &.active {
+          background-color: #fff;
+          border-right: 1px solid #fff;
+          position: relative;
+          left: 1px;
+          color: $active-color;
+          @include icon("check-circle");
+
+          &:before {
+            color: $inactive-color;
+            float: right;
+          }
+        }
+
+        &:hover {
+          color: $active-color;
+        }
+
+        &:before {
+          color: $active-color;
+          float: right;
+        }
+      }
+    }
+  }
+
+  &.fixed {
+    margin: 1em 0 0 1em;
+    width: 270px;
+    max-width: 23%;
+  }
+}

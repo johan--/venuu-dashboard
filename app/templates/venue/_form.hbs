@@ -1,5 +1,5 @@
 <div class="m-container-box">
-  <h4 data-magellan-destination="basic">
+  <h4>
     Perustiedot <small>kerro tilastasi</small>
   </h4>
   {{v-input labelCol=3 inputCol=9 label="Tilan nimi" name="title" content=title}}
@@ -13,7 +13,7 @@
 </div>
 
 <div class="m-container-box">
-  <h4 data-magellan-destination="contact">
+  <h4>
     Yhteystiedot <small>yhteydenottoja varten</small>
   </h4>
   {{v-input labelCol=3 inputCol=9 label="Osoite" name="address" content=address}}
@@ -21,6 +21,7 @@
   {{v-input labelCol=3 inputCol=9 label="Email" name="email" content=contactEmail}}
   {{v-input labelCol=3 inputCol=9 label="Puhelin" name="phone" content=contactPhone}}
 </div>
+
 <div class="row">
   <div class="medium-12 columns">
     <button id="save" {{action 'save'}} class="success">Tallenna</button>
@@ -29,4 +30,3 @@
     {{/if}}
   </div>
 </div>
-
