@@ -83,7 +83,7 @@ kongressikeskus.venues.create(
   sales_guarantee: 200,
   security_deposit: 400,
   slug: 'murphy-douglas-and-sawayn-4',
-  title: 'Kongressikeskuksen baari'
+  title: 'Murphy, Douglas and Sawayn 4'
 )
 
 kongressikeskus.venues.first.venue_types = [VenueType.first, VenueType.last]
