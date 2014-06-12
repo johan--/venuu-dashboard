@@ -41,7 +41,14 @@ class VenuesController < ApplicationController
     else
       @venue.venue_types = []
     end
-      @venue.save
+
+    if params[:venue][:venue_service_ids]
+      @venue.venue_services = params[:venue][:venue_service_ids].map { |id| VenueService.find(id) }
+    else
+      @venue.venue_services = []
+    end
+
+    @venue.save
     if @venue.update(venue_params)
       head :no_content
     else

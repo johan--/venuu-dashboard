@@ -1,4 +1,5 @@
 class VenueServiceCategorySerializer < ActiveModel::Serializer
-  attributes :name
+  embed :ids
+  attributes :id, :name
   has_many :venue_services
 end

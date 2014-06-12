@@ -1,8 +1,7 @@
 (function () {
   'use strict';
 
-  VenuuDashboard.VenueIndexController = Ember.ArrayController.extend({
-  });
+  VenuuDashboard.VenueIndexController = Ember.ArrayController.extend({});
 
   VenuuDashboard.VenueEditController = Ember.ObjectController.extend({
     actions: {
@@ -29,7 +28,7 @@
         var self = this;
 
         function transitionToVenueIndex() {
-          self.transitionToRoute('venue.index');
+          self.transitionToRoute('venue');
         }
 
         this.get('model').destroyRecord()
@@ -40,10 +39,19 @@
 
   VenuuDashboard.VenueTypeController = Ember.ObjectController.extend({
     needs: 'venueEdit',
-    isChecked: function (key, value) {
+    venueTypes: Ember.computed.alias("controllers.venueEdit.model.venueTypes"),
+    isChecked: function () {
       var model = this.get('model');
-      var venue = this.get('controllers.venueEdit.model');
-      return !!venue.get('venueTypes').findBy('id', model.get('id'));
+      return !!this.get('venueTypes').findBy('id', model.get('id'));
+    }.property()
+  });
+
+  VenuuDashboard.VenueServiceController = Ember.ObjectController.extend({
+    needs: 'venueEdit',
+    venueServices: Ember.computed.alias("controllers.venueEdit.model.venueServices"),
+    isChecked: function () {
+      var model = this.get('model');
+      return !!this.get('venueServices').findBy('id', model.get('id'));
     }.property()
 
   });

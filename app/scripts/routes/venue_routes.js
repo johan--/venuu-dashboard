@@ -9,10 +9,10 @@
 
   VenuuDashboard.VenueEditRoute = VD.Route.extend({
     sidebarTemplate: 'venue/sidebar',
-    contentController: 'venueEdit',
     setupController: function (controller, model) {
-      controller.set('model', model);   // Hookkaa modelit aina ensin!
+      controller.set('model', model); // Hookkaa modelit aina ensin!
       controller.set('allVenueTypes', this.get('store').find('venueType'));
+      controller.set('allVenueServices', this.get('store').find('venueService'));
     }
   });
 
@@ -22,6 +22,8 @@
     setupController: function (controller, model) {
       var venue = this.get('store').createRecord('venue');
       this.controllerFor('venueEdit').set('model', venue);
+      controller.set('allVenueTypes', this.get('store').find('venueType'));
+      controller.set('allVenueServices', this.get('store').find('venueService'));
     }
   });
 
