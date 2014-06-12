@@ -48,4 +48,14 @@
 
   });
 
+  VenuuDashboard.EventTypeController = Ember.ObjectController.extend({
+    needs: 'venueEdit',
+    isChecked: function (key, value) {
+      var model = this.get('model');
+      var venue = this.get('controllers.venueEdit.model');
+      return !!venue.get('eventTypes').findBy('id', model.get('id'));
+    }.property()
+
+  });
+
 })();

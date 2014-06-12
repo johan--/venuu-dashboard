@@ -13,6 +13,7 @@
     setupController: function (controller, model) {
       controller.set('model', model);   // Hookkaa modelit aina ensin!
       controller.set('allVenueTypes', this.get('store').find('venueType'));
+      controller.set('allEventTypes', this.get('store').find('eventType'));
     }
   });
 

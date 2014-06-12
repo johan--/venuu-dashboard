@@ -17,6 +17,18 @@
           venue.get('venueTypes').removeObject(model);
         }
       }.observes('checked')
+    }),
+
+    eventTypeCheckbox: Ember.Checkbox.extend({
+      checkedObserver: function () {
+        var model = this.get('eventType');
+        var venue = this.get('venue');
+        if (this.get('checked')) {
+          venue.get('eventTypes').addObject(model);
+        } else {
+          venue.get('eventTypes').removeObject(model);
+        }
+      }.observes('checked')
     })
   });
 
