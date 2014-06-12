@@ -5,10 +5,6 @@
 
   VenuuDashboard.VenueEditController = Ember.ObjectController.extend({
     actions: {
-      goto: function (anchor) {
-        var $target = $('[data-magellan-destination="' + anchor + '"]');
-        $(document.body).scrollTop($target.offset().top);
-      },
       save: function () {
         var self = this;
 
@@ -39,7 +35,7 @@
 
   VenuuDashboard.VenueTypeController = Ember.ObjectController.extend({
     needs: 'venueEdit',
-    venueTypes: Ember.computed.alias("controllers.venueEdit.model.venueTypes"),
+    venueTypes: Ember.computed.alias('controllers.venueEdit.model.venueTypes'),
     isChecked: function () {
       var model = this.get('model');
       return !!this.get('venueTypes').findBy('id', model.get('id'));
@@ -48,7 +44,7 @@
 
   VenuuDashboard.VenueServiceController = Ember.ObjectController.extend({
     needs: 'venueEdit',
-    venueServices: Ember.computed.alias("controllers.venueEdit.model.venueServices"),
+    venueServices: Ember.computed.alias('controllers.venueEdit.model.venueServices'),
     isChecked: function () {
       var model = this.get('model');
       return !!this.get('venueServices').findBy('id', model.get('id'));
