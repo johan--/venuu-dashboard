@@ -35,7 +35,6 @@ class VenuesController < ApplicationController
   # PATCH/PUT /venues/1.json
   def update
     @venue = Venue.find(params[:id])
-    puts params
 
     # replace venue_type_ids coming from ember with VenueType.find(id)
     # so Rails handles the many to many relationship correctly

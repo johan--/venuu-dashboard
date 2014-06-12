@@ -36,6 +36,19 @@
           venue.get('eventTypes').removeObject(model);
         }
       }.observes('checked')
+    }),
+
+    multipleSelect: Ember.Select.extend({
+      multiple: true,
+      style: 'width: 200px',
+
+      didInsertElement: function () {
+        this._super();
+        this.$().chosen();
+      },
+      selectionChanged: function () {
+        this.$().trigger('chosen:updated');
+      }.observes('content')
     })
   });
 
