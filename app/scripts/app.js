@@ -12,7 +12,9 @@
   });
 
   /* Order and include as you please. */
+  require('scripts/components/v-form-component.js');
   require('scripts/components/*');
+
   require('scripts/controllers/*');
   require('scripts/helpers/*');
   require('scripts/store');
