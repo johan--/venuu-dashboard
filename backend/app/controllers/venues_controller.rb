@@ -36,12 +36,30 @@ class VenuesController < ApplicationController
   def update
     @venue = Venue.find(params[:id])
     puts params
+
+    # replace venue_type_ids coming from ember with VenueType.find(id)
+    # so Rails handles the many to many relationship correctly
     if params[:venue][:venue_type_ids]
       @venue.venue_types = params[:venue][:venue_type_ids].map { |id| VenueType.find(id) }
     else
       @venue.venue_types = []
     end
-      @venue.save
+
+    if params[:venue][:venue_service_ids]
+      @venue.venue_services = params[:venue][:venue_service_ids].map { |id| VenueService.find(id) }
+    else
+      @venue.venue_services = []
+    end
+
+    # replace event_type_ids coming from ember with EventType.find(id)
+    # so Rails handles the many to many relationship correctly
+    if params[:venue][:event_type_ids]
+      @venue.event_types = params[:venue][:event_type_ids].map { |id| EventType.find(id) }
+    else
+      @venue.event_types = []
+    end
+
+    @venue.save
     if @venue.update(venue_params)
       head :no_content
     else

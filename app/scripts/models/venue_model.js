@@ -24,7 +24,7 @@
     createdAt: DS.attr('date'),
     description: DS.attr('string'),
     //event_type_ids: DS.hasMany('event_type'),
-    eventTypes: DS.attr(),
+    eventTypes: DS.hasMany('eventType', { async: true }),
     floorArea: DS.attr('number'),
     //floor_map_ids: DS.hasMany('floor_map'),
     //organization_id: DS.belongsTo('organization'),
@@ -45,7 +45,7 @@
     updatedAt: DS.attr('date'),
     venueGroup: DS.belongsTo('venueGroup'),
     venueTypes: DS.hasMany('venueType', { async: true }),
-    //venue_type_ids: DS.hasMany('venue_type'),
+    venueServices: DS.hasMany('venueService', { async: true }),
     imageSrc: function () {
       return 'http://lorempixel.com/output/city-q-c-100-100-' +
         this.get('id') + '.jpg';

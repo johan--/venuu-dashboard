@@ -1,6 +1,9 @@
 class Venue < ActiveRecord::Base
   belongs_to :venue_group
+
   has_and_belongs_to_many :venue_types, join_table: :types_of_venues
+  has_and_belongs_to_many :venue_services, join_table: :venues_services_available
+  has_and_belongs_to_many :event_types, join_table: :events_of_venues
 
   def self.publicAttributes
     [:additional_service_category_description,
@@ -33,8 +36,9 @@ class Venue < ActiveRecord::Base
         :slug,
         :title,
         :venue_group_id,
+        :address,
+        :zipcode,
         :updated_at,
         :created_at]
   end
-
 end

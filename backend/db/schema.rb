@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140609103712) do
+ActiveRecord::Schema.define(version: 20140612142629) do
+
+  create_table "event_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events_of_venues", force: true do |t|
+    t.integer "venue_id"
+    t.integer "event_type_id"
+  end
 
   create_table "types_of_venues", force: true do |t|
     t.integer  "venue_id"
@@ -25,6 +36,20 @@ ActiveRecord::Schema.define(version: 20140609103712) do
     t.string   "address"
     t.string   "zipcode"
     t.string   "city"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "venue_service_categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "venue_services", force: true do |t|
+    t.string   "name"
+    t.string   "negation"
+    t.integer  "venue_service_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -66,11 +91,16 @@ ActiveRecord::Schema.define(version: 20140609103712) do
     t.text     "additional_service_category_description"
     t.text     "capacity_details"
     t.string   "address"
-    t.string   "postcode"
+    t.string   "zipcode"
     t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "venue_group_id"
+  end
+
+  create_table "venues_services_available", force: true do |t|
+    t.integer "venue_id"
+    t.integer "venue_service_id"
   end
 
 end

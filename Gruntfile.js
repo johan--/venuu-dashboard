@@ -323,7 +323,6 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           flatten: false,
-          /*          filter: 'isFile',*/
           dest: '.tmp/',
           src: [
             'test/**'
@@ -339,7 +338,7 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.app %>/styles/fonts/',
           src: [
             'bootstrap-sass/dist/fonts/**', // Bootstrap
-            'font-awesome/fonts/**' // Font-Awesome
+            'fontawesome/fonts/**' // Font-Awesome
           ]
         }]
       },
