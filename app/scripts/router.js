@@ -26,7 +26,7 @@
     }, function () {
       this.route('new');
       this.route('edit', {
-        path: '/:venue'
+        path: '/:venue_id'
       });
     });
 
