@@ -60,4 +60,8 @@
     })
   });
 
+  VenuuDashboard.VenueNewView = VD.VenueEditView.extend({
+    controller: 'venueEdit'
+  });
+
 })();
