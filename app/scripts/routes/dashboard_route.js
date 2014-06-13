@@ -7,13 +7,22 @@
     contentTemplate: undefined,
     sidebarTemplate: 'index_sidebar',
     renderTemplate: function (controller, model) {
-      var myContentRender=this.contentTemplate?this.render.bind(this,this.contentTemplate):this.render.bind(this);
       if (!this.contentController) {
-        myContentRender();
+        if (this.contentTemplate) {
+          this.render(this.contentTemplate);
+        } else {
+          this.render();
+        }
       } else {
-        myContentRender({
-          controller: this.contentController
-        });
+        if (this.contentTemplate) {
+          this.render(this.contentTemplate, {
+            controller: this.contentController
+          });
+        } else {
+          this.render({
+            controller: this.contentController
+          });
+        }
       }
       this.render(this.sidebarTemplate, {
         into: 'application',
