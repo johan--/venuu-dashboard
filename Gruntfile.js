@@ -342,6 +342,18 @@ module.exports = function (grunt) {
           ]
         }]
       },
+      styles: {
+        files: [{
+          expand: true,
+          flatten: true,
+          filter: 'isFile',
+          cwd: '<%= yeoman.app %>/bower_components/',
+          dest: '<%= yeoman.app %>/styles/css/',
+          src: [
+            'chosen-build/chosen.css'
+          ]
+        }]
+      },
       dist: {
         files: [{
           expand: true,
@@ -447,6 +459,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'neuter:app',
       'copy:fonts',
+      'copy:styles',
       'configureProxies',
       'connect:livereload',
       'open:server',
