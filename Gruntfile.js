@@ -378,7 +378,7 @@ module.exports = function (grunt) {
       ],
       dist: [
         'emberTemplates',
-        'imagemin',
+        //'imagemin',
         'svgmin',
         'htmlmin'
       ]
@@ -492,7 +492,7 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'copy:dist',
-    'rev',
+    //'rev',
     'usemin'
   ]);
 
