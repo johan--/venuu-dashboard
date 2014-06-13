@@ -41,10 +41,15 @@
     multipleSelect: Ember.Select.extend({
       multiple: true,
       style: 'width: 200px',
-
       didInsertElement: function () {
         this._super();
-        this.$().chosen();
+        if (this.get('max')) {
+          this.$().chosen({
+            max_selected_options: this.get('max')
+          });
+        } else {
+          this.$().chosen();
+        }
       },
       selectionChanged: function () {
         this.$().trigger('chosen:updated');
