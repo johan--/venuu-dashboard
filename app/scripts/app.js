@@ -19,8 +19,10 @@
   require('scripts/helpers/*');
   require('scripts/store');
   require('scripts/models/*');
-  require('scripts/beforeRoutes/*');
+
+  require('scripts/routes/dashboard_route.js');
   require('scripts/routes/*');
+
   require('scripts/views/*');
   require('scripts/router');
 
