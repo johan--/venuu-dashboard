@@ -30,7 +30,7 @@
 
   VenuuDashboard.VenueGroupNewVenueRoute = VD.Route.extend({
     contentController: 'venueEdit',
-    contentTemplate: 'venue/edit',
+    contentTemplate: 'venue/new',
     sidebarTemplate: 'venue/sidebar',
     setupController: function (controller, model) {
       var venue = this.get('store').createRecord('venue');
