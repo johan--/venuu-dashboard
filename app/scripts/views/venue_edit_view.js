@@ -40,16 +40,19 @@
 
     multipleSelect: Ember.Select.extend({
       multiple: true,
-      style: 'width: 200px',
+      classNames: ['m-chosen-select'],
+
       didInsertElement: function () {
         this._super();
-        if (this.get('max')) {
-          this.$().chosen({
-            max_selected_options: this.get('max')
-          });
-        } else {
-          this.$().chosen();
-        }
+        var options = {
+          inherit_select_classes: true,
+          max_selected_options: this.get('max'),
+          placeholder_text_multiple: this.get('placeholder'),
+          no_results_text: this.get('notFound'),
+          display_selected_options: false
+        };
+
+        this.$().chosen(options);
       },
       selectionChanged: function () {
         this.$().trigger('chosen:updated');

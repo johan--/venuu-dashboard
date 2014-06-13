@@ -54,13 +54,21 @@
 <div class="m-container-box">
   <h4>Tilan tyyppi <small>under construction</small></h4>
   <div class="row collapse">
-    <div class="small-4 columns">
+    <div class="small-12 columns">
+      <p>
+        Voit tarvittaessa valita useampia, mieluusti kuitenkin korkeintaan
+        viisi (5). <b>Huom!</b> Se, että esim. kahvilassa voi pitää kokouksia, ei
+        välttämättä tee siitä kokoushuonetta.
+      </p>
       {{#if model.venueTypes.isFulfilled}}
         {{view view.multipleSelect
-            contentBinding="allVenueTypes"
-            optionValuePath="content.id"
-            optionLabelPath="content.name"
-            selectionBinding="venueTypes"
+          max=5
+          placeholder="Valitse tilan tyypit (max 5 kpl)"
+          notFound="Tyyppiä ei löytynyt haulla"
+          contentBinding="allVenueTypes"
+          optionValuePath="content.id"
+          optionLabelPath="content.name"
+          selectionBinding="venueTypes"
         }}
       {{/if}}
     </div>
@@ -68,36 +76,43 @@
 </div>
 
 <div class="m-container-box">
-  <h4 data-magellan-destination="venue-type">
-    Palvelut ja puitteet <small>under construction</small>
-  </h4>
+  <h4>Palvelut &amp; puitteet <small>under construction</small></h4>
   <div class="row collapse">
-    <div class="small-4 columns">
+    <div class="small-12 columns">
       {{#if model.venueServices.isFulfilled}}
         {{view view.multipleSelect
-            contentBinding="allVenueServices"
-            optionValuePath="content.id"
-            optionLabelPath="content.name"
-            selectionBinding="venueServices"
+          placeholder="Valitse palvelut ja puitteet"
+          notFound="I'm sorry Dave, I'm afraid I can't do that"
+          contentBinding="allVenueServices"
+          optionValuePath="content.id"
+          optionLabelPath="content.name"
+          selectionBinding="venueServices"
         }}
       {{/if}}
     </div>
+    {{v-textarea label="Muuta palveluista ja puitteista"
+      name="additionalServiceCategoryDescription"
+      content=additionalServiceCategoryDescription rows=3}}
   </div>
 </div>
 
-
-
 <div class="m-container-box">
-  <h4>Event types <small>under construction</small></h4>
+  <h4>Tapahtumat <small>under construction</small></h4>
   <div class="row collapse">
-    <div class="small-4 columns">
+    <div class="small-12 columns">
+      <p>
+        Kerro millaisia tapahtumia tilassasi voi järjestää. <b>Huom!</b> Meidän
+        mielestä esim. kahvilassa voi hyvin järjestää vaikkapa pienen seminaarin
+        ja teollisuushallissa häät.
+      </p>
       {{#if model.eventTypes.isFulfilled}}
         {{view view.multipleSelect
-            max="5"
-            contentBinding="allEventTypes"
-            optionValuePath="content.id"
-            optionLabelPath="content.name"
-            selectionBinding="eventTypes"
+          placeholder="Valitse tapahtumat"
+          notFound="Tapahtumaa ei löytynyt haulla"
+          contentBinding="allEventTypes"
+          optionValuePath="content.id"
+          optionLabelPath="content.name"
+          selectionBinding="eventTypes"
         }}
       {{/if}}
     </div>
