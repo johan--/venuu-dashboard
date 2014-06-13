@@ -55,7 +55,7 @@
   <h4>Tilan tyyppi <small>under construction</small></h4>
   <div class="row collapse">
     <div class="small-4 columns">
-      {{#if model.venueTypes.isSettled}}
+      {{#if model.venueTypes.isFulfilled}}
         {{view view.multipleSelect
             contentBinding="allVenueTypes"
             optionValuePath="content.id"
@@ -73,7 +73,7 @@
   </h4>
   <div class="row collapse">
     <div class="small-4 columns">
-      {{#if model.venueServices.isSettled}}
+      {{#if model.venueServices.isFulfilled}}
         {{view view.multipleSelect
             contentBinding="allVenueServices"
             optionValuePath="content.id"
@@ -91,8 +91,9 @@
   <h4>Event types <small>under construction</small></h4>
   <div class="row collapse">
     <div class="small-4 columns">
-      {{#if model.eventTypes.isSettled}}
+      {{#if model.eventTypes.isFulfilled}}
         {{view view.multipleSelect
+            max="5"
             contentBinding="allEventTypes"
             optionValuePath="content.id"
             optionLabelPath="content.name"
