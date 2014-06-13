@@ -342,6 +342,18 @@ module.exports = function (grunt) {
           ]
         }]
       },
+      styles: {
+        files: [{
+          expand: true,
+          flatten: true,
+          filter: 'isFile',
+          cwd: '<%= yeoman.app %>/bower_components/',
+          dest: '<%= yeoman.app %>/styles/vendor/',
+          src: [
+            'chosen-build/chosen.css'
+          ]
+        }]
+      },
       dist: {
         files: [{
           expand: true,
@@ -350,9 +362,9 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>',
           src: [
             '*.{ico,txt}',
-            '.htaccess',
             'images/{,*/}*.{webp,gif}',
-            'styles/fonts/*'
+            'styles/fonts/*',
+            'styles/vendor/chosen.css'
           ]
         }]
       }
@@ -366,7 +378,7 @@ module.exports = function (grunt) {
       ],
       dist: [
         'emberTemplates',
-        'imagemin',
+        //'imagemin',
         'svgmin',
         'htmlmin'
       ]
@@ -447,6 +459,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'neuter:app',
       'copy:fonts',
+      'copy:styles',
       'configureProxies',
       'connect:livereload',
       'open:server',
@@ -479,7 +492,7 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'copy',
-    'rev',
+    //'rev',
     'usemin'
   ]);
 
