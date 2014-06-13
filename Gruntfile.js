@@ -348,7 +348,7 @@ module.exports = function (grunt) {
           flatten: true,
           filter: 'isFile',
           cwd: '<%= yeoman.app %>/bower_components/',
-          dest: '<%= yeoman.app %>/styles/css/',
+          dest: '<%= yeoman.app %>/styles/vendor/',
           src: [
             'chosen-build/chosen.css'
           ]
@@ -364,7 +364,7 @@ module.exports = function (grunt) {
             '*.{ico,txt}',
             'images/{,*/}*.{webp,gif}',
             'styles/fonts/*',
-            'styles/css/*'
+            'styles/vendor/chosen.css'
           ]
         }]
       }
