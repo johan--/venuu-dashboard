@@ -4,6 +4,11 @@
   VenuuDashboard.VenueIndexController = Ember.ArrayController.extend({});
 
   VenuuDashboard.VenueEditController = Ember.ObjectController.extend({
+    init: function () {
+      this.set('allVenueTypes', this.get('store').find('venueType'));
+      this.set('allVenueServices', this.get('store').find('venueService'));
+      this.set('allEventTypes', this.get('store').find('eventType'));
+    },
     actions: {
       save: function () {
         var self = this;
