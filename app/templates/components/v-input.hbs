@@ -5,7 +5,7 @@
   <div class="row collapse">
     {{#if prefix}}
       <div {{bind-attr class="preColSize :columns"}}>
-        <span class="prefix">{{prefix}}</span>
+        <span class="prefix">{{{prefix}}}</span>
       </div>
     {{/if}}
     <div {{bind-attr class="inputColSize :columns
@@ -14,7 +14,7 @@
     </div>
     {{#if postfix}}
       <div {{bind-attr class="postColSize :columns"}}>
-        <span class="postfix">{{postfix}}</span>
+        <span class="postfix">{{{postfix}}}</span>
       </div>
     {{/if}}
   </div>

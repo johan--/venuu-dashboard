@@ -8,10 +8,13 @@
 
   <h5>Yhteystiedot <small>tilaa koskevia yhteydenottoja varten</small></h5>
   <div class="row collapse">
-    {{v-input width=6 cols="3:9" label="Osoite" name="address" content=address}}
-    {{v-input width=6 cols="4:8" label="Postinumero" name="zipcode" content=zipcode}}
-    {{v-input width=6 cols="3:9" label="Email" name="email" content=contactEmail}}
-    {{v-input width=6 cols="4:2:6:0" label="Puhelin" name="phone" content=contactPhone prefix="+358"}}
+    {{v-input width=7 cols="3:1:8:0" label="Osoite" name="address" content=address prefix='<i class="fa fa-home" ></i>'}}
+    {{v-input width=5 cols="5:7" label="Postinumero" name="zipcode"
+      content=zipcode}}
+    {{v-input width=7 cols="3:1:8:0" label="Email" name="email"
+      content=contactEmail prefix='<i class="fa fa-inbox" ></i>'}}
+    {{v-input width=5 cols="5:1:6:0" label="Puhelin" name="phone"
+      content=contactPhone prefix='<i class="fa fa-phone" ></i>'}}
   </div>
 </div>
 
@@ -26,13 +29,17 @@
   </p>
   <div class="row collapse">
     {{v-input width=6 cols="6:0:5:1" label="Päivävuokra"
-              name="rentPerDay" content=rentPerDay postfix="€"}}
+              name="rentPerDay" content=rentPerDay
+              postfix='<i class="fa fa-eur" ></i>'}}
     {{v-input width=6 cols="6:0:5:1" label="Tuntivuokra"
-              name="rentPerHour" content=rentPerHour postfix="€"}}
+              name="rentPerHour" content=rentPerHour
+              postfix='<i class="fa fa-eur" ></i>'}}
     {{v-input width=6 cols="6:0:5:1" label="Vuokra per henkilö"
-              name="rentPerPerson" content=rentPerPerson postfix="€"}}
+              name="rentPerPerson" content=rentPerPerson
+              postfix='<i class="fa fa-eur" ></i>'}}
     {{v-input width=6 cols="6:0:5:1" label="Myyntitakuu"
-              name="salesGuarantee" content=salesGuarantee postfix="€"}}
+              name="salesGuarantee" content=salesGuarantee
+              postfix='<i class="fa fa-eur" ></i>'}}
     {{v-textarea label="Hinnoittelusta tarkemmin"
               name="pricingDetails" content=pricingDetails rows=3}}
   </div>
@@ -41,11 +48,14 @@
 
   <div class="row collapse">
     {{v-input width=6 cols="6:0:5:1" label="Varausmaksu"
-              name="reservationFee" content=reservationFee postfix="€"}}
+              name="reservationFee" content=reservationFee
+              postfix='<i class="fa fa-eur" ></i>'}}
     {{v-input width=6 cols="6:0:5:1" label="Siivousmaksu"
-              name="cleaningFee" content=cleaningFee postfix="€"}}
+              name="cleaningFee" content=cleaningFee
+              postfix='<i class="fa fa-eur" ></i>'}}
     {{v-input width=6 cols="6:0:5:1" label="Vakuusmaksu"
-              name="securityDeposit" content=securityDeposit postfix="€"}}
+              name="securityDeposit" content=securityDeposit
+              postfix='<i class="fa fa-eur" ></i>'}}
     {{v-textarea label="Peruutusehdot"
               name="cancellationPolicy" content=cancellationPolicy rows=3}}
   </div>
