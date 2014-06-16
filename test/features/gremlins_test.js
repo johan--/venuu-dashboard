@@ -2,18 +2,6 @@ module('Integration: Gremlins', {
   setup: function () { // Before each test
     VenuuDashboard.reset();
     visit('/');
-
-    // PhantomJS bind fix
-    if (!('bind' in Function.prototype)) {
-      Function.prototype.bind = function () {
-        var funcObj = this;
-        var extraArgs = Array.prototype.slice.call(arguments);
-        var thisObj = extraArgs.shift();
-        return function () {
-          return funcObj.apply(thisObj, extraArgs.concat(Array.prototype.slice.call(arguments)));
-        };
-      };
-    }
   },
   teardown: function () { // After each test
     window.seedBackend();
