@@ -3,7 +3,7 @@
 
   VenuuDashboard.Router.reopen({
     rootURL: '/dashboard/',
-    location: 'history'
+    location: 'auto'
   });
 
   VenuuDashboard.Router.map(function () {
