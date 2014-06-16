@@ -3,7 +3,8 @@
 
   VenuuDashboard.VenueService = DS.Model.extend({
     name: DS.attr('string'),
-    negation: DS.attr('string')
+    negation: DS.attr('string'),
+    category: DS.attr('string')
   });
 
 })();
