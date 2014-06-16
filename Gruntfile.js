@@ -285,7 +285,7 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '<%= yeoman.app %>',
+          cwd: '.tmp',
           src: '*.html',
           dest: '<%= yeoman.dist %>'
         }]
@@ -296,7 +296,8 @@ module.exports = function (grunt) {
         options: {
           variables: {
             ember: 'bower_components/ember/ember.js',
-            ember_data: 'bower_components/ember-data/ember-data.js'
+            ember_data: 'bower_components/ember-data/ember-data.js',
+            base_href: '/'
           }
         },
         files: [{
@@ -308,7 +309,8 @@ module.exports = function (grunt) {
         options: {
           variables: {
             ember: 'bower_components/ember/ember.prod.js',
-            ember_data: 'bower_components/ember-data/ember-data.prod.js'
+            ember_data: 'bower_components/ember-data/ember-data.prod.js',
+            base_href: 'http://ohtu.venuu.fi/'
           }
         },
         files: [{
@@ -410,11 +412,6 @@ module.exports = function (grunt) {
   });
 
   require('./test/helper/qunit_helper')(grunt);
-
-  grunt.registerTask('server', function (target) {
-    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['serve:' + target]);
-  });
 
   grunt.registerTask('backendDir', function (target) {
     grunt.file.setBase('backend/');
