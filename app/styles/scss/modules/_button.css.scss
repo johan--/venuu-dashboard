@@ -32,6 +32,9 @@ button, .button:not(.disabled), .m-bar-button {
     @include box-shadow(none);
     @include text-shadow(none);
   }
+  &.alert {
+    background-color: $alert-color;
+  }
   &:active, &.is-toggled {
     @include box-shadow(rgba(black, .15) 0 1px 1px inset);
     background-image: $transparent-gradient-inverse;
