@@ -19,6 +19,8 @@
 
         function failure(response) {
           console.error('save failure', response);
+          console.log("failure: ");
+          console.log(response.errors);
         }
 
         this.get('model').save()

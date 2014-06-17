@@ -27,7 +27,7 @@ class VenuesController < ApplicationController
     if @venue.save
       render json: @venue, status: :created, location: @venue
     else
-      render json: @venue.errors, status: :unprocessable_entity
+      render json: {errors: @venue.errors}, status: :unprocessable_entity
     end
   end
 

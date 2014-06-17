@@ -5,6 +5,8 @@ class Venue < ActiveRecord::Base
   has_and_belongs_to_many :venue_services, join_table: :venues_services_available
   has_and_belongs_to_many :event_types, join_table: :events_of_venues
 
+  validates :title, length: {minimum: 2, maximum: 15}
+
   def self.publicAttributes
     [:additional_service_category_description,
         :cancellation_policy,
