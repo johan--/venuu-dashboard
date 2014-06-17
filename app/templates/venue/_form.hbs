@@ -1,4 +1,38 @@
 <div class="m-container-box">
+  <h4>Kohde <small>jossa tilasi sijaitsee</small></h4>
+
+  <div class="row">
+    {{#if venueGroup.isDirty}}
+      <div class="small-12 columns">
+        <p>Täytä nämä tiedot niin luomme kohteen sinulle.</p>
+        {{render "VenueGroup._form" venueGroup}}
+        <button {{action "cancelNewVenueGroup"}}>Peruuta</button>
+      </div>
+    {{else}}
+      <div class="small-2 columns">
+        <label for="venue-group" class="right inline">Valitse kohde</label>
+      </div>
+      <div class="small-6 columns">
+        {{#if allVenueGroups.isFulfilled}}
+          {{view Ember.Select
+            content=allVenueGroups
+            optionValuePath="content.id"
+            optionLabelPath="content.name"
+            selection=venueGroup
+            prompt="Valitse tilan kohde"
+            id="venue-group"
+          }}
+        {{/if}}
+      </div>
+      <div class="small-1 columns centered"><span class="inline">tai</span></div>
+      <div class="small-3 columns left">
+        <button {{action "createVenueGroup"}}>Luo uusi kohde</button>
+      </div>
+    {{/if}}
+  </div>
+</div>
+
+<div class="m-container-box">
   <h4>Perustiedot <small>kerro tilastasi</small></h4>
   <div class="row collapse">
     {{v-input label="Tilan nimi" name="title" content=title}}
@@ -71,15 +105,15 @@
         viisi (5). <b>Huom!</b> Se, että esim. kahvilassa voi pitää kokouksia, ei
         välttämättä tee siitä kokoushuonetta.
       </p>
-      {{#if model.venueTypes.isFulfilled}}
+      {{#if venueTypes.isFulfilled}}
         {{view view.multipleSelect
           max=5
           placeholder="Valitse tilan tyypit (max 5 kpl)"
           notFound="Tyyppiä ei löytynyt haulla"
-          contentBinding="allVenueTypes"
+          content=allVenueTypes
           optionValuePath="content.id"
           optionLabelPath="content.name"
-          selectionBinding="venueTypes"
+          selection=venueTypes
         }}
       {{/if}}
     </div>
@@ -90,14 +124,14 @@
   <h4>Palvelut &amp; puitteet <small>under construction</small></h4>
   <div class="row collapse">
     <div class="small-12 columns">
-      {{#if model.venueServices.isFulfilled}}
+      {{#if venueServices.isFulfilled}}
         {{view view.multipleSelect
           placeholder="Valitse palvelut ja puitteet"
           notFound="I'm sorry Dave, I'm afraid I can't do that"
-          contentBinding="allVenueServices"
+          content=allVenueServices
           optionValuePath="content.id"
           optionLabelPath="content.name"
-          selectionBinding="venueServices"
+          selection=venueServices
         }}
       {{/if}}
     </div>
@@ -116,14 +150,14 @@
         mielestä esim. kahvilassa voi hyvin järjestää vaikkapa pienen seminaarin
         ja teollisuushallissa häät.
       </p>
-      {{#if model.eventTypes.isFulfilled}}
+      {{#if eventTypes.isFulfilled}}
         {{view view.multipleSelect
           placeholder="Valitse tapahtumat"
           notFound="Tapahtumaa ei löytynyt haulla"
-          contentBinding="allEventTypes"
+          content=allEventTypes
           optionValuePath="content.id"
           optionLabelPath="content.name"
-          selectionBinding="eventTypes"
+          selection=eventTypes
         }}
       {{/if}}
     </div>

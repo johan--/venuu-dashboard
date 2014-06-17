@@ -2,8 +2,15 @@
   <h2>Päivitä kohteen tiedot</h2>
 </div>
 
-<div class="edit-form">
-  {{partial "venue_group/form"}}
+<div class="edit-form m-container-box">
+  <div class="row">
+    {{partial "venue_group/form"}}
+
+    <div class="medium-12 columns">
+      <button id="save" {{action 'save'}} class="success">Tallenna</button>
+      <button id="destroy" {{action 'destroy'}}>Poista kohde</button>
+    </div>
+  </div>
 </div>
 
 <div class="row">
