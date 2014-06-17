@@ -440,6 +440,7 @@ module.exports = function (grunt) {
         'clean:server',
         'replace:app',
         'compass',
+        'copy:styles',
         'copy:tests',
         'concurrent:test',
         'neuter:app',
