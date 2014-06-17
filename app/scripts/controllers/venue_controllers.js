@@ -30,7 +30,7 @@
             .catch(failure);
         }
 
-        if (venueGroup.get('isDirty')) {
+        if (venueGroup && venueGroup.get('isDirty')) {
           venueGroup.save()
             .then(saveVenue);
         } else {
