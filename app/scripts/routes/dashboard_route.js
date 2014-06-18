@@ -26,11 +26,11 @@
         outlet: 'sidebar'
       });
 
-      this.render(this.errorTemplate, {
+      /*this.render(this.errorTemplate, {
         into: 'application',
         outlet: 'error',
         controller: this.contentController
-      });
+      });*/
     }
   });
 })();

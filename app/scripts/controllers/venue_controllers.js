@@ -18,9 +18,8 @@
         }
 
         function failure(response) {
-          console.error('save failure', response);
-          console.log("failure: ");
-          console.log(response.errors);
+          //console.error('save failure', response);
+          self.get('woof').danger('This is a danger alert!');
         }
 
         this.get('model').save()
