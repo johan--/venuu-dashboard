@@ -1,8 +1,7 @@
 (function () {
   'use strict';
 
-  VenuuDashboard.VenueGroupIndexController = Ember.ArrayController.extend({
-  });
+  VenuuDashboard.VenueGroupIndexController = Ember.ArrayController.extend({});
 
   VenuuDashboard.VenueGroupEditController = Ember.ObjectController.extend({
     actions: {
