@@ -25,4 +25,6 @@
     }
   });
 
+  VD.LoadingRoute = VD.Route.extend({});
+
 })();

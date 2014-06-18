@@ -9,7 +9,7 @@ var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
 var modRewrite = require('connect-modrewrite'),
-  redirectToIndex = modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png(\\?\\d+)?|\\.json$ /index.html [L]']);
+  redirectToIndex = modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.gif|\\.png(\\?\\d+)?|\\.json$ /index.html [L]']);
 var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
 
 // # Globbing
