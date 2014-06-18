@@ -1,0 +1,19 @@
+
+<div class="m-container-box">
+  <h4>Palvelut &amp; puitteet <small>kaikkea kivaa!</small></h4>
+  <div class="row collapse">
+    <div class="small-12 columns">
+      {{#if venueServices.isFulfilled}}
+        {{view VD.Chosen
+          placeholder="Valitse palvelut ja puitteet"
+          notFound="I'm sorry Dave, I'm afraid I can't do that"
+          content=allVenueServices
+          selection=venueServices
+        }}
+      {{/if}}
+    </div>
+    {{v-textarea label="Muuta palveluista ja puitteista"
+      name="additionalServiceCategoryDescription"
+      content=additionalServiceCategoryDescription rows=3}}
+  </div>
+</div>

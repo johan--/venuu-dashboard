@@ -24,7 +24,12 @@
     this.resource('venue', {
       path: '/venue'
     }, function () {
-      this.route('new');
+      this.resource('venue.wizard', { path: 'wizard' }, function () {
+        this.route('pricing', { path: 'pricing' });
+        this.route('types', { path: 'types' });
+        this.route('services', { path: 'services' });
+      });
+
       this.route('edit', {
         path: '/:venue_id'
       });

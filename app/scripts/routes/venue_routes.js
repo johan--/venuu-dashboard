@@ -14,15 +14,6 @@
     }
   });
 
-  VenuuDashboard.VenueNewRoute = VD.Route.extend({
-    contentController: 'venueEdit',
-    sidebarTemplate: 'venue/sidebar',
-    setupController: function (controller, model) {
-      var venue = this.get('store').createRecord('venue');
-      this.controllerFor('venueEdit').set('model', venue);
-    }
-  });
-
   VenuuDashboard.VenueGroupNewVenueRoute = VD.Route.extend({
     model: function (params) {
       return this.get('store').find('venueGroup', params.venue_group_id);
