@@ -46,10 +46,9 @@
     venueGroup: DS.belongsTo('venueGroup'),
     venueTypes: DS.hasMany('venueType', { async: true }),
     venueServices: DS.hasMany('venueService', { async: true }),
-
     imageSrc: function () {
       return 'http://lorempixel.com/output/city-q-c-100-100-' +
         this.get('id') + '.jpg';
-    }.property('id'),
+    }.property('id')
   });
 })();

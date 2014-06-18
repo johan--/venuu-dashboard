@@ -18,7 +18,7 @@
         }
 
         function failure(response) {
-          //console.error('save failure', response);
+          console.error('save failure', response);
           self.get('woof').danger('This is a danger alert!');
         }
 

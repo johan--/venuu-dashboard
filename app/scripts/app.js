@@ -25,6 +25,5 @@
 
   require('scripts/views/*');
   require('scripts/router');
+
 })();
-
-
