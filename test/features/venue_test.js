@@ -52,16 +52,16 @@ test('New venue can be added', function () {
   visit('/venue/new');
   andThen(function () {
     // http://plnkr.co/edit/ODvlUOLYMxe6VPx1Zjlw?p=preview
-    //find('#venue-group').val(1); DOES NOT ACTUALLY UPDATE EMBER.
+    find('#venue-group').val(1).change();
     fillIn('#title', 'Gurula');
     fillIn('#pitch', 'Panini-mies');
     fillIn('#description', 'Mukavat sohvat');
     click('#save');
     andThen(function () {
       contains(find('#title').val(), 'Gurula',
-        'Title should be "Tuomiokirkko"');
+        'Title should be "Gurula"');
       contains(find('#pitch').val(), 'Panini-mies',
-        'Pitch should be "Kaunis puukirkko"');
+        'Pitch should be "Panini-mies"');
       contains(find('#description').val(), 'Mukavat sohvat',
         'Description should be "Mukavat sohvat"');
     });

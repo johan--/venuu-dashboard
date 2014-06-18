@@ -3,7 +3,7 @@
   right: 0;
   width: 640px;
   height: 384px;
-  z-index: -100;
+  /*z-index: -100;*/
   overflow: auto;
   border: 1px solid #ccc;
   background: white;
