@@ -43,6 +43,192 @@ venue_types_list = ['Juhlasali',
                     'Luentosali',
                     'Oleskelutila']
 
+services_list = [
+  {
+    id: 1,
+    name: 'Tilalla oma pitopalvelu',
+    negation: 'Tilalla ei omaa pitopalvelua'
+  },
+  {
+    id: 2,
+    name: 'Omat ruoat mahdolliset',
+    negation: 'Ei omia ruokia'
+  },
+  {
+    id: 3,
+    name: 'Tilalla A-oikeudet',
+    negation: 'Tilalla ei ole A-oikeuksia'
+  },
+  {
+    id: 4,
+    name: 'Omat juomat sallittu',
+    negation: 'Ei omia juomia'
+  },
+  {
+    id: 6,
+    name: 'WiFi',
+    negation: ''
+  },
+  {
+    id: 7,
+    name: 'Videotykki tai vastaava',
+    negation: ''
+  },
+  {
+    id: 8,
+    name: 'TV',
+    negation: ''
+  },
+  {
+    id: 9,
+    name: 'Pro äänilaitteisto',
+    negation: ''
+  },
+  {
+    id: 10,
+    name: 'Kevyt äänentoisto',
+    negation: ''
+  },
+  {
+    id: 11,
+    name: 'Pro valaistustekniikka',
+    negation: ''
+  },
+  {
+    id: 13,
+    name: 'Keittiö asiakkaan käytössä',
+    negation: ''
+  },
+  {
+    id: 35,
+    name: 'Fläppi- / Valkotaulu',
+    negation: ''
+  },
+  {
+    id: 36,
+    name: 'Pelikonsoli',
+    negation: ''
+  },
+  {
+    id: 37,
+    name: 'Diskopallo :)',
+    negation: ''
+  },
+  {
+    id: 44,
+    name: 'Kokous- / Kahvitarjoilu',
+    negation: ''
+  },
+  {
+    id: 28,
+    name: 'Pitopalvelu yhteistyökumppanien kautta',
+    negation: 'Ei pitopalvelua yhteistyökumppanien kautta'
+  },
+  {
+    id: 14,
+    name: 'Kattotila',
+    negation: ''
+  },
+  {
+    id: 15,
+    name: 'Terassi',
+    negation: ''
+  },
+  {
+    id: 16,
+    name: 'Uima-allas',
+    negation: ''
+  },
+  {
+    id: 17,
+    name: 'Esiintymislava',
+    negation: ''
+  },
+  {
+    id: 18,
+    name: 'Sauna',
+    negation: ''
+  },
+  {
+    id: 19,
+    name: 'Majoittumismahdollisuus',
+    negation: ''
+  },
+  {
+    id: 45,
+    name: 'Piha',
+    negation: ''
+  },
+  {
+    id: 47,
+    name: 'Palju / poreallas',
+    negation: ''
+  },        {
+    id: 21,
+    name: 'Maalla',
+    negation: ''
+  },
+  {
+    id: 22,
+    name: 'Teollisuusalueella',
+    negation: ''
+  },
+  {
+    id: 23,
+    name: 'Saaressa',
+    negation: ''
+  },
+  {
+    id: 24,
+    name: 'Veden rannalla',
+    negation: ''
+  },
+  {
+    id: 26,
+    name: 'Ilmainen parkki',
+    negation: ''
+  },
+  {
+    id: 38,
+    name: 'Keskustassa',
+    negation: ''
+  },
+  {
+    id: 39,
+    name: 'Luonnon äärellä',
+    negation: ''
+  },
+  {
+    id: 46,
+    name: 'Kauniit näkymät',
+    negation: ''
+  },
+  {
+    id: 40,
+    name: 'Tila mahdollista vuokrata ilman tuotantopalveluita',
+    negation: ''
+  },
+  {
+    id: 41,
+    name: 'Autamme tapahtumatuotannossa',
+    negation: ''
+  },
+  {
+    id: 42,
+    name: 'Tapahtumatuotanto yhteistyökumppaneiden kautta',
+    negation: ''
+  }
+]
+
+categories_list = [
+  'Ruoka',
+  'Tekniikka ja kalusto',
+  'Juomat',
+  'Tilaan kuuluu',
+  'Ympäristö',
+  'Tapahtumatuotanto'
+]
+
 
 event_types_list = [
   'Juhlat',
@@ -66,6 +252,14 @@ ActiveRecord::Base.transaction do
 
   event_types_list.each do |name|
     EventType.create(name: name)
+  end
+
+  services_list.each do |service|
+    VenueService.create(service)
+  end
+
+  categories_list.each do |category|
+    VenueServiceCategory.create(name: category)
   end
 
   # Seed VenueGroup and Venues
@@ -164,40 +358,19 @@ ActiveRecord::Base.transaction do
     slug: 'kauppakeskus-venue-1'
   )
 
-  kategoriaRuoka = VenueServiceCategory.create(
-    id: 1,
-    name: 'ruoka'
-  )
-
-  kategoriaTK = VenueServiceCategory.create(
-    name: 'tekniikka ja kalusto'
-  )
-
-  kategoriaRuoka.venue_services.create(
-    id: 1,
-    name: 'Pitopalvelu tilan kautta',
-    negation: ''
-  )
-
-  kategoriaRuoka.venue_services.create(
-    id: 2,
-    name: 'Tilalla A-oikeudet',
-    negation: 'Tilalla ei ole A-oikeuksia'
-  )
-
-  kategoriaTK.venue_services.create(
-    id: 6,
-    name: 'WiFi',
-    negation: 'NoFi'
-  )
-
-  kategoriaTK.venue_services.create(
-    id: 37,
-    name: 'Diskopallo :)',
-    negation: 'Only sorrow :('
-  )
-
   kongressikeskus.venues.first.venue_services = [
-    kategoriaRuoka.venue_services.find(1),
-  kategoriaTK.venue_services.find(37)]
+    VenueService.find(1),
+    VenueService.find(37)
+  ]
+end
+
+
+# Connect venue_services to venue_service_categories
+ActiveRecord::Base.transaction do
+  VenueServiceCategory.first.venue_services = VenueService.find([1,44,28,2])
+  VenueServiceCategory.find(2).venue_services = VenueService.find([6,7,8,9,10,11,13,35,36,37])
+  VenueServiceCategory.find(3).venue_services = VenueService.find([3,4])
+  VenueServiceCategory.find(4).venue_services = VenueService.find([14,15,16,17,18,19,45,47])
+  VenueServiceCategory.find(5).venue_services = VenueService.find([21,22,23,24,26,38,39,46])
+  VenueServiceCategory.find(6).venue_services = VenueService.find([40,41,42])
 end
