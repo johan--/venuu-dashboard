@@ -11,7 +11,7 @@ module('Integration: Venues', {
 test('Venue page title found', function () {
   visit('/venue');
   andThen(function () {
-    contains(find('h4').text(), 'Tilasi',
+    contains(find('h2').text(), 'Tilasi',
       'Venues header should exist');
   });
 });
