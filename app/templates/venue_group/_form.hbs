@@ -1,17 +1,6 @@
-<div class="m-container-box">
-  <div class="row collapse">
-    {{v-input cols="2:6" label="Kohteen nimi" name="name" content=name}}
-    {{v-input cols="2:6" label="Osoite" name="address" content=address}}
-    {{v-input cols="2:6" label="Postinumero" name="zipcode" content=zipcode}}
-    {{v-input cols="2:6" label="Kaupunki" name="city" content=city}}
-  </div>
-
-  <div class="row">
-    <div class="medium-12 columns">
-      <button id="save" {{action 'save'}} class="success">Tallenna</button>
-      {{#if this.id}}
-        <button id="destroy" {{action 'destroy'}}>Poista kohde</button>
-      {{/if}}
-    </div>
-  </div>
+<div class="row collapse">
+  {{v-input cols="2:6" label="Kohteen nimi" name="vg-name" content=name}}
+  {{v-input cols="2:6" label="Osoite" name="vg-address" content=address}}
+  {{v-input cols="2:6" label="Postinumero" name="vg-zipcode" content=zipcode}}
+  {{v-input cols="2:6" label="Kaupunki" name="vg-city" content=city}}
 </div>

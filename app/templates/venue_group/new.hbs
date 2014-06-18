@@ -1,7 +1,12 @@
-<div class="m-container-box">
-  <h4>Anna kohteen tiedot</h4>
-
-  <div class="row edit-form">
+<div class="m-container">
+  <h2>Anna kohteen tiedot</h2>
+</div>
+<div class="edit-form m-container-box">
+  <div class="row">
     {{partial "venue_group/form"}}
+
+    <div class="medium-12 columns">
+      <button id="save" {{action 'save'}} class="success">Tallenna</button>
+    </div>
   </div>
 </div>
