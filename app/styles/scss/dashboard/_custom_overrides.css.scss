@@ -51,3 +51,9 @@ span.prefix {
     @include border-left-radius(0);
   }
 }
+
+button, .button:not(.disabled) {
+  &.alert {
+    background-color: $alert-color;
+  }
+}
