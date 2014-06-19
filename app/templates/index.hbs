@@ -9,17 +9,7 @@
     <div class="medium-6 columns">
       <h5>Kohteet <small>{{length}} kpl</small></h5>
         {{#each this}}
-          {{#link-to 'venue_group.edit' this}}
-            <div class="m-venue-box">
-              <img {{bind-attr src="this.imageSrc"}} width="60" height="60">
-              <h6>{{this.name}}</h6>
-              <small>
-                {{venues.length}}
-                {{pluralize venues.length phrase="tila{|a}"}}
-              </small>
-              <p>Viimeksi muokattu tuntematon</p>
-            </div>
-          {{/link-to}}
+          {{v-group-box group=this}}
         {{/each}}
         {{#link-to 'venue_group.new' id='create' class='button success'}}
           Luo uusi kohde
