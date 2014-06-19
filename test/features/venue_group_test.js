@@ -74,7 +74,7 @@ test('Venue groups can be deleted', function () {
   visit('/venue-group/1');
   click('#destroy');
   andThen(function () {
-    inverseContains(find('.m-venue-box h6').text(),'Kongressikeskus',
+    inverseContains(find('.m-venue-box h6').text(), 'Kongressikeskus',
       'Kongressikeskus deleted!');
   });
 });
