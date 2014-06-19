@@ -40,12 +40,15 @@
 
   <h5>Yhteystiedot <small>tilaa koskevia yhteydenottoja varten</small></h5>
   <div class="row collapse">
-    {{v-input width=7 cols="3:1:8:0" label="Osoite" name="address" content=address prefix='<i class="fa fa-home" ></i>'}}
-    {{v-input width=5 cols="5:7" label="Postinumero" name="zipcode"
-      content=zipcode}}
+    {{v-input width=10 cols="2:1:9:0" label="Osoite" name="address"
+      content=address prefix='<i class="fa fa-map-marker"></i>'}}
+    {{v-input width=7 cols="3:1:8:0" label="Kaupunki" name="city"
+      content=city prefix='<i class="fa fa-building"></i>'}}
+    {{v-input width=5 cols="5:1:6:0" label="Postinumero" name="zipcode"
+      content=zipcode prefix='<i class="fa fa-envelope-o"></i>'}}
     {{v-input width=7 cols="3:1:8:0" label="Email" name="email"
-      content=contactEmail prefix='<i class="fa fa-inbox" ></i>'}}
+      content=contactEmail prefix='<i class="fa fa-inbox"></i>'}}
     {{v-input width=5 cols="5:1:6:0" label="Puhelin" name="phone"
-      content=contactPhone prefix='<i class="fa fa-phone" ></i>'}}
+      content=contactPhone prefix='<i class="fa fa-phone"></i>'}}
   </div>
 </div>

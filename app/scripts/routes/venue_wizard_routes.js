@@ -2,11 +2,9 @@
   'use strict';
 
   VenuuDashboard.WizardRoute = VD.Route.extend({
-    wizardPage: 'index',
     renderTemplate: function (controller, model) {
       this.render('venue/wizard/' + this.wizardPage, {
-        controller: 'venueEdit',
-        //into: 'application'
+        controller: 'venueEdit'
       });
       this.render('venue/wizard/sidebar', {
         into: 'application',
@@ -24,7 +22,9 @@
     }
   });
 
-  VenuuDashboard.VenueWizardIndexRoute = VD.WizardRoute.extend();
+  VenuuDashboard.VenueWizardIndexRoute = VD.WizardRoute.extend({
+    wizardPage: 'index'
+  });
 
   VenuuDashboard.VenueWizardPricingRoute = VD.WizardRoute.extend({
     wizardPage: 'pricing'
