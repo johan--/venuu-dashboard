@@ -1,19 +1,23 @@
-VD.XWoofComponent = Ember.Component.extend({
+
+//a   simplified version of http://reefpoints.dockyard.com/2014/05/01/alert-messages-in-ember-apps.html
+
+VD.VWoofComponent = Ember.Component.extend({
   messages: Ember.computed.alias('woof')
 });
 
-VD.XWoofMessageComponent = Ember.Component.extend({
-  click: function() {
-    var self = this;
-    self.woof.removeObject(self.get('message'));
-  }
+VD.VWoofMessageComponent = Ember.Component.extend({
+  actions:{
+    close_error: function() {
+      var self = this;
+      self.woof.removeObject(self.get('message'));
+    }
+}
 });
 
 Ember.Woof = Ember.ArrayProxy.extend({
   content: Ember.A(),
-  danger: function(message) {
+  error: function(message) {
     this.pushObject({
-      type: 'danger',
       message: message
     });
   }
