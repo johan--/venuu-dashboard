@@ -305,10 +305,6 @@ ActiveRecord::Base.transaction do
     title: 'Murphy, Douglas and Sawayn 4'
   )
 
-  # Add Venue and Event types
-  kongressikeskus.venues.first.venue_types = [VenueType.first, VenueType.last]
-  kongressikeskus.venues.first.event_types = [EventType.first, EventType.last]
-
   kongressikeskus.venues.create(
     additional_service_category_description: 'Palveluista ja puitteista tarkemmin',
     cancellation_policy: 'Peruutusehdot',
@@ -358,10 +354,91 @@ ActiveRecord::Base.transaction do
     slug: 'kauppakeskus-venue-1'
   )
 
-  kongressikeskus.venues.first.venue_services = [
-    VenueService.find(1),
-    VenueService.find(37)
-  ]
+  kumpula = VenueGroup.create(
+    name: 'Kumpulan kampus',
+    address: 'Väinö auerin katu',
+    zipcode: '00550',
+    city: 'Helsinki'
+  )
+
+  kumpula.venues.create(
+    title: 'Exactum',
+    slug: 'cs-and-math-magic'
+  )
+
+  kumpula.venues.create(
+    title: 'Chemicum',
+    slug: 'synthesized-happiness'
+  )
+
+  kumpula.venues.create(
+    title: 'Physicum',
+    slug: 'coffee-and-physics'
+  )
+
+  kumpula.venues.create(
+    title: 'Dynamicum',
+    slug: 'pekka-pouta-was-here'
+  )
+
+  kongressikeskus.venues.each do |venue|
+    venue.venue_services = [
+      VenueService.find(1),
+      VenueService.find(37)
+    ]
+    venue.event_types = [
+      EventType.find(2),
+      EventType.find(4),
+      EventType.find(6)
+    ]
+
+    venue.venue_types = [
+      VenueType.find(1),
+      VenueType.find(2),
+      VenueType.find(6),
+      VenueType.find(9)
+    ]
+  end
+
+  keskusta.venues.each do |venue|
+    venue.venue_services = [
+      VenueService.find(8),
+      VenueService.find(26)
+    ]
+    venue.event_types = [
+      EventType.find(7),
+      EventType.find(5),
+      EventType.find(9)
+    ]
+
+    venue.venue_types = [
+      VenueType.find(6),
+      VenueType.find(4),
+      VenueType.find(12),
+      VenueType.find(16)
+    ]
+  end
+
+  kumpula.venues.each do |venue|
+    venue.venue_services = [
+      VenueService.find(2),
+      VenueService.find(8),
+      VenueService.find(9),
+      VenueService.find(37)
+    ]
+    venue.event_types = [
+      EventType.find(1),
+      EventType.find(2),
+      EventType.find(7)
+    ]
+
+    venue.venue_types = [
+      VenueType.find(14),
+      VenueType.find(20),
+      VenueType.find(19),
+      VenueType.find(8)
+    ]
+  end
 end
 
 
