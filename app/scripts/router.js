@@ -15,16 +15,19 @@
       this.route('edit', {
         path: '/:venue_group_id'
       });
-      this.route('new_venue', {
+/*      this.route('new_venue', {
         path: '/:venue_group_id/new-venue',
         controller: 'venue.edit'
-      });
+      });*/
     });
 
     this.resource('venue', {
       path: '/venue'
     }, function () {
-      this.resource('venue.wizard', { path: 'wizard' }, function () {
+      this.resource('venue.wizard', {
+        path: 'wizard',
+        queryParams: ['vg']
+      }, function () {
         this.route('pricing', { path: 'pricing' });
         this.route('types', { path: 'types' });
         this.route('services', { path: 'services' });

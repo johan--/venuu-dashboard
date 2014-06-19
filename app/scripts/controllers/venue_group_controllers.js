@@ -4,6 +4,7 @@
   VenuuDashboard.VenueGroupIndexController = Ember.ArrayController.extend();
 
   VenuuDashboard.VenueGroupEditController = Ember.ObjectController.extend({
+    needs: ['application'],
     actions: {
       save: function () {
         var self = this;
@@ -29,6 +30,11 @@
 
         this.get('model').destroyRecord()
           .then(transitionToVenueGroupIndex);
+      },
+      createVenue: function () {
+        this.set('controllers.application.venueGroupSelection',
+          this.get('model'));
+        this.transitionToRoute('venue.wizard');
       }
     }
   });

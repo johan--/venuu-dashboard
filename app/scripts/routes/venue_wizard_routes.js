@@ -22,6 +22,13 @@
     sidebarTemplate: 'venue/wizard/sidebar',
     setupController: function (controller, model) {
       var venue = this.get('store').createRecord('venue');
+      var group = this.controllerFor('application').get('venueGroupSelection');
+      if (group) {
+        venue.set('venueGroup', group);
+        venue.set('address', group.get('address'));
+        venue.set('zipcode', group.get('zipcode'));
+        venue.set('city', group.get('city'));
+      }
       this.controllerFor('venueEdit').set('model', venue);
     }
   });
