@@ -8,14 +8,6 @@ a[href="#"] {
   pointer-events: none !important;
 }
 
-span.postfix {
-  @include border-right-radius($global-radius);
-}
-
-span.prefix {
-  @include border-left-radius($global-radius);
-}
-
 .with-postfix {
   input[type="text"],
   input[type="password"],
@@ -49,5 +41,34 @@ span.prefix {
   input[type="time"],
   input[type="url"] {
     @include border-left-radius(0);
+  }
+}
+
+select {
+  @include border-radius($global-radius);
+  @include box-shadow(inset 0 1px 2px rgba(0, 0, 0, 0.1));
+  background-color: white;
+  font-size: 1rem;
+  color: $basetext-color;
+  outline: none;
+  &:focus {
+    @include box-shadow(0 0 3px $primary-color);
+    border: 1px solid $primary-color;
+    background: #fff;
+  }
+}
+
+span.inline {
+  @extend label.inline;
+  display: inline-block;
+}
+
+.centered {
+  text-align: center;
+}
+
+button, .button:not(.disabled) {
+  &.alert {
+    background-color: $alert-color;
   }
 }

@@ -10,7 +10,7 @@ module('Integration: Venue groups', {
 test('Venue groups page title found', function () {
   visit('/venue-group');
   andThen(function () {
-    contains(find('h4').text(), 'Kohteet',
+    contains(find('h2').text(), 'Kohteet',
       'Locations title found!');
   });
 });
@@ -18,7 +18,7 @@ test('Venue groups page title found', function () {
 test('First venue group name found', function () {
   visit('/venue-group');
   andThen(function () {
-    contains(find('li').text(), 'Kongressikeskus',
+    contains(find('.m-venue-box h6').text(), 'Kongressikeskus',
       'Kongressikeskus found!');
   });
 });
@@ -27,45 +27,45 @@ test('First venue group name found', function () {
 test('First venue group details found', function () {
   visit('/venue-group/1');
   andThen(function () {
-    contains(find('#address').val(), 'Betonimiehenkatu 1',
+    contains(find('#vg-address').val(), 'Betonimiehenkatu 1',
       'Address found!');
   });
 });
 
 test('First venue groups details can be edited', function () {
   visit('/venue-group/1');
-  fillIn('#name', 'Tuomiokirkko');
-  fillIn('#city', 'Helsinki');
-  fillIn('#zipcode', '00110');
-  fillIn('#address', 'Senaatintori');
+  fillIn('#vg-name', 'Tuomiokirkko');
+  fillIn('#vg-city', 'Helsinki');
+  fillIn('#vg-zipcode', '00110');
+  fillIn('#vg-address', 'Senaatintori');
   click('#save');
   andThen(function () {
-    contains(find('#name').val(), 'Tuomiokirkko',
+    contains(find('#vg-name').val(), 'Tuomiokirkko',
       'New name found!');
-    contains(find('#address').val(), 'Senaatintori',
+    contains(find('#vg-address').val(), 'Senaatintori',
       'New address found!');
-    contains(find('#zipcode').val(), '00110',
+    contains(find('#vg-zipcode').val(), '00110',
       'New zipcode found!');
-    contains(find('#city').val(), 'Helsinki',
+    contains(find('#vg-city').val(), 'Helsinki',
       'New city found!');
   });
 });
 
 test('New venue group can be added', function () {
   visit('/venue-group/new');
-  fillIn('#name', 'Chemicum');
-  fillIn('#city', 'Helsinki');
-  fillIn('#zipcode', '00550');
-  fillIn('#address', 'A.I. Virtasen aukio 1');
+  fillIn('#vg-name', 'Chemicum');
+  fillIn('#vg-city', 'Helsinki');
+  fillIn('#vg-zipcode', '00550');
+  fillIn('#vg-address', 'A.I. Virtasen aukio 1');
   click('#save');
   andThen(function () {
-    contains(find('#name').val(), 'Chemicum',
+    contains(find('#vg-name').val(), 'Chemicum',
       'New name found!');
-    contains(find('#zipcode').val(), '00550',
+    contains(find('#vg-zipcode').val(), '00550',
       'New zipcode found!');
-    contains(find('#address').val(), 'A.I. Virtasen aukio 1',
+    contains(find('#vg-address').val(), 'A.I. Virtasen aukio 1',
       'New address found!');
-    contains(find('#city').val(), 'Helsinki',
+    contains(find('#vg-city').val(), 'Helsinki',
       'New city found!');
   });
 });

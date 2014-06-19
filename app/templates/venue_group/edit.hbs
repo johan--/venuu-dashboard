@@ -2,22 +2,22 @@
   <h2>Päivitä kohteen tiedot</h2>
 </div>
 
-<div class="edit-form">
-  {{partial "venue_group/form"}}
+<div class="edit-form m-container-box">
+  <div class="row">
+    {{partial "venue_group/form"}}
+
+    <div class="medium-12 columns">
+      <button id="save" {{action 'save'}} class="success">Tallenna</button>
+      <button id="destroy" {{action 'destroy'}}>Poista kohde</button>
+    </div>
+  </div>
 </div>
 
 <div class="row">
   <div class="medium-8 columns">
     <h3>Kohteen tilat <small>{{this.venues.length}} kpl</small></h3>
     {{#each this.venues}}
-      {{#link-to 'venue.edit' this}}
-        <div class="m-venue-box">
-          <img {{bind-attr src="this.imageSrc"}} width="60" height="60">
-          <h6>{{this.title}}</h6>
-          <small>{{this.pitch}}</small>
-          <p>Viimeksi muokattu tuntematon</p>
-        </div>
-      {{/link-to}}
+      {{v-venue-box venue=this}}
     {{/each}}
     {{#link-to 'venue_group.new_venue' this id="addVenue" class="button success"}}Lisää tila{{/link-to}}
   </div>

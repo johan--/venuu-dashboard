@@ -9,7 +9,7 @@ var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
 var modRewrite = require('connect-modrewrite'),
-  redirectToIndex = modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png(\\?\\d+)?|\\.json$ /index.html [L]']);
+  redirectToIndex = modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.gif|\\.png(\\?\\d+)?|\\.json$ /index.html [L]']);
 var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
 
 // # Globbing
@@ -352,7 +352,8 @@ module.exports = function (grunt) {
           cwd: '<%= yeoman.app %>/bower_components/',
           dest: '<%= yeoman.app %>/styles/vendor/',
           src: [
-            'chosen-build/chosen.css'
+            'chosen-build/chosen.css',
+            'chosen-build/chosen-sprite.png'
           ]
         }]
       },
@@ -366,7 +367,8 @@ module.exports = function (grunt) {
             '*.{ico,txt}',
             'images/{,*/}*.{webp,gif}',
             'styles/fonts/*',
-            'styles/vendor/chosen.css'
+            'styles/vendor/chosen.css',
+            'styles/vendor/chosen-sprite.png'
           ]
         }]
       }
@@ -437,6 +439,7 @@ module.exports = function (grunt) {
         'clean:server',
         'replace:app',
         'compass',
+        'copy:styles',
         'copy:tests',
         'concurrent:test',
         'neuter:app',

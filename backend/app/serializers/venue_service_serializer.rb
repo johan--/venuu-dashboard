@@ -1,3 +1,8 @@
 class VenueServiceSerializer < ActiveModel::Serializer
-  attributes :id, :name, :negation
+  #has_one :category
+  attributes :id, :name, :negation, :category
+
+  def category
+    object.venue_service_category.name
+  end
 end

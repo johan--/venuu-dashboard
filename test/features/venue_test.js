@@ -4,14 +4,14 @@ module('Integration: Venues', {
     window.seedBackend();
   },
   teardown: function () { // After each test
-    VenuuDashboard.reset();
+    //VenuuDashboard.reset();
   }
 });
 
 test('Venue page title found', function () {
   visit('/venue');
   andThen(function () {
-    contains(find('h4').text(), 'Tilasi',
+    contains(find('h2').text(), 'Tilasi',
       'Venues header should exist');
   });
 });
@@ -19,7 +19,7 @@ test('Venue page title found', function () {
 test('First venue name found', function () {
   visit('/venue');
   andThen(function () {
-    contains(find('li').text(), 'Murphy, Douglas and Sawayn 4',
+    contains(find('.m-venue-box h6').text(), 'Murphy, Douglas and Sawayn 4',
       'Venue Murphy, Douglas and Sawayn 4 should be the first venue');
   });
 });
@@ -50,17 +50,21 @@ test('First venue details can be edited', function () {
 
 test('New venue can be added', function () {
   visit('/venue/new');
-  fillIn('#title', 'Gurula');
-  fillIn('#pitch', 'Panini-mies');
-  fillIn('#description', 'Mukavat sohvat');
-  click('#save');
   andThen(function () {
-    contains(find('#title').val(), 'Gurula',
-      'Title should be "Tuomiokirkko"');
-    contains(find('#pitch').val(), 'Panini-mies',
-      'Pitch should be "Kaunis puukirkko"');
-    contains(find('#description').val(), 'Mukavat sohvat',
-      'Description should be "Ikävä paikka"');
+    // http://plnkr.co/edit/ODvlUOLYMxe6VPx1Zjlw?p=preview
+    find('#venue-group').val(1).change();
+    fillIn('#title', 'Gurula');
+    fillIn('#pitch', 'Panini-mies');
+    fillIn('#description', 'Mukavat sohvat');
+    click('#save');
+    andThen(function () {
+      contains(find('#title').val(), 'Gurula',
+        'Title should be "Gurula"');
+      contains(find('#pitch').val(), 'Panini-mies',
+        'Pitch should be "Panini-mies"');
+      contains(find('#description').val(), 'Mukavat sohvat',
+        'Description should be "Mukavat sohvat"');
+    });
   });
 });
 
