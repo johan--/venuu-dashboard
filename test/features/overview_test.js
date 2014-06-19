@@ -20,8 +20,8 @@ test('First venue group name found on overview page', function () {
   andThen(function () {
     equalsTrimmed(find('.m-venue-box h6').first().text(), 'Kongressikeskus',
       'Kongressikeskus should be shown.');
-    equalsTrimmed(find('.m-venue-box small').first().text(), '2 tilaa',
-      'Kongressikeskus should have 2 venues.');
+    equalsTrimmed(find('.m-venue-box small').first().text(), '1 tilaa',
+      'Kongressikeskus should have 1 venues.');
   });
 });
 

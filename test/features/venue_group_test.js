@@ -18,7 +18,7 @@ test('Venue groups page title found', function () {
 test('First venue group name found', function () {
   visit('/venue-group');
   andThen(function () {
-    contains(find('.m-venue-box h6').text(), 'Kongressikeskus',
+    contains(find('.m-venue-box h6').first().text(), 'Kongressikeskus',
       'Kongressikeskus found!');
   });
 });
@@ -74,7 +74,7 @@ test('Venue groups can be deleted', function () {
   visit('/venue-group/1');
   click('#destroy');
   andThen(function () {
-    ok(find('li').text().indexOf('Kongressikeskus') === -1,
+    inverseContains(find('.m-venue-box h6').text(),'Kongressikeskus',
       'Kongressikeskus deleted!');
   });
 });
