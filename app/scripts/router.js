@@ -30,8 +30,12 @@
         this.route('services', { path: 'services' });
       });
 
-      this.route('edit', {
+      this.resource('venue.edit', {
         path: '/:venue_id'
+      }, function () {
+        this.route('pricing', { path: 'pricing' });
+        this.route('types', { path: 'types' });
+        this.route('services', { path: 'services' });
       });
     });
 

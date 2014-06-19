@@ -11,14 +11,6 @@
     willTransition: VD.confirmTransition('venueEdit')
   };
 
-  VenuuDashboard.VenueEditRoute = VD.Route.extend({
-    sidebarTemplate: 'venue/sidebar',
-    setupController: function (controller, model) {
-      controller.set('model', model); // Hookkaa modelit aina ensin!
-    },
-    actions: defaultActions
-  });
-
   VenuuDashboard.VenueGroupNewVenueRoute = VD.Route.extend({
     model: function (params) {
       return this.get('store').find('venueGroup', params.venue_group_id);
