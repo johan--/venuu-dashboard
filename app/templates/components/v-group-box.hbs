@@ -1,0 +1,11 @@
+{{#link-to 'venue_group.edit' group}}
+  <div class="m-venue-box">
+    <img {{bind-attr src="group.imageSrc"}} width="60" height="60">
+    <h6>{{group.name}}</h6>
+    <small>
+      {{group.venues.length}}
+      {{pluralize venues.length phrase="tila{|a}"}}
+    </small>
+    <p>Viimeksi muokattu tuntematon</p>
+  </div>
+{{/link-to}}

@@ -10,7 +10,7 @@ module('Integration: Venue groups', {
 test('Venue groups page title found', function () {
   visit('/venue-group');
   andThen(function () {
-    contains(find('h4').text(), 'Kohteet',
+    contains(find('h2').text(), 'Kohteet',
       'Locations title found!');
   });
 });
@@ -18,7 +18,7 @@ test('Venue groups page title found', function () {
 test('First venue group name found', function () {
   visit('/venue-group');
   andThen(function () {
-    contains(find('li').text(), 'Kongressikeskus',
+    contains(find('.m-venue-box h6').text(), 'Kongressikeskus',
       'Kongressikeskus found!');
   });
 });
