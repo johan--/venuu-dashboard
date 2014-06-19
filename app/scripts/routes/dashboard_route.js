@@ -4,6 +4,7 @@
 
   VenuuDashboard.Route = Ember.Route.extend({
     contentController: undefined,
+    sidebarController: 'indexSidebar',
     contentTemplate: undefined,
     sidebarTemplate: 'index_sidebar',
     renderTemplate: function (controller, model) {
@@ -20,7 +21,8 @@
       }
       this.render(this.sidebarTemplate, {
         into: 'application',
-        outlet: 'sidebar'
+        outlet: 'sidebar',
+        controller: this.sidebarController
       });
     }
   });

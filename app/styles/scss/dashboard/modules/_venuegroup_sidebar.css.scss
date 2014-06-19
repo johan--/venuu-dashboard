@@ -1,0 +1,62 @@
+.m-venuegroup-sidebar {
+  @extend .m-box-group;
+  @extend .show-for-medium-up;
+  $active-color: $primary-color;
+  $inactive-color: $basetext-color-light;
+
+  p {
+    color: $basetext-color-lighter;
+    text-align: left;
+    font-size: 0.8em;
+  }
+
+  ul {
+    @extend .side-nav;
+    padding: 0;
+    border-bottom: 0;
+    overflow: hidden;
+
+    li {
+      border-bottom: 1px solid $border-color;
+      margin: 0;
+      text-align: left;
+
+      img {
+        float: left;
+        margin-right: 0.7em;
+      }
+
+      a:not(.button) {
+        background-color: $bg-color;
+        padding: 0.7em 0 0.7em 0.7em;
+        white-space: nowrap;
+
+        span {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          font-size: 1em;
+          font-weight: bold;
+          color: $inactive-color;
+          display: block;
+        }
+
+        &.active {
+          background-color: #fff;
+          border-right: 1px solid #fff;
+          position: relative;
+          left: 1px;
+          span {
+            color: $active-color;
+          }
+        }
+
+        &:hover {
+          span {
+            color: $active-color;
+          }
+          background-color: darken(#fff, 10%);
+        }
+      }
+    }
+  }
+}
