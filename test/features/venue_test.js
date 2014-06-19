@@ -19,7 +19,7 @@ test('Venue page title found', function () {
 test('First venue name found', function () {
   visit('/venue');
   andThen(function () {
-    contains(find('li').text(), 'Murphy, Douglas and Sawayn 4',
+    contains(find('.m-venue-box h6').text(), 'Murphy, Douglas and Sawayn 4',
       'Venue Murphy, Douglas and Sawayn 4 should be the first venue');
   });
 });

@@ -18,7 +18,7 @@ test('Venue groups page title found', function () {
 test('First venue group name found', function () {
   visit('/venue-group');
   andThen(function () {
-    contains(find('li').text(), 'Kongressikeskus',
+    contains(find('.m-venue-box h6').text(), 'Kongressikeskus',
       'Kongressikeskus found!');
   });
 });
