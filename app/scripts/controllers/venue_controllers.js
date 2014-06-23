@@ -22,7 +22,7 @@
 
         function failure(response) {
           console.error('save failure', response);
-          self.get('woof').error('This is an error alert!');
+          self.get('alert').error('This is an error alert!');
         }
 
         function saveVenue() {
