@@ -21,8 +21,7 @@
       path: '/venue'
     }, function () {
       this.resource('venue.wizard', {
-        path: 'wizard',
-        queryParams: ['vg']
+        path: 'wizard'
       }, function () {
         this.route('pricing', { path: 'pricing' });
         this.route('types', { path: 'types' });
