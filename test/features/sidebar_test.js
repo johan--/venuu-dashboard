@@ -63,3 +63,11 @@ test('Venuegroup sidebar should show Kumpulan kampus information', function () {
       'Kumpulan kampus has 4 venues!');
   });
 });
+
+test('New Venuegroup page shows infosidebar', function () {
+  visit('/venue-group/new');
+  andThen(function () {
+    contains(find('.m-box-title').text(), 'Vinkki',
+      'Infosidebar with Vinkki title found!');
+  });
+});
