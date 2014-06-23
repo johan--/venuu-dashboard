@@ -132,7 +132,7 @@ test('VenueEvents can be removed', function () {
 test('VenueServices can be edited', function () {
   visit('/venue/1/services');
   andThen(function () {
-    find('#venueServices').val([6,15,36]).change().trigger('chosen:updated');
+    find('#venueServices').val([6, 15, 36]).change().trigger('chosen:updated');
   });
   andThen(function () {
     click('#save');
