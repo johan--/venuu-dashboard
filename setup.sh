@@ -1,9 +1,10 @@
 #!/bin/bash
 # Project setup script. Checks dependencies and runs necessary commands.
 
-readonly dependencies=( ruby node npm grunt bower)
+readonly dependencies=( ruby bundler node npm grunt bower)
 readonly installation_guides=( \
 					'Ruby; https://github.com/sstephenson/rbenv#installation' \
+					'Bundler; gem install bundler' \
 					'Node.js; http://nodejs.org/download/' \
 					'npm; http://nodejs.org/download/' \
 					'grunt: sudo npm install -g grunt-cli' \
