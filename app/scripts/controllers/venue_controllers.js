@@ -63,9 +63,9 @@
         venueGroup = model.get('venueGroup');
 
       if (venueGroup) {
-        model.set('address', venueGroup.get('address'));
+/*        model.set('address', venueGroup.get('address'));
         model.set('zipcode', venueGroup.get('zipcode'));
-        model.set('city', venueGroup.get('city'));
+        model.set('city', venueGroup.get('city'));*/
       }
 
     }.observes('venueGroup')
