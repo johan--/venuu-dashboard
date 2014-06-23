@@ -38,6 +38,7 @@ test('First venue details can be edited', function () {
   fillIn('#pitch', 'Kaunis puukirkko');
   fillIn('#description', 'Ikävä paikka');
   click('#save');
+  visit('/venue/1');
   andThen(function () {
     contains(find('#title').val(), 'Tuomiokirkko',
       'Title should be "Tuomiokirkko"');
@@ -49,7 +50,7 @@ test('First venue details can be edited', function () {
 });
 
 test('New venue can be added', function () {
-  visit('/venue/new');
+  visit('/venue/wizard');
   andThen(function () {
     // http://plnkr.co/edit/ODvlUOLYMxe6VPx1Zjlw?p=preview
     find('#venue-group').val(1).change();
@@ -57,6 +58,7 @@ test('New venue can be added', function () {
     fillIn('#pitch', 'Panini-mies');
     fillIn('#description', 'Mukavat sohvat');
     click('#save');
+    visit('/venue/9');
     andThen(function () {
       contains(find('#title').val(), 'Gurula',
         'Title should be "Gurula"');
