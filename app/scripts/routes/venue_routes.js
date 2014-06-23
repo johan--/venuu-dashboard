@@ -7,8 +7,4 @@
     }
   });
 
-  var defaultActions = {
-    willTransition: VD.confirmTransition('venueEdit')
-  };
-
 })();

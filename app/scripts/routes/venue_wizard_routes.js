@@ -28,8 +28,12 @@
         venue.set('address', group.get('address'));
         venue.set('zipcode', group.get('zipcode'));
         venue.set('city', group.get('city'));
+        this.controllerFor('application').set('venueGroupSelection', null);
       }
       this.controllerFor('venueEdit').set('model', venue);
+    },
+    actions: {
+      willTransition: VD.confirmTransition('venueEdit', 'wizard')
     }
   });
 
@@ -53,7 +57,11 @@
 
   VenuuDashboard.VenueEditRoute = VD.Route.extend({
     contentTemplate: 'venue/wizard',
-    sidebarTemplate: 'venue/edit_sidebar'
+    contentController: 'venueEdit',
+    sidebarTemplate: 'venue/edit_sidebar',
+    actions: {
+      willTransition: VD.confirmTransition('venueEdit', 'wizard')
+    }
   });
 
   VenuuDashboard.VenueEditIndexRoute = VD.WizardRoute.extend({

@@ -20,7 +20,7 @@
           venueGroup = venue.get('venueGroup');
 
         function transitionToEdit(record) {
-          self.transitionToRoute('venue.edit', record);
+          self.transitionToRoute('venue.index');
         }
 
         function failure(response) {

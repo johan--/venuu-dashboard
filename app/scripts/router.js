@@ -15,10 +15,6 @@
       this.route('edit', {
         path: '/:venue_group_id'
       });
-/*      this.route('new_venue', {
-        path: '/:venue_group_id/new-venue',
-        controller: 'venue.edit'
-      });*/
     });
 
     this.resource('venue', {

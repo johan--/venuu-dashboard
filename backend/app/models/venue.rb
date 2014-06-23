@@ -37,6 +37,7 @@ class Venue < ActiveRecord::Base
         :title,
         :venue_group_id,
         :address,
+        :city,
         :zipcode,
         :updated_at,
         :created_at]
