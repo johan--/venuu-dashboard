@@ -58,14 +58,16 @@ test('New venue can be added', function () {
     fillIn('#pitch', 'Panini-mies');
     fillIn('#description', 'Mukavat sohvat');
     click('#save');
-    visit('/venue/9');
-    andThen(function () {
-      contains(find('#title').val(), 'Gurula',
-        'Title should be "Gurula"');
-      contains(find('#pitch').val(), 'Panini-mies',
-        'Pitch should be "Panini-mies"');
-      contains(find('#description').val(), 'Mukavat sohvat',
-        'Description should be "Mukavat sohvat"');
+    andThen(function() {
+      visit('/venue/8');
+      andThen(function () {
+        contains(find('#title').val(), 'Gurula',
+          'Title should be "Gurula"');
+        contains(find('#pitch').val(), 'Panini-mies',
+          'Pitch should be "Panini-mies"');
+        contains(find('#description').val(), 'Mukavat sohvat',
+          'Description should be "Mukavat sohvat"');
+      });
     });
   });
 });
