@@ -15,7 +15,7 @@ function contains(text, find, msg) {
   }
 }
 
-function inverseContains(text, find, msg) {
+function doesNotContain(text, find, msg) {
   if (text.indexOf(find) <= -1) {
     ok(true, msg);
   } else {

@@ -19,8 +19,8 @@ test('Venue page title found', function () {
 test('First venue name found', function () {
   visit('/venue');
   andThen(function () {
-    contains(find('.m-venue-box h6').text(), 'Testing',
-      'Testing');
+    contains(find('.m-venue-box h6').first().text(), 'Murphy, Douglas and Sawayn 4',
+      'Venue Murphy, Douglas and Sawayn 4 should be the first venue');
   });
 });
 
@@ -74,7 +74,7 @@ test('Venue can be deleted', function () {
   visit('/venue/1');
   click('#destroy');
   andThen(function () {
-    ok(find('li').text().indexOf('Murphy, Douglas and Sawayn 4') === -1,
+    doesNotContain(find('.m-venue-box h6').text(),'Murphy, Douglas and Sawayn 4',
       'Venue Murphy, Douglas and Sawayn 4 should be the first venue');
   });
 });

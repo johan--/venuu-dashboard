@@ -46,7 +46,7 @@
     "stop": true,
     "equalsTrimmed": true,
     "contains": true,
-    "inverseContains": true,
+    "doesNotContain": true,
     "VD": true
   }
 }
