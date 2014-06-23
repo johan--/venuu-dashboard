@@ -74,7 +74,7 @@ test('Venue can be deleted', function () {
   visit('/venue/1');
   click('#destroy');
   andThen(function () {
-    doesNotContain(find('.m-venue-box h6').text(),'Murphy, Douglas and Sawayn 4',
+    doesNotContain(find('.m-venue-box h6').text(), 'Murphy, Douglas and Sawayn 4',
       'Venue Murphy, Douglas and Sawayn 4 should be the first venue');
   });
 });
