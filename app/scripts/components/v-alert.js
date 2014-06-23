@@ -1,5 +1,5 @@
 
-//a   simplified version of http://reefpoints.dockyard.com/2014/05/01/alert-messages-in-ember-apps.html
+//a simplified version of http://reefpoints.dockyard.com/2014/05/01/alert-messages-in-ember-apps.html
 
 VD.VAlertComponent = Ember.Component.extend({
   messages: Ember.computed.alias('alert')
@@ -8,8 +8,7 @@ VD.VAlertComponent = Ember.Component.extend({
 VD.VAlertMessageComponent = Ember.Component.extend({
   actions: {
     close_error: function () {
-      var self = this;
-      self.alert.removeObject(self.get('message'));
+      this.alert.removeObject(this.get('message'));
     }
   }
 });
@@ -20,6 +19,10 @@ Ember.Alert = Ember.ArrayProxy.extend({
     this.pushObject({
       message: message
     });
+  },
+  clear: function () {
+    //this.clear() did not work...
+    this.removeObjects(this.content);
   }
 });
 

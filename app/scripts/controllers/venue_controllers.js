@@ -13,6 +13,7 @@
     actions: {
       save: function () {
         var self = this,
+          alert = this.get('alert'),
           venue = this.get('model'),
           venueGroup = venue.get('venueGroup');
 
@@ -22,12 +23,13 @@
 
         function failure(response) {
           console.error('save failure', response);
-          self.get('alert').error('This is an error alert!');
+          alert.error('This is an error alert!');
         }
 
         function saveVenue() {
           venue.save()
             .then(transitionToEdit)
+            .then(alert.clear.bind(alert))
             .catch(failure);
         }
 
