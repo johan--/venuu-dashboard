@@ -1,7 +1,11 @@
 {{outlet}}
 <div class="row">
   <div class="medium-12 columns">
-    <button id="save" {{action 'save'}} class="success">Tallenna</button>
+    {{#if isValid}}
+      <button id="save" {{action 'save'}} class="success">Tallenna</button>
+    {{else}}
+      <button id="save" disabled class="success">Tallenna</button>
+    {{/if}}
     {{#if this.id}}
       <button id="destroy" {{action 'destroy'}}>Poista tila</button>
     {{/if}}
