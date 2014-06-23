@@ -9,6 +9,7 @@
       </p>
       {{#if venueTypes.isFulfilled}}
         {{view VD.Chosen
+          id="venueTypes"
           max=5
           placeholder="Valitse tilan tyypit (max 5 kpl)"
           notFound="Tyyppiä ei löytynyt haulla"
@@ -31,6 +32,7 @@
       </p>
       {{#if eventTypes.isFulfilled}}
         {{view VD.Chosen
+          id="eventTypes"
           placeholder="Valitse tapahtumat"
           notFound="Tapahtumaa ei löytynyt haulla"
           content=allEventTypes

@@ -1,0 +1,10 @@
+<div class="m-venuegroup-sidebar">
+  <div class="m-box">
+    <div class="m-box-title">Kohteet</div>
+    <ul>
+        {{#each venueGroups}}
+          {{v-group-sidebar-item group=this}}
+        {{/each}}
+    </ul>
+  </div>
+</div>
