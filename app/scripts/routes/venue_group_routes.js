@@ -12,7 +12,7 @@
   };
 
   VenuuDashboard.VenueGroupEditRoute = VD.Route.extend({
-    sidebarTemplate: 'venue_group/sidebar',
+    sidebarTemplate: 'venue_group/edit_sidebar',
     setupController: function (controller, model) {
       controller.set('model', this.modelFor('venue_group.edit'));
     },
@@ -20,7 +20,7 @@
   });
 
   VenuuDashboard.VenueGroupNewRoute = VD.Route.extend({
-    sidebarTemplate: 'venue_group/sidebar',
+    sidebarTemplate: 'venue_group/info_sidebar',
     contentController: 'venueGroupEdit',
     setupController: function (controller, model) {
       var venueGroup = this.get('store').createRecord('venue_group');

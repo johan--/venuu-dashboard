@@ -14,3 +14,11 @@ function contains(text, find, msg) {
     ok(false, '"' + find + '" not found in "' + text + '": ' + msg);
   }
 }
+
+function doesNotContain(text, find, msg) {
+  if (text.indexOf(find) <= -1) {
+    ok(true, msg);
+  } else {
+    ok(false, '"' + find + '"found in "' + text + '" expected outcome: ' + msg);
+  }
+}

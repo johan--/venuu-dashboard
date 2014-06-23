@@ -1,0 +1,8 @@
+<li>
+  {{#link-to 'venue_group.edit' group}}
+    <img {{bind-attr src="group.imageSrc"}} width="40" height="40">
+    <span>{{group.name}}</span>
+    <p>{{group.venues.length}}
+      {{pluralize venues.length phrase="tila{|a}"}}</p>
+  {{/link-to}}
+</li>
