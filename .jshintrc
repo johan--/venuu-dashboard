@@ -46,6 +46,7 @@
     "stop": true,
     "equalsTrimmed": true,
     "contains": true,
+    "doesNotContain": true,
     "VD": true
   }
 }
