@@ -11,6 +11,9 @@
     LOG_TRANSITIONS_INTERNAL: true
   });
 
+  // Show a modal if navigating away without saving.
+  VenuuDashboard.CONFIRM_UNSAVED = true;
+
   /* Order and include as you please. */
   require('scripts/components/v-form-component.js');
   require('scripts/components/*');

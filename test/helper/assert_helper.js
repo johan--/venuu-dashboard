@@ -5,6 +5,9 @@ function equalsTrimmed() {
 }
 
 function contains(text, find, msg) {
+  if (!text) {
+    return ok(false, '"' + find + '" not found in "' + text + '": ' + msg);
+  }
   if (text.indexOf(find) > -1) {
     ok(true, msg);
   } else {

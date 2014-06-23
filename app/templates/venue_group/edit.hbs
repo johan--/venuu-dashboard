@@ -19,6 +19,9 @@
     {{#each this.venues}}
       {{v-venue-box venue=this}}
     {{/each}}
-    {{#link-to 'venue_group.new_venue' this id="addVenue" class="button success"}}Lisää tila{{/link-to}}
+    <button {{action "createVenue"}} id="addVenue" class="success">
+      Lisää tila
+    </button>
   </div>
 </div>
+

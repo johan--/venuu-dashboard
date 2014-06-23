@@ -25,15 +25,16 @@
     }
   });
 
+  VD.LoadingRoute = VD.Route.extend();
 
-  VD.LoadingRoute = VD.Route.extend({});
-
-  VenuuDashboard.confirmTransition = function (controllerName) {
+  VenuuDashboard.confirmTransition = function (controllerName, scope) {
     return function (transition) {
-      var route = this;
+      if (!VenuuDashboard.CONFIRM_UNSAVED ||
+        (scope && transition.targetName.indexOf(scope) !== -1)) {
+        return true;
+      }
       var model = this.controllerFor(controllerName).get('model');
       var modal = $('#confirmModal');
-      console.log(route);
       if (model.get('isDirty')) {
         transition.abort();
         modal.foundation('reveal', 'open');
@@ -46,6 +47,7 @@
           transition.retry();
         });
       }
+      return true;
     };
   };
 
