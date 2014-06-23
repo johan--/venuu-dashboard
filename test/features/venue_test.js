@@ -58,7 +58,7 @@ test('New venue can be added', function () {
     fillIn('#pitch', 'Panini-mies');
     fillIn('#description', 'Mukavat sohvat');
     click('#save');
-    andThen(function() {
+    andThen(function () {
       visit('/venue/8');
       andThen(function () {
         contains(find('#title').val(), 'Gurula',
