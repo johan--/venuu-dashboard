@@ -4,6 +4,10 @@
   $active-color: $primary-color;
   $inactive-color: $basetext-color-light;
 
+  // Don't add duplicate border after groups.
+  border-bottom: 0;
+  overflow: hidden;
+
   p {
     color: $basetext-color-lighter;
     text-align: left;

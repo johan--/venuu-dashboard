@@ -8,6 +8,7 @@
     border: 1px solid $border-color;
     background: $bg-color;
     display: none;
+    overflow: hidden;
 
     &.expanded { display: block; }
   }
