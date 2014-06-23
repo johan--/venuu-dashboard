@@ -4,6 +4,7 @@
   VenuuDashboard.VenueIndexController = Ember.ArrayController.extend({});
 
   VenuuDashboard.VenueEditController = Ember.ObjectController.extend({
+    needs: ['application'],
     init: function () {
       this._super();
       this.set('allVenueTypes', this.get('store').find('venueType'));
@@ -18,7 +19,7 @@
           venueGroup = venue.get('venueGroup');
 
         function transitionToEdit(record) {
-          self.transitionToRoute('venue.edit', record);
+          self.transitionToRoute('venue.index');
         }
 
         function failure(response) {
@@ -55,7 +56,18 @@
       cancelNewVenueGroup: function () {
         this.get('model').get('venueGroup').rollback();
       }
-    }
+    },
+    venueGroupChange: function () {
+      var model = this.get('model'),
+        venueGroup = model.get('venueGroup');
+
+      if (venueGroup) {
+/*        model.set('address', venueGroup.get('address'));
+        model.set('zipcode', venueGroup.get('zipcode'));
+        model.set('city', venueGroup.get('city'));*/
+      }
+
+    }.observes('venueGroup')
   });
 
 })();

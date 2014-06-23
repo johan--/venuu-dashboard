@@ -1,0 +1,9 @@
+{{outlet}}
+<div class="row">
+  <div class="medium-12 columns">
+    <button id="save" {{action 'save'}} class="success">Tallenna</button>
+    {{#if this.id}}
+      <button id="destroy" {{action 'destroy'}}>Poista tila</button>
+    {{/if}}
+  </div>
+</div>
