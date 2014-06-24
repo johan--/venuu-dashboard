@@ -66,7 +66,7 @@ test('New venue can be added', function () {
     });
 
     click('#save');
-    visit('/venue/9');
+    visit('/venue/'+(venuesSeeded+1));
     andThen(function () {
       contains(find('#title').val(), 'Gurula',
         'Title should be "Gurula"');

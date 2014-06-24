@@ -48,6 +48,8 @@
     "contains": true,
     "doesNotContain": true,
     "VD": true,
-    "fillFields": true
+    "fillFields": true,
+    "venuesSeeded": true,
+    "groupsSeeded": true
   }
 }
