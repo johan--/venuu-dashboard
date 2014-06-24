@@ -47,6 +47,7 @@
     "equalsTrimmed": true,
     "contains": true,
     "doesNotContain": true,
-    "VD": true
+    "VD": true,
+    "fillFields": true
   }
 }
