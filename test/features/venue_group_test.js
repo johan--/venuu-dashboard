@@ -7,6 +7,13 @@ module('Integration: Venue groups', {
   }
 });
 
+var testVenueGroup = {
+  'vg-name': 'Tuomiokirkko',
+  'vg-city': 'Helsinki',
+  'vg-zipcode': '00100',
+  'vg-address': 'Senaatintori'
+};
+
 test('Venue groups page title found', function () {
   visit('/venue-group');
   andThen(function () {
@@ -34,40 +41,17 @@ test('First venue group details found', function () {
 
 test('First venue groups details can be edited', function () {
   visit('/venue-group/1');
-  fillIn('#vg-name', 'Tuomiokirkko');
-  fillIn('#vg-city', 'Helsinki');
-  fillIn('#vg-zipcode', '00110');
-  fillIn('#vg-address', 'Senaatintori');
+
+  fillFields(testVenueGroup);
   click('#save');
-  andThen(function () {
-    contains(find('#vg-name').val(), 'Tuomiokirkko',
-      'New name found!');
-    contains(find('#vg-address').val(), 'Senaatintori',
-      'New address found!');
-    contains(find('#vg-zipcode').val(), '00110',
-      'New zipcode found!');
-    contains(find('#vg-city').val(), 'Helsinki',
-      'New city found!');
-  });
+  andThen(checkFields(testVenueGroup));
 });
 
 test('New venue group can be added', function () {
   visit('/venue-group/new');
-  fillIn('#vg-name', 'Chemicum');
-  fillIn('#vg-city', 'Helsinki');
-  fillIn('#vg-zipcode', '00550');
-  fillIn('#vg-address', 'A.I. Virtasen aukio 1');
+  fillFields(testVenueGroup);
   click('#save');
-  andThen(function () {
-    contains(find('#vg-name').val(), 'Chemicum',
-      'New name found!');
-    contains(find('#vg-zipcode').val(), '00550',
-      'New zipcode found!');
-    contains(find('#vg-address').val(), 'A.I. Virtasen aukio 1',
-      'New address found!');
-    contains(find('#vg-city').val(), 'Helsinki',
-      'New city found!');
-  });
+  andThen(checkFields(testVenueGroup));
 });
 
 test('Venue groups can be deleted', function () {

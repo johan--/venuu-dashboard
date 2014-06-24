@@ -48,6 +48,9 @@
     "contains": true,
     "doesNotContain": true,
     "VD": true,
-    "fillFields": true
+    "fillFields": true,
+    "checkFields": true,
+    "select": true,
+    "checkSelection": true
   }
 }
