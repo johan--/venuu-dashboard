@@ -64,13 +64,21 @@
       var model = this.get('model'),
         venueGroup = model.get('venueGroup');
 
+      console.log('groupChanged', venueGroup);
+
       if (venueGroup) {
-/*        model.set('address', venueGroup.get('address'));
-        model.set('zipcode', venueGroup.get('zipcode'));
-        model.set('city', venueGroup.get('city'));*/
+        setIfEmpty(model, 'address', venueGroup.get('address'));
+        setIfEmpty(model, 'zipcode', venueGroup.get('zipcode'));
+        setIfEmpty(model, 'city', venueGroup.get('city'));
       }
 
     }.observes('venueGroup')
   });
+
+  function setIfEmpty(model, attr, val) {
+    if (Ember.empty(model.get(attr))) {
+      model.set(attr, val);
+    }
+  }
 
 })();
