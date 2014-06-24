@@ -59,26 +59,7 @@
       cancelNewVenueGroup: function () {
         this.get('model').get('venueGroup').rollback();
       }
-    },
-    venueGroupChange: function () {
-      var model = this.get('model'),
-        venueGroup = model.get('venueGroup');
-
-      console.log('groupChanged', venueGroup);
-
-      if (venueGroup) {
-        setIfEmpty(model, 'address', venueGroup.get('address'));
-        setIfEmpty(model, 'zipcode', venueGroup.get('zipcode'));
-        setIfEmpty(model, 'city', venueGroup.get('city'));
-      }
-
-    }.observes('venueGroup')
-  });
-
-  function setIfEmpty(model, attr, val) {
-    if (Ember.empty(model.get(attr))) {
-      model.set(attr, val);
     }
-  }
+  });
 
 })();
