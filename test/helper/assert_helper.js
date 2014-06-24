@@ -35,7 +35,7 @@ function checkFields(object) {
 function checkSelection(id, values) {
   var selection = find('#' + id).val();
 
-  values.forEach( function(value) {
+  values.forEach(function (value) {
     contains(selection, '' + value[0], value[1] + ' should be selected.');
   });
 

@@ -61,9 +61,10 @@ test('New venue can be added', function () {
   fillFields(testVenue);
   click('#save');
 
-  visit('/venue/9');
+  visit('/venue/' + (venuesSeeded + 1));
   andThen(checkFields(testVenue));
 });
+
 
 test('Venue can be deleted', function () {
   visit('/venue/1');
