@@ -8,6 +8,20 @@ module('Integration: Venues', {
   }
 });
 
+var testVenue = {
+  title: 'Tuomiokirkko',
+  pitch: 'Kaunis puukirkko',
+  description: 'Ikävä paikka'
+};
+
+// this should equal the first seed (id:1) in seeds.rb (backend)
+var seedVenue = {
+  title: 'Murphy, Douglas and Sawayn 4',
+  pitch: 'Yhden/kahden lauseen kuvaus tilasta.',
+  description: 'Lorem ipsum Quis enim ad esse exercitation dolore laborum ' +
+               'amet est id officia dolor irure incididunt nostrud in velit.'
+};
+
 test('Venue page title found', function () {
   visit('/venue');
   andThen(function () {
@@ -19,84 +33,70 @@ test('Venue page title found', function () {
 test('First venue name found', function () {
   visit('/venue');
   andThen(function () {
-    contains(find('.m-venue-box h6').first().text(), 'Murphy, Douglas and Sawayn 4',
-      'Venue Murphy, Douglas and Sawayn 4 should be the first venue');
+    contains(
+      find('.m-venue-box h6').first().text(),
+      seedVenue.title,
+      'Venue ' + seedVenue.title + ' should be the first venue'
+    );
   });
 });
 
-test('First venue details found', function () {
+test('First venue information found', function () {
   visit('/venue/1');
-  andThen(function () {
-    contains(find('#pitch').val(), 'Yhden/kahden lauseen kuvaus tilasta.',
-      'Venue pitch should exist');
-  });
+  checkFields(seedVenue);
 });
 
 test('First venue details can be edited', function () {
   visit('/venue/1');
-  fillIn('#title', 'Tuomiokirkko');
-  fillIn('#pitch', 'Kaunis puukirkko');
-  fillIn('#description', 'Ikävä paikka');
+  fillFields(testVenue);
   click('#save');
+
   visit('/venue/1');
-  andThen(function () {
-    contains(find('#title').val(), 'Tuomiokirkko',
-      'Title should be "Tuomiokirkko"');
-    contains(find('#pitch').val(), 'Kaunis puukirkko',
-      'Pitch should be "Kaunis puukirkko"');
-    contains(find('#description').val(), 'Ikävä paikka',
-      'Description should be "Ikävä paikka"');
-  });
+  checkFields(testVenue);
 });
 
 test('New venue can be added', function () {
   visit('/venue/wizard');
-  andThen(function () {
-    // http://plnkr.co/edit/ODvlUOLYMxe6VPx1Zjlw?p=preview
-    find('#venue-group').val(1).change();
-    fillIn('#title', 'Gurula');
-    fillIn('#pitch', 'Panini-mies');
-    fillIn('#description', 'Mukavat sohvat');
-    click('#save');
-    visit('/venue/9');
-    andThen(function () {
-      contains(find('#title').val(), 'Gurula',
-        'Title should be "Gurula"');
-      contains(find('#pitch').val(), 'Panini-mies',
-        'Pitch should be "Panini-mies"');
-      contains(find('#description').val(), 'Mukavat sohvat',
-        'Description should be "Mukavat sohvat"');
-    });
-  });
+  select('venue-group', 1);
+  fillFields(testVenue);
+  click('#save');
+
+  visit('/venue/' + (venuesSeeded + 1));
+  checkFields(testVenue);
 });
+
 
 test('Venue can be deleted', function () {
   visit('/venue/1');
   click('#destroy');
+
   andThen(function () {
-    doesNotContain(find('.m-venue-box h6').text(), 'Murphy, Douglas and Sawayn 4',
-      'Venue Murphy, Douglas and Sawayn 4 should be the first venue');
+    doesNotContain(
+      find('.m-venue-box h6').text(),
+      seedVenue.title,
+      'Venue ' + seedVenue.title + ' should be the first venue'
+    );
   });
 });
 
 test('VenueTypes can be edited', function () {
   visit('/venue/1/types');
-  andThen(function () {
-    find('#venueTypes').val([1, 2]).change().trigger('chosen:updated');
-  });
+  select('venueTypes', [1, 2]);
+
   andThen(function () {
     click('#save');
     visit('/venue/1/types');
-    contains(find('#venueTypes').val(), '1', 'VenueType 1 should be selected!');
-    contains(find('#venueTypes').val(), '2', 'VenueType 2 should be selected!');
+    checkSelection('venueTypes', [
+      [1, 'Juhlasali'],
+      [2, 'Tapahtumatila']
+    ]);
   });
 });
 
 test('VenueTypes can be removed', function () {
   visit('/venue/1/types');
-  andThen(function () {
-    find('#venueTypes').val([]).change().trigger('chosen:updated');
-  });
+  select('venueTypes', []);
+
   andThen(function () {
     click('#save');
     visit('/venue/1/types');
@@ -106,22 +106,22 @@ test('VenueTypes can be removed', function () {
 
 test('VenueEvents can be edited', function () {
   visit('/venue/1/types');
-  andThen(function () {
-    find('#eventTypes').val([1, 2]).change().trigger('chosen:updated');
-  });
+  select('eventTypes', [1, 2]);
+
   andThen(function () {
     click('#save');
     visit('/venue/1/types');
-    contains(find('#eventTypes').val(), '1', 'EventType 1 should be selected!');
-    contains(find('#eventTypes').val(), '2', 'EventType 2 should be selected!');
+    checkSelection('eventTypes', [
+      [1, 'Häät'],
+      [2, 'Juhlat']
+    ]);
   });
 });
 
 test('VenueEvents can be removed', function () {
   visit('/venue/1/types');
-  andThen(function () {
-    find('#eventTypes').val([]).change().trigger('chosen:updated');
-  });
+  select('eventTypes', []);
+
   andThen(function () {
     click('#save');
     visit('/venue/1/types');
@@ -131,24 +131,24 @@ test('VenueEvents can be removed', function () {
 
 test('VenueServices can be edited', function () {
   visit('/venue/1/services');
-  andThen(function () {
-    find('#venueServices').val([6, 15, 36]).change().trigger('chosen:updated');
-  });
+  select('venueServices', [6, 15, 36]);
+
   andThen(function () {
     click('#save');
     visit('/venue/1/services');
-    contains(find('#venueServices').val(), '6', 'Venue should have WiFi selected!');
-    contains(find('#venueServices').val(), '15', 'Venue should have Terassi selected!');
-    contains(find('#venueServices').val(), '36', 'Venue should have Pelikonsoli selected!');
+    checkSelection('venueServices', [
+      [6, 'WiFi'],
+      [15, 'Terassi'],
+      [36, 'Pelikonsoli']
+    ]);
     ok(find('#venueServices').val().length === 3, 'Venue should have 3 services!');
   });
 });
 
 test('VenueServices can be removed', function () {
   visit('/venue/1/services');
-  andThen(function () {
-    find('#venueServices').val([]).change().trigger('chosen:updated');
-  });
+  select('venueServices', []);
+
   andThen(function () {
     click('#save');
     visit('/venue/1/services');
