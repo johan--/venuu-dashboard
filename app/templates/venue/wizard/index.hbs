@@ -1,54 +1,51 @@
-<div class="m-container-box">
-  <h4>Kohde <small>jossa tilasi sijaitsee</small></h4>
-
-  <div class="row">
-    {{#if venueGroup.isDirty}}
-      <div class="small-12 columns">
-        <p>Täytä nämä tiedot niin luomme kohteen sinulle.</p>
-        {{render "VenueGroup._form" venueGroup}}
-        <button {{action "cancelNewVenueGroup"}}>Peruuta</button>
-      </div>
-    {{else}}
-      <div class="small-2 columns">
-        <label for="venue-group" class="right inline">Valitse kohde</label>
-      </div>
-      <div class="small-6 columns">
-        {{#if allVenueGroups.isFulfilled}}
-          {{view Ember.Select
-            content=allVenueGroups
-            optionValuePath="content.id"
-            optionLabelPath="content.name"
-            selection=venueGroup
-            prompt="Valitse tilan kohde"
-            id="venue-group"
-          }}
-        {{/if}}
-      </div>
-      <div class="small-1 columns centered"><span class="inline">tai</span></div>
-      <div class="small-3 columns left">
-        <button {{action "createVenueGroup"}}>Luo uusi kohde</button>
-      </div>
+<h4>Kohde <small>jossa tilasi sijaitsee</small></h4>
+<p>Kohteessa voi olla monta erilaista tilaa, vaikka useita kokoushuoneita ja
+  saunatila.</p>
+{{#if venueGroup.isDirty}}
+  <div class="small-12 columns">
+    <p>Täytä nämä tiedot niin luomme kohteen sinulle.</p>
+    {{render "VenueGroup._form" venueGroup}}
+    <button {{action "cancelNewVenueGroup"}}>Peruuta</button>
+  </div>
+{{else}}
+  <div class="small-2 columns">
+    <label for="venue-group" class="right inline">Valitse kohde</label>
+  </div>
+  <div class="small-6 columns">
+    {{#if allVenueGroups.isFulfilled}}
+      {{view Ember.Select
+        content=allVenueGroups
+        optionValuePath="content.id"
+        optionLabelPath="content.name"
+        selection=venueGroup
+        prompt="Valitse tilan kohde"
+        id="venue-group"
+      }}
     {{/if}}
   </div>
-
-  <h5>Perustiedot <small>kerro tilastasi</small></h5>
-  <div class="row collapse">
-    {{v-input label="Tilan nimi" name="title" content=title}}
-    {{v-input label="Myyntipuhe" name="pitch" content=pitch}}
-    {{v-textarea label="Kuvaus" name="description" content=description rows=5}}
+  <div class="small-1 columns centered"><span class="inline">tai</span></div>
+  <div class="small-3 columns left">
+    <button {{action "createVenueGroup"}}>Luo uusi kohde</button>
   </div>
+{{/if}}
 
-  <h5>Yhteystiedot <small>tilaa koskevia yhteydenottoja varten</small></h5>
-  <div class="row collapse">
-    {{v-input width=10 cols="2:1:9:0" label="Osoite" name="address"
-      content=address prefix='<i class="fa fa-map-marker"></i>'}}
-    {{v-input width=7 cols="3:1:8:0" label="Kaupunki" name="city"
-      content=city prefix='<i class="fa fa-building"></i>'}}
-    {{v-input width=5 cols="5:1:6:0" label="Postinumero" name="zipcode"
-      content=zipcode prefix='<i class="fa fa-envelope-o"></i>'}}
-    {{v-input width=7 cols="3:1:8:0" label="Email" name="email"
-      content=contactEmail prefix='<i class="fa fa-inbox"></i>'}}
-    {{v-input width=5 cols="5:1:6:0" label="Puhelin" name="phone"
-      content=contactPhone prefix='<i class="fa fa-phone"></i>'}}
-  </div>
+<h4>Perustiedot <small>kerro tilastasi</small></h4>
+<div class="row collapse">
+  {{v-input label="Tilan nimi" name="title" content=title}}
+  {{v-input label="Myyntipuhe" name="pitch" content=pitch}}
+  {{v-textarea label="Kuvaus" name="description" content=description rows=5}}
+</div>
+
+<h4>Yhteystiedot <small>tilaa koskevia yhteydenottoja varten</small></h4>
+<div class="row collapse">
+  {{v-input width=10 cols="2:1:9:0" label="Osoite" name="address"
+    content=address prefix='<i class="fa fa-map-marker"></i>'}}
+  {{v-input width=7 cols="3:1:8:0" label="Kaupunki" name="city"
+    content=city prefix='<i class="fa fa-building"></i>'}}
+  {{v-input width=5 cols="5:1:6:0" label="Postinumero" name="zipcode"
+    content=zipcode prefix='<i class="fa fa-envelope-o"></i>'}}
+  {{v-input width=7 cols="3:1:8:0" label="Email" name="email"
+    content=contactEmail prefix='<i class="fa fa-inbox"></i>'}}
+  {{v-input width=5 cols="5:1:6:0" label="Puhelin" name="phone"
+    content=contactPhone prefix='<i class="fa fa-phone"></i>'}}
 </div>

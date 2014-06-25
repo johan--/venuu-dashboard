@@ -2,17 +2,25 @@
   <div class="m-box">
     <div class="m-box-title">Vaiheet</div>
     <ul>
-      <li>
-        {{#link-to "venue.wizard.index"}}Perustiedot{{/link-to}}
+      <li {{bind-attr class=isIndexCompleted:completed}}>
+        {{#link-to "venue.wizard.index" href=false eventName='dummy'}}
+          Perustiedot
+        {{/link-to}}
       </li>
-      <li>
-        {{#link-to "venue.wizard.pricing"}}Hinnoittelu{{/link-to}}
+      <li {{bind-attr class=isPricingCompleted:completed}}>
+        {{#link-to "venue.wizard.pricing" href=false eventName='dummy'}}
+          Hinnoittelu
+        {{/link-to}}
       </li>
-      <li>
-        {{#link-to "venue.wizard.types"}}Tila &amp; tapahtumat{{/link-to}}
+      <li {{bind-attr class=isTypesCompleted:completed}}>
+        {{#link-to "venue.wizard.types" href=false eventName='dummy'}}
+          Tila &amp; tapahtumat
+        {{/link-to}}
       </li>
-      <li>
-        {{#link-to "venue.wizard.services"}}Palvelut &amp; puitteet{{/link-to}}
+      <li {{bind-attr class=isServicesCompleted:completed}}>
+        {{#link-to "venue.wizard.services" href=false eventName='dummy'}}
+          Palvelut &amp; puitteet
+        {{/link-to}}
       </li>
     </ul>
     <div class="m-box-content">

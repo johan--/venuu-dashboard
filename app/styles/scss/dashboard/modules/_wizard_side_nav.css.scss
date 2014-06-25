@@ -31,11 +31,9 @@
           position: relative;
           left: 1px;
           color: $active-color;
-          @include icon("check-circle");
-
+          @include icon("gear");
           &:before {
-            color: $inactive-color;
-            float: right;
+            @extend .#{$fa-css-prefix}-spin;
           }
         }
 
@@ -44,8 +42,15 @@
         }
 
         &:before {
-          color: $active-color;
+          color: $inactive-color;
           float: right;
+        }
+      }
+
+      &.completed a {
+        @include icon("check-circle");
+        &:before {
+          color: $active-color;
         }
       }
     }

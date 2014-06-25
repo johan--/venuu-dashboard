@@ -1,44 +1,40 @@
-<div class="m-container-box">
-  <h4>Tilan tyyppi <small>millainen tilasi on?</small></h4>
-  <div class="row collapse">
-    <div class="small-12 columns">
-      <p>
-        Voit tarvittaessa valita useampia, mieluusti kuitenkin korkeintaan
-        viisi (5). <b>Huom!</b> Se, että esim. kahvilassa voi pitää kokouksia, ei
-        välttämättä tee siitä kokoushuonetta.
-      </p>
-      {{#if venueTypes.isFulfilled}}
-        {{view VD.Chosen
-          id="venueTypes"
-          max=5
-          placeholder="Valitse tilan tyypit (max 5 kpl)"
-          notFound="Tyyppiä ei löytynyt haulla"
-          content=allVenueTypes
-          selection=venueTypes
-        }}
-      {{/if}}
-    </div>
+<h4>Tilan tyyppi <small>millainen tilasi on?</small></h4>
+<div class="row collapse">
+  <div class="small-12 columns">
+    <p>
+      Voit tarvittaessa valita useampia, mieluusti kuitenkin korkeintaan
+      viisi (5). <b>Huom!</b> Se, että esim. kahvilassa voi pitää kokouksia, ei
+      välttämättä tee siitä kokoushuonetta.
+    </p>
+    {{#if venueTypes.isFulfilled}}
+      {{view VD.Chosen
+        id="venueTypes"
+        max=5
+        placeholder="Valitse tilan tyypit (max 5 kpl)"
+        notFound="Tyyppiä ei löytynyt haulla"
+        content=allVenueTypes
+        selection=venueTypes
+      }}
+    {{/if}}
   </div>
 </div>
 
-<div class="m-container-box">
-  <h4>Tapahtumat<small>, joita täällä voi järjestää</small></h4>
-  <div class="row collapse">
-    <div class="small-12 columns">
-      <p>
-        Kerro millaisia tapahtumia tilassasi voi järjestää. <b>Huom!</b> Meidän
-        mielestä esim. kahvilassa voi hyvin järjestää vaikkapa pienen seminaarin
-        ja teollisuushallissa häät.
-      </p>
-      {{#if eventTypes.isFulfilled}}
-        {{view VD.Chosen
-          id="eventTypes"
-          placeholder="Valitse tapahtumat"
-          notFound="Tapahtumaa ei löytynyt haulla"
-          content=allEventTypes
-          selection=eventTypes
-        }}
-      {{/if}}
-    </div>
+<h4>Tapahtumat<small> joita täällä voi järjestää</small></h4>
+<div class="row collapse">
+  <div class="small-12 columns">
+    <p>
+      Kerro millaisia tapahtumia tilassasi voi järjestää. <b>Huom!</b> Meidän
+      mielestä esim. kahvilassa voi hyvin järjestää vaikkapa pienen seminaarin
+      ja teollisuushallissa häät.
+    </p>
+    {{#if eventTypes.isFulfilled}}
+      {{view VD.Chosen
+        id="eventTypes"
+        placeholder="Valitse tapahtumat"
+        notFound="Tapahtumaa ei löytynyt haulla"
+        content=allEventTypes
+        selection=eventTypes
+      }}
+    {{/if}}
   </div>
 </div>
