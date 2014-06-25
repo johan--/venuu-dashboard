@@ -24,12 +24,12 @@ function doesNotContain(text, find, msg) {
 }
 
 function checkFields(object) {
-  return function () {
-    Object.keys(object).forEach(function (key) {
-      equal(find('#' + key).val(), object[key],
-        key + ' should equal "' + object[key] + '".');
+  andThen(function () {
+      Object.keys(object).forEach(function (key) {
+        equal(find('#' + key).val(), object[key],
+          key + ' should equal "' + object[key] + '".');
+      });
     });
-  };
 }
 
 function checkSelection(id, values) {

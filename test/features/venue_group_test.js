@@ -44,14 +44,14 @@ test('First venue groups details can be edited', function () {
 
   fillFields(testVenueGroup);
   click('#save');
-  andThen(checkFields(testVenueGroup));
+  checkFields(testVenueGroup);
 });
 
 test('New venue group can be added', function () {
   visit('/venue-group/new');
   fillFields(testVenueGroup);
   click('#save');
-  andThen(checkFields(testVenueGroup));
+  checkFields(testVenueGroup);
 });
 
 test('Venue groups can be deleted', function () {

@@ -43,7 +43,7 @@ test('First venue name found', function () {
 
 test('First venue information found', function () {
   visit('/venue/1');
-  andThen(checkFields(seedVenue));
+  checkFields(seedVenue);
 });
 
 test('First venue details can be edited', function () {
@@ -52,7 +52,7 @@ test('First venue details can be edited', function () {
   click('#save');
 
   visit('/venue/1');
-  andThen(checkFields(testVenue));
+  checkFields(testVenue);
 });
 
 test('New venue can be added', function () {
@@ -62,7 +62,7 @@ test('New venue can be added', function () {
   click('#save');
 
   visit('/venue/' + (venuesSeeded + 1));
-  andThen(checkFields(testVenue));
+  checkFields(testVenue);
 });
 
 
@@ -81,7 +81,6 @@ test('Venue can be deleted', function () {
 
 test('VenueTypes can be edited', function () {
   visit('/venue/1/types');
-
   select('venueTypes', [1, 2]);
 
   andThen(function () {
@@ -96,8 +95,6 @@ test('VenueTypes can be edited', function () {
 
 test('VenueTypes can be removed', function () {
   visit('/venue/1/types');
-
-
   select('venueTypes', []);
 
   andThen(function () {
@@ -109,7 +106,6 @@ test('VenueTypes can be removed', function () {
 
 test('VenueEvents can be edited', function () {
   visit('/venue/1/types');
-
   select('eventTypes', [1, 2]);
 
   andThen(function () {
@@ -124,7 +120,6 @@ test('VenueEvents can be edited', function () {
 
 test('VenueEvents can be removed', function () {
   visit('/venue/1/types');
-
   select('eventTypes', []);
 
   andThen(function () {
@@ -136,7 +131,6 @@ test('VenueEvents can be removed', function () {
 
 test('VenueServices can be edited', function () {
   visit('/venue/1/services');
-
   select('venueServices', [6, 15, 36]);
 
   andThen(function () {
@@ -153,7 +147,6 @@ test('VenueServices can be edited', function () {
 
 test('VenueServices can be removed', function () {
   visit('/venue/1/services');
-
   select('venueServices', []);
 
   andThen(function () {
