@@ -6,6 +6,7 @@
   });
 
   VenuuDashboard.ApplicationSerializer = DS.ActiveModelSerializer.extend({
+    // Embed ids for hasMany relationships
     serializeHasMany: function (record, json, relationship) {
       var key = relationship.key;
       var payloadKey = this.keyForRelationship ? this.keyForRelationship(key, 'hasMany') : key;
