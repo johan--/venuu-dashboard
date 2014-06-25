@@ -47,6 +47,12 @@
     "equalsTrimmed": true,
     "contains": true,
     "doesNotContain": true,
-    "VD": true
+    "VD": true,
+    "fillFields": true,
+    "checkFields": true,
+    "select": true,
+    "checkSelection": true,
+    "venuesSeeded": true,
+    "groupsSeeded": true
   }
 }
