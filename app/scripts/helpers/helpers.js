@@ -9,11 +9,7 @@ Ember.Handlebars.helper('address', function (venue_group) {
 }, 'address', 'zipcode', 'city');
 
 Ember.Handlebars.helper('boolean', function (boolean) {
-  if (boolean) {
-    return 'Kyllä';
-  } else {
-    return 'Ei';
-  }
+  return boolean ? 'Kyllä' : 'Ei';
 });
 
 Ember.Handlebars.registerBoundHelper('pluralize', function (number, options) {
