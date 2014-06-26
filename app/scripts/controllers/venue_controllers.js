@@ -49,6 +49,14 @@
     },
 
     actions: {
+      save: function () {
+        var self = this;
+        function failure(response) {
+          console.error('save failure', response);
+          self.get('alert').error('Save failed!');
+        }
+        this.save().catch(failure);
+      },
       stepBack: function () {
         var self = this;
 
