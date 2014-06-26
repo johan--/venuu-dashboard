@@ -18,6 +18,45 @@ var billing = {
   reservationFee: 1000
 };
 
+function step(next, actions) {
+  click('#' + next);
+  andThen(function () {
+    actions();
+  });
+}
+
+function fillWizard(action1, action2, action3, action4) {
+  visit('/venue/wizard');
+  if(action1) {
+    action1();
+  }
+
+  select('venue-group', 2);
+  fillFields(testVenue);
+
+  step('step', function () {
+    if(action2) {
+      action2();
+    }
+    fillFields(billing);
+  });
+
+  step('step', function () {
+    if(action3) {
+      action3();
+    }
+    select('venueTypes', [1, 2]);
+    select('eventTypes', [1, 2]);
+  });
+
+  step('step', function () {
+    if(action4) {
+      action4();
+    }
+    select('venueServices', [6, 15, 36]);
+  });
+}
+
 test('New venue is saved after first step', function () {
   visit('/venue/wizard');
   select('venue-group', 1);
@@ -44,47 +83,42 @@ test('New venue should not be saved if title is too short', function () {
   });
 });
 
-function step(next, actions) {
-  click('#' + next);
-  andThen(function () {
-    actions();
-  });
-}
+test('Wizard has the correct steps', function() {
+  fillWizard(
+    function(){
+      contains(
+        find('h4').text(),
+        'Perustiedot',
+        'Index step should contain Perustiedot -title'
+      );
+    },
+    function(){
+      contains(
+        find('h4').text(),
+        'Hinnoittelu',
+        'Billing step should contain Hinnoittelu -title'
+      );
+    },
+    function(){
+      contains(
+        find('h4').text(),
+        'Tapahtumat',
+        'Types and events step should contain Tapahtumat -title'
+      );
+    },
+    function(){
+      contains(
+        find('h4').text(),
+        'Palvelut & puitteet',
+        'Services step should contain Palvelut & puitteet -title'
+      );
+    }
+  );
+});
 
 test('All the steps are working and venue is saved with correct information', function () {
-  visit('/venue/wizard');
-  contains(
-    find('h4').text(),
-    'Perustiedot',
-    'Index step should contain Perustiedot -title'
-  );
-  select('venue-group', 2);
-  fillFields(testVenue);
-  step('step', function () {
-    fillFields(billing);
-    contains(
-      find('h4').text(),
-      'Hinnoittelu',
-      'Billing step should contain Hinnoittelu -title'
-    );
-  });
-  step('step', function () {
-    select('venueTypes', [1, 2]);
-    select('eventTypes', [1, 2]);
-    contains(
-      find('h4').text(),
-      'Tapahtumat',
-      'Types and events step should contain Tapahtumat -title'
-    );
-  });
-  step('step', function () {
-    select('venueServices', [6, 15, 36]);
-    contains(
-      find('h4').text(),
-      'Palvelut & puitteet',
-      'Services step should contain Palvelut & puitteet -title'
-    );
-  });
+  fillWizard();
+
   step('step', function () {
     contains(
       find('h6').text(),
@@ -92,6 +126,7 @@ test('All the steps are working and venue is saved with correct information', fu
       'Venue with a title of Test should be found'
     );
   });
+
   andThen(function () {
     $.get('/api/venues/9', function (content) {
       equal(content.venue.title, 'Tuomiokirkko', 'Title should be Tuomiokirkko');
@@ -104,10 +139,32 @@ test('All the steps are working and venue is saved with correct information', fu
   });
 });
 
+test('After filling the wizard, each step should contain the correct information', function () {
+  fillWizard();
+  andThen(function() {
+    checkSelection('venueServices', [
+      [6, 'WiFi'],
+      [15, 'Terassi'],
+      [36, 'Pelikonsoli']
+    ]);
+  });
 
-// TODO
-// Testi jossa täytetään stepit ja vikassa stepissa palataan alkuun tarkistaen tiedot
-// Wizard edit testi
-test('', function () {
-  expect(0);
+  step('back', function () {
+    checkSelection('venueTypes', [
+      [1, 'Juhlasali'],
+      [2, 'Tapahtumatila']
+    ]);
+    checkSelection('eventTypes', [
+      [1, 'Juhlat'],
+      [2, 'Häät']
+    ]);
+  });
+
+  step('back', function () {
+    checkFields(billing);
+  });
+
+  step('back', function () {
+    checkFields(testVenue);
+  });
 });
