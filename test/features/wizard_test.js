@@ -13,9 +13,15 @@ var testVenue = {
   description: 'Ikävä paikka'
 };
 
-var billing = {
+var testBilling = {
   rentPerDay: 500,
   reservationFee: 1000
+};
+
+var testSelections = {
+  venueTypes: [1, 2],
+  eventTypes: [1, 2],
+  venueServices: [6, 15, 36]
 };
 
 function step(next, actions) {
@@ -25,9 +31,12 @@ function step(next, actions) {
   });
 }
 
+/*
+  Goes through the wizard and fills it with testVenue, testBilling and testSelections
+*/
 function fillWizard(action1, action2, action3, action4) {
   visit('/venue/wizard');
-  if(action1) {
+  if (action1) {
     action1();
   }
 
@@ -35,25 +44,25 @@ function fillWizard(action1, action2, action3, action4) {
   fillFields(testVenue);
 
   step('step', function () {
-    if(action2) {
+    if (action2) {
       action2();
     }
-    fillFields(billing);
+    fillFields(testBilling);
   });
 
   step('step', function () {
-    if(action3) {
+    if (action3) {
       action3();
     }
-    select('venueTypes', [1, 2]);
-    select('eventTypes', [1, 2]);
+    select('venueTypes', testSelections.venueTypes);
+    select('eventTypes', testSelections.eventTypes);
   });
 
   step('step', function () {
-    if(action4) {
+    if (action4) {
       action4();
     }
-    select('venueServices', [6, 15, 36]);
+    select('venueServices', testSelections.venueServices);
   });
 }
 
@@ -83,30 +92,30 @@ test('New venue should not be saved if title is too short', function () {
   });
 });
 
-test('Wizard has the correct steps', function() {
+test('Wizard has the correct steps', function () {
   fillWizard(
-    function(){
+    function () {
       contains(
         find('h4').text(),
         'Perustiedot',
         'Index step should contain Perustiedot -title'
       );
     },
-    function(){
+    function () {
       contains(
         find('h4').text(),
         'Hinnoittelu',
         'Billing step should contain Hinnoittelu -title'
       );
     },
-    function(){
+    function () {
       contains(
         find('h4').text(),
         'Tapahtumat',
         'Types and events step should contain Tapahtumat -title'
       );
     },
-    function(){
+    function () {
       contains(
         find('h4').text(),
         'Palvelut & puitteet',
@@ -132,16 +141,16 @@ test('All the steps are working and venue is saved with correct information', fu
       equal(content.venue.title, 'Tuomiokirkko', 'Title should be Tuomiokirkko');
       equal(content.venue.rent_per_day, '500', 'Rent-per-day should be 500');
       equal(content.venue.reservation_fee, '1000', 'reservationFee should be 1000');
-      containsArray([1, 2], content.venue.venue_type_ids, 'Venue Type Ids');
-      containsArray([1, 2], content.venue.event_type_ids, 'Event Type Ids');
-      containsArray([6, 15, 36], content.venue.venue_service_ids, 'Service Type Ids');
+      containsArray(testSelections.venueTypes, content.venue.venue_type_ids, 'Venue Type Ids');
+      containsArray(testSelections.eventTypes, content.venue.event_type_ids, 'Event Type Ids');
+      containsArray(testSelections.venueServices, content.venue.venue_service_ids, 'Service Type Ids');
     });
   });
 });
 
 test('After filling the wizard, each step should contain the correct information', function () {
   fillWizard();
-  andThen(function() {
+  andThen(function () {
     checkSelection('venueServices', [
       [6, 'WiFi'],
       [15, 'Terassi'],
@@ -161,7 +170,7 @@ test('After filling the wizard, each step should contain the correct information
   });
 
   step('back', function () {
-    checkFields(billing);
+    checkFields(testBilling);
   });
 
   step('back', function () {
