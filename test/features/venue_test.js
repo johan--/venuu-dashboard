@@ -56,13 +56,26 @@ test('First venue details can be edited', function () {
 
 test('New venue can be added', function () {
   visit('/venue/wizard');
-  select('venue-group', 1);
-  fillFields(testVenue);
-  click('#save');
 
-  visit('/venue/' + (venuesSeeded + 1));
-  checkFields(testVenue);
+  andThen(function () {
+    // http://plnkr.co/edit/ODvlUOLYMxe6VPx1Zjlw?p=preview
+    find('#venue-group').val(1).change();
+    fillIn('#title', 'Gurula');
+    fillIn('#pitch', 'Panini-mies');
+    fillIn('#description', 'Mukavat sohvat');
+    click('#step');
+    visit('/venue/9');
+    andThen(function () {
+      contains(find('#title').val(), 'Gurula',
+        'Title should be "Gurula"');
+      contains(find('#pitch').val(), 'Panini-mies',
+        'Pitch should be "Panini-mies"');
+      contains(find('#description').val(), 'Mukavat sohvat',
+        'Description should be "Mukavat sohvat"');
+    });
+  });
 });
+
 
 test('VenueTypes can be edited', function () {
   visit('/venue/1/types');

@@ -1,42 +1,39 @@
-<div class="m-container-box">
-  <h4>Hinnoittelu <small>money talks</small></h4>
-  <p>
-    Hintatiedot eivät ole sitovia, vaan hinta voidaan sopia jokaisen asiakkaan
-    kanssa aina erikseen. <b>Mutta</b>, alustavatkin hintatiedot helpottavat
-    oleellisesti tapahtumien järjestäjien työtä. Lisäksi monissa
-    nettipalveluissa on huomattu, että ne, jotka avoimesti kertovat
-    hinnoittelustaan, saavat huomattavasti enemmän kauppoja.
-  </p>
-  <div class="row collapse">
-    {{v-input width=6 cols="6:0:5:1" label="Päivävuokra"
-              name="rentPerDay" content=rentPerDay
-              postfix='<i class="fa fa-eur" ></i>'}}
-    {{v-input width=6 cols="6:0:5:1" label="Tuntivuokra"
-              name="rentPerHour" content=rentPerHour
-              postfix='<i class="fa fa-eur" ></i>'}}
-    {{v-input width=6 cols="6:0:5:1" label="Vuokra per henkilö"
-              name="rentPerPerson" content=rentPerPerson
-              postfix='<i class="fa fa-eur" ></i>'}}
-    {{v-input width=6 cols="6:0:5:1" label="Myyntitakuu"
-              name="salesGuarantee" content=salesGuarantee
-              postfix='<i class="fa fa-eur" ></i>'}}
-    {{v-textarea label="Hinnoittelusta tarkemmin"
-              name="pricingDetails" content=pricingDetails rows=3}}
-  </div>
+<h4>Hinnoittelu <small>money talks</small></h4>
+<p>
+  Hintatiedot eivät ole sitovia, vaan hinta voidaan sopia jokaisen asiakkaan
+  kanssa aina erikseen. <b>Mutta</b>, alustavatkin hintatiedot helpottavat
+  oleellisesti tapahtumien järjestäjien työtä. Lisäksi monissa
+  nettipalveluissa on huomattu, että ne, jotka avoimesti kertovat
+  hinnoittelustaan, saavat huomattavasti enemmän kauppoja.
+</p>
+<div class="row collapse">
+  {{v-input width=6 cols="6:0:5:1" label="Päivävuokra"
+            name="rentPerDay" content=rentPerDay
+            postfix='<i class="fa fa-eur" ></i>'}}
+  {{v-input width=6 cols="6:0:5:1" label="Tuntivuokra"
+            name="rentPerHour" content=rentPerHour
+            postfix='<i class="fa fa-eur" ></i>'}}
+  {{v-input width=6 cols="6:0:5:1" label="Vuokra per henkilö"
+            name="rentPerPerson" content=rentPerPerson
+            postfix='<i class="fa fa-eur" ></i>'}}
+  {{v-input width=6 cols="6:0:5:1" label="Myyntitakuu"
+            name="salesGuarantee" content=salesGuarantee
+            postfix='<i class="fa fa-eur" ></i>'}}
+  {{v-textarea label="Hinnoittelusta tarkemmin"
+            name="pricingDetails" content=pricingDetails rows=3}}
+</div>
 
-  <h5>Lisämaksut</h5>
-
-  <div class="row collapse">
-    {{v-input width=6 cols="6:0:5:1" label="Varausmaksu"
-              name="reservationFee" content=reservationFee
-              postfix='<i class="fa fa-eur" ></i>'}}
-    {{v-input width=6 cols="6:0:5:1" label="Siivousmaksu"
-              name="cleaningFee" content=cleaningFee
-              postfix='<i class="fa fa-eur" ></i>'}}
-    {{v-input width=6 cols="6:0:5:1" label="Vakuusmaksu"
-              name="securityDeposit" content=securityDeposit
-              postfix='<i class="fa fa-eur" ></i>'}}
-    {{v-textarea label="Peruutusehdot"
-              name="cancellationPolicy" content=cancellationPolicy rows=3}}
-  </div>
+<h5>Lisämaksut</h5>
+<div class="row collapse">
+  {{v-input width=6 cols="6:0:5:1" label="Varausmaksu"
+            name="reservationFee" content=reservationFee
+            postfix='<i class="fa fa-eur" ></i>'}}
+  {{v-input width=6 cols="6:0:5:1" label="Siivousmaksu"
+            name="cleaningFee" content=cleaningFee
+            postfix='<i class="fa fa-eur" ></i>'}}
+  {{v-input width=6 cols="6:0:5:1" label="Vakuusmaksu"
+            name="securityDeposit" content=securityDeposit
+            postfix='<i class="fa fa-eur" ></i>'}}
+  {{v-textarea label="Peruutusehdot"
+            name="cancellationPolicy" content=cancellationPolicy rows=3}}
 </div>

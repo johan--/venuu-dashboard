@@ -1,23 +1,22 @@
 <div class="m-wizard-side-nav">
   <div class="m-box">
-    <div class="m-box-title">Vaiheet</div>
-    <ul>
-      <li>
+    <div class="m-box-title">Osiot</div>
+    <ul {{action 'save'}}>
+      <li class="completed">
         {{#link-to "venue.edit.index" this}}Perustiedot{{/link-to}}
       </li>
-      <li>
+      <li class="completed">
         {{#link-to "venue.edit.pricing" this}}Hinnoittelu{{/link-to}}
       </li>
-      <li>
+      <li class="completed">
         {{#link-to "venue.edit.types" this}}Tila &amp; tapahtumat{{/link-to}}
       </li>
-      <li>
+      <li class="completed">
         {{#link-to "venue.edit.services" this}}Palvelut &amp; puitteet{{/link-to}}
       </li>
     </ul>
     <div class="m-box-content">
-      <a href="#" class="button expand">Esikatsele</a>
-      <p>Luo tilan profiili valmiiksi.</p>
+      <a href="http://venuu.fi/" target="_blank" class="button expand">Esikatsele</a>
     </div>
   </div>
 </div>
