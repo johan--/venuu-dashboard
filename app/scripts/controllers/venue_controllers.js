@@ -3,6 +3,7 @@
 
   VenuuDashboard.VenueIndexController = Ember.ArrayController.extend();
 
+  var wizardSteps = ['index', 'pricing', 'types', 'services', 'done'];
 
   VenuuDashboard.VenueEditController = Ember.ObjectController.extend({
     init: function () {
@@ -13,25 +14,8 @@
       this.set('allVenueGroups', this.get('store').find('venueGroup'));
     },
 
-    wizardSteps: ['index', 'pricing', 'types', 'services', 'done'],
-
     isFirstPage: function () {
       return this.get('currentStep') === 'index';
-    }.property('currentStep'),
-
-    // Could not find a way to give parameters from template...
-    // Refactoring to use collection and item  views could help
-    isIndexCompleted: function () {
-      return this.get('completedSteps').contains('index');
-    }.property('currentStep'),
-    isPricingCompleted: function () {
-      return this.get('completedSteps').contains('pricing');
-    }.property('currentStep'),
-    isTypesCompleted: function () {
-      return this.get('completedSteps').contains('types');
-    }.property('currentStep'),
-    isServicesCompleted: function () {
-      return this.get('completedSteps').contains('services');
     }.property('currentStep'),
 
     save: function () {
@@ -50,36 +34,36 @@
       return saveVenue();
     },
 
+    // Common functions in actions
     saveFailure: function (response) {
       console.error('save failure', response);
       this.get('alert').error('Save failed!');
-    }.bind(this),
-
+    },
     transitionToVenueIndex: function () {
       this.get('alert').clear();
       this.transitionToRoute('venue');
-    }.bind(this),
+    },
 
     actions: {
       save: function () {
-        this.save().catch(this.saveFailure);
+        this.save().catch(this.saveFailure.bind(this));
       },
       stepBack: function () {
         var self = this;
 
-        var currentIndex = self.wizardSteps.indexOf(self.get('currentStep'));
+        var currentIndex = wizardSteps.indexOf(self.get('currentStep'));
 
         if (currentIndex === 0) {
           return;
         }
 
         function transitionToPrev() {
-          var prev = self.wizardSteps[currentIndex - 1];
+          var prev = wizardSteps[currentIndex - 1];
           self.set('currentStep', prev);
           self.transitionToRoute('venue.wizard.' + prev);
         }
 
-        self.save().then(transitionToPrev).catch(this.saveFailure);
+        self.save().then(transitionToPrev).catch(this.saveFailure.bind(this));
       },
       step: function () {
         var self = this,
@@ -87,8 +71,8 @@
 
         function transitionToNext() {
           alert.clear();
-          var currentIndex = self.wizardSteps.indexOf(self.get('currentStep'));
-          var next = self.wizardSteps[currentIndex + 1];
+          var currentIndex = wizardSteps.indexOf(self.get('currentStep'));
+          var next = wizardSteps[currentIndex + 1];
 
           if (next === 'done') {
             return self.transitionToRoute('venue');
@@ -98,14 +82,16 @@
           self.transitionToRoute('venue.wizard.' + next);
         }
 
-        self.save().then(transitionToNext).catch(this.saveFailure);
+        self.save().then(transitionToNext)
+            .catch(this.saveFailure.bind(this));
       },
       edit: function () {
-        this.save().then(this.transitionToVenueIndex).catch(this.saveFailure);
+        this.save().then(this.transitionToVenueIndex.bind(this))
+            .catch(this.saveFailure.bind(this));
       },
       destroy: function () {
         this.get('model').destroyRecord()
-          .then(this.transitionToVenueIndex);
+          .then(this.transitionToVenueIndex.bind(this));
       },
       createVenueGroup: function () {
         this.get('model').set('venueGroup',
@@ -116,5 +102,17 @@
       }
     }
   });
+
+  // Add step helpers for disabling buttons in sidebar
+  // Hacky, but is easier and better contained than collectionview+itemview:
+  // http://stackoverflow.com/a/12855636
+  var stepHelpers = {};
+  wizardSteps.forEach(function (step) {
+    stepHelpers['is' + step.capitalize + 'Completed'] = function (step) {
+      return this.get('completedSteps').contains(step);
+    }.property('currentStep');
+  });
+  // Inject the test helpers to the controller
+  VenuuDashboard.VenueEditController = VenuuDashboard.VenueEditController.reopen(stepHelpers);
 
 })();
