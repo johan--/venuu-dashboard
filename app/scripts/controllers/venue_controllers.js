@@ -3,6 +3,7 @@
 
   VenuuDashboard.VenueIndexController = Ember.ArrayController.extend();
 
+
   VenuuDashboard.VenueEditController = Ember.ObjectController.extend({
     init: function () {
       this._super();
@@ -19,6 +20,7 @@
     }.property('currentStep'),
 
     // Could not find a way to give parameters from template...
+    // Refactoring to use collection and item  views could help
     isIndexCompleted: function () {
       return this.get('completedSteps').contains('index');
     }.property('currentStep'),
@@ -48,14 +50,19 @@
       return saveVenue();
     },
 
+    saveFailure: function (response) {
+      console.error('save failure', response);
+      this.get('alert').error('Save failed!');
+    }.bind(this),
+
+    transitionToVenueIndex: function () {
+      this.get('alert').clear();
+      this.transitionToRoute('venue');
+    }.bind(this),
+
     actions: {
       save: function () {
-        var self = this;
-        function failure(response) {
-          console.error('save failure', response);
-          self.get('alert').error('Save failed!');
-        }
-        this.save().catch(failure);
+        this.save().catch(this.saveFailure);
       },
       stepBack: function () {
         var self = this;
@@ -72,7 +79,7 @@
           self.transitionToRoute('venue.wizard.' + prev);
         }
 
-        self.save().then(transitionToPrev);
+        self.save().then(transitionToPrev).catch(this.saveFailure);
       },
       step: function () {
         var self = this,
@@ -91,38 +98,14 @@
           self.transitionToRoute('venue.wizard.' + next);
         }
 
-        function failure(response) {
-          console.error('save failure', response);
-          alert.error('This is an error alert!');
-        }
-
-        self.save().then(transitionToNext).catch(failure);
+        self.save().then(transitionToNext).catch(this.saveFailure);
       },
       edit: function () {
-        var self = this,
-          alert = this.get('alert');
-
-        function transitionToIndex() {
-          alert.clear();
-          self.transitionToRoute('venue');
-        }
-
-        function failure(response) {
-          console.error('save failure', response);
-          alert.error('This is an error alert!');
-        }
-
-        self.save().then(transitionToIndex).catch(failure);
+        this.save().then(this.transitionToVenueIndex).catch(this.saveFailure);
       },
       destroy: function () {
-        var self = this;
-
-        function transitionToVenueIndex() {
-          self.transitionToRoute('venue');
-        }
-
         this.get('model').destroyRecord()
-          .then(transitionToVenueIndex);
+          .then(this.transitionToVenueIndex);
       },
       createVenueGroup: function () {
         this.get('model').set('venueGroup',

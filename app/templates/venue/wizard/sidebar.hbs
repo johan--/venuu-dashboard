@@ -3,6 +3,7 @@
     <div class="m-box-title">Vaiheet</div>
     <ul>
       <li {{bind-attr class=isIndexCompleted:completed}}>
+        {{!-- Event name dummy to disable links --}}
         {{#link-to "venue.wizard.index" href=false eventName='dummy'}}
           Perustiedot
         {{/link-to}}
