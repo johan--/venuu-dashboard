@@ -17,7 +17,7 @@ function contains(text, find, msg) {
 
 function containsArray(array, expected, name) {
   array.forEach(function (value) {
-    ok(expected.contains(value), name + ' should contain ' + value +'.');
+    ok(expected.contains(value), name + ' should contain ' + value + '.');
   });
 }
 
@@ -31,11 +31,11 @@ function doesNotContain(text, find, msg) {
 
 function checkFields(object) {
   andThen(function () {
-      Object.keys(object).forEach(function (key) {
-        equal(find('#' + key).val(), object[key],
-          key + ' should equal "' + object[key] + '".');
-      });
+    Object.keys(object).forEach(function (key) {
+      equal(find('#' + key).val(), object[key],
+        key + ' should equal "' + object[key] + '".');
     });
+  });
 }
 
 function checkSelection(id, values) {
