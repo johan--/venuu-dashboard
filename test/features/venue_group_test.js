@@ -1,7 +1,7 @@
 module('Integration: Venue groups', {
   setup: function () { // Before each test
     VenuuDashboard.reset();
-    window.seedBackend();
+    /*window.seedBackend();*/
   },
   teardown: function () { // After each test
   }
@@ -54,6 +54,16 @@ test('New venue group can be added', function () {
   checkFields(testVenueGroup);
 });
 
+test('Venue groups create button works', function () {
+  visit('/venue-group');
+  click('#create');
+  andThen(function () {
+    ok(true, 'Create button works.');
+  });
+});
+
+// Deleting resources should be last test if DB is not re-seeded.
+
 test('Venue groups can be deleted', function () {
   visit('/venue-group/1');
   click('#destroy');
@@ -63,11 +73,4 @@ test('Venue groups can be deleted', function () {
   });
 });
 
-test('Venue groups create button works', function () {
-  visit('/venue-group');
-  click('#create');
-  andThen(function () {
-    ok(true, 'Create button works.');
-  });
-});
 

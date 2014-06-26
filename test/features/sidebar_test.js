@@ -1,10 +1,8 @@
 module('Integration: Sidebar', {
   setup: function () { // Before each test
-    VenuuDashboard.reset();
-    window.seedBackend();
+    // Reseting nor seeding are required in this module.
   },
   teardown: function () { // After each test
-    //VenuuDashboard.reset();
   }
 });
 
@@ -57,9 +55,9 @@ test('Venuegroup sidebar should show Keskusta information', function () {
 test('Venuegroup sidebar should show Kumpulan kampus information', function () {
   visit('/venue-group/1');
   andThen(function () {
-    contains(find('.m-venuegroup-sidebar li span').last().text(), 'Kumpulan kampus',
+    contains(find('.m-venuegroup-sidebar li span').text(), 'Kumpulan kampus',
       'Kumpulan kampus found!');
-    contains(find('.m-venuegroup-sidebar li p').last().text(), '4',
+    contains(find('.m-venuegroup-sidebar li p').text(), '4',
       'Kumpulan kampus has 4 venues!');
   });
 });

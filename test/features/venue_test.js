@@ -1,10 +1,9 @@
 module('Integration: Venues', {
   setup: function () { // Before each test
     VenuuDashboard.reset();
-    window.seedBackend();
+    /*window.seedBackend();*/
   },
   teardown: function () { // After each test
-    //VenuuDashboard.reset();
   }
 });
 
@@ -63,20 +62,6 @@ test('New venue can be added', function () {
 
   visit('/venue/' + (venuesSeeded + 1));
   checkFields(testVenue);
-});
-
-
-test('Venue can be deleted', function () {
-  visit('/venue/1');
-  click('#destroy');
-
-  andThen(function () {
-    doesNotContain(
-      find('.m-venue-box h6').text(),
-      seedVenue.title,
-      'Venue ' + seedVenue.title + ' should be the first venue'
-    );
-  });
 });
 
 test('VenueTypes can be edited', function () {
@@ -153,5 +138,20 @@ test('VenueServices can be removed', function () {
     click('#save');
     visit('/venue/1/services');
     ok(!find('#venueServices').val(), 'Venue should not have event types!');
+  });
+});
+
+// Deleting resources should be last test if DB is not re-seeded.
+
+test('Venue can be deleted', function () {
+  visit('/venue/1');
+  click('#destroy');
+
+  andThen(function () {
+    doesNotContain(
+      find('.m-venue-box h6').text(),
+      seedVenue.title,
+      'Venue ' + seedVenue.title + ' should be the first venue'
+    );
   });
 });

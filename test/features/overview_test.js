@@ -1,7 +1,7 @@
 module('Integration: Overview', {
   setup: function () { // Before each test
-    VenuuDashboard.reset();
-    window.seedBackend();
+/*    VenuuDashboard.reset();
+    window.seedBackend();*/
   },
   teardown: function () { // After each test
   }

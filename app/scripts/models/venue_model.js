@@ -49,6 +49,22 @@
     imageSrc: function () {
       return 'http://lorempixel.com/output/city-q-c-100-100-' +
         this.get('id') + '.jpg';
-    }.property('id')
+    }.property('id'),
+    venueGroupChange: function () {
+      var venueGroup = this.get('venueGroup');
+
+      if (venueGroup) {
+        setIfEmpty(this, 'address', venueGroup.get('address'));
+        setIfEmpty(this, 'zipcode', venueGroup.get('zipcode'));
+        setIfEmpty(this, 'city', venueGroup.get('city'));
+      }
+    }.observes('venueGroup')
   });
+
+  function setIfEmpty(model, attr, val) {
+    if (Ember.empty(model.get(attr))) {
+      model.set(attr, val);
+    }
+  }
+
 })();
