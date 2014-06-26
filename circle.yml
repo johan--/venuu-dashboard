@@ -28,3 +28,8 @@ deployment:
     commands:
       - ./continuous_deployment/CD-Ember.sh
       - ./continuous_deployment/CD-API.sh
+  clippy:
+    branch: feature-c
+    commands:
+      - ./continuous_deployment/CD-Ember.sh
+      - ./continuous_deployment/CD-API.sh
