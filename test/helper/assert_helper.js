@@ -15,6 +15,12 @@ function contains(text, find, msg) {
   }
 }
 
+function containsArray(array, expected, name) {
+  array.forEach(function (value) {
+    ok(expected.contains(value), name + ' should contain ' + value +'.');
+  });
+}
+
 function doesNotContain(text, find, msg) {
   if (text.indexOf(find) <= -1) {
     ok(true, msg);
