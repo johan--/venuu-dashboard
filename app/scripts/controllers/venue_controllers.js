@@ -18,17 +18,18 @@
       return this.get('currentStep') === 'index';
     }.property('currentStep'),
 
+    // Could not find a way to give parameters from template...
     isIndexCompleted: function () {
-      return this.get('completedSteps').indexOf('index') !== -1;
+      return this.get('completedSteps').contains('index');
     }.property('currentStep'),
     isPricingCompleted: function () {
-      return this.get('completedSteps').indexOf('pricing') !== -1;
+      return this.get('completedSteps').contains('pricing');
     }.property('currentStep'),
     isTypesCompleted: function () {
-      return this.get('completedSteps').indexOf('types') !== -1;
+      return this.get('completedSteps').contains('types');
     }.property('currentStep'),
     isServicesCompleted: function () {
-      return this.get('completedSteps').indexOf('services') !== -1;
+      return this.get('completedSteps').contains('services');
     }.property('currentStep'),
 
     save: function () {
@@ -57,17 +58,19 @@
           return;
         }
 
-        //this.get('model').rollback();
+        function transitionToPrev() {
+          var prev = self.wizardSteps[currentIndex - 1];
+          self.set('currentStep', prev);
+          self.transitionToRoute('venue.wizard.' + prev);
+        }
 
-        var prev = self.wizardSteps[currentIndex - 1];
-        self.set('currentStep', prev);
-        self.transitionToRoute('venue.wizard.' + prev);
+        self.save().then(transitionToPrev);
       },
       step: function () {
         var self = this,
           alert = this.get('alert');
 
-        function transitionToNext(record) {
+        function transitionToNext() {
           alert.clear();
           var currentIndex = self.wizardSteps.indexOf(self.get('currentStep'));
           var next = self.wizardSteps[currentIndex + 1];
@@ -91,7 +94,7 @@
         var self = this,
           alert = this.get('alert');
 
-        function transitionToIndex(record) {
+        function transitionToIndex() {
           alert.clear();
           self.transitionToRoute('venue');
         }

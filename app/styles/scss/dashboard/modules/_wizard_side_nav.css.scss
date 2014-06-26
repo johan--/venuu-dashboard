@@ -4,6 +4,19 @@
   $active-color: $side-nav-link-color;
   $inactive-color: $basetext-color-lighter;
 
+  // In new wizard the links don't work.
+  &.new {
+    ul li a:not(.button) {
+      cursor: default;
+      &:hover {
+        color: $inactive-color;
+        &.active {
+          color: $active-color;
+        }
+      }
+    }
+  }
+
   p {
     color: $inactive-color;
     text-align: center;
