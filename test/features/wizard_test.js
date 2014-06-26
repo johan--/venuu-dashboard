@@ -51,7 +51,7 @@ function step(next, actions) {
   });
 }
 
-function doAllSteps() {
+test('All the steps are working and venue is saved with correct information', function () {
   visit('/venue/wizard');
   contains(
     find('h4').text(),
@@ -85,10 +85,6 @@ function doAllSteps() {
       'Services step should contain Palvelut & puitteet -title'
     );
   });
-}
-
-test('All the steps are working and venue is saved with correct information', function () {
-  doAllSteps();
   step('step', function () {
     contains(
       find('h6').text(),
@@ -110,6 +106,8 @@ test('All the steps are working and venue is saved with correct information', fu
 
 
 // TODO
+// Testi jossa täytetään stepit ja vikassa stepissa palataan alkuun tarkistaen tiedot
+// Wizard edit testi
 test('', function () {
   expect(0);
 });
