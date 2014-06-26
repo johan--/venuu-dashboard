@@ -8,6 +8,15 @@
         (scope && transition.targetName.indexOf(scope) !== -1)) {
         return true;
       }
+
+      if (window.agent) {
+        window.agent.stop();
+        window.agent.play('SendMail', undefined, function () {
+          window.agent.hide();
+          window.agent = null;
+        });
+      }
+
       var model = this.controllerFor(controllerName).get('model');
       var confirmModal = $('#confirmModal');
       if (model.get('isDirty')) {

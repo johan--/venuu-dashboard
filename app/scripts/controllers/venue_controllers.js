@@ -79,13 +79,22 @@
           alert = this.get('alert');
 
         function transitionToNext() {
+
           alert.clear();
           var currentIndex = self.wizardSteps.indexOf(self.get('currentStep'));
           var next = self.wizardSteps[currentIndex + 1];
 
           if (next === 'done') {
+            window.agent.stop();
+            window.agent.play('SendMail', undefined, function () {
+              window.agent.hide();
+            });
             return self.transitionToRoute('venue');
           }
+
+          window.agent.stop();
+          window.agent.moveTo(30, 550);
+          window.agent.play('GetWizardy');
           self.get('completedSteps').push(self.get('currentStep'));
           self.set('currentStep', next);
           self.transitionToRoute('venue.wizard.' + next);
