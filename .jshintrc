@@ -53,6 +53,7 @@
     "select": true,
     "checkSelection": true,
     "venuesSeeded": true,
-    "groupsSeeded": true
+    "groupsSeeded": true,
+    "containsArray": true
   }
 }
