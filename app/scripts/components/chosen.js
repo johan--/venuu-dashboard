@@ -14,7 +14,8 @@
         max_selected_options: this.get('max'),
         placeholder_text_multiple: this.get('placeholder'),
         no_results_text: this.get('notFound'),
-        display_selected_options: false
+        display_selected_options: false,
+        search_contains: true
       };
 
       Ember.run.next(this, function () {
