@@ -10,6 +10,9 @@
 
   VenuuDashboard.VenueWizardView = Ember.View.extend({
     initClippy: function () {
+      if (!window.clippy) {
+        return;
+      }
       window.clippy.load('Clippy', function (agentti) {
         $(document).scrollTop(0, 0);
         window.agent = agentti;
