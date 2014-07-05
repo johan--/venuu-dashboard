@@ -20,11 +20,3 @@ test:
   override:
     - ./setup_test_API.sh
     - grunt test
-
-
-deployment:
-  production:
-    branch: master
-    commands:
-      - ./continuous_deployment/CD-Ember.sh
-      - ./continuous_deployment/CD-API.sh
