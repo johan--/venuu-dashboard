@@ -10,7 +10,6 @@ app/styles/*.css
 app/styles/css
 app/styles/css/*
 .DS_Store
-*.lock
 .idea/
 app/styles/fonts/
 app/styles/vendor/
