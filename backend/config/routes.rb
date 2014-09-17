@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :venue_services
   end
 
+  match '/*path', via: [:options], to: 'cors#options'
+
   get '/seed', to: 'seed#reset'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
