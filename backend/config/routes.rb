@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  resources :event_types, except: [:new, :edit]
-  resources :venues
-  resources :venue_groups
-  resources :venue_types
-  resources :venue_service_categories
-  resources :venue_services
+  scope '/api' do
+    resources :event_types, except: [:new, :edit]
+    resources :venues
+    resources :venue_groups
+    resources :venue_types
+    resources :venue_service_categories
+    resources :venue_services
+  end
 
   get '/seed', to: 'seed#reset'
   # The priority is based upon order of creation: first created -> highest priority.
